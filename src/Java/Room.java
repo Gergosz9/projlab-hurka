@@ -70,6 +70,7 @@ public class Room {
      * Adds a student to the room.
      * 
      * @param student the student to add
+     * @return true if the student was successfully added, false if the room is full
      */
     public boolean addStudent(Student student){
         if(students.size() + teachers.size() <= maxCharacters){
@@ -92,6 +93,7 @@ public class Room {
      * Adds a teacher to the room.
      * 
      * @param teacher the teacher to add
+     * @return true if the teacher was successfully added, false if the room is full
      */
     public boolean addTeacher(Teacher teacher){
         if(teachers.size() + students.size() < maxCharacters){
