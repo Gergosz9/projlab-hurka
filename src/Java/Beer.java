@@ -28,7 +28,7 @@ public class Beer extends Item{
             durability--;
             source.setTeacherResist(true);
             if(durability == 0){
-                source.drop(this, null); //pontosítani kell
+                source.dropItem(this, null); //pontosítani kell
             }
         }
     }
