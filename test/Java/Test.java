@@ -10,29 +10,29 @@ public class Test {
       * Array containing the names of possible test cases.
       */
       String[] tests = {
-          "Átkozott szobában ajtók változása",
-          "Tranzisztor használata", 
-          "Camembert használata", 
-          "Törl?rongy használata", 
-          "Logarléc megszerzése", 
-          "TVSZ használata 1", 
-          "TVSZ használata 2", 
-          "Söröspohár használata 1", 
-          "Söröspohár használata 2", 
-          "Maszk használata 1", 
-          "Maszk használata 2", 
-          "Passzív tárgyak használata", 
-          "Hallgató összefut tanárral", 
-          "Tanár összefut hallgatóval", 
-          "Egy szoba ketté válik", 
-          "Két szoba összeolvad", 
-          "Gázos szoba maszk nélkül", 
-          "Tanár rongyos szobába lép.", 
-          "Tanuló átlép egy másik szobába", 
-          "Tanár átlép egy másik szobába", 
-          "Tárgy felvétele", 
-          "Tárgy letétele", 
-          "Tesztelés vége"
+          "Átkozott szobában ajtók változása", //1
+          "Tranzisztor használata", //2
+          "Camembert használata", //3
+          "Törl?rongy használata", //4 
+          "Logarléc megszerzése", //5
+          "TVSZ használata 1", //6
+          "TVSZ használata 2", //7
+          "Söröspohár használata 1", //8
+          "Söröspohár használata 2", //9
+          "Maszk használata 1", //10
+          "Maszk használata 2", //11
+          "Passzív tárgyak használata", //12
+          "Hallgató összefut tanárral", //13
+          "Tanár összefut hallgatóval", //14
+          "Egy szoba ketté válik", //15
+          "Két szoba összeolvad", //16
+          "Gázos szoba maszk nélkül", //17
+          "Tanár rongyos szobába lép.", //18
+          "Tanuló átlép egy másik szobába", //19
+          "Tanár átlép egy másik szobába", //20
+          "Tárgy felvétele", //21
+          "Tárgy letétele", //22
+          "Tesztelés vége" //23
       };
 
       /**
