@@ -12,6 +12,9 @@ import java.util.List;
  * @param inventory the list of items in the character's inventory
  * @param labirinth the labirinth where the character is located
  */
+/**
+ * The abstract class representing a character in the game.
+ */
 public abstract class Character {
     String name;
     int actionCount;
@@ -31,6 +34,14 @@ public abstract class Character {
         actionCount = 0;
         paralyzed = false;
         gasResist = false;
+    }
+    
+    /**
+     * Returns the character's inventory.
+     * @return the character's inventory
+     */
+    public List<Item> getInventory(){
+        return inventory;
     }
 
     /**
@@ -58,7 +69,7 @@ public abstract class Character {
      */
     public Room getMyLocation(){
         for(Room room : labirinth.getRooms()){
-            if(room.getStudents().contains(this) || room.getTeachers().contains(this)){
+            if(room.getCharacters().contains(this)){
                 return room;
             }
         }

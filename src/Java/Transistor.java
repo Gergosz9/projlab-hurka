@@ -70,7 +70,7 @@ public class Transistor extends Item{
      */
     private Room getMyPairLocation(){
         for(Room room : labirinth.getRooms()){
-            if(room.getItems().contains(pair)){
+            if(room.getTransistors().contains(pair)){
                 return room;
             }
         }

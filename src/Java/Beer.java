@@ -24,6 +24,7 @@ public class Beer extends Item{
      * @param source the character using the beer
      */
     public void use(ItemTrigger trigger, Character source){
+        Student student = (Student)source;
         if(trigger == ItemTrigger.NewRound){
             durability--;
             source.setTeacherResist(true);
