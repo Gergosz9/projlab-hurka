@@ -65,6 +65,22 @@ public class Room {
         characters.addAll(students);
         return characters;
     }
+    /**
+     * Returns the name of the room.
+     * 
+     * @return the name of the room
+     */
+    public List<Character> getTeachers(){
+        return teachers;
+    }
+    /**
+     * Returns the name of the room.
+     * 
+     * @return the name of the room
+     */
+    public List<Character> getStudents(){
+        return students;
+    }
 
     /**
      * Adds a student to the room.
@@ -197,7 +213,13 @@ public class Room {
         for(int i = 0; i < items.size() / 2; i++){
             newRoom.items.add(items.remove(0));
         }
-        newRoom.name = name + " Split";
+        if(name.contains(" ")){
+            String[] splitName = name.split(" ");
+            name = splitName[0];
+            newRoom.name = splitName[1];
+        }
+        else
+            newRoom.name = name + " Split"; //????
         newRoom.raggedRounds = raggedRounds;
         newRoom.gassed = gassed;
         newRoom.cursed = cursed;
