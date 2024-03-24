@@ -216,4 +216,10 @@ public class Room {
         transistors.addAll(room.transistors);
         name = name + " " + room.name;
     }
+    public void setRagged(int raggedRounds) {
+        this.raggedRounds = raggedRounds;
+    }
+    public void setGassed(boolean gassed) {
+        this.gassed = gassed;
+    }
 }
