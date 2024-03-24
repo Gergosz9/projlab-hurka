@@ -5,17 +5,18 @@ import java.util.*;
 /**
  * The Room class represents a room in a game.
  * Represents a room in a game.
- * @param name the name of the room
+ * 
+ * @param name          the name of the room
  * @param maxCharacters the maximum number of characters allowed in the room
- * @param cursed indicates if the room is cursed
- * @param gassed indicates if the room is gassed
- * @param raggedRounds the number of rounds the room has been ragged
- * @param closedRooms the list of closed rooms connected to this room
- * @param openRooms the list of open rooms connected to this room
- * @param teachers the list of teachers in the room
- * @param students the list of students in the room
- * @param items the list of items in the room
- * @param transistors the list of transistors in the room
+ * @param cursed        indicates if the room is cursed
+ * @param gassed        indicates if the room is gassed
+ * @param raggedRounds  the number of rounds the room has been ragged
+ * @param closedRooms   the list of closed rooms connected to this room
+ * @param openRooms     the list of open rooms connected to this room
+ * @param teachers      the list of teachers in the room
+ * @param students      the list of students in the room
+ * @param items         the list of items in the room
+ * @param transistors   the list of transistors in the room
  */
 public class Room {
     String name;
@@ -40,7 +41,8 @@ public class Room {
      * @param closedRooms   the list of closed rooms connected to this room
      * @param openRooms     the list of open rooms connected to this room
      */
-    public Room(String name, int maxCharacters, boolean cursed, boolean gassed, List<Room> closedRooms, List<Room> openRooms){
+    public Room(String name, int maxCharacters, boolean cursed, boolean gassed, List<Room> closedRooms,
+            List<Room> openRooms) {
         this.name = name;
         this.maxCharacters = maxCharacters;
         this.cursed = cursed;
@@ -59,26 +61,28 @@ public class Room {
      * 
      * @return a list of characters in the room
      */
-    public List<Character> getCharacters(){
+    public List<Character> getCharacters() {
         List<Character> characters = new ArrayList<>();
         characters.addAll(teachers);
         characters.addAll(students);
         return characters;
     }
+
     /**
      * Returns the name of the room.
      * 
      * @return the name of the room
      */
-    public List<Character> getTeachers(){
+    public List<Character> getTeachers() {
         return teachers;
     }
+
     /**
      * Returns the name of the room.
      * 
      * @return the name of the room
      */
-    public List<Character> getStudents(){
+    public List<Character> getStudents() {
         return students;
     }
 
@@ -88,8 +92,8 @@ public class Room {
      * @param student the student to add
      * @return true if the student was successfully added, false if the room is full
      */
-    public boolean addStudent(Student student){
-        if(students.size() + teachers.size() <= maxCharacters){
+    public boolean addStudent(Student student) {
+        if (students.size() + teachers.size() <= maxCharacters) {
             students.add(student);
             return true;
         }
@@ -101,7 +105,7 @@ public class Room {
      * 
      * @param student the student to remove
      */
-    public void removeStudent(Student student){
+    public void removeStudent(Student student) {
         students.remove(student);
     }
 
@@ -111,8 +115,8 @@ public class Room {
      * @param teacher the teacher to add
      * @return true if the teacher was successfully added, false if the room is full
      */
-    public boolean addTeacher(Teacher teacher){
-        if(teachers.size() + students.size() < maxCharacters){
+    public boolean addTeacher(Teacher teacher) {
+        if (teachers.size() + students.size() < maxCharacters) {
             teachers.add(teacher);
             return true;
         }
@@ -124,7 +128,7 @@ public class Room {
      * 
      * @param teacher the teacher to remove
      */
-    public void removeTeacher(Teacher teacher){
+    public void removeTeacher(Teacher teacher) {
         teachers.remove(teacher);
     }
 
@@ -133,7 +137,7 @@ public class Room {
      * 
      * @param item the item to add
      */
-    public void addItem(Item item){
+    public void addItem(Item item) {
         items.add(item);
     }
 
@@ -142,7 +146,7 @@ public class Room {
      * 
      * @param item the item to remove
      */
-    public void removeItem(Item item){
+    public void removeItem(Item item) {
         items.remove(item);
     }
 
@@ -151,15 +155,15 @@ public class Room {
      * 
      * @param transistor the transistor to add
      */
-    public void addTransistor(Transistor transistor){
+    public void addTransistor(Transistor transistor) {
         transistors.add(transistor);
     }
 
     /**
      * Updates the number of ragged rounds in the room.
      */
-    public void updateItems(){
-        if(raggedRounds > 0){
+    public void updateItems() {
+        if (raggedRounds > 0) {
             raggedRounds--;
         }
     }
@@ -169,15 +173,15 @@ public class Room {
      * 
      * @return a list of transistors in the room
      */
-    public List<Transistor> getTransistors(){
+    public List<Transistor> getTransistors() {
         return transistors;
     }
 
     /**
      * Updates the state of the doors in the room.
      */
-    public void updateDoors(){
-        if(cursed){
+    public void updateDoors() {
+        if (cursed) {
             openRooms.addAll(closedRooms);
             closedRooms.clear();
             for (Room room : openRooms) {
@@ -186,7 +190,7 @@ public class Room {
                     openRooms.remove(room);
                 }
             }
-            if(openRooms.isEmpty())
+            if (openRooms.isEmpty())
                 openRooms.add(closedRooms.remove(0));
         }
     }
@@ -196,34 +200,33 @@ public class Room {
      * 
      * @return the new room created after the split
      */
-    public Room split(){
+    public Room split() {
         Room newRoom = new Room(null, 0, false, false, new ArrayList<>(), new ArrayList<>());
-        for(int i = 0; i < openRooms.size() / 2; i++){
+        for (int i = 0; i < openRooms.size() / 2; i++) {
             newRoom.openRooms.add(openRooms.remove(0));
         }
-        for(int i = 0; i < closedRooms.size() / 2; i++){
+        for (int i = 0; i < closedRooms.size() / 2; i++) {
             newRoom.closedRooms.add(closedRooms.remove(0));
         }
-        for(int i = 0; i < teachers.size() / 2; i++){
+        for (int i = 0; i < teachers.size() / 2; i++) {
             newRoom.teachers.add(teachers.remove(0));
         }
-        for(int i = 0; i < students.size() / 2; i++){
+        for (int i = 0; i < students.size() / 2; i++) {
             newRoom.students.add(students.remove(0));
         }
-        for(int i = 0; i < items.size() / 2; i++){
+        for (int i = 0; i < items.size() / 2; i++) {
             newRoom.items.add(items.remove(0));
         }
-        if(name.contains(" ")){
+        if (name.contains(" ")) {
             String[] splitName = name.split(" ");
             name = splitName[0];
             newRoom.name = splitName[1];
-        }
-        else
-            newRoom.name = name + " Split"; //????
+        } else
+            newRoom.name = name + " Split"; // ????
         newRoom.raggedRounds = raggedRounds;
         newRoom.gassed = gassed;
         newRoom.cursed = cursed;
-        newRoom.maxCharacters = (int)Math.random()*maxCharacters;
+        newRoom.maxCharacters = (int) Math.random() * maxCharacters;
         return newRoom;
     }
 
@@ -232,7 +235,7 @@ public class Room {
      * 
      * @param room the room to merge
      */
-    public void merge(Room room){
+    public void merge(Room room) {
         maxCharacters = Math.max(maxCharacters, room.maxCharacters);
         cursed = cursed || room.cursed;
         gassed = gassed || room.gassed;
@@ -245,7 +248,7 @@ public class Room {
         transistors.addAll(room.transistors);
         name = name + " " + room.name;
     }
-    
+
     /**
      * Sets the number of ragged rounds in the room.
      * 
@@ -254,7 +257,7 @@ public class Room {
     public void setRagged(int raggedRounds) {
         this.raggedRounds = raggedRounds;
     }
-    
+
     /**
      * Sets the gassed state of the room.
      * 
@@ -262,5 +265,9 @@ public class Room {
      */
     public void setGassed(boolean gassed) {
         this.gassed = gassed;
+    }
+
+    public List<Room> getOpenRooms() {
+        return openRooms;
     }
 }
