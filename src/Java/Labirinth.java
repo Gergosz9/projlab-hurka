@@ -56,4 +56,12 @@ public class Labirinth {
         Collections.shuffle(rooms);
         rooms.get(0).merge(rooms.get(0).getOpenRooms().get(random.nextInt(rooms.get(0).getOpenRooms().size())));
     }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
+    }
 }

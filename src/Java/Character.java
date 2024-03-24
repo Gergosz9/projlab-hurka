@@ -73,6 +73,7 @@ public abstract class Character {
                 return room;
             }
         }
+        return null;
     }
 
     /**

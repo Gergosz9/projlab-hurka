@@ -263,4 +263,8 @@ public class Room {
     public void setGassed(boolean gassed) {
         this.gassed = gassed;
     }
+
+    public List<Room> getOpenRooms() {
+        return openRooms;
+    }
 }
