@@ -3,6 +3,7 @@ package Java;
 import java.util.*;
 
 /**
+ * The Room class represents a room in a game.
  * Represents a room in a game.
  * @param name the name of the room
  * @param maxCharacters the maximum number of characters allowed in the room
@@ -216,9 +217,21 @@ public class Room {
         transistors.addAll(room.transistors);
         name = name + " " + room.name;
     }
+    
+    /**
+     * Sets the number of ragged rounds in the room.
+     * 
+     * @param raggedRounds the number of ragged rounds
+     */
     public void setRagged(int raggedRounds) {
         this.raggedRounds = raggedRounds;
     }
+    
+    /**
+     * Sets the gassed state of the room.
+     * 
+     * @param gassed the gassed state of the room
+     */
     public void setGassed(boolean gassed) {
         this.gassed = gassed;
     }
