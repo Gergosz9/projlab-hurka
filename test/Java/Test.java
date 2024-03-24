@@ -1,5 +1,7 @@
 package Java;
 
+import java.util.Scanner;
+
 /*
  * The Test class contains the test for the program, 
  * and a main function to run the selected tests.
@@ -9,39 +11,39 @@ public class Test {
       /**
       * Array containing the names of possible test cases.
       */
-      String[] tests = {
-          "Átkozott szobában ajtók változása", //1
-          "Tranzisztor használata", //2
-          "Camembert használata", //3
-          "Törl?rongy használata", //4 
-          "Logarléc megszerzése", //5
-          "TVSZ használata 1", //6
-          "TVSZ használata 2", //7
-          "Söröspohár használata 1", //8
-          "Söröspohár használata 2", //9
-          "Maszk használata 1", //10
-          "Maszk használata 2", //11
-          "Passzív tárgyak használata", //12
-          "Hallgató összefut tanárral", //13
-          "Tanár összefut hallgatóval", //14
-          "Egy szoba ketté válik", //15
-          "Két szoba összeolvad", //16
-          "Gázos szoba maszk nélkül", //17
-          "Tanár rongyos szobába lép.", //18
-          "Tanuló átlép egy másik szobába", //19
-          "Tanár átlép egy másik szobába", //20
-          "Tárgy felvétele", //21
-          "Tárgy letétele", //22
-          "Tesztelés vége" //23
+      static String[] tests = {
+          "Ãtkozott szobÃ¡ban ajtÃ³k vÃ¡ltozÃ¡sa", //1
+          "Tranzisztor hasznÃ¡lata", //2
+          "Camembert hasznÃ¡lata", //3
+          "TÃ¶rlÅ‘rongy hasznÃ¡lata", //4
+          "LogarlÃ©c megszerzÃ©se", //5
+          "TVSZ hasznÃ¡lata 1", //6
+          "TVSZ hasznÃ¡lata 2", //7
+          "SÃ¶rÃ¶spohÃ¡r hasznÃ¡lata 1", //8
+          "SÃ¶rÃ¶spohÃ¡r hasznÃ¡lata 2", //9
+          "Maszk hasznÃ¡lata 1", //10
+          "Maszk hasznÃ¡lata 2", //11
+          "PasszÃ­v tÃ¡rgyak hasznÃ¡lata", //12
+          "HallgatÃ³ Ã¶sszefut tanÃ¡rral", //13
+          "TanÃ¡r Ã¶sszefut hallgatÃ³val", //14
+          "Egy szoba kettÃ© vÃ¡lik", //15
+          "KÃ©t szoba Ã¶sszeolvad", //16
+          "GÃ¡zos szoba maszk nÃ©lkÃ¼l", //17
+          "TanÃ¡r rongyos szobÃ¡ba lÃ©p.", //18
+          "TanulÃ³ Ã¡tlÃ©p egy mÃ¡sik szobÃ¡ba", //19
+          "TanÃ¡r Ã¡tlÃ©p egy mÃ¡sik szobÃ¡ba", //20
+          "TÃ¡rgy felvÃ©tele", //21
+          "TÃ¡rgy letÃ©tele", //22
+          "TesztelÃ©s vÃ©ge" //23
       };
 
       /**
       * Function to print the names and numbers of possible test cases.
       */
-      void printTests(){
-           System.out.println("Lehetséges tesztesetek:")
+      static void printTests(){
+           System.out.println("LehetsÃ©ges tesztesetek:");
            for (int i = 1; i <= 23; i++) {
-                if(i == 1 || i == 23) System.out.println(\n);
+                if(i == 1 || i == 23) System.out.println("\n");
                 System.out.println(i + ": " + tests[i - 1]);
            }
       }
@@ -49,170 +51,170 @@ public class Test {
       /**
       * Function that runs the 1st test case 
       */
-      void test01(){
+      static void test01(){
 
       }
 
       /**
       * Function that runs the 2nd test case 
       */
-      void test02(){
+      static void test02(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test03(){
+      static void test03(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test04(){
+      static void test04(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test05(){
+      static void test05(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test06(){
+      static void test06(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test07(){
+      static void test07(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test08(){
+      static void test08(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test09(){
+      static void test09(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test10(){
+      static void test10(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test11(){
+      static void test11(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test12(){
+      static void test12(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test13(){
+      static void test13(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test14(){
+      static void test14(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test15(){
+      static void test15(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test16(){
+      static void test16(){
 
       }    
       
       /**
       * Function that runs the 1st test case 
       */
-      void test17(){
+      static void test17(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test18(){
+      static void test18(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test19(){
+      static void test19(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test20(){
+      static void test20(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test21(){
+      static void test21(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void test22(){
+      static void test22(){
 
       }
       
       /**
       * Function that runs the 1st test case 
       */
-      void endTest(){
+      static void endTest(){
           testCase = 23;
-          System.out.print(\n"A tesztelés befejezték.");
+          System.out.print("\nA tesztelÃ©s befejeztÃ©k.");
 
       }
           
       /**
       * Variable that defines the current test case 
       */
-      int testCase;
+      static int testCase;
 
       /**
       * The main function that runs the testing 
@@ -229,7 +231,7 @@ public class Test {
 
         while(testCase != 23){
             printTests();
-            System.out.print("Válassz egy tesztesetet: ");
+            System.out.print("VÃ¡lassz egy tesztesetet: ");
             testCase = scanner.nextInt();
 
             switch (testCase) {
@@ -280,7 +282,7 @@ public class Test {
             case 23: endTest();
                 break;          
             default:
-                System.out.println("Nincs megfelel? függvény ehhez a számhoz.");
+                System.out.println("Nincs megfelelÅ‘ fÃ¼ggvÃ©ny ehhez a szÃ¡mhoz.");
             }
         }
       }

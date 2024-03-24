@@ -26,7 +26,7 @@ public class SlideRule extends Item{
             durability--;
            
             if(durability == 0){
-                printf("Game ends with the players victory");
+                System.out.println("Game ends with the players victory");
             }
         }
     }

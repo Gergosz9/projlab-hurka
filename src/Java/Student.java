@@ -13,9 +13,9 @@ public class Student extends Character{
      * @param name the name of the character
      * @param labirinth the labirinth in which the character exists
      */
-    public Student(String name, Labirinth labirinth) { 
-    	this.teacherResist=false;
-    	super(name,labirinth);
+    public Student(String name, Labirinth labirinth) {
+		super(name,labirinth);
+		this.teacherResist=false;
     }
     /**
      * Abstract method that represents the action of moving to a different room.
@@ -32,7 +32,7 @@ public class Student extends Character{
      * @param trigger the trigger event for using the item
      */
     public void useItem(ItemTrigger trigger) {
-    	for(int i=0;i<this.getInventory().size()) {
+    	for(int i=0;i<this.getInventory().size(); i++) {
     		this.getInventory().get(i).use(trigger,this);
     	}
     }
