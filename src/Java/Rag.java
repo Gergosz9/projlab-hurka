@@ -1,5 +1,8 @@
 package Java;
-
+/*
+ * The Rag class represents a Rag item in the game.
+ * It extends the Item class.
+ */
 public class Rag extends Item{
     /**
      * Constructs a new Rag object with a durability of 1.
