@@ -25,7 +25,7 @@ public class Camembert extends Item{
             durability--;
             source.getMyLocation().setGassed(true);
             if(durability == 0){
-                source.drop(this, null); //pontosítani kell
+                source.dropItem(this, null); //pontosítani kell
             }
         }
     }
