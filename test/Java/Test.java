@@ -41,7 +41,7 @@ public class Test {
      * Function to print the names and numbers of possible test cases.
      */
     static void printTests() {
-        System.out.println("Lehetséges tesztesetek:");
+        System.out.println("\nLehetséges tesztesetek:");
         for (int i = 1; i <= 23; i++) {
             if (i == 1 || i == 23)
                 System.out.println("\n");
@@ -76,17 +76,17 @@ public class Test {
                         "\nname: r1" +
                         "\nname: r2" +
                         "\nname: r3" +
-                        "\nname: r4");
+                        "\nname: r4\n");
 
         Room room = new Room("atkozott", 10, true, false, closed, open);
 
         System.out.println("name: " + room.getName() + "attribute: closedRooms: {tmp1,tmp2}, openRooms: {tmp3,tmp4}");
 
-        System.out.println("open doors:\n");
+        System.out.println("\nopen doors:");
         for (Room r : room.getOpenRooms()) {
             System.out.print(r.getName() + ", ");
         }
-        System.out.println("\nclosed doors:\n");
+        System.out.println("\nclosed doors:");
         for (Room r : room.getClosedRooms()) {
             System.out.print(r.getName() + ", ");
         }
@@ -676,7 +676,7 @@ public class Test {
      */
     static void endTest() {
         testCase = 23;
-        System.out.print("\nA tesztelés befejezték.");
+        System.out.print("\nA tesztelést befejezték.");
 
     }
 
