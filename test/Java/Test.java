@@ -142,14 +142,33 @@ public class Test {
      * Function that runs the 4th test case
      */
     static void test04() {
+        Labirinth labirinth = new Labirinth();
+        Room r1 = new Room("temp1", 1, false, false, null, null);
+        Student student = new Student("student", labirinth);
+        student.move(r1);
 
+        Rag rag = new Rag();
+
+        student.pickUpItem(rag);
+        System.out.println("Students uses rag");
+        student.useItem(ItemTrigger.UseActiveItem);
     }
 
     /**
      * Function that runs the 5th test case
      */
     static void test05() {
+        Labirinth labirinth = new Labirinth();
+        Room r1 = new Room("temp1", 1, false, false, null, null);
+        Student student = new Student("student", labirinth);
+        student.move(r1);
 
+        SlideRule sr = new SlideRule();
+        System.out.println("Student picks up Logarléc");
+        student.pickUpItem(sr);
+        System.out.println("Student uses Logarléc");
+        student.useItem(ItemTrigger.UseActiveItem);
+        System.out.println("Student... wins?...");
     }
 
     /**
