@@ -95,11 +95,15 @@ public abstract class Character {
     public abstract void move(Room room);
 
     /**
-     * Sets the paralyzed state of the character.
+     * Sets the paralyzed state of the character. If the character is paralyzed, all items in the inventory are dropped.
      * @param paralyzed true if the character is paralyzed, false otherwise
      */
     public void setParalyzed(boolean paralyzed){
         this.paralyzed = paralyzed;
+        if(paralyzed)
+            for(Item item : inventory){
+                dropItem(item, getMyLocation());
+            }
     }
 
     /**
