@@ -117,9 +117,13 @@ public class Test {
 
         Labirinth labirinth = new Labirinth();
         Room room = new Room("temp1", 1, false, false, null, null);
+        Room room2 = new Room("temp2", 1, false, false, null, null);
         Student student = new Student("student", labirinth);
-        Transistor t1 = new Transistor(1);
-        Transistor t2 = new Transistor(1);
+        labirinth.getRooms().add(room);
+        labirinth.getRooms().add(room2);
+        room.addStudent(student);
+        Transistor t1 = new Transistor(1, labirinth);
+        Transistor t2 = new Transistor(1, labirinth);
 
         System.out.println(
                 "Létrehozott objektumok: " +
@@ -129,7 +133,6 @@ public class Test {
                         "\nname: t2" +
                         "\nname: labirinth");
 
-        student.move(room);
         student.pickUpItem(t1);
         student.pickUpItem(t2);
 
@@ -140,7 +143,7 @@ public class Test {
         student.useItem(ItemTrigger.UseActiveItem, 2);
 
         System.out.println("Student moving");
-        student.move(new Room("temp2", 1, false, false, null, null));
+        student.move(room2);
 
         System.out.println("Teleporting with transistor");
         student.useItem(ItemTrigger.UseActiveItem, 1);
@@ -162,6 +165,10 @@ public class Test {
         Room r2 = new Room("temp2", 1, false, false, null, null);
         Student student = new Student("student", labirinth);
         Teacher teacher = new Teacher("teacher", labirinth);
+        labirinth.getRooms().add(r1);
+        labirinth.getRooms().add(r2);
+        r1.addStudent(student);
+        r2.addTeacher(teacher);
 
         Camembert c1 = new Camembert();
         Camembert c2 = new Camembert();
@@ -203,6 +210,8 @@ public class Test {
         Labirinth labirinth = new Labirinth();
         Room r1 = new Room("temp1", 1, false, false, null, null);
         Student student = new Student("student", labirinth);
+        labirinth.getRooms().add(r1);
+        r1.addStudent(student);
         student.move(r1);
 
         Rag rag = new Rag();
@@ -233,6 +242,8 @@ public class Test {
         Labirinth labirinth = new Labirinth();
         Room r1 = new Room("temp1", 1, false, false, null, null);
         Student student = new Student("student", labirinth);
+        labirinth.getRooms().add(r1);
+        r1.addStudent(student);
         student.move(r1);
 
         System.out.println(
@@ -258,11 +269,15 @@ public class Test {
 
            System.out.println("\n Létrehozott objektumok:\n\n name: Student\nattribute inventory : List<Item>, TVSZ;\n\n name:Teacher\n\n name:Room\n\n name: TVSZ\nattribute durability : int, 3");
 
-            Student s = new Student("Student", new Labirinth());
-            Teacher t = new Teacher("Teacher", new Labirinth());
+           Labirinth l = new Labirinth();
+            Student s = new Student("Student", l);
+            Teacher t = new Teacher("Teacher", l);
             TVSZ tvsz = new TVSZ(3);
             Room r = new Room("Room", 2, false, false, null, null);
             s.pickUpItem(tvsz);
+            l.getRooms().add(r);
+            r.addStudent(s);
+            r.addTeacher(t);
 
             System.out.println("\n Meghívott metódusok:\n\n name: s.pickUpItem(tvsz) name: s.move(r)\n name: t.move(r)");
     
@@ -278,11 +293,15 @@ public class Test {
 
           System.out.println("\nLétrehozott objektumok:\n\n name: Student\nattribute inventory : List<Item>, TVSZ;\n\n name:Teacher\n name:Room\n\n name: TVSZ\nattribute durability : int, 3");
 
-          Student s = new Student("Student", new Labirinth());
-          Teacher t = new Teacher("Teacher", new Labirinth());
+          Labirinth l = new Labirinth();
+          Student s = new Student("Student", l);
+          Teacher t = new Teacher("Teacher", l);
           TVSZ tvsz = new TVSZ(3);
           Room r = new Room("Room", 2, false, false, null, null);
           s.pickUpItem(tvsz);
+            l.getRooms().add(r);
+            r.addStudent(s);
+            r.addTeacher(t);
 
           System.out.println("\n Meghívott metódusok:\n\n name: s.pickUpItem(tvsz) name: s.move(r)\n name: t.move(r)");
     
@@ -298,11 +317,15 @@ public class Test {
       
           System.out.println("\nLétrehozott objektumok:\n\n name: Student\nattribute inventory : List<Item>, Beer;\n\n name:Teacher\n name:Room\n\n name: Beer\nattribute durability : int, 3");
 
-          Student s = new Student("Student", new Labirinth());
-          Teacher t = new Teacher("Teacher", new Labirinth());
+            Labirinth l = new Labirinth();
+          Student s = new Student("Student", l);
+          Teacher t = new Teacher("Teacher", l);
           Beer b = new Beer(3);
           Room r = new Room("Room", 2, false, false, null, null);
           s.pickUpItem(b);
+          l.getRooms().add(r);
+            r.addStudent(s);
+            r.addTeacher(t);
 
           System.out.println("\n Meghívott metódusok:\n\n name: s.pickUpItem(b)\n name: s.useItem(NewRound, 0) name: s.move(r)\n name: t.move(r)");
     
@@ -318,11 +341,14 @@ public class Test {
           System.out.println("\nForgatókönyv:\n\nA hallgató rendelkezik Söröspohárral.\nA tanár belép a szobába, ahol a hallgató van.\nA hallgató nem esik ki a játékból.");
 
                 System.out.println("\nLétrehozott objektumok:\n\n name: Student\nattribute inventory : List<Item>, Beer;\n\n name:Teacher\n name:Room\n\n name: Beer\nattribute durability : int, 3");
-
-          Student s = new Student("Student", new Labirinth());
-          Teacher t = new Teacher("Teacher", new Labirinth());
+        Labirinth l = new Labirinth();
+          Student s = new Student("Student", l);
+          Teacher t = new Teacher("Teacher", l);
           Beer b = new Beer(3);
           Room r = new Room("Room", 2, false, false, null, null);
+          l.getRooms().add(r);
+            r.addStudent(s);
+            r.addTeacher(t);
           s.pickUpItem(b);
 
          System.out.println("\n Meghívott metódusok:\n\n name: s.pickUpItem(b)\n name: s.useItem(NewRound, 0) name: s.move(r)\n name: t.move(r)");
@@ -339,10 +365,12 @@ public class Test {
           System.out.println("\nForgatókönyv:\n\nA karakter gázos szobába lép.\nA karakterre nem hat a gázos szoba hatása.");
 
                 System.out.println("\nLétrehozott objektumok:\n\n name: Student\nattribute inventory : List<Item>, Mask;\n\n name:Room\nattribute gassed : boolean, true\n\n name: Mask\nattribute durability : int, 3");
-
-          Student s = new Student("Student", new Labirinth());
+        Labirinth l = new Labirinth();
+          Student s = new Student("Student", l);
           Mask m = new Mask();
           Room r = new Room("Room", 2, false, true, null, null);
+            l.getRooms().add(r);
+            r.addStudent(s);
           s.pickUpItem(m);
 
           System.out.println("\n Meghívott metódusok:\n\n name: s.pickUpItem(m)\n name: s.move(r)");    
@@ -357,9 +385,12 @@ public class Test {
           
            System.out.println("\nLétrehozott objektumok:\n\n name: Student\nattribute inventory : List<Item>, Mask;\n\n name:Room\nattribute gassed : boolean, false\n\n name: Mask\nattribute durability : int, 3");
 
-          Student s = new Student("Student", new Labirinth());
+           Labirinth l = new Labirinth();
+          Student s = new Student("Student", l);
           Mask m = new Mask();
           Room r = new Room("Room", 2, false, false, null, null);
+            l.getRooms().add(r);
+            r.addStudent(s);
           s.pickUpItem(m);
 
          System.out.println("\n Meghívott metódusok:\n\n name: s.pickUpItem(m)\n name: s.move(r)\n name: r.setGassed(true)");
@@ -444,7 +475,7 @@ public class Test {
                          "A kiválasztott szoba létrehoz egy új szobát amivel megosztja a szomszédait, tulajdonságait, ott lévő karaktereket és inventory tartalmát.\n" + 
                          "A kiválasztott szoba átadja az új szobát akikkel szomszédos lesz.\n" +
                          "Az új szoba bekerül a labirintus gyüjteményébe\n");
-        Room r1 = new Room("temp1 temp2", 5, false, true, null, null);
+        Room r1 = new Room("temp1 temp2", 5, false, true, new ArrayList<Room>(), new ArrayList<Room>());
         Student s = new Student("Student", new Labirinth());
         Student s2 = new Student("Student2", new Labirinth());
         System.out.println("\n\n" +
@@ -472,8 +503,8 @@ public class Test {
                          "Olyan két szoba választás ami összeolvadhat.\n" + 
                          "A kiválasztott szoba átveszi a másik szoba szomszédait, tulajdonságait, ott lévő karaktereket és inventory tartalmát. \n" + 
                          "A másik szoba törlődik a labirintusból és a játékból.\n");
-        Room r1 = new Room("temp1", 5, false, true, null, null);
-        Room r2 = new Room("temp2", 3, false, true, null, null);
+        Room r1 = new Room("temp1", 5, false, true, new ArrayList<Room>(), new ArrayList<Room>());
+        Room r2 = new Room("temp2", 3, false, true, new ArrayList<Room>(), new ArrayList<Room>());
         Student s = new Student("Student", new Labirinth());
         System.out.println("\n\n" +
                         "Létrehozott objektumok:\n\n" +
@@ -497,8 +528,10 @@ public class Test {
                          "Karakter belép egy gázos szobába.\n" + 
                          " Karakter eldobja az összes tárgyát\n" + 
                          " Karakter köre véget ér.");
-        Student s = new Student("Student", new Labirinth());
+        Labirinth l = new Labirinth();
+        Student s = new Student("Student", l);
         Room r = new Room("Room", 2, false, true, null, null);
+        l.getRooms().add(r);
         System.out.println("\n\n" +
                         "Létrehozott objektumok:\n\n" +
                         " name: Student\n" +
@@ -509,6 +542,7 @@ public class Test {
                         "Meghívott metódusok:\n\n" +
                         " name: r.addStudent(s)\n" +
                         " name: s.move(r)\n");
+        r.addStudent(s);
         s.move(r);
     }
 
@@ -520,8 +554,10 @@ public class Test {
                          "A tanár belép egy rongyos szobába.\n" + 
                          "A tanár eldobja az összes tárgyát\n" + 
                          "A tanár köre véget ér.");
-        Teacher t = new Teacher("Teacher", new Labirinth());
+        Labirinth l = new Labirinth();
+        Teacher t = new Teacher("Teacher", l);
         Room r = new Room("Room", 2, false, true, null, null);
+        l.getRooms().add(r);
         System.out.println("\n\n" +
                         "Létrehozott objektumok:\n\n" +
                         " name: Teacher\n" +
@@ -532,6 +568,7 @@ public class Test {
                         "Meghívott metódusok:\n\n" +
                         " name: r.setRagged(1)\n" +
                         " name: r.addTeacher(t)\n");
+        r.addTeacher(t);
         t.move(r);
     }
 
@@ -542,9 +579,12 @@ public class Test {
         System.out.println("\nForgatókönyv:\n\n" +
                          "A tanuló át tud menni egy másik szobába.\n"+
                          "Mielőtt átmegy a másik szobába azonban megnézi, hogy van-e még szabad hely abban, ha nincs akkor nem tud átmenni.\n");
-        Student s = new Student("Student", new Labirinth());
+        Labirinth l = new Labirinth();
+        Student s = new Student("Student", l);
         Room r1 = new Room("Room1", 2, false, false, null, null);
         Room r2 = new Room("Room2", 2, false, false, null, null);
+        l.getRooms().add(r1);
+        l.getRooms().add(r2);
         System.out.println("\n\n" +
                         "Létrehozott objektumok:\n\n" +
                         " name: Student\n" +
@@ -566,9 +606,13 @@ public class Test {
         System.out.println("\nForgatókönyv:\n\n" +
                          "A tanár át tud menni egy másik szobába.\n"+
                          "Mielőtt átmegy a másik szobába azonban megnézi, hogy van-e még szabad hely abban, ha nincs akkor nem tud átmenni.\n");
-        Teacher t = new Teacher("Teacher", new Labirinth());
+        Labirinth l = new Labirinth();
+        Teacher t = new Teacher("Teacher", l);
         Room r1 = new Room("Room1", 2, false, false, null, null);
         Room r2 = new Room("Room2", 2, false, false, null, null);
+        
+        l.getRooms().add(r1);
+        l.getRooms().add(r2);
         System.out.println("\n\n" +
                         "Létrehozott objektumok:\n\n" +
                         " name: Teacher\n" +
