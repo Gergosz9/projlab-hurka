@@ -51,12 +51,19 @@ public class Test {
 
     /**
      * Function that runs the 1st test case
+     * 
+     * A gép frissíti a szobákat, mire az elátkozott szobában kinyílnak az ajtók,
+     * majd véletlenszerűen visszazáródnak.
      */
     static void test01() {
-        Room r1 = new Room("tmp1", testCase, false, false, null, null);
-        Room r2 = new Room("tmp2", testCase, false, false, null, null);
-        Room r3 = new Room("tmp3", testCase, false, false, null, null);
-        Room r4 = new Room("tmp4", testCase, false, false, null, null);
+        System.out.println(
+                "Forgatókönyv:\n" +
+                        "A gép frissíti a szobákat, mire az elátkozott szobában kinyílnak az ajtók, majd véletlenszerűen visszazáródnak.");
+
+        Room r1 = new Room("tmp1", 1, false, false, null, null);
+        Room r2 = new Room("tmp2", 1, false, false, null, null);
+        Room r3 = new Room("tmp3", 1, false, false, null, null);
+        Room r4 = new Room("tmp4", 1, false, false, null, null);
         List<Room> closed = new ArrayList<Room>();
         closed.add(r1);
         closed.add(r2);
@@ -64,7 +71,17 @@ public class Test {
         open.add(r3);
         open.add(r4);
 
+        System.out.println(
+                "Létrehozott objektumok: " +
+                        "\nname: r1" +
+                        "\nname: r2" +
+                        "\nname: r3" +
+                        "\nname: r4");
+
         Room room = new Room("atkozott", 10, false, false, closed, open);
+
+        System.out.println("name: " + room.getName() + "attribute: closedRooms: {tmp1,tmp2}, openRooms: {tmp3,tmp4}");
+
         System.out.println("open doors:\n");
         for (Room r : room.getOpenRooms()) {
             System.out.print(r.getName() + ", ");
@@ -88,14 +105,31 @@ public class Test {
 
     /**
      * Function that runs the 2nd test case
+     * 
+     * A hallgató készletéhez hozzáadásra kerül két tranzisztor,
+     * ezeket összekapcsolja, majd az egyiket lerakja, mozog egy szobát,
+     * aztán visszateleportál a lerakott tranzisztorhoz.
      */
     static void test02() {
+        System.out.println(
+                "Forgatókönyv:\n" +
+                        "A hallgató készletéhez hozzáadásra kerül két tranzisztor, ezeket összekapcsolja, majd az egyiket lerakja, mozog egy szobát, aztán visszateleportál a lerakott tranzisztorhoz.");
+
         Labirinth labirinth = new Labirinth();
         Room room = new Room("temp1", 1, false, false, null, null);
         Student student = new Student("student", labirinth);
-        student.move(room);
         Transistor t1 = new Transistor(1);
         Transistor t2 = new Transistor(1);
+
+        System.out.println(
+                "Létrehozott objektumok: " +
+                        "\nname: room" +
+                        "\nname: student" +
+                        "\nname: t1" +
+                        "\nname: t2" +
+                        "\nname: labirinth");
+
+        student.move(room);
         student.pickUpItem(t1);
         student.pickUpItem(t2);
 
@@ -114,8 +148,15 @@ public class Test {
 
     /**
      * Function that runs the 3rd test case
+     * 
+     * A hallgató felhasználja a készletében található Camembert, ezzel gázossá
+     * teszi a szobát.
      */
     static void test03() {
+        System.out.println(
+                "Forgatókönyv:\n" +
+                        "A hallgató felhasználja a készletében található Camembert, ezzel gázossá teszi a szobát.");
+
         Labirinth labirinth = new Labirinth();
         Room r1 = new Room("temp1", 1, false, false, null, null);
         Room r2 = new Room("temp2", 1, false, false, null, null);
@@ -124,6 +165,16 @@ public class Test {
 
         Camembert c1 = new Camembert();
         Camembert c2 = new Camembert();
+
+        System.out.println(
+                "Létrehozott objektumok: " +
+                        "\nname: r1" +
+                        "\nname: r2" +
+                        "\nname: student" +
+                        "\nname: teacher" +
+                        "\nname: c1" +
+                        "\nname: c2" +
+                        "\nname: labirinth");
 
         student.move(r1);
         teacher.move(r2);
@@ -140,14 +191,28 @@ public class Test {
 
     /**
      * Function that runs the 4th test case
+     * 
+     * A hallgató felhasználja a készletében lévő törlőrongyot, ezzel az adott
+     * szobát bénítóvá téve a tanárok számára.
      */
     static void test04() {
+        System.out.println(
+                "Forgatókönyv:\n" +
+                        "A hallgató felhasználja a készletében lévő törlőrongyot, ezzel az adott szobát bénítóvá téve a tanárok számára.");
+
         Labirinth labirinth = new Labirinth();
         Room r1 = new Room("temp1", 1, false, false, null, null);
         Student student = new Student("student", labirinth);
         student.move(r1);
 
         Rag rag = new Rag();
+
+        System.out.println(
+                "Létrehozott objektumok: " +
+                        "\nname: r1" +
+                        "\nname: student" +
+                        "\nname: rag" +
+                        "\nname: labirinth");
 
         student.pickUpItem(rag);
         System.out.println("Students uses rag");
@@ -156,12 +221,26 @@ public class Test {
 
     /**
      * Function that runs the 5th test case
+     * 
+     * A hallgató készletéhez hozzáadásra kerül egy Logarléc, ezzel megnyeri a
+     * játékot és véget is ér.
      */
     static void test05() {
+        System.out.println(
+                "Forgatókönyv:\n" +
+                        "A hallgató készletéhez hozzáadásra kerül egy Logarléc, ezzel megnyeri a játékot és véget is ér.");
+
         Labirinth labirinth = new Labirinth();
         Room r1 = new Room("temp1", 1, false, false, null, null);
         Student student = new Student("student", labirinth);
         student.move(r1);
+
+        System.out.println(
+                "Létrehozott objektumok: " +
+                        "\nname: r1" +
+                        "\nname: student" +
+                        "\nname: sr" +
+                        "\nname: labirinth");
 
         SlideRule sr = new SlideRule();
         System.out.println("Student picks up Logarléc");
