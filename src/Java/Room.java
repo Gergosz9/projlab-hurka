@@ -55,7 +55,22 @@ public class Room {
         items = new ArrayList<>();
         transistors = new ArrayList<>();
     }
-
+    /**
+     * Returns the number of ragged rounds in the room.
+     * 
+     * @return the number of ragged rounds
+     */
+    public boolean isRagged() {
+        return raggedRounds > 0;
+    }
+    /**
+     * Returns the number of ragged rounds in the room.
+     * 
+     * @return the number of ragged rounds
+     */
+    public boolean isGassed() {
+        return gassed;
+    }
     /**
      * Returns a list of all characters in the room.
      * 
