@@ -199,7 +199,8 @@ public class Room {
         if (cursed) {
             openRooms.addAll(closedRooms);
             closedRooms.clear();
-            for (Room room : openRooms) {
+            for (int i = 0; i < openRooms.size(); i++){
+                Room room = openRooms.get(i);
                 if (Math.random() < 0.5) {
                     closedRooms.add(room);
                     openRooms.remove(room);
