@@ -49,7 +49,7 @@ public class Transistor extends Item {
             } else if (getMyPairLocation() != null) {
                 source.move(getMyPairLocation());
             } else {
-                source.dropItem(this, source.getMyLocation());
+                source.getMyLocation().addTransistor(this);
             }
         }
     }
