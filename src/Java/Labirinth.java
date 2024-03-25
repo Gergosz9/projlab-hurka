@@ -14,12 +14,20 @@ public class Labirinth {
     private List<Student> students;
     private List<Room> rooms;
 
+    /**
+     * TBD
+     * Cicles through players to let them perform their round
+     */
     public void doStudentRound() {
         for (Student student : students) {
             // do student's round
         }
     }
 
+    /**
+     * TBD
+     * Cicles through teachers, performs their round
+     */
     public void doTeacherRound() {
         for (Teacher teacher : teachers) {
             // do teacher's round
