@@ -23,11 +23,11 @@ public class Mask extends Item{
      * @param source the character that uses the item
      */
     public void use(ItemTrigger trigger, Character source){
-        if(trigger == ItemTrigger.UseActiveItem){
+        if(trigger == ItemTrigger.GasAttack){
             durability--;
             source.setGasResist(true);
             if(durability == 0){
-                source.dropItem(this, null); //pontosítani kell
+                source.dropItem(this, null);
             }
         }
     }
