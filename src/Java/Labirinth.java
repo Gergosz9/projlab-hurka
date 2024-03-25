@@ -9,7 +9,7 @@ public class Labirinth {
 
     /**
      * TBD
-     * Cicles through players to let them perform their round
+     * Cycles through players to let them perform their round
      */
     public void doStudentRound() {
         for (Student student : students) {
@@ -19,7 +19,7 @@ public class Labirinth {
 
     /**
      * TBD
-     * Cicles through teachers, performs their round
+     * Cycles through teachers, performs their round
      */
     public void doTeacherRound() {
         for (Teacher teacher : teachers) {
