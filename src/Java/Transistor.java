@@ -17,9 +17,10 @@ public class Transistor extends Item {
      * 
      * @param durability the durability of the transistor
      */
-    public Transistor(int durability) {
+    public Transistor(int durability, Labirinth labirinth) {
         super(durability);
         pair = null;
+        this.labirinth = labirinth;
     }
 
     /**
