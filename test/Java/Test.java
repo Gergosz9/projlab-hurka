@@ -441,9 +441,9 @@ public class Test {
     static void test15() {
         System.err.println("\nForgatókönyv:\n\n" +
                          "Egy szoba ketté válik.\n" + 
-                         "A kiválasztott szoba létrehoz egy új szobát amivel megosztja a szomszédait, tulajdonságait, ott lévő karaktereket és inventory tartalmát.\r\n" + //
-                         "A kiválasztott szoba átadja az új szobát akikkel szomszédos lesz.\r\n" + //
-                         "Az új szoba bekerül a labirintus gyüjteményébe\r\n");
+                         "A kiválasztott szoba létrehoz egy új szobát amivel megosztja a szomszédait, tulajdonságait, ott lévő karaktereket és inventory tartalmát.\n" + 
+                         "A kiválasztott szoba átadja az új szobát akikkel szomszédos lesz.\n" +
+                         "Az új szoba bekerül a labirintus gyüjteményébe\n");
         Room r1 = new Room("temp1 temp2", 5, false, true, null, null);
         Student s = new Student("Student", new Labirinth());
         Student s2 = new Student("Student2", new Labirinth());
@@ -465,10 +465,27 @@ public class Test {
     }
 
     /**
-     * Function that runs the 1st test case
+     * Function that runs the 16st test case
      */
     static void test16() {
-
+        System.out.println("\nForgatókönyv:\n\n" +
+                         "Olyan két szoba választás ami összeolvadhat.\n" + 
+                         "A kiválasztott szoba átveszi a másik szoba szomszédait, tulajdonságait, ott lévő karaktereket és inventory tartalmát. \n" + 
+                         "A másik szoba törlődik a labirintusból és a játékból.\n");
+        Room r1 = new Room("temp1", 5, false, true, null, null);
+        Room r2 = new Room("temp2", 3, false, true, null, null);
+        Student s = new Student("Student", new Labirinth());
+        System.out.println("\n\n" +
+                        "Létrehozott objektumok:\n\n" +
+                        " name: Room\n" +
+                        " name: Student\n" +
+                        "attribute inventory : List<Item>;\n\n");
+        r1.addStudent(s);
+        r1.merge(r2);
+        System.out.println("\n\n" +
+                        "Meghívott metódusok:\n\n" +
+                        " name: r1.addStudent(s)\n" +
+                        " name: r1.merge(r2)\n");
     }
 
     /**
