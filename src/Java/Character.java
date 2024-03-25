@@ -1,6 +1,6 @@
 package Java;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * The Character class represents a character in the game.
@@ -34,6 +34,7 @@ public abstract class Character {
         actionCount = 0;
         paralyzed = false;
         gasResist = false;
+        inventory = new ArrayList<Item>();
     }
     
     /**
