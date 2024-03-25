@@ -78,7 +78,7 @@ public class Test {
                         "\nname: r3" +
                         "\nname: r4");
 
-        Room room = new Room("atkozott", 10, false, false, closed, open);
+        Room room = new Room("atkozott", 10, true, false, closed, open);
 
         System.out.println("name: " + room.getName() + "attribute: closedRooms: {tmp1,tmp2}, openRooms: {tmp3,tmp4}");
 
@@ -137,13 +137,13 @@ public class Test {
         student.useItem(ItemTrigger.UseActiveItem, 1);
 
         System.out.println("dropping transistor");
-        student.dropItem(t1, student.getMyLocation());
+        student.useItem(ItemTrigger.UseActiveItem, 2);
 
         System.out.println("Student moving");
         student.move(new Room("temp2", 1, false, false, null, null));
 
         System.out.println("Teleporting with transistor");
-        student.useItem(ItemTrigger.UseActiveItem, 2);
+        student.useItem(ItemTrigger.UseActiveItem, 1);
     }
 
     /**
@@ -359,12 +359,13 @@ public class Test {
 
           Student s = new Student("Student", new Labirinth());
           Mask m = new Mask();
-          Room r = new Room("Room", 2, false, true, null, null);
+          Room r = new Room("Room", 2, false, false, null, null);
           s.pickUpItem(m);
 
-         System.out.println("\n Meghívott metódusok:\n\n name: s.pickUpItem(m)\n name: s.move(r)");
-    
+         System.out.println("\n Meghívott metódusok:\n\n name: s.pickUpItem(m)\n name: s.move(r)\n name: r.setGassed(true)");
+
           s.move(r);
+          r.setGassed(true);
       }
       
       /**
