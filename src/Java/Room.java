@@ -270,4 +270,12 @@ public class Room {
     public List<Room> getOpenRooms() {
         return openRooms;
     }
+
+    public List<Room> getClosedRooms() {
+        return closedRooms;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
