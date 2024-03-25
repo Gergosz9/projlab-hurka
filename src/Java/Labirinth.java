@@ -27,6 +27,9 @@ public class Labirinth {
         }
     }
 
+    /*
+     * Updates state of rooms
+     */
     public void updateRooms() {
         // Prevents change in number of rooms
         int numberOfRooms = rooms.size();
