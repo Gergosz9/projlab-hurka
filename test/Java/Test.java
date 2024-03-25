@@ -254,51 +254,228 @@ public class Test {
      * Function that runs the 6th test case
      */
     static void test06() {
+          System.out.println("\n Forgatókönyv:\n\n
+                A hallgató rendelkezik TVSZ-el.\n
+                A hallgató belép egy szobába, ahol egy tanár van.\n
+                A hallgató nem esik ki a játékból.\n
+                A TVSZ használhatósága eggyel csökken.");
 
+           System.out.println("\n Létrehozott objektumok:\n
+                \n name: Student\n
+                attribute inventory : List<Item>, TVSZ;\n
+                \n name:Teacher\n
+                \n name:Room\n
+                \n name: TVSZ\n
+                attribute durability : int, 3");
+
+            Student s;
+            Teacher t;
+            TVSZ tvsz;
+            Room r;
+
+            System.out.println("\n Meghívott metódusok:\n
+                \n name: t.move(r)
+                \n name: s.move(r)
+                \n name: s.useItem(TeacherAttack)
+                \n name: tvsz.use(TeacherAttack, s)");
+    
+            t.move(r);
+            s.move(r);
+            s.useItem(TeacherAttack);
+            tvsz.use(TeacherAttack, s);
     }
 
-    /**
-     * Function that runs the 1st test case
-     */
-    static void test07() {
+      /**
+      * Function that runs the 7th test case 
+      */
+      static void test07(){
+          System.out.println("\nForgatókönyv:\n\n
+                A hallgató rendelkezik TVSZ-el.\n
+                A tanár belép a szobába, ahol a hallgató van.\n
+                A hallgató nem esik ki a játékból.\n
+                A TVSZ használhatósága eggyel csökken.");
 
-    }
+          System.out.println("\nLétrehozott objektumok:\n
+                \n name: Student\n
+                attribute inventory : List<Item>, TVSZ;\n
+                \n name:Teacher
+                \n name:Room\n
+                \n name: TVSZ\n
+                attribute durability : int, 3");
 
-    /**
-     * Function that runs the 1st test case
-     */
-    static void test08() {
+          Student s;
+          Teacher t;
+          TVSZ tvsz;
+          Room r;
 
-    }
+          System.out.println("\n Meghívott metódusok:\n
+                \n name: s.move(r)
+                \n name: t.move(r)
+                \n name: s.useItem(TeacherAttack)
+                \n name: tvsz.use(TeacherAttack, s)");
+    
+          s.move(r);
+          t.move(r);
+          s.useItem(TeacherAttack);
+          tvsz.use(TeacherAttack, s);
 
-    /**
-     * Function that runs the 1st test case
-     */
-    static void test09() {
+      }
+      
+      /**
+      * Function that runs the 8th test case 
+      */
+      static void test08(){
+          System.out.println("\nForgatókönyv:\n\n
+                A hallgató rendelkezik Söröspohárral.\n
+                A hallgató belép egy szobába, ahol egy tanár van.\n
+                A hallgató nem esik ki a játékból.");
+      
+          System.out.println("\nLétrehozott objektumok:\n
+                \n name: Student\n
+                attribute inventory : List<Item>, Beer;\n
+                \n name:Teacher
+                \n name:Room\n
+                \n name: Beer\n
+                attribute durability : int, 3");
 
-    }
+          Student s;
+          Teacher t;
+          Beer b;
+          Room r;
 
-    /**
-     * Function that runs the 1st test case
-     */
-    static void test10() {
+         System.out.println("\n Meghívott metódusok:\n
+                \n name: t.move(r)
+                \n name: s.move(r)
+                \n name: s.useItem(TeacherAttack)
+                \n name: b.use(TeacherAttack, s)");
+    
+          t.move(r);
+          s.move(r);
+          s.useItem(TeacherAttack);
+          b.use(TeacherAttack, s);
+      }
+      
+      /**
+      * Function that runs the 9th test case 
+      */
+      static void test09(){
+          System.out.println("\nForgatókönyv:\n\n
+                A hallgató rendelkezik Söröspohárral.\n
+                A tanár belép a szobába, ahol a hallgató van.\n
+                A hallgató nem esik ki a játékból.");
 
-    }
+                System.out.println("\nLétrehozott objektumok:\n
+                \n name: Student\n
+                attribute inventory : List<Item>, Beer;\n
+                \n name:Teacher
+                \n name:Room\n
+                \n name: Beer\n
+                attribute durability : int, 3");
 
-    /**
-     * Function that runs the 1st test case
-     */
-    static void test11() {
+          Student s;
+          Teacher t;
+          Beer b;
+          Room r;
 
-    }
+         System.out.println("\n Meghívott metódusok:\n
+                \n name: s.move(r)
+                \n name: t.move(r)
+                \n name: s.useItem(TeacherAttack)
+                \n name: b.use(TeacherAttack, s)");
+    
+          s.move(r);
+          t.move(r);
+          s.useItem(TeacherAttack);
+          b.use(TeacherAttack, s);
+      }
+      
+      /**
+      * Function that runs the 10th test case 
+      */
+      static void test10(){
+          System.out.println("\nForgatókönyv:\n\n
+                A karakter gázos szobába lép.\n
+                A karakterre nem hat a gázos szoba hatása.");
 
-    /**
-     * Function that runs the 1st test case
-     */
-    static void test12() {
+                System.out.println("\nLétrehozott objektumok:\n
+                \n name: Student\n
+                attribute inventory : List<Item>, Mask;\n
+                \n name:Room\n
+                attribute gassed : boolean, true\n
+                \n name: Mask\n
+                attribute durability : int, 3");
 
-    }
+          Student s;
+          Mask m;
+          Room r;
 
+         System.out.println("\n Meghívott metódusok:\n
+                \n name: s.move(r)
+                \n name: s.useItem(GasAttack)
+                \n name: m.use(GasAttack, s)");
+    
+          s.move(r);
+          s.useItem(GasAttack);
+          m.use(GasAttack, s);         
+      }
+      
+      /**
+      * Function that runs the 11th test case 
+      */
+      static void test11(){
+          System.out.println("\nForgatókönyv:\n\n
+                A szoba, amiben a karakter van, gázos lesz.\n
+                A karakterre nem hat a gázos szoba hatása. ");
+          
+           System.out.println("\nLétrehozott objektumok:\n
+                \n name: Student\n
+                attribute inventory : List<Item>, Mask;\n
+                \n name:Room\n
+                attribute gassed : boolean, false\n
+                \n name: Mask\n
+                attribute durability : int, 3");
+
+          Student s;
+          Mask m;
+          Room r;
+
+         System.out.println("\n Meghívott metódusok:\n
+                \n name: s.move(r)
+                \n name: r.setGas(true)
+                \n name: s.useItem(GasAttack)
+                \n name: m.use(GasAttack, s)");
+    
+          s.move(r);
+          r.gassed = true; //elm ezt a camambert megcsinálná, itt a tesztbe hogyan kéne?
+          s.useItem(GasAttack);
+          m.use(GasAttack, s);         
+      }
+      
+      /**
+      * Function that runs the 12th test case 
+      */
+      static void test12(){
+          System.out.println("\nForgatókönyv:\n\n
+                Véget ér egy menet.\n
+                A karakterek készletében lévő tárgyak használhatósága csökken.");
+            
+          System.out.println("\nLétrehozott objektumok:\n
+                \n name: Student\n
+                attribute inventory : List<Item>, Beer;\n
+                \n name: Beer\n
+                attribute durability : int, 3");
+
+          Beer b;
+          Student s;
+
+         System.out.println("\n Meghívott metódusok:\n
+                \n name: s.useItem(NewRound)
+                \n name: b.use(NewRound, s)");
+    
+          s.useItem(NewRound);
+          b.use(NewRound, s);     
+      }
+    
     /**
      * Function that runs the 1st test case
      */
