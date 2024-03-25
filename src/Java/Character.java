@@ -100,10 +100,12 @@ public abstract class Character {
      */
     public void setParalyzed(boolean paralyzed){
         this.paralyzed = paralyzed;
-        if(paralyzed)
+        if(paralyzed){
             for(Item item : inventory){
                 dropItem(item, getMyLocation());
             }
+            actionCount = 0;
+        }
     }
 
     /**
