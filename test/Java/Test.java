@@ -604,14 +604,31 @@ public class Test {
     }
 
     /**
-     * Function that runs the 1st test case
+     * Function that runs the 22st test case
      */
     static void test22() {
-
+        System.out.println("\nForgatókönyv:\n\n" +
+                         "A hallgató leteszi a tárgyat.\n"+
+                         "A tanuló lerak egy TVSZ tárgyat az egyik szobában.\n");
+        Student s = new Student("Student", new Labirinth());
+        TVSZ tvsz = new TVSZ(3);
+        Room r = new Room("Room", 2, false, false, null, null);
+        System.out.println("\n\n" +
+                        "Létrehozott objektumok:\n\n" +
+                        " name: Student\n" +
+                        "attribute inventory : List<Item>;\n\n" +
+                        " name: Room\n\n" +
+                        " name: TVSZ\n\n");
+        s.pickUpItem(tvsz);
+        s.dropItem(tvsz, r);
+        System.out.println("\n\n" +
+                        "Meghívott metódusok:\n\n" +
+                        " name: s.pickUpItem(tvsz)\n" +
+                        " name: s.dropItem(tvsz, r)\n");
     }
 
     /**
-     * Function that runs the 1st test case
+     * Function ends the testing
      */
     static void endTest() {
         testCase = 23;
