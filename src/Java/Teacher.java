@@ -1,5 +1,7 @@
 package Java;
 
+import java.util.*;
+
 /**
  * The Teacher class represents a non-playable teacher character in the game.
  */
@@ -29,10 +31,14 @@ public class Teacher extends Character{
      * Abstract method that represents the action of using an item triggered by a specific event.
      * @param trigger the trigger event for using the item
      */
-    public void useItem(ItemTrigger trigger) {
-    	for(int i=0;i<this.getInventory().size(); i++) {
-    		this.getInventory().get(i).use(trigger,this);
+    public void useItem(ItemTrigger trigger, int index) {
+    	if(index == 0){
+    		for(Item item : this.getInventory()){
+    			item.use(trigger, this);
+    		}
     	}
+    	else
+    		this.getInventory().get(index - 1).use(trigger, this);
     }
 
      /**
@@ -40,6 +46,7 @@ public class Teacher extends Character{
      * @return optimalRoute the list of the rooms the teacher will go trough
      */
     List<Room> pathFind(){
-        return List<Room> optimalRoute;
+      List<Room> optimalRoute = new ArrayList<>();
+       return optimalRoute;
     }
 }

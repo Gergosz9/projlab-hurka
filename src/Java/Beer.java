@@ -27,9 +27,9 @@ public class Beer extends Item{
         Student student = (Student)source;
         if(trigger == ItemTrigger.NewRound){
             durability--;
-            source.setTeacherResist(true);
+            student.setTeacherResist(true);
             if(durability == 0){
-                source.dropItem(this, null); //pontosítani kell
+                source.dropItem(this, null);
             }
         }
     }

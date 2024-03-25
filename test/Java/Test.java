@@ -134,7 +134,7 @@ public class Test {
         student.pickUpItem(t2);
 
         System.out.println("Pairing transistors");
-        student.useItem(ItemTrigger.UseActiveItem);
+        student.useItem(ItemTrigger.UseActiveItem, 1);
 
         System.out.println("dropping transistor");
         student.dropItem(t1, student.getMyLocation());
@@ -143,7 +143,7 @@ public class Test {
         student.move(new Room("temp2", 1, false, false, null, null));
 
         System.out.println("Teleporting with transistor");
-        student.useItem(ItemTrigger.UseActiveItem);
+        student.useItem(ItemTrigger.UseActiveItem, 2);
     }
 
     /**
@@ -181,11 +181,11 @@ public class Test {
 
         student.pickUpItem(c1);
         System.out.println("Student uses Camembert");
-        student.useItem(ItemTrigger.UseActiveItem);
+        student.useItem(ItemTrigger.UseActiveItem, 1);
 
         teacher.pickUpItem(c2);
         System.out.println("teacher uses Camembert");
-        teacher.useItem(ItemTrigger.UseActiveItem);
+        teacher.useItem(ItemTrigger.UseActiveItem, 1);
 
     }
 
@@ -216,7 +216,7 @@ public class Test {
 
         student.pickUpItem(rag);
         System.out.println("Students uses rag");
-        student.useItem(ItemTrigger.UseActiveItem);
+        student.useItem(ItemTrigger.UseActiveItem, 1);
     }
 
     /**
@@ -246,7 +246,7 @@ public class Test {
         System.out.println("Student picks up Logarléc");
         student.pickUpItem(sr);
         System.out.println("Student uses Logarléc");
-        student.useItem(ItemTrigger.UseActiveItem);
+        student.useItem(ItemTrigger.UseActiveItem, 1);
         System.out.println("Student... wins?...");
     }
 
@@ -652,5 +652,6 @@ public class Test {
                     System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
             }
         }
+        scanner.close();
     }
 }

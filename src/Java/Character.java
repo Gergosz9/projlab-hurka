@@ -48,7 +48,7 @@ public abstract class Character {
      * Abstract method that represents the action of using an item triggered by a specific event.
      * @param trigger the trigger event for using the item
      */
-    public abstract void useItem(ItemTrigger trigger);
+    public abstract void useItem(ItemTrigger trigger, int index);
 
     /**
      * Picks up an item and adds it to the character's inventory.

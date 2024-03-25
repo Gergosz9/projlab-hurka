@@ -28,9 +28,9 @@ public class TVSZ extends Item{
         Student student = (Student)source;
         if(trigger == ItemTrigger.TeacherAttack){
             durability--;
-            source.setTeacherResist(true);
+            student.setTeacherResist(true);
             if(durability == 0){
-                source.dropItem(this, null); //pontosítani kell
+                source.dropItem(this, null); //pontosï¿½tani kell
             }
         }
     }
