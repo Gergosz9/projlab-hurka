@@ -26,9 +26,15 @@ public class Student extends Character {
    * @param room the room to move to
    */
   public void move(Room room) {
+    actionCount--;
     Room currentRoom = this.getMyLocation();
     if (room.addStudent(this)) {
       currentRoom.removeStudent(this);
+      if(room.isGassed() && !gasResist) {
+        useItem(ItemTrigger.GasAttack, 0);
+        if(!gasResist)
+          setParalyzed(true);
+      }
     }
   }
   
