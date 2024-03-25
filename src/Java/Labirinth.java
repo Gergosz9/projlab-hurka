@@ -7,18 +7,29 @@ public class Labirinth {
     private List<Student> students;
     private List<Room> rooms;
 
+    /**
+     * TBD
+     * Cycles through players to let them perform their round
+     */
     public void doStudentRound() {
         for (Student student : students) {
             // do student's round
         }
     }
 
+    /**
+     * TBD
+     * Cycles through teachers, performs their round
+     */
     public void doTeacherRound() {
         for (Teacher teacher : teachers) {
             // do teacher's round
         }
     }
 
+    /*
+     * Updates state of rooms
+     */
     public void updateRooms() {
         // Prevents change in number of rooms
         int numberOfRooms = rooms.size();
