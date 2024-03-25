@@ -2,6 +2,8 @@ package Java;
 
 import java.util.*;
 
+import java.util.List;
+
 /**
  * The Teacher class represents a non-playable teacher character in the game.
  */
@@ -45,7 +47,7 @@ public class Teacher extends Character{
      * Method that decides the optimal steps for the teacher during it's round.
      * @return optimalRoute the list of the rooms the teacher will go trough
      */
-    List<Room> pathFind(){
+    public List<Room> pathFind(){
       List<Room> optimalRoute = new ArrayList<>();
        return optimalRoute;
     }
