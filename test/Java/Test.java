@@ -700,7 +700,7 @@ public class Test {
 
         while (testCase != 23) {
             printTests();
-            System.out.print("Válassz egy tesztesetet: ");
+            System.out.print("\nVálassz egy tesztesetet: ");
             testCase = scanner.nextInt();
 
             switch (testCase) {
