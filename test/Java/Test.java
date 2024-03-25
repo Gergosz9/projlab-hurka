@@ -2,8 +2,6 @@ package Java;
 
 import java.util.*;
 
-import static Java.ItemTrigger.*;
-
 /*
  * The Test class contains the test for the program, 
  * and a main function to run the selected tests.
