@@ -584,10 +584,23 @@ public class Test {
     }
 
     /**
-     * Function that runs the 1st test case
+     * Function that runs the 21st test case
      */
     static void test21() {
-
+        System.out.println("\nForgatókönyv:\n\n" +
+                         "A hallgató felvesz egy tárgyat.\n"+
+                         "A tanuló felvesz egy tárgyat abban az esetben, ha annak nincsen tele a kapacitása.\n");
+        Student s = new Student("Student", new Labirinth());
+        Rag r = new Rag();
+        System.out.println("\n\n" +
+                        "Létrehozott objektumok:\n\n" +
+                        " name: Student\n" +
+                        "attribute inventory : List<Item>;\n\n" +
+                        " name: Rag\n\n");
+        s.pickUpItem(r);
+        System.out.println("\n\n" +
+                        "Meghívott metódusok:\n\n" +
+                        " name: s.pickUpItem(r)\n");
     }
 
     /**
