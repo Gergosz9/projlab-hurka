@@ -7,6 +7,11 @@ public class Labirinth {
     private List<Student> students;
     private List<Room> rooms;
 
+    public Labirinth() {
+        teachers = new ArrayList<>();
+        students = new ArrayList<>();
+        rooms = new ArrayList<>();
+    }
     /**
      * TBD
      * Cycles through players to let them perform their round
