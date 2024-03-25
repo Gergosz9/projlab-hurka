@@ -2,13 +2,6 @@ package Java;
 
 import java.util.*;
 
-/**
- * Labirinth represents the map of the game
- * 
- * @param teachers stores active teachers
- * @param students stores active students
- * @param rooms    stores rooms of the labirinth
- */
 public class Labirinth {
     private List<Teacher> teachers;
     private List<Student> students;
@@ -34,9 +27,6 @@ public class Labirinth {
         }
     }
 
-    /**
-     * Updates the state of rooms
-     */
     public void updateRooms() {
         // Prevents change in number of rooms
         int numberOfRooms = rooms.size();
@@ -73,5 +63,13 @@ public class Labirinth {
         Random random = new Random();
         Collections.shuffle(rooms);
         rooms.get(0).merge(rooms.get(0).getOpenRooms().get(random.nextInt(rooms.get(0).getOpenRooms().size())));
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
     }
 }
