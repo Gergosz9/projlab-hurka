@@ -399,7 +399,7 @@ public class Test {
         System.out.println("\n\n" +
                         "Létrehozott objektumok:\n\n" +
                         " name: Student\n" +
-                        "attribute inventory : List<Item>, Beer;\n\n" +
+                        "attribute inventory : List<Item>;\n\n" +
                         " name:Teacher\n" +
                         " name:Room\n\n");
         r.addTeacher(t);
@@ -424,7 +424,7 @@ public class Test {
         System.out.println("\n\n" +
                         "Létrehozott objektumok:\n\n" +
                         " name: Student\n" +
-                        "attribute inventory : List<Item>, Beer;\n\n" +
+                        "attribute inventory : List<Item>;\n\n" +
                         " name:Teacher\n" +
                         " name:Room\n\n");
         r.addStudent(s);
@@ -436,10 +436,32 @@ public class Test {
     }
 
     /**
-     * Function that runs the 1st test case
+     * Function that runs the 15st test case
      */
     static void test15() {
-
+        System.err.println("\nForgatókönyv:\n\n" +
+                         "Egy szoba ketté válik.\n" + 
+                         "A kiválasztott szoba létrehoz egy új szobát amivel megosztja a szomszédait, tulajdonságait, ott lévő karaktereket és inventory tartalmát.\r\n" + //
+                         "A kiválasztott szoba átadja az új szobát akikkel szomszédos lesz.\r\n" + //
+                         "Az új szoba bekerül a labirintus gyüjteményébe\r\n");
+        Room r1 = new Room("temp1 temp2", 5, false, true, null, null);
+        Student s = new Student("Student", new Labirinth());
+        Student s2 = new Student("Student2", new Labirinth());
+        System.out.println("\n\n" +
+                        "Létrehozott objektumok:\n\n" +
+                        " name: Room\n" +
+                        " name: Student\n" +
+                        "attribute inventory : List<Item>;\n\n" +
+                        " name: Student2\n\n" +
+                        "attribute inventory : List<Item>;\n\n");
+        r1.addStudent(s);
+        r1.addStudent(s2);
+        Room r2 = r1.split();
+        System.out.println("\n\n" +
+                        "Meghívott metódusok:\n\n" +
+                        " name: r1.addStudent(s)\n" +
+                        " name: r1.addStudent(s2)\n" +
+                        " name: r1.split()\n");
     }
 
     /**
