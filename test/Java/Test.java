@@ -540,7 +540,8 @@ public class Test {
      */
     static void test19() {
         System.out.println("\nForgatókönyv:\n\n" +
-                         "A hallgató átlép egy másik szobába.\n");
+                         "A tanuló át tud menni egy másik szobába.\n"+
+                         "Mielőtt átmegy a másik szobába azonban megnézi, hogy van-e még szabad hely abban, ha nincs akkor nem tud átmenni.\n");
         Student s = new Student("Student", new Labirinth());
         Room r1 = new Room("Room1", 2, false, false, null, null);
         Room r2 = new Room("Room2", 2, false, false, null, null);
@@ -559,10 +560,27 @@ public class Test {
     }
 
     /**
-     * Function that runs the 1st test case
+     * Function that runs the 20st test case
      */
     static void test20() {
-
+        System.out.println("\nForgatókönyv:\n\n" +
+                         "A tanár át tud menni egy másik szobába.\n"+
+                         "Mielőtt átmegy a másik szobába azonban megnézi, hogy van-e még szabad hely abban, ha nincs akkor nem tud átmenni.\n");
+        Teacher t = new Teacher("Teacher", new Labirinth());
+        Room r1 = new Room("Room1", 2, false, false, null, null);
+        Room r2 = new Room("Room2", 2, false, false, null, null);
+        System.out.println("\n\n" +
+                        "Létrehozott objektumok:\n\n" +
+                        " name: Teacher\n" +
+                        "attribute inventory : List<Item>;\n\n" +
+                        " name: Room1\n\n" +
+                        " name: Room2\n\n");
+        r1.addTeacher(t);
+        t.move(r2);
+        System.out.println("\n\n" +
+                        "Meghívott metódusok:\n\n" +
+                        " name: r1.addTeacher(t)\n" +
+                        " name: t.move(r2)\n");
     }
 
     /**
