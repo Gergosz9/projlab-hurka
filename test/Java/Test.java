@@ -513,10 +513,26 @@ public class Test {
     }
 
     /**
-     * Function that runs the 1st test case
+     * Function that runs the 18st test case
      */
     static void test18() {
-
+        System.out.println("\nForgatókönyv:\n\n" +
+                         "A tanár belép egy rongyos szobába.\n" + 
+                         "A tanár eldobja az összes tárgyát\n" + 
+                         "A tanár köre véget ér.");
+        Teacher t = new Teacher("Teacher", new Labirinth());
+        Room r = new Room("Room", 2, false, true, null, null);
+        System.out.println("\n\n" +
+                        "Létrehozott objektumok:\n\n" +
+                        " name: Teacher\n" +
+                        "attribute inventory : List<Item>;\n\n" +
+                        " name: Room\n\n");
+        r.setRagged(1);
+        System.out.println("\n\n" +
+                        "Meghívott metódusok:\n\n" +
+                        " name: r.setRagged(1)\n" +
+                        " name: r.addTeacher(t)\n");
+        t.move(r);
     }
 
     /**
