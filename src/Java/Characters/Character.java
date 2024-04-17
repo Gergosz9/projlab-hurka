@@ -4,26 +4,12 @@ import java.util.*;
 
 import Java.Labirinth;
 import Java.Room;
-import Java.Items.Item;
-import Java.Items.Triggers.ActionTrigger;
-import Java.Items.Triggers.RoundTrigger;
-import Java.Items.Triggers.Trigger;
+import Java.Items.*;
+import Java.Items.Triggers.*;
 
 /**
  * The Character class represents a character in the game.
  * It is an abstract class that provides common attributes and methods for all characters.
- * @param name the name of the character
- * @param actionCount the number of actions the character can perform
- * @param paralyzed the paralyzed state of the character
- * @param gasResist the gas resistance state of the character
- * @param inventory the list of items in the character's inventory
- * @param labirinth the labirinth where the character is located
- */
-/**
- * The abstract class representing a character in the game.
- */
-/**
- * The abstract base class for all characters in the game.
  */
 public abstract class Character {
     String name;
@@ -141,14 +127,19 @@ public abstract class Character {
      * Abstract method that represents the actions to be performed in a round.
      */
     public abstract void doRound();
+    
     /**
      * Method that calls the use method of all items in the character's inventory with the specified trigger.
-     * @param trigger
+     * @param trigger the trigger to be used
      */
     public void triggerItems(Trigger trigger){
         for(Item item : inventory){
             item.use(trigger);
         }
     }
+    
+    /**
+     * Method that represents the action of hurting the character.
+     */
     public void hurt(){}
 }
