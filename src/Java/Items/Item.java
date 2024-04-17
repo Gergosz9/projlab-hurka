@@ -1,7 +1,6 @@
 package Java.Items;
 
-import Java.ItemTrigger;
-import Java.Characters.Character;
+import Java.Items.Triggers.*;
 
 /**
  * The abstract class Item represents an item in the game.
@@ -10,14 +9,16 @@ import Java.Characters.Character;
  */
 public abstract class Item {
     protected int durability;
+    boolean  isFake;
 
     /**
      * Constructs an Item object with the specified durability.
      * 
      * @param durability the durability of the item
      */
-    public Item(int durability){
+    public Item(int durability, boolean fakeness){
         this.durability = durability;
+        this.isFake = fakeness;
     }
 
     /**
@@ -27,5 +28,5 @@ public abstract class Item {
      * @param trigger the trigger for using the item
      * @param source the character using the item
      */
-    public abstract void use(ItemTrigger trigger, Character source); 
+    public abstract void use(Trigger trigger); 
 }
