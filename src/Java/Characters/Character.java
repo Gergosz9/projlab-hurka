@@ -10,6 +10,12 @@ import Java.Items.Triggers.*;
 /**
  * The Character class represents a character in the game.
  * It is an abstract class that provides common attributes and methods for all characters.
+ * @param name the name of the character
+ * @param actionCount the number of actions the character can perform in a round
+ * @param paralyzed true if the character is paralyzed, false otherwise
+ * @param gasResist true if the character has gas resistance, false otherwise
+ * @param inventory the list of items in the character's inventory
+ * @param labirinth the labirinth in which the character exists
  */
 public abstract class Character {
     String name;
