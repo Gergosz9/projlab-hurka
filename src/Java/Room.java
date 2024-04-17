@@ -3,8 +3,6 @@ package Java;
 import java.util.*;
 
 import Java.Characters.Character;
-import Java.Characters.Student;
-import Java.Characters.Teacher;
 import Java.Items.Item;
 import Java.Items.Transistor;
 
@@ -32,8 +30,7 @@ public class Room {
     int raggedRounds;
     List<Room> closedRooms;
     List<Room> openRooms;
-    List<Character> teachers;
-    List<Character> students;
+    List<Character> characters;
     List<Item> items;
     List<Transistor> transistors;
 
@@ -56,8 +53,7 @@ public class Room {
         raggedRounds = 0;
         this.closedRooms = closedRooms;
         this.openRooms = openRooms;
-        teachers = new ArrayList<>();
-        students = new ArrayList<>();
+        characters = new ArrayList<>();
         items = new ArrayList<>();
         transistors = new ArrayList<>();
     }
@@ -83,39 +79,17 @@ public class Room {
      * @return a list of characters in the room
      */
     public List<Character> getCharacters() {
-        List<Character> characters = new ArrayList<>();
-        characters.addAll(teachers);
-        characters.addAll(students);
         return characters;
     }
-
-    /**
-     * Returns the name of the room.
-     * 
-     * @return the name of the room
-     */
-    public List<Character> getTeachers() {
-        return teachers;
-    }
-
-    /**
-     * Returns the name of the room.
-     * 
-     * @return the name of the room
-     */
-    public List<Character> getStudents() {
-        return students;
-    }
-
     /**
      * Adds a student to the room.
      * 
      * @param student the student to add
      * @return true if the student was successfully added, false if the room is full
      */
-    public boolean addStudent(Student student) {
-        if (students.size() + teachers.size() <= maxCharacters) {
-            students.add(student);
+    public boolean addCharacter(Character character) {
+        if (characters.size() <= maxCharacters) {
+            characters.add(character);
             return true;
         }
         return false;
@@ -126,31 +100,8 @@ public class Room {
      * 
      * @param student the student to remove
      */
-    public void removeStudent(Student student) {
-        students.remove(student);
-    }
-
-    /**
-     * Adds a teacher to the room.
-     * 
-     * @param teacher the teacher to add
-     * @return true if the teacher was successfully added, false if the room is full
-     */
-    public boolean addTeacher(Teacher teacher) {
-        if (teachers.size() + students.size() < maxCharacters) {
-            teachers.add(teacher);
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Removes a teacher from the room.
-     * 
-     * @param teacher the teacher to remove
-     */
-    public void removeTeacher(Teacher teacher) {
-        teachers.remove(teacher);
+    public void removeCharacter(Character character) {
+        characters.remove(character);
     }
 
     /**
@@ -230,11 +181,8 @@ public class Room {
         for (int i = 0; i < closedRooms.size() / 2; i++) {
             newRoom.closedRooms.add(closedRooms.remove(0));
         }
-        for (int i = 0; i < teachers.size() / 2; i++) {
-            newRoom.teachers.add(teachers.remove(0));
-        }
-        for (int i = 0; i < students.size() / 2; i++) {
-            newRoom.students.add(students.remove(0));
+        for (int i = 0; i < characters.size() / 2; i++) {
+            newRoom.characters.add(characters.remove(0));
         }
         for (int i = 0; i < items.size() / 2; i++) {
             newRoom.items.add(items.remove(0));
@@ -264,8 +212,7 @@ public class Room {
         raggedRounds = Math.max(raggedRounds, room.raggedRounds);
         closedRooms.addAll(room.closedRooms);
         openRooms.addAll(room.openRooms);
-        teachers.addAll(room.teachers);
-        students.addAll(room.students);
+        characters.addAll(room.characters);
         items.addAll(room.items);
         transistors.addAll(room.transistors);
         name = name + " " + room.name;
@@ -299,5 +246,8 @@ public class Room {
 
     public String getName() {
         return name;
+    }
+    public List<Item> getItems() {
+        return items;
     }
 }

@@ -5,6 +5,9 @@ import java.util.*;
 import Java.Labirinth;
 import Java.Room;
 import Java.Items.Item;
+import Java.Items.Triggers.ActionTrigger;
+import Java.Items.Triggers.RoundTrigger;
+import Java.Items.Triggers.Trigger;
 
 /**
  * The Character class represents a character in the game.
@@ -18,6 +21,9 @@ import Java.Items.Item;
  */
 /**
  * The abstract class representing a character in the game.
+ */
+/**
+ * The abstract base class for all characters in the game.
  */
 public abstract class Character {
     String name;
@@ -50,10 +56,13 @@ public abstract class Character {
     }
 
     /**
-     * Abstract method that represents the action of using an item triggered by a specific event.
-     * @param trigger the trigger event for using the item
+     * Uses the item at the specified index in the character's inventory.
+     * If the index is 0, all items in the inventory are used with a round trigger.
+     * @param index the index of the item in the inventory
      */
-    public abstract void useItem(int index);
+    public void useItem(int index){
+        this.getInventory().get(index - 1).use(new ActionTrigger(this));
+    }
 
     /**
      * Picks up an item and adds it to the character's inventory.
@@ -127,4 +136,19 @@ public abstract class Character {
     public void rollMoveCount(){
         actionCount = (int)(Math.random() * 6) + 1;
     }
+    
+    /**
+     * Abstract method that represents the actions to be performed in a round.
+     */
+    public abstract void doRound();
+    /**
+     * Method that calls the use method of all items in the character's inventory with the specified trigger.
+     * @param trigger
+     */
+    public void triggerItems(Trigger trigger){
+        for(Item item : inventory){
+            item.use(trigger);
+        }
+    }
+    public void hurt(){}
 }
