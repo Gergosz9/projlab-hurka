@@ -10,6 +10,12 @@ import Java.Items.Triggers.*;
 /**
  * The Character class represents a character in the game.
  * It is an abstract class that provides common attributes and methods for all characters.
+ * @param name the name of the character
+ * @param actionCount the number of actions the character can perform in a round
+ * @param paralyzed true if the character is paralyzed, false otherwise
+ * @param gasResist true if the character has gas resistance, false otherwise
+ * @param inventory the character's inventory
+ * @param labirinth the labirinth in which the character exists
  */
 public abstract class Character {
     String name;
@@ -43,7 +49,6 @@ public abstract class Character {
 
     /**
      * Uses the item at the specified index in the character's inventory.
-     * If the index is 0, all items in the inventory are used with a round trigger.
      * @param index the index of the item in the inventory
      */
     public void useItem(int index){
@@ -139,7 +144,7 @@ public abstract class Character {
     }
     
     /**
-     * Method that represents the action of hurting the character.
+     * Abstract method that represents the action of hurting the character.
      */
-    public void hurt(){}
+    public abstract void hurt();
 }
