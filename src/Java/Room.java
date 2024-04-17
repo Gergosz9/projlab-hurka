@@ -102,6 +102,17 @@ public class Room {
     }
 
     /**
+     * Returns all rooms connected to this room.
+     * @return a list of all rooms connected to this room
+     */
+    List<Room> getRooms(){
+        List<Room> rooms = new ArrayList<>();
+        rooms.addAll(closedRooms);
+        rooms.addAll(openRooms);
+        return rooms;
+    }
+
+    /**
      * Adds a character to the room.
      * 
      * @param character the character to add
