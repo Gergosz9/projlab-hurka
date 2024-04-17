@@ -1,6 +1,11 @@
-package Java;
+package Java.Characters;
 
 import java.util.*;
+
+import Java.ItemTrigger;
+import Java.Labirinth;
+import Java.Room;
+import Java.Items.Item;
 
 /**
  * The Character class represents a character in the game.

@@ -1,4 +1,9 @@
-package Java;
+package Java.Items;
+
+import Java.ItemTrigger;
+import Java.Labirinth;
+import Java.Room;
+import Java.Characters.Character;
 
 /**
  * The Transistor class represents a transistor item in the game.

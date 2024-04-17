@@ -2,6 +2,12 @@ package Java;
 
 import java.util.*;
 
+import Java.Characters.Character;
+import Java.Characters.Student;
+import Java.Characters.Teacher;
+import Java.Items.Item;
+import Java.Items.Transistor;
+
 /**
  * The Room class represents a room in a game.
  * Represents a room in a game.

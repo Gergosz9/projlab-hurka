@@ -1,4 +1,7 @@
-package Java;
+package Java.Items;
+
+import Java.ItemTrigger;
+import Java.Characters.Character;
 
 /*
  * The Mask class represents a mask item in the game.

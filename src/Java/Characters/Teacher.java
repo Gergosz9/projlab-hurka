@@ -1,8 +1,13 @@
-package Java;
+package Java.Characters;
 
 import java.util.*;
 
 import java.util.List;
+
+import Java.ItemTrigger;
+import Java.Labirinth;
+import Java.Room;
+import Java.Items.Item;
 
 /**
  * The Teacher class represents a non-playable teacher character in the game.

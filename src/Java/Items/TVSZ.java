@@ -1,4 +1,8 @@
-package Java;
+package Java.Items;
+
+import Java.ItemTrigger;
+import Java.Characters.Character;
+import Java.Characters.Student;
 
 /**
  * The TVSZ class represents a TVSZ item in the game.

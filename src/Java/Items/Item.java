@@ -1,4 +1,7 @@
-package Java;
+package Java.Items;
+
+import Java.ItemTrigger;
+import Java.Characters.Character;
 
 /**
  * The abstract class Item represents an item in the game.

@@ -1,6 +1,9 @@
- package Java;
+ package Java.Items;
 
- /**
+import Java.ItemTrigger;
+import Java.Characters.Character;
+
+/**
  * The SlideRule class represents a sliderule item in the game.
  * It extends the Item class
  */

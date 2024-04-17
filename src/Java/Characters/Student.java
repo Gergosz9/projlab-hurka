@@ -1,5 +1,9 @@
-package Java;
+package Java.Characters;
 
+import Java.ItemTrigger;
+import Java.Labirinth;
+import Java.Room;
+import Java.Items.Item;
 
 /**
  * The Student class represents a character in the game.

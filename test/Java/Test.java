@@ -2,6 +2,16 @@ package Java;
 
 import java.util.*;
 
+import Java.Characters.Student;
+import Java.Characters.Teacher;
+import Java.Items.Beer;
+import Java.Items.Camembert;
+import Java.Items.Mask;
+import Java.Items.Rag;
+import Java.Items.SlideRule;
+import Java.Items.TVSZ;
+import Java.Items.Transistor;
+
 /*
  * The Test class contains the test for the program, 
  * and a main function to run the selected tests.

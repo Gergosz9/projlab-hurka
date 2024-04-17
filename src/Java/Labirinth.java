@@ -2,6 +2,9 @@ package Java;
 
 import java.util.*;
 
+import Java.Characters.Student;
+import Java.Characters.Teacher;
+
 public class Labirinth {
     private List<Teacher> teachers;
     private List<Student> students;

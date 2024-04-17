@@ -1,4 +1,8 @@
-package Java;
+package Java.Items;
+
+import Java.ItemTrigger;
+import Java.Characters.Character;
+import Java.Characters.Student;
 
 /**
  * The Beer class represents a beer item in the game.

@@ -1,4 +1,8 @@
-package Java;
+package Java.Items;
+
+import Java.ItemTrigger;
+import Java.Characters.Character;
+
 /*
  * The Rag class represents a Rag item in the game.
  * It extends the Item class.
