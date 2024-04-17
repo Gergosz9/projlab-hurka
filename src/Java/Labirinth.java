@@ -2,40 +2,35 @@ package Java;
 
 import java.util.*;
 
-import Java.Characters.Student;
-import Java.Characters.Teacher;
+import Java.Characters.Character;
 
+/**
+ * The Labirinth class represents the labyrinth in the game.
+ * @param characters the list of characters in the labyrinth
+ * @param rooms the list of rooms in the labyrinth
+ */
 public class Labirinth {
-    private List<Teacher> teachers;
-    private List<Student> students;
+    private List<Character> characters;
     private List<Room> rooms;
 
+    /**
+     * Constructs a Labirinth object with an empty list of characters and rooms.
+     */
     public Labirinth() {
-        teachers = new ArrayList<>();
-        students = new ArrayList<>();
+        characters = new ArrayList<>();
         rooms = new ArrayList<>();
     }
+
     /**
-     * TBD
-     * Cycles through players to let them perform their round
+     * Does a round of actions for all characters in the labyrinth
      */
-    public void doStudentRound() {
-        for (Student student : students) {
-            // do student's round
+    public void doCharactersRound() {
+        for (Character character : characters) {
+            character.doRound();
         }
     }
 
     /**
-     * TBD
-     * Cycles through teachers, performs their round
-     */
-    public void doTeacherRound() {
-        for (Teacher teacher : teachers) {
-            // do teacher's round
-        }
-    }
-
-    /*
      * Updates state of rooms
      */
     public void updateRooms() {
@@ -76,11 +71,27 @@ public class Labirinth {
         rooms.get(0).merge(rooms.get(0).getOpenRooms().get(random.nextInt(rooms.get(0).getOpenRooms().size())));
     }
 
+    /**
+     * Returns the list of rooms in the labyrinth
+     * @return the list of rooms in the labyrinth
+     */
     public List<Room> getRooms() {
         return rooms;
     }
 
-    public void removeStudent(Student student) {
-        students.remove(student);
+    /**
+     * Returns the list of characters in the labyrinth
+     * @return
+     */
+    public List<Character> getCharacters() {
+        return characters;
+    }
+
+    /**
+     * Removes a character from the labyrinth
+     * @param character the character to remove
+     */
+    public void removeCharacter(Character character) {
+        characters.remove(character);
     }
 }
