@@ -15,27 +15,19 @@ public class Transistor extends Item {
     }
 
     public void trigger(ActionTrigger at) {
-        /*
-         * if (trigger == ItemTrigger.UseActiveItem) {
-         * if (pair != null) {
-         * for (Item item : source.getInventory()) {
-         * if (item instanceof Transistor) {
-         * if (item != this) {
-         * Transistor transistor = (Transistor) item;
-         * if (transistor.pair == null) {
-         * pair((Transistor) item);
-         * break;
-         * }
-         * }
-         * }
-         * }
-         * } else if (getMyPairLocation() != null) {
-         * source.move(getMyPairLocation());
-         * } else {
-         * source.getMyLocation().addTransistor(this);
-         * }
-         * }
-         */
+        if (pair != null) {
+            if (getMyPairLocation() != null)
+                at.getCharacter().move(getMyPairLocation());
+        } else {
+            for (Item i : at.getCharacter().getInventory()) {
+                if (i instanceof Transistor) {
+                    Transistor t = (Transistor) i;
+                    if (t.pair(this)) {
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     private boolean pair(Transistor pair) {
