@@ -7,7 +7,8 @@ public class AirFreshener extends Item {
         super(durability, isFake);
     }
 
-    public void trigger(ActionTrigger a) {
-        // action
+    public void trigger(ActionTrigger at) {
+        at.getCharacter().getMyLocation().setGassed(false);
+        at.getCharacter().dropItem(this, null);
     }
 }
