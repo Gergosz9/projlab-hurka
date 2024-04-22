@@ -12,6 +12,10 @@ public abstract class Item {
     }
 
     public void use(Trigger trigger) {
-        trigger.handle(this);
+        if (!this.isFake) {
+            trigger.handle(this);
+        } else {
+            trigger.getCharacter().dropItem(this, null);
+        }
     }
 }
