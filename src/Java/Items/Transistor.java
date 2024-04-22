@@ -1,9 +1,9 @@
 package Java.Items;
 
-import Java.ItemTrigger;
 import Java.Labirinth;
 import Java.Room;
 import Java.Characters.Character;
+import Java.Items.Triggers.*;
 
 /**
  * The Transistor class represents a transistor item in the game.
@@ -22,8 +22,8 @@ public class Transistor extends Item {
      * 
      * @param durability the durability of the transistor
      */
-    public Transistor(int durability, Labirinth labirinth) {
-        super(durability);
+    public Transistor(int durability, boolean isFake, Labirinth labirinth) {
+        super(durability, isFake);
         pair = null;
         this.labirinth = labirinth;
     }
@@ -38,26 +38,28 @@ public class Transistor extends Item {
      * @param trigger the trigger for using the item
      * @param source  the character using the item
      */
-    public void use(ItemTrigger trigger, Character source) {
-        if (trigger == ItemTrigger.UseActiveItem) {
-            if (pair != null) {
-                for (Item item : source.getInventory()) {
-                    if (item instanceof Transistor) {
-                        if (item != this) {
-                            Transistor transistor = (Transistor) item;
-                            if (transistor.pair == null) {
-                                pair((Transistor) item);
-                                break;
-                            }
-                        }
-                    }
-                }
-            } else if (getMyPairLocation() != null) {
-                source.move(getMyPairLocation());
-            } else {
-                source.getMyLocation().addTransistor(this);
-            }
-        }
+    public void trigger(ActionTrigger at) {
+        /*
+         * if (trigger == ItemTrigger.UseActiveItem) {
+         * if (pair != null) {
+         * for (Item item : source.getInventory()) {
+         * if (item instanceof Transistor) {
+         * if (item != this) {
+         * Transistor transistor = (Transistor) item;
+         * if (transistor.pair == null) {
+         * pair((Transistor) item);
+         * break;
+         * }
+         * }
+         * }
+         * }
+         * } else if (getMyPairLocation() != null) {
+         * source.move(getMyPairLocation());
+         * } else {
+         * source.getMyLocation().addTransistor(this);
+         * }
+         * }
+         */
     }
 
     /**
