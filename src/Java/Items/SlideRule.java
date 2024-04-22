@@ -9,14 +9,6 @@ public class SlideRule extends Item {
     }
 
     public void trigger(WinTrigger wt) {
-        /*
-         * if(trigger == ItemTrigger.UseActiveItem){
-         * durability--;
-         * 
-         * if(durability == 0){
-         * System.out.println("Game ends with the players victory");
-         * }
-         * }
-         */
+        // TODO END OF GAME FUNCTION CALL
     }
 }
