@@ -9,14 +9,12 @@ public class Mask extends Item {
     }
 
     public void trigger(GasTrigger gt) {
-        /*
-         * if(trigger == ItemTrigger.GasAttack){
-         * durability--;
-         * source.setGasResist(true);
-         * if(durability == 0){
-         * source.dropItem(this, null);
-         * }
-         * }
-         */
+        if (gt.getCharacter().getMyLocation().isGassed()) {
+            this.durability -= 1;
+            gt.getCharacter().setGasResist(true);
+        }
+        if (this.durability <= 0) {
+            gt.getCharacter().dropItem(this, null);
+        }
     }
 }
