@@ -9,6 +9,18 @@ public class TVSZ extends Item {
         super(durability, isFake);
     }
 
+    public TVSZ(boolean isFake) {
+        super(3, isFake);
+    }
+
+    public TVSZ(int durability) {
+        super(durability, false);
+    }
+
+    public TVSZ() {
+        super(3, false);
+    }
+
     public void trigger(AttackTrigger at) {
         Student student = (Student) at.getCharacter();
         if (!student.getTeacherResist()) {

@@ -14,6 +14,18 @@ public class Transistor extends Item {
         this.labirinth = labirinth;
     }
 
+    public Transistor(boolean isFake, Labirinth labirinth) {
+        super(1, isFake);
+        pair = null;
+        this.labirinth = labirinth;
+    }
+
+    public Transistor(Labirinth labirinth) {
+        super(1, false);
+        pair = null;
+        this.labirinth = labirinth;
+    }
+
     public void trigger(ActionTrigger at) {
         if (pair != null) {
             if (getMyPairLocation() != null)

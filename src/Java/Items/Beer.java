@@ -13,6 +13,18 @@ public class Beer extends Item {
         super(durability, isFake);
     }
 
+    public Beer(boolean isFake) {
+        super(5, isFake);
+    }
+
+    public Beer(int durability) {
+        super(durability, false);
+    }
+
+    public Beer() {
+        super(5, false);
+    }
+
     public void trigger(RoundTrigger rt) {
         if (isInUse) {
             Student student = (Student) rt.getCharacter();

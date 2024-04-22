@@ -8,6 +8,14 @@ public class Rag extends Item {
         super(durability, isFake);
     }
 
+    public Rag(boolean isFake) {
+        super(1, isFake);
+    }
+
+    public Rag() {
+        super(1, false);
+    }
+
     public void trigger(ActionTrigger at) {
         at.getCharacter().getMyLocation().setRagged(4);
         at.getCharacter().dropItem(this, null);
