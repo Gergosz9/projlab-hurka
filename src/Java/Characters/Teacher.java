@@ -46,12 +46,18 @@ public class Teacher extends Character{
      * Method that decides the optimal steps for the teacher during it's round.
      * @return optimalRoute the list of the rooms the teacher will go trough
      */
-    public List<Room> pathFind(){
+    private List<Room> pathFind(){
       	List<Room> optimalRoute = new ArrayList<>();
      	Room currentRoom = this.getMyLocation();
      	List<Room> tree = new ArrayList<Room>();
       	List<Room> parent = new ArrayList<Room>();
       	List<Boolean> hasStudent = new ArrayList<Boolean>();
+
+		List<Room> studentRooms = new ArrayList<Room>();
+		for( int i = 0; i < labirinth.getNumberOfStudents(); i++){
+			studentRooms.add(labirinth.getCharacters().get(i).getMyLocation());
+		}
+		
 		tree.add(currentRoom);
 		parent.add(null);
       	//build the tree
@@ -60,7 +66,7 @@ public class Teacher extends Character{
           		if(!tree.contains(r)){
             		tree.add(r);
             		parent.add(tree.get(i));
-            		if(r.getStudents().size() > 0)//FUUUUUUUCK i mean TODO
+            		if(studentRooms.contains(r))
               			hasStudent.add(true);
             		else
               			hasStudent.add(false);
@@ -88,6 +94,7 @@ public class Teacher extends Character{
      * Method that represents the action of the teacher during it's round.
      */
     public void doRound(){
+		rollMoveCount();
     	List<Room> optimalRoute = pathFind();
     	for(Room r : optimalRoute){
         	for(Item item : getMyLocation().getItems())

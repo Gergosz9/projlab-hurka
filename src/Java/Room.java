@@ -105,7 +105,7 @@ public class Room {
      * Returns all rooms connected to this room.
      * @return a list of all rooms connected to this room
      */
-    List<Room> getRooms(){
+    public List<Room> getRooms(){
         List<Room> rooms = new ArrayList<>();
         rooms.addAll(closedRooms);
         rooms.addAll(openRooms);

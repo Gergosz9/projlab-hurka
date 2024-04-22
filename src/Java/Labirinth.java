@@ -7,10 +7,12 @@ import Java.Characters.Character;
 /**
  * The Labirinth class represents the labyrinth in the game.
  * @param characters the list of characters in the labyrinth
+ * @param numberOfStudents the number of students in the labyrinth
  * @param rooms the list of rooms in the labyrinth
  */
 public class Labirinth {
     private List<Character> characters;
+    private int numberOfStudents;
     private List<Room> rooms;
 
     /**
@@ -19,6 +21,22 @@ public class Labirinth {
     public Labirinth() {
         characters = new ArrayList<>();
         rooms = new ArrayList<>();
+    }
+
+    /**
+     * Returns the number of students in the labyrinth
+     * @return the number of students in the labyrinth
+     */
+    public int getNumberOfStudents() {
+        return numberOfStudents;
+    }
+
+    /**
+     * Sets the number of students in the labyrinth
+     * @param numberOfStudents the number of students to set
+     */
+    public void setNumberOfStudents(int numberOfStudents) {
+        this.numberOfStudents = numberOfStudents;
     }
 
     /**

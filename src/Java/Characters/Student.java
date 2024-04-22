@@ -3,7 +3,7 @@ package Java.Characters;
 import Java.Labirinth;
 import Java.Room;
 import Java.Items.Item;
-import Java.Items.Triggers.AttackTrigger;
+import Java.Items.Triggers.*;
 
 /**
  * The Student class represents a character in the game.
@@ -30,15 +30,15 @@ public class Student extends Character {
    * @param room the room to move to
    */
   public void move(Room room) {
-    actionCount--;
     Room currentRoom = this.getMyLocation();
-    if (room.addCharacter(this)) {
+    if (actionCount > 0 && room.addCharacter(this)) {
       currentRoom.removeCharacter(this);
       if(room.isGassed() && !gasResist) {
         triggerItems(new GasTrigger(this));
         if(!gasResist)
           setParalyzed(true);
       }
+      actionCount--;
     }
   }
     
@@ -51,6 +51,10 @@ public class Student extends Character {
     this.teacherResist = teacherResist; 
   }
 
+  /**
+   * Simulates the student being hurt. 
+   * Drops all items in the inventory and removes the student from the labyrinth if hurt.
+   */
   public void hurt(){
     if(teacherResist)
       return;
@@ -64,6 +68,7 @@ public class Student extends Character {
   }
 
   public void doRound(){
-
+    rollMoveCount();
+    while(actionCount > 0 && !paralyzed);
   }
 }
