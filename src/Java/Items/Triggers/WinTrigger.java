@@ -1,7 +1,5 @@
 package Java.Items.Triggers;
 
-import javax.swing.plaf.SliderUI;
-
 import Java.Characters.Character;
 import Java.Items.*;
 
