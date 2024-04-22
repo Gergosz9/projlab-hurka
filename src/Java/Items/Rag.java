@@ -8,16 +8,9 @@ public class Rag extends Item {
         super(durability, isFake);
     }
 
-    public void trigger(ActionTrigger gt) {
-        /*
-         * if (trigger == ItemTrigger.UseActiveItem) {
-         * durability--;
-         * source.getMyLocation().setRagged(4);
-         * if (durability == 0) {
-         * source.dropItem(this, null); // pontosítani kell
-         * }
-         * }
-         */
+    public void trigger(ActionTrigger at) {
+        at.getCharacter().getMyLocation().setRagged(4);
+        at.getCharacter().dropItem(this, null);
     }
 
 }
