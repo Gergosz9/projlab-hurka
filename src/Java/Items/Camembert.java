@@ -9,15 +9,8 @@ public class Camembert extends Item {
     }
 
     public void trigger(ActionTrigger at) {
-        /*
-         * if (trigger == ItemTrigger.UseActiveItem) {
-         * durability--;
-         * source.getMyLocation().setGassed(true);
-         * if (durability == 0) {
-         * source.dropItem(this, null); // pontosítani kell
-         * }
-         * }
-         */
+        at.getCharacter().getMyLocation().setGassed(true);
+        at.getCharacter().dropItem(this, null);
     }
 
 }
