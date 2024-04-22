@@ -16,7 +16,7 @@ public class RoundTrigger extends Trigger {
      * @param character The character associated with this trigger.
      */
     public RoundTrigger(Character character) {
-        super(character); // Calls the constructor of the superclass Trigger
+        super(character);
     }
 
     /**
@@ -26,6 +26,6 @@ public class RoundTrigger extends Trigger {
      * @param b The Beer item to be handled.
      */
     public void handle(Beer b) {
-        b.trigger(this); // Triggers the action associated with the Beer
+        b.trigger(this);
     }
 }

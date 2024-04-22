@@ -16,7 +16,7 @@ public class AttackTrigger extends Trigger {
      * @param character The character associated with this trigger.
      */
     public AttackTrigger(Character character) {
-        super(character); // Calls the constructor of the superclass Trigger
+        super(character);
     }
 
     /**
@@ -26,6 +26,6 @@ public class AttackTrigger extends Trigger {
      * @param t The TVSZ item to be handled.
      */
     public void handle(TVSZ t) {
-        t.trigger(this); // Triggers the attack associated with the TVSZ
+        t.trigger(this);
     }
 }

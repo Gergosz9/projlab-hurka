@@ -15,7 +15,7 @@ public class GasTrigger extends Trigger {
      * @param character The character associated with this trigger.
      */
     public GasTrigger(Character character) {
-        super(character); // Calls the constructor of the superclass Trigger
+        super(character);
     }
 
     /**
@@ -25,6 +25,6 @@ public class GasTrigger extends Trigger {
      * @param m The Mask item to be handled.
      */
     public void handle(Mask m) {
-        m.trigger(this); // Triggers the action associated with the Mask
+        m.trigger(this);
     }
 }

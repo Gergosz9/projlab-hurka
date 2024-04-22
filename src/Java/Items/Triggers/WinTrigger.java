@@ -16,7 +16,7 @@ public class WinTrigger extends Trigger {
      * @param character The character associated with this trigger.
      */
     public WinTrigger(Character character) {
-        super(character); // Calls the constructor of the superclass Trigger
+        super(character);
     }
 
     /**
@@ -26,6 +26,6 @@ public class WinTrigger extends Trigger {
      * @param s The SlideRule item to be handled.
      */
     public void handle(SlideRule s) {
-        s.trigger(this); // Triggers the action associated with the SlideRule
+        s.trigger(this);
     }
 }

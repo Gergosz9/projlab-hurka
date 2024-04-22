@@ -16,7 +16,7 @@ public class ActionTrigger extends Trigger {
      * @param character The character associated with this trigger.
      */
     public ActionTrigger(Character character) {
-        super(character); // Calls the constructor of the superclass Trigger
+        super(character);
     }
 
     /**
@@ -26,7 +26,7 @@ public class ActionTrigger extends Trigger {
      * @param t The Transistor item to be handled.
      */
     public void handle(Transistor t) {
-        t.trigger(this); // Triggers the action associated with the Transistor
+        t.trigger(this);
     }
 
     /**
@@ -36,7 +36,7 @@ public class ActionTrigger extends Trigger {
      * @param c The Camembert item to be handled.
      */
     public void handle(Camembert c) {
-        c.trigger(this); // Triggers the action associated with the Camembert
+        c.trigger(this);
     }
 
     /**
@@ -46,7 +46,7 @@ public class ActionTrigger extends Trigger {
      * @param r The Rag item to be handled.
      */
     public void handle(Rag r) {
-        r.trigger(this); // Triggers the action associated with the Rag
+        r.trigger(this);
     }
 
     /**
@@ -56,7 +56,7 @@ public class ActionTrigger extends Trigger {
      * @param b The Beer item to be handled.
      */
     public void handle(Beer b) {
-        b.trigger(this); // Triggers the action associated with the Beer
+        b.trigger(this);
     }
 
     /**
@@ -66,7 +66,7 @@ public class ActionTrigger extends Trigger {
      * @param a The AirFreshener item to be handled.
      */
     public void handle(AirFreshener a) {
-        a.trigger(this); // Triggers the action associated with the AirFreshener
+        a.trigger(this);
     }
 
 }
