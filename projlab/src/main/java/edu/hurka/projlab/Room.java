@@ -1,0 +1,305 @@
+package edu.hurka.projlab;
+
+import java.util.*;
+
+import edu.hurka.projlab.Characters.Character;
+import edu.hurka.projlab.Items.Item;
+import edu.hurka.projlab.Items.Transistor;
+
+/**
+ * The Room class represents a room in a game.
+ * Represents a room in a game.
+ * @param name the name of the room
+ * @param maxCharacters the maximum number of characters allowed in the room
+ * @param cursed indicates if the room is cursed
+ * @param gassed indicates if the room is gassed
+ * @param raggedRounds the number of rounds the room stays ragged
+ * @param stickyness the stickiness of the room
+ * @param closedRooms the list of closed rooms connected to this room
+ * @param openRooms the list of open rooms connected to this room
+ * @param characters the list of characters in the room
+ * @param items the list of items in the
+ * @param transistors the list of transistors in the room
+ */
+public class Room {
+    String name;
+    int maxCharacters;
+    boolean cursed;
+    boolean gassed;
+    int raggedRounds;
+    int stickyness;
+    List<Room> closedRooms;
+    List<Room> openRooms;
+    List<Character> characters;
+    List<Item> items;
+    List<Transistor> transistors;
+
+    /**
+     * Constructs a new Room object.
+     * 
+     * @param name          the name of the room
+     * @param maxCharacters the maximum number of characters allowed in the room
+     * @param cursed        indicates if the room is cursed
+     * @param gassed        indicates if the room is gassed
+     * @param closedRooms   the list of closed rooms connected to this room
+     * @param openRooms     the list of open rooms connected to this room
+     */
+    public Room(String name, int maxCharacters, boolean cursed, boolean gassed, List<Room> closedRooms,
+            List<Room> openRooms) {
+        this.name = name;
+        this.maxCharacters = maxCharacters;
+        this.cursed = cursed;
+        this.gassed = gassed;
+        raggedRounds = 0;
+        this.closedRooms = closedRooms;
+        this.openRooms = openRooms;
+        characters = new ArrayList<>();
+        items = new ArrayList<>();
+        transistors = new ArrayList<>();
+    }
+
+    /**
+     * Returns the number of ragged rounds in the room.
+     * 
+     * @return the number of ragged rounds
+     */
+    public boolean isRagged() {
+        return raggedRounds > 0;
+    }
+
+    /**
+     * Returns the gassed state of the room.
+     * 
+     * @return true if the room is gassed, false otherwise
+     */
+    public boolean isGassed() {
+        return gassed;
+    }
+
+    /**
+     * Returns a list of all characters in the room.
+     * 
+     * @return a list of characters in the room
+     */
+    public List<Character> getCharacters() {
+        return characters;
+    }
+
+    /**
+     * Returns the stickiness state of the room.
+     * 
+     * @return true if the room is sticky, false otherwise
+     */
+    public boolean isSticky(){
+        return stickyness > 5;
+    }
+
+    /**
+     * Resets the stickiness state of the room.
+     */
+    public void resetSticky(){
+        this.stickyness = 0;
+    }
+
+    /**
+     * Returns all rooms connected to this room.
+     * @return a list of all rooms connected to this room
+     */
+    public List<Room> getRooms(){
+        List<Room> rooms = new ArrayList<>();
+        rooms.addAll(closedRooms);
+        rooms.addAll(openRooms);
+        return rooms;
+    }
+
+    /**
+     * Adds a character to the room.
+     * 
+     * @param character the character to add
+     * @return true if the character was successfully added, false if the room is full
+     */
+    public boolean addCharacter(Character character) {
+        if (characters.size() <= maxCharacters) {
+            characters.add(character);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Removes a character from the room.
+     * 
+     * @param character the character to remove
+     */
+    public void removeCharacter(Character character) {
+        characters.remove(character);
+    }
+
+    /**
+     * Adds an item to the room.
+     * 
+     * @param item the item to add
+     */
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    /**
+     * Removes an item from the room.
+     * 
+     * @param item the item to remove
+     */
+    public void removeItem(Item item) {
+        items.remove(item);
+    }
+
+    /**
+     * Adds a transistor to the room.
+     * 
+     * @param transistor the transistor to add
+     */
+    public void addTransistor(Transistor transistor) {
+        transistors.add(transistor);
+    }
+
+    /**
+     * Updates the number of ragged rounds in the room.
+     */
+    public void updateItems() {
+        if (raggedRounds > 0) {
+            raggedRounds--;
+        }
+    }
+
+    /**
+     * Returns a list of all transistors in the room.
+     * 
+     * @return a list of transistors in the room
+     */
+    public List<Transistor> getTransistors() {
+        return transistors;
+    }
+
+    /**
+     * Updates the state of the doors in the room.
+     */
+    public void updateDoors() {
+        if (cursed) {
+            openRooms.addAll(closedRooms);
+            closedRooms.clear();
+            for (int i = 0; i < openRooms.size(); i++){
+                Room room = openRooms.get(i);
+                if (Math.random() < 0.5) {
+                    closedRooms.add(room);
+                    openRooms.remove(room);
+                }
+            }
+            if (openRooms.isEmpty())
+                openRooms.add(closedRooms.remove(0));
+        }
+    }
+
+    /**
+     * Splits the room into two separate rooms.
+     * 
+     * @return the new room created after the split
+     */
+    public Room split() {
+        Room newRoom = new Room(null, 0, false, false, new ArrayList<>(), new ArrayList<>());
+        for (int i = 0; i < openRooms.size() / 2; i++) {
+            newRoom.openRooms.add(openRooms.remove(0));
+        }
+        for (int i = 0; i < closedRooms.size() / 2; i++) {
+            newRoom.closedRooms.add(closedRooms.remove(0));
+        }
+        for (int i = 0; i < characters.size() / 2; i++) {
+            newRoom.characters.add(characters.remove(0));
+        }
+        for (int i = 0; i < items.size() / 2; i++) {
+            newRoom.items.add(items.remove(0));
+        }
+        if (name.contains(" ")) {
+            String[] splitName = name.split(" ");
+            name = splitName[0];
+            newRoom.name = splitName[1];
+        } else
+            newRoom.name = name + " Split"; // ????
+        newRoom.raggedRounds = raggedRounds;
+        newRoom.gassed = gassed;
+        newRoom.cursed = cursed;
+        newRoom.maxCharacters = (int) (Math.random() * maxCharacters) + 1;
+        return newRoom;
+    }
+
+    /**
+     * Merges another room into this room.
+     * 
+     * @param room the room to merge
+     */
+    public void merge(Room room) {
+        maxCharacters = Math.max(maxCharacters, room.maxCharacters);
+        cursed = cursed || room.cursed;
+        gassed = gassed || room.gassed;
+        raggedRounds = Math.max(raggedRounds, room.raggedRounds);
+        closedRooms.addAll(room.closedRooms);
+        openRooms.addAll(room.openRooms);
+        characters.addAll(room.characters);
+        items.addAll(room.items);
+        transistors.addAll(room.transistors);
+        name = name + " " + room.name;
+    }
+
+    /**
+     * Sets the number of ragged rounds in the room.
+     * 
+     * @param raggedRounds the number of ragged rounds
+     */
+    public void setRagged(int raggedRounds) {
+        this.raggedRounds = raggedRounds;
+    }
+
+    /**
+     * Sets the gassed state of the room.
+     * 
+     * @param gassed the gassed state of the room
+     */
+    public void setGassed(boolean gassed) {
+        this.gassed = gassed;
+    }
+
+    /**
+     * Returns a list of open rooms connected to this room.
+     * 
+     * @return a list of open rooms
+     */
+    public List<Room> getOpenRooms() {
+        return openRooms;
+    }
+
+    /**
+     * Returns a list of closed rooms connected to this room.
+     * 
+     * @return a list of closed rooms
+     */
+    public List<Room> getClosedRooms() {
+        return closedRooms;
+    }
+
+    /**
+     * Returns the name of the room.
+     * 
+     * @return the name of the room
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Returns a list of items in the room.
+     * 
+     * @return a list of items in the room
+     */
+    public List<Item> getItems() {
+        return items;
+    }
+}
