@@ -24,7 +24,7 @@ public abstract class Character {
     boolean gasResist;
     List<Item> inventory;
     Labirinth labirinth;
-    private final String type;
+    private final String jsonType;
 
     /**
      * Constructs a Character object with the specified name and labirinth.
@@ -39,11 +39,11 @@ public abstract class Character {
 //        gasResist = false;
         inventory = new ArrayList<>();
 
-        this.type = this.getClass().getSimpleName();
+        this.jsonType = this.getClass().getSimpleName();
     }
 
-    public String getType() {
-        return type;
+    public String getJsonType() {
+        return jsonType;
     }
     
     /**
@@ -184,11 +184,11 @@ public abstract class Character {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Character character)) return false;
-        return actionCount == character.actionCount && paralyzed == character.paralyzed && gasResist == character.gasResist && Objects.equals(name, character.name) && Objects.equals(type, character.type);
+        return actionCount == character.actionCount && paralyzed == character.paralyzed && gasResist == character.gasResist && Objects.equals(name, character.name) && Objects.equals(jsonType, character.jsonType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, actionCount, paralyzed, gasResist, type);
+        return Objects.hash(name, actionCount, paralyzed, gasResist, jsonType);
     }
 }

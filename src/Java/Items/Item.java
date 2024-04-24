@@ -10,7 +10,7 @@ import java.util.Objects;
 public abstract class Item {
     protected int durability; // The durability of the item
     boolean isFake; // Indicates if the item is fake
-    private final String type;
+    private final String jsonType;
 
     /**
      * Constructor to initialize an Item with durability and fake status.
@@ -22,7 +22,7 @@ public abstract class Item {
         this.durability = durability;
         this.isFake = isFake;
 
-        this.type = this.getClass().getSimpleName();
+        this.jsonType = this.getClass().getSimpleName();
     }
 
     /**
@@ -41,8 +41,8 @@ public abstract class Item {
         }
     }
 
-    public String getType() {
-        return type;
+    public String getJsonType() {
+        return jsonType;
     }
 
     public int getDurability() {
@@ -57,11 +57,11 @@ public abstract class Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Item item)) return false;
-        return durability == item.durability && isFake == item.isFake && Objects.equals(type, item.type);
+        return durability == item.durability && isFake == item.isFake && Objects.equals(jsonType, item.jsonType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(durability, isFake, type);
+        return Objects.hash(durability, isFake, jsonType);
     }
 }

@@ -111,11 +111,6 @@ public class Transistor extends Item {
         return null;
     }
 
-    @Override
-    public void use(Trigger trigger) {
-
-    }
-
     public Labirinth getLabirinth() {
         return labirinth;
     }

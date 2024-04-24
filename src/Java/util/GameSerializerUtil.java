@@ -128,7 +128,7 @@ class ItemDeserializer implements JsonDeserializer<Item> {
     public Item deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
             throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        String type = jsonObject.get("type").getAsString();
+        String type = jsonObject.get("jsonType").getAsString();
         Integer durability = jsonObject.get("durability").getAsInt();
         Boolean isFake = jsonObject.get("isFake").getAsBoolean();
 
@@ -162,7 +162,7 @@ class CharacterDeserializer implements JsonDeserializer<Character> {
     public Character deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
             throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        String type = jsonObject.get("type").getAsString();
+        String type = jsonObject.get("jsonType").getAsString();
         String name = jsonObject.get("name").getAsString();
 
         switch (type) {
