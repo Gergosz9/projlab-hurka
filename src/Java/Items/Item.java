@@ -68,7 +68,7 @@ public abstract class Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Item item)) return false;
-        return durability == item.durability && isFake == item.isFake && Objects.equals(jsonType, item.jsonType);
+        return durability == item.durability && isFake == item.isFake;
     }
 
     /**
@@ -77,6 +77,6 @@ public abstract class Item {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(durability, isFake, jsonType);
+        return Objects.hash(durability, isFake);
     }
 }

@@ -47,4 +47,12 @@ public class Camembert extends Item {
         at.getCharacter().getMyLocation().setGassed(true);
         at.getCharacter().dropItem(this, null);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Camembert camembert)) return false;
+        if (!super.equals(o)) return false;
+        return super.equals(o);
+    }
 }

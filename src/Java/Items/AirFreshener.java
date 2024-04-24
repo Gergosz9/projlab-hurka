@@ -1,5 +1,6 @@
 package Java.Items;
 
+import Java.Characters.Cleaner;
 import Java.Items.Triggers.*;
 
 /**
@@ -46,5 +47,13 @@ public class AirFreshener extends Item {
     public void trigger(ActionTrigger at) {
         at.getCharacter().getMyLocation().setGassed(false);
         at.getCharacter().dropItem(this, null);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AirFreshener airFreshener)) return false;
+        if (!super.equals(o)) return false;
+        return super.equals(o);
     }
 }

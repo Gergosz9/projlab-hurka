@@ -46,4 +46,12 @@ public class SlideRule extends Item {
     public void trigger(WinTrigger wt) {
         // TODO: Implement end-of-game function call
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SlideRule slideRule)) return false;
+        if (!super.equals(o)) return false;
+        return super.equals(o);
+    }
 }

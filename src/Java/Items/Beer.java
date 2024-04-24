@@ -1,5 +1,6 @@
 package Java.Items;
 
+import java.util.Objects;
 import java.util.Random;
 
 import Java.Items.Triggers.*;
@@ -88,5 +89,18 @@ public class Beer extends Item {
             Item randomitem = at.getCharacter().getInventory().get(randomidx);
             at.getCharacter().dropItem(randomitem, at.getCharacter().getMyLocation());
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Beer beer)) return false;
+        if (!super.equals(o)) return false;
+        return isInUse == beer.isInUse;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isInUse);
     }
 }

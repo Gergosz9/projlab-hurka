@@ -67,4 +67,12 @@ public class TVSZ extends Item {
             student.dropItem(this, null);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TVSZ tvsz)) return false;
+        if (!super.equals(o)) return false;
+        return super.equals(o);
+    }
 }

@@ -5,6 +5,8 @@ import Java.Room;
 import Java.Items.Item;
 import Java.Items.Triggers.*;
 
+import java.util.Objects;
+
 /**
  * The Student class represents a character in the game.
  * Inherits from the Character class.
@@ -78,5 +80,18 @@ public class Student extends Character {
     rollMoveCount();
     while (actionCount > 0 && !paralyzed)
       ;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Student student)) return false;
+    if (!super.equals(o)) return false;
+    return teacherResist == student.teacherResist;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), teacherResist);
   }
 }

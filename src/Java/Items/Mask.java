@@ -63,4 +63,12 @@ public class Mask extends Item {
             gt.getCharacter().dropItem(this, null);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mask mask)) return false;
+        if (!super.equals(o)) return false;
+        return super.equals(o);
+    }
 }

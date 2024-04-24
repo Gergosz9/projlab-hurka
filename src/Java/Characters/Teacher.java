@@ -110,4 +110,12 @@ public class Teacher extends Character{
           		break;
       	}
     }
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Teacher teacher)) return false;
+		if (!super.equals(o)) return false;
+		return super.equals(o);
+	}
 }

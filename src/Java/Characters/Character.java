@@ -210,7 +210,7 @@ public abstract class Character {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Character character)) return false;
-        return actionCount == character.actionCount && paralyzed == character.paralyzed && gasResist == character.gasResist && Objects.equals(name, character.name) && Objects.equals(jsonType, character.jsonType);
+        return actionCount == character.actionCount && paralyzed == character.paralyzed && gasResist == character.gasResist && Objects.equals(name, character.name);
     }
 
     /**
@@ -219,6 +219,6 @@ public abstract class Character {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(name, actionCount, paralyzed, gasResist, jsonType);
+        return Objects.hash(name, actionCount, paralyzed, gasResist);
     }
 }

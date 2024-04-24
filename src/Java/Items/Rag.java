@@ -47,4 +47,12 @@ public class Rag extends Item {
         at.getCharacter().dropItem(this, null);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rag rag)) return false;
+        if (!super.equals(o)) return false;
+        return super.equals(o);
+    }
+
 }
