@@ -123,16 +123,31 @@ public class GameSerializerUtil {
     }
 }
 
+/**
+ * This class is for deserialization of Item from saved json file.
+ * Implements the JsonDeserializer interface.
+ * This class is required because we are using a list of derived Objects from Item.
+ * In order to initialize the appropriate type having polymorphism in json frameworks (gson)
+ * we need to create a custom json deserializer
+ */
 class ItemDeserializer implements JsonDeserializer<Item> {
+    /**
+     * Takes a single json element and returns an object of a derived class of Item
+     * @param json json object
+     * @param typeOfT object Type
+     * @param context contains context variables
+     * @return an object of a derived class of an Item
+     * @throws JsonParseException when format is incorrect
+     */
     @Override
     public Item deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
             throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        String type = jsonObject.get("jsonType").getAsString();
+        String jsonType = jsonObject.get("jsonType").getAsString();
         Integer durability = jsonObject.get("durability").getAsInt();
         Boolean isFake = jsonObject.get("isFake").getAsBoolean();
 
-        switch (type) {
+        switch (jsonType) {
             case "Transistor":
                 return new Transistor(durability, isFake, null);
             case "AirFreshener":
@@ -151,21 +166,36 @@ class ItemDeserializer implements JsonDeserializer<Item> {
                 return new SlideRule();
 
             default:
-                throw new JsonParseException("Unknown item type: " + type);
+                throw new JsonParseException("Unknown item type: " + jsonType);
         }
     }
 
 }
 
+/**
+ * This class is for deserialization of Character from saved json file.
+ * Implements the JsonDeserializer interface.
+ * This class is required because we are using a list of derived Objects from Character.
+ * In order to initialize the appropriate type having polymorphism in json frameworks (gson)
+ * we need to create a custom json deserializer
+ */
 class CharacterDeserializer implements JsonDeserializer<Character> {
+    /**
+     * Takes a single json element and returns an object of a derived class of Character
+     * @param json json object
+     * @param typeOfT object Type
+     * @param context contains context variables
+     * @return an object of a derived class of a Character
+     * @throws JsonParseException when format is incorrect
+     */
     @Override
     public Character deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
             throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        String type = jsonObject.get("jsonType").getAsString();
+        String jsonType = jsonObject.get("jsonType").getAsString();
         String name = jsonObject.get("name").getAsString();
 
-        switch (type) {
+        switch (jsonType) {
             case "Student":
                 return new Student(name, null);
             case "Teacher":
@@ -173,7 +203,7 @@ class CharacterDeserializer implements JsonDeserializer<Character> {
             case "Cleaner":
                 return new Cleaner(name, null);
             default:
-                throw new JsonParseException("Unknown character type: " + type);
+                throw new JsonParseException("Unknown character type: " + jsonType);
         }
     }
 

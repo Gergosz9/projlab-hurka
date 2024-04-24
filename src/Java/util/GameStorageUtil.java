@@ -86,11 +86,18 @@ public class GameStorageUtil {
         }
     }
 
+    /**
+     * Deletes the whole directory where the saved games are stored
+     */
     public static void deleteRepository() {
         File directory = new File(DIRECTORY_REPOSITORY);
         deleteDirectory(directory);
     }
 
+    /**
+     * Deletes all the saved games and the repository
+     * @param directory the directory file which is deleted
+     */
     static void deleteDirectory(File directory) {
         if (directory.isDirectory()) {
             File[] files = directory.listFiles();
