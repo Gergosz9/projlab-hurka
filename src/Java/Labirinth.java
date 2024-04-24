@@ -105,11 +105,19 @@ public class Labirinth {
         return characters;
     }
 
+    /**
+     * Sets a list of characters as the contained labyrinth characters
+     * @param characters the characters to set
+     */
     public void setCharacters(List<Character> characters) {
         this.characters = characters;
         numberOfStudents = characters.size();
     }
 
+    /**
+     * Sets a list of rooms as the contained labyrinth rooms
+     * @param rooms the rooms to set
+     */
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
@@ -122,10 +130,18 @@ public class Labirinth {
         characters.remove(character);
     }
 
+    /**
+     * Adds a room to the labyrinth
+     * @param room the room to add
+     */
     public void addRoom(Room room) {
         rooms.add(room);
     }
 
+    /**
+     * Adds a character to the labyrinth
+     * @param character the character to add
+     */
     public void addCharacter(Character character) {
         characters.add(character);
     }
