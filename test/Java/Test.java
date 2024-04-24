@@ -1,5 +1,5 @@
 
-// package Java;
+package Java;
 
 // import java.util.*;
 
@@ -13,11 +13,26 @@
 // import Java.Items.TVSZ;
 // import Java.Items.Transistor;
 
+import Java.Characters.Student;
+import Java.Characters.Teacher;
+import Java.Items.AirFreshener;
+import Java.Items.Beer;
+import Java.Items.Camembert;
+import Java.Items.Mask;
+import Java.Items.Rag;
+import Java.Items.SlideRule;
+import Java.Items.Transistor;
+import Java.util.GameStorageUtil;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
 // /*
 //  * The Test class contains the test for the program, 
 //  * and a main function to run the selected tests.
 //  */
-// public class Test {
+public class Test {
 
 //     /**
 //      * Array containing the names of possible test cases.
@@ -682,19 +697,126 @@
 //                         " name: s.dropItem(tvsz, r)\n");
 //     }
 
-//     /**
-//      * Function ends the testing
-//      */
-//     static void endTest() {
-//         testCase = 23;
-//         System.out.print("\nA tesztelést befejezték.");
+        static void test23() {
+                String gameName = "test-game-status";
+                Labirinth labirinth = new Labirinth();
 
-//     }
+                Student student = new Student("studentName", labirinth);
+                Teacher teacher = new Teacher("teacherName", labirinth);
+                labirinth.addCharacter(student);
+                labirinth.addCharacter(teacher);
+
+                Room closedRoom = new Room("closedRoom", 10, true, false, null, null);
+                Room openRoom = new Room("openRoom", 10, true, false, null, null);
+                labirinth.addRoom(closedRoom);
+                labirinth.addRoom(openRoom);
+
+                Room room = new Room("name", 10, true, false,
+                List.of(closedRoom),
+                List.of(openRoom));
+                room.addCharacter(teacher);
+                room.addCharacter(student);
+                labirinth.addRoom(room);
+
+                Room room1 = new Room("name1", 10, true, false,
+                List.of(closedRoom),
+                List.of(room));
+                room1.addCharacter(teacher);
+                labirinth.addRoom(room1);
+
+                Room room2 = new Room("name2", 10, true, false,
+                List.of(room1),
+                List.of(room));
+                room2.addCharacter(student);
+                labirinth.addRoom(room2);
+
+                //Items
+                AirFreshener airFreshener = new AirFreshener(1, true);
+                Beer beer = new Beer(3);
+                Camembert camembert = new Camembert();
+                Mask mask = new Mask();
+                Rag rag = new Rag();
+                SlideRule slideRule = new SlideRule();
+                Transistor transistor = new Transistor(4, false, labirinth);
+                Transistor transistor1 = new Transistor(5, true, labirinth);
+                Transistor transistor2 = new Transistor(6, true, labirinth);
+                Transistor transistor3 = new Transistor(7, false, labirinth);
+
+                room.setItems(List.of(airFreshener, beer));
+                room.setTransistors(List.of(transistor, transistor1));
+
+                room1.setItems(List.of(camembert, mask));
+                room1.setTransistors(List.of(transistor2));
+
+                room2.setItems(List.of(rag, slideRule));
+                room2.setTransistors(List.of(transistor3));
+
+                GameStorageUtil.save(gameName, labirinth);
+                System.out.println("Game status was SAVED");
+
+                Labirinth loadedLabirinth = GameStorageUtil.load(gameName);
+                System.out.println("\nSaved and then loaded game test status:");
+                checkResult("labyrinth is not null", loadedLabirinth != null);
+                checkResult("number of rooms in labyrinth", loadedLabirinth.getRooms().size() == labirinth.getRooms().size());
+                for (int i = 0; i < loadedLabirinth.getRooms().size(); i++) {
+        checkResult(String.format("loaded room [%d] is correct", i),
+        loadedLabirinth.getRooms().get(i).equals(labirinth.getRooms().get(i)));
+        }
+        checkResult("number of characters in labyrinth", loadedLabirinth.getCharacters().size() == labirinth.getCharacters().size());
+        for (int i = 0; i < loadedLabirinth.getCharacters().size(); i++) {
+        checkResult(String.format("loaded character [%d] is correct", i),
+        loadedLabirinth.getCharacters().get(i).equals(labirinth.getCharacters().get(i)));
+        checkResult(String.format("loaded character [%d] contains labyrinth", i),
+        loadedLabirinth.getCharacters().get(i).getLabirinth() == loadedLabirinth);
+
+        }
+
+        checkResult("5th room closed room",
+        loadedLabirinth.getRooms().get(4).getClosedRooms().get(0) == loadedLabirinth.getRooms().get(3));
+        checkResult("5th room open room",
+        loadedLabirinth.getRooms().get(4).getOpenRooms().get(0) == loadedLabirinth.getRooms().get(2));
+
+        checkResult("3rd room 1st character",
+        loadedLabirinth.getRooms().get(2).getCharacters().get(0) == loadedLabirinth.getCharacters().get(1));
+        checkResult("3rd room 2nd character",
+        loadedLabirinth.getRooms().get(2).getCharacters().get(1) == loadedLabirinth.getCharacters().get(0));
+
+        checkResult("3rd room 1st item",
+        loadedLabirinth.getRooms().get(2).getItems().get(0).equals(airFreshener));
+        checkResult("3rd room 2nd item",
+        loadedLabirinth.getRooms().get(2).getItems().get(1).equals(beer));
+
+        checkResult("3rd room 1st transistor",
+        loadedLabirinth.getRooms().get(2).getTransistors().get(0).equals(transistor));
+        checkResult("3rd room 1st transistor has a labyrinth",
+        loadedLabirinth.getRooms().get(2).getTransistors().get(0).getLabirinth() != null);
+        checkResult("3rd room 2nd transistor",
+        loadedLabirinth.getRooms().get(2).getTransistors().get(1).equals(transistor1));
+        checkResult("3rd room 2nd transistor has a labyrinth",
+        loadedLabirinth.getRooms().get(2).getTransistors().get(0).getLabirinth() != null);
+
+
+        GameStorageUtil.deleteRepository();
+        }
+
+static void checkResult(String criterion, boolean assertedValue){
+        String result = assertedValue? "OK!" : "Not OK!";
+        System.out.println(String.format("\t- %s: \t%s", criterion, result));
+        }
+
+     /**
+      * Function ends the testing
+      */
+     static void endTest() {
+         testCase = 24;
+         System.out.print("\nA tesztelést befejezték.");
+
+     }
 
 //     /**
 //      * Variable that defines the current test case
 //      */
-//     static int testCase;
+     static int testCase;
 
 //     /**
 //      * The main function that runs the testing
@@ -705,16 +827,16 @@
 //      * Then lists the tests again and asks for a number.
 //      * To finish testing, you must provide the corresponding input.
 //      */
-//     public static void main(String[] args) {
+     public static void main(String[] args) {
 
-//         Scanner scanner = new Scanner(System.in);
+         Scanner scanner = new Scanner(System.in);
 
-//         while (testCase != 23) {
+         while (testCase != 24) {
 //             printTests();
-//             System.out.print("\nVálassz egy tesztesetet: ");
-//             testCase = scanner.nextInt();
+             System.out.print("\nVálassz egy tesztesetet: ");
+             testCase = scanner.nextInt();
 
-//             switch (testCase) {
+             switch (testCase) {
 //                 case 1:
 //                     test01();
 //                     break;
@@ -781,13 +903,16 @@
 //                 case 22:
 //                     test22();
 //                     break;
-//                 case 23:
-//                     endTest();
-//                     break;
-//                 default:
-//                     System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
-//             }
-//         }
-//         scanner.close();
-//     }
-// }
+    case 23:
+    test23();
+                     break;
+    case 24:
+                     endTest();
+                     break;
+                 default:
+                     System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
+            }
+         }
+         scanner.close();
+     }
+}

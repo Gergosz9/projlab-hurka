@@ -105,11 +105,28 @@ public class Labirinth {
         return characters;
     }
 
+    public void setCharacters(List<Character> characters) {
+        this.characters = characters;
+        numberOfStudents = characters.size();
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     /**
      * Removes a character from the labyrinth
      * @param character the character to remove
      */
     public void removeCharacter(Character character) {
         characters.remove(character);
+    }
+
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+
+    public void addCharacter(Character character) {
+        characters.add(character);
     }
 }

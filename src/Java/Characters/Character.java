@@ -24,6 +24,7 @@ public abstract class Character {
     boolean gasResist;
     List<Item> inventory;
     Labirinth labirinth;
+    private final String type;
 
     /**
      * Constructs a Character object with the specified name and labirinth.
@@ -33,10 +34,16 @@ public abstract class Character {
     public Character(String name, Labirinth labirinth){
         this.name = name;
         this.labirinth = labirinth;
-        actionCount = 0;
-        paralyzed = false;
-        gasResist = false;
-        inventory = new ArrayList<Item>();
+//        actionCount = 0;
+//        paralyzed = false;
+//        gasResist = false;
+        inventory = new ArrayList<>();
+
+        this.type = this.getClass().getSimpleName();
+    }
+
+    public String getType() {
+        return type;
     }
     
     /**
@@ -148,4 +155,40 @@ public abstract class Character {
      * Method that represents the action of hurting the character.
      */
     public void hurt(){}
+
+    public void setActionCount(int actionCount) {
+        this.actionCount = actionCount;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLabirinth(Labirinth labirinth) {
+        this.labirinth = labirinth;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Labirinth getLabirinth() {
+        return labirinth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Character character)) return false;
+        return actionCount == character.actionCount && paralyzed == character.paralyzed && gasResist == character.gasResist && Objects.equals(name, character.name) && Objects.equals(type, character.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, actionCount, paralyzed, gasResist, type);
+    }
 }

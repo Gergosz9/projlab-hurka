@@ -302,4 +302,36 @@ public class Room {
     public List<Item> getItems() {
         return items;
     }
+
+    public void setClosedRooms(List<Room> closedRooms) {
+        this.closedRooms = closedRooms;
+    }
+
+    public void setOpenRooms(List<Room> openRooms) {
+        this.openRooms = openRooms;
+    }
+
+    public void setCharacters(List<Character> characters) {
+        this.characters = characters;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public void setTransistors(List<Transistor> transistors) {
+        this.transistors = transistors;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Room room)) return false;
+        return maxCharacters == room.maxCharacters && cursed == room.cursed && gassed == room.gassed && raggedRounds == room.raggedRounds && stickyness == room.stickyness && Objects.equals(name, room.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, maxCharacters, cursed, gassed, raggedRounds, stickyness);
+    }
 }

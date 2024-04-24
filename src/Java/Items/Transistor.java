@@ -4,6 +4,8 @@ import Java.Labirinth;
 import Java.Room;
 import Java.Items.Triggers.*;
 
+import java.util.Objects;
+
 /**
  * Transistor is a class representing a transistor item in the game.
  * It extends the Item class.
@@ -11,6 +13,10 @@ import Java.Items.Triggers.*;
 public class Transistor extends Item {
     private Labirinth labirinth; // The labyrinth in which the transistor exists
     private Transistor pair; // The paired transistor
+
+    public void setLabirinth(Labirinth labirinth) {
+        this.labirinth = labirinth;
+    }
 
     /**
      * Constructor to initialize a Transistor with durability, fake status, and
@@ -103,5 +109,27 @@ public class Transistor extends Item {
             }
         }
         return null;
+    }
+
+    @Override
+    public void use(Trigger trigger) {
+
+    }
+
+    public Labirinth getLabirinth() {
+        return labirinth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transistor that)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(pair, that.pair);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), pair);
     }
 }

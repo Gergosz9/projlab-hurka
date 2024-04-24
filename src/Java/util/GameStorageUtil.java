@@ -4,6 +4,7 @@ import Java.Labirinth;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -43,7 +44,7 @@ public class GameStorageUtil {
     public static Labirinth load(String name) {
         createRepositoryDir();
 
-        String filePath = DIRECTORY_SAVED_GAMES + File.separator + name;
+        String filePath = DIRECTORY_REPOSITORY + name + FILE_EXTENSION;
         return GameSerializerUtil.loadGame(filePath);
     }
 
@@ -56,8 +57,9 @@ public class GameStorageUtil {
         File folder = new File(DIRECTORY_SAVED_GAMES + File.separator);
         File[] listOfFiles = folder.listFiles();
 
+
         return Objects.isNull(listOfFiles) ? Collections.emptyList() :
-                Arrays.asList(listOfFiles).stream()
+                Arrays.stream(listOfFiles)
                         .filter(File::isFile)
                         .map(File::getName)
                         .collect(Collectors.toList());
@@ -80,7 +82,28 @@ public class GameStorageUtil {
             DIRECTORY_REPOSITORY += File.separator;
             System.out.println("DIRECTORY_REPOSITORY: " + DIRECTORY_REPOSITORY);
         } catch (IOException e) {
-            throw new RepositoryCreationException(e);
+            throw new RepositoryOperationException(e);
+        }
+    }
+
+    public static void deleteRepository() {
+        File directory = new File(DIRECTORY_REPOSITORY);
+        deleteDirectory(directory);
+    }
+
+    static void deleteDirectory(File directory) {
+        if (directory.isDirectory()) {
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    deleteDirectory(file);
+                }
+            }
+        }
+        try {
+            Files.deleteIfExists(directory.toPath());
+        } catch (IOException e) {
+            throw new RepositoryOperationException(e);
         }
     }
 }

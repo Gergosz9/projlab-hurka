@@ -8,4 +8,8 @@ public class GameSavingException extends RuntimeException {
     public GameSavingException(Throwable cause) {
         super(cause);
     }
+
+    public GameSavingException(String message) {
+        super(message);
+    }
 }
