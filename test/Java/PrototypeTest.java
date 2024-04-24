@@ -9,7 +9,8 @@ import Java.util.*;
 
 public class PrototypeTest {
     public static void main(String[] args) {
-        System.out.println("Prototype Test");
+        System.out.println("Prototype Test\n");
+        test();
     }
 
     static void test() {

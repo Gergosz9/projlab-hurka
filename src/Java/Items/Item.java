@@ -10,7 +10,8 @@ import java.util.Objects;
 public abstract class Item {
     protected int durability; // The durability of the item
     boolean isFake; // Indicates if the item is fake
-    private final String jsonType;
+    private final String jsonType;  // Required for the deserialization of the saved Item in json format
+                                    // because they are stored in a polymorph list which is not supported by the json format
 
     /**
      * Constructor to initialize an Item with durability and fake status.
@@ -41,18 +42,28 @@ public abstract class Item {
         }
     }
 
-    public String getJsonType() {
-        return jsonType;
-    }
 
+    /**
+     * Gets durability of Item
+     * @return durability of Item
+     */
     public int getDurability() {
         return durability;
     }
 
+    /**
+     * Gets boolean value of isFake
+     * @return boolean value of isFake
+     */
     public boolean isFake() {
         return isFake;
     }
 
+    /**
+     * Compares this Item to another object
+     * @param o Compared Object
+     * @return boolean true if they are equal, false if they are not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,6 +71,10 @@ public abstract class Item {
         return durability == item.durability && isFake == item.isFake && Objects.equals(jsonType, item.jsonType);
     }
 
+    /**
+     * Hashcode of Item
+     * @return Hashcode of Item
+     */
     @Override
     public int hashCode() {
         return Objects.hash(durability, isFake, jsonType);

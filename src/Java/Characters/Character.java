@@ -16,6 +16,8 @@ import Java.Items.Triggers.*;
  * @param gasResist true if the character has gas resistance, false otherwise
  * @param inventory the list of items in the character's inventory
  * @param labirinth the labirinth in which the character exists
+ * @param jsonType Required for the deserialization of the saved Item in json format
+ *                 because they are stored in a polymorph list which is not supported by the json format
  */
 public abstract class Character {
     String name;
@@ -42,9 +44,6 @@ public abstract class Character {
         this.jsonType = this.getClass().getSimpleName();
     }
 
-    public String getJsonType() {
-        return jsonType;
-    }
     
     /**
      * Returns the character's inventory.
@@ -156,30 +155,57 @@ public abstract class Character {
      */
     public void hurt(){}
 
+    /**
+     * Sets actionCount of Character
+     * @param actionCount
+     */
     public void setActionCount(int actionCount) {
         this.actionCount = actionCount;
     }
 
+    /**
+     * Sets inventory of Character
+     * @param inventory
+     */
     public void setInventory(List<Item> inventory) {
         this.inventory = inventory;
     }
 
+    /**
+     * Sets name of Character
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * sets Labirinth of Character
+     * @param labirinth
+     */
     public void setLabirinth(Labirinth labirinth) {
         this.labirinth = labirinth;
     }
 
+    /**
+     * Gets name of Character
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets labirinth of Character
+     */
     public Labirinth getLabirinth() {
         return labirinth;
     }
 
+    /**
+     * Compares this Character to another object
+     * @param o Compared Object
+     * @return boolean true if they are equal, false if they are not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -187,6 +213,10 @@ public abstract class Character {
         return actionCount == character.actionCount && paralyzed == character.paralyzed && gasResist == character.gasResist && Objects.equals(name, character.name) && Objects.equals(jsonType, character.jsonType);
     }
 
+    /**
+     * Hashcode of Character
+     * @return Hashcode of Character
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name, actionCount, paralyzed, gasResist, jsonType);

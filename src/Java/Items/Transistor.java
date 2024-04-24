@@ -14,10 +14,6 @@ public class Transistor extends Item {
     private Labirinth labirinth; // The labyrinth in which the transistor exists
     private Transistor pair; // The paired transistor
 
-    public void setLabirinth(Labirinth labirinth) {
-        this.labirinth = labirinth;
-    }
-
     /**
      * Constructor to initialize a Transistor with durability, fake status, and
      * labyrinth.
@@ -113,6 +109,10 @@ public class Transistor extends Item {
 
     public Labirinth getLabirinth() {
         return labirinth;
+    }
+
+    public void setLabirinth(Labirinth labirinth) {
+        this.labirinth = labirinth;
     }
 
     @Override
