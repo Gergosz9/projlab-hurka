@@ -303,26 +303,52 @@ public class Room {
         return items;
     }
 
+    /**
+     * Sets a list of closedRooms in room
+     * @param closedRooms list of rooms
+     */
     public void setClosedRooms(List<Room> closedRooms) {
         this.closedRooms = closedRooms;
     }
 
+    /**
+     * Sets a list of openRooms in room
+     * @param openRooms list of rooms
+     */
     public void setOpenRooms(List<Room> openRooms) {
         this.openRooms = openRooms;
     }
 
+    /**
+     * Sets a list of characters in room
+     * @param characters list of characters
+     */
     public void setCharacters(List<Character> characters) {
         this.characters = characters;
     }
 
+    /**
+     * Sets a list of items in room
+     * @param items list of items
+     */
     public void setItems(List<Item> items) {
         this.items = items;
     }
 
+    /**
+     * Sets a list of transistors in room
+     * @param transistors list of transistors
+     */
     public void setTransistors(List<Transistor> transistors) {
         this.transistors = transistors;
     }
 
+    /**
+     * Compares this Character to another object
+     *
+     * @param o Compared Object
+     * @return boolean true if they are equal, false if they are not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -330,6 +356,11 @@ public class Room {
         return maxCharacters == room.maxCharacters && cursed == room.cursed && gassed == room.gassed && raggedRounds == room.raggedRounds && stickyness == room.stickyness && Objects.equals(name, room.name);
     }
 
+    /**
+     * Hashcode of Character
+     *
+     * @return Hashcode of Character
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name, maxCharacters, cursed, gassed, raggedRounds, stickyness);
