@@ -6,6 +6,8 @@ import Java.Characters.Character;
 import Java.Items.Item;
 import Java.Items.Transistor;
 
+import static jdk.internal.org.jline.utils.AttributedStringBuilder.append;
+
 /**
  * The Room class represents a room in a game.
  * Represents a room in a game.
@@ -373,11 +375,11 @@ public class Room {
         sb.append("\tmax players: ").append(maxCharacters).append("\n");
         sb.append("\tcursed: ").append(cursed).append("\n");
         sb.append("\tgassed: ").append(gassed).append("\n");
-        sb.append("\tsticky: ").append(isSticky).append("\n");
+        sb.append("\tsticky: ").append(isSticky()).append("\n");
         sb.append("\traggedRounds: ").append(raggedRounds).append("\n");
         sb.append("\tcharacters (in room): \n");
-        for (Character char : characters) {
-            sb.append("\t\t").append(char).append("\n");
+        for (Character c : characters) {
+            sb.append("\t\t").append(c).append("\n");
         }
         sb.append("\titems (in room): \n");
         for (Item item : items) {

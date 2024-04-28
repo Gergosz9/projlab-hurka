@@ -1,6 +1,11 @@
 package Java.Commands;
 import Java.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
 public class SaveCommand implements Command {
     private Labirinth labirinth;
 
@@ -11,9 +16,9 @@ public class SaveCommand implements Command {
     @Override
     public void execute(String[] args) {
 
-        public List<CRoom> rooms = labirinth.getRooms();
+        List<Room> rooms = labirinth.getRooms();
 
-        String fileName = arg + "_output.txt";
+        String fileName = args[1] + "_output.txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (int i = 0; i < rooms.size(); i++) {
                 String output = rooms.get(i).toString();

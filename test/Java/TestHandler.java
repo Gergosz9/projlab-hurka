@@ -16,30 +16,28 @@ public class TestHandler {
     public TestHandler(Labirinth Labirinth) {
         this.labirinth = labirinth;
         commandMap = new HashMap<>();
-
         registerCommands();
     }
 
     private void registerCommands() {
         // Parancsok regisztr�l�sa a megfelel? Command implement�ci�kkal
         commandMap.put("move", new MoveCommand(labirinth));
+        commandMap.put("pickup", new PickUpCommand(labirinth));
+        commandMap.put("putdown", new PutDownCommand(labirinth));
+        commandMap.put("useitem", new UseItemCommand(labirinth));
+        commandMap.put("load", new LoadCommand(labirinth));
+        commandMap.put("save", new SaveCommand(labirinth));
+        commandMap.put("examinate", new ExaminateCommand(labirinth));
         //commandMap.put("wherecanmove", new WhereCanMoveCommand(labirinth));
         //commandMap.put("whereami", new WhereAmICommand(labirinth));
         //commandMap.put("itemsinroom", new ItemsInRoomCommand(labirinth));
         //commandMap.put("whatisinrooom", new WhatIsInRoomCommand(labirinth));
-        commandMap.put("pickup", new PickUpCommand(labirinth));
-        commandMap.put("putdown", new PutDownCommand(labirinth));
         //commandMap.put("itemsinhand", new ItemsInHandCommand(labirinth));
-        commandMap.put("useitem", new UseItemCommand(labirinth));
         //commandMap.put("help", new HelpCommand(labirinth));
-        commandMap.put("load", new LoadCommand(labirinth));
-        commandMap.put("save", new SaveCommand(labirinth));
         //commandMap.put("whoami", new WhoAmICommand(labirinth));
         //commandMap.put("listplayers", new ListPlayersCommand(labirinth));
         //commandMap.put("endmyturn", new EndMyTurnCommand(labirinth));
         ///commandMap.put("remainingsteps", new RemainingSteps(labirinth));
-        commandMap.put("examinate", new ExaminateCommand(labirinth));
-        //commandMap.put("", new  );
     }
 
     public void executeCommand(String commandString) {

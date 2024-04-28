@@ -18,12 +18,10 @@ public interface Command {
         return null;
     }
 
-    String[] args = new String[3];
-
     public default Character getCharacterFromString(String s, List<Character> characters){
         for (Character c : characters) {
             String name = c.getName();
-                if (name.equals(args[1])) {
+                if (name.equals(s)) {
                     return c;
                 }
         }
@@ -32,7 +30,7 @@ public interface Command {
 
     public default Item getItemFromString(String s, List<Item> items){
         for (Item i : items) {
-                if (i.getClass().getSimpleName().equals(args[1])) return i;
+                if (i.getClass().getSimpleName().equals(s)) return i;
         }
         return null;
     }
