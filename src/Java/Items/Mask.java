@@ -64,11 +64,23 @@ public class Mask extends Item {
         }
     }
 
+    /**
+     * Checks if this Mask object is equal to another object.
+     * Two Mask objects are considered equal if they have the same type, durability,
+     * and fake status.
+     * 
+     * @param o The object to compare to this Mask.
+     * @return True if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Mask mask)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Mask mask))
+            return false;
+        if (!super.equals(o))
+            return false;
         return super.equals(o);
     }
+
 }

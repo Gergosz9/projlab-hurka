@@ -107,22 +107,52 @@ public class Transistor extends Item {
         return null;
     }
 
+    /**
+     * Gets the labyrinth in which the transistor exists.
+     * 
+     * @return The labyrinth.
+     */
     public Labirinth getLabirinth() {
         return labirinth;
     }
 
+    /**
+     * Sets the labyrinth in which the transistor exists.
+     * 
+     * @param labirinth The labyrinth to set.
+     */
     public void setLabirinth(Labirinth labirinth) {
         this.labirinth = labirinth;
     }
 
+    /**
+     * Checks if this Transistor object is equal to another object.
+     * Two Transistor objects are considered equal if they have the same type,
+     * durability,
+     * and paired transistor.
+     * 
+     * @param o The object to compare to this Transistor.
+     * @return True if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Transistor that)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Transistor that))
+            return false;
+        if (!super.equals(o))
+            return false;
         return Objects.equals(pair, that.pair);
     }
 
+    /**
+     * Generates a hash code value for the Transistor object.
+     * The hash code is computed based on the hash codes of superclass fields and
+     * the
+     * paired transistor.
+     * 
+     * @return A hash code value for this Transistor object.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), pair);
