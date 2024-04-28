@@ -17,8 +17,19 @@ import Java.Items.TVSZ;
 import Java.Items.Transistor;
 import Java.util.GameStorageUtil;
 
+/**
+ * Class that contains test functions
+ * Related to the Characters
+ */
 public class CharacterTest {
-    //Tanár összefut hallgatóval
+
+    static Labirinth labirinth = new Labirinth();
+    static TestHandler testhandler = new TestHandler(labirinth);
+
+    /**
+     * Test function to testcase 11
+     *Tanár összefut hallgatóval
+     */
     public static void test11(){
         String gameName = "map11";
         Labirinth labirinth = new Labirinth();
@@ -38,10 +49,14 @@ public class CharacterTest {
         r2.getCharacters().add(teacher);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands11.txt");
 
     }
 
-    //Hallgató összefut tanárral
+    /**
+     * Test function to testcase 12
+     * Hallgató összefut tanárral
+     */
     public static void test12(){
         String gameName = "map12";
         Labirinth labirinth = new Labirinth();
@@ -61,10 +76,14 @@ public class CharacterTest {
         r2.getCharacters().add(teacher);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands12.txt");
 
     }
 
-    //Gázos szoba maszk nélkül
+    /**
+     * Test function to testcase 13
+     * Gázos szoba maszk nélkül
+     */
     public static void test13(){
         String gameName = "map13";
         Labirinth labirinth = new Labirinth();
@@ -83,11 +102,14 @@ public class CharacterTest {
         r1.getItems().add(tvsz);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands13.txt");
 
     }
 
-
-    //Tanár rongyos szobába lép
+    /**
+     * Test function to testcase 14
+     * Tanár rongyos szobába lép
+     */
     public static void test14(){
         String gameName = "map14";
         Labirinth labirinth = new Labirinth();
@@ -105,10 +127,14 @@ public class CharacterTest {
         r2.setRagged(3);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands14.txt");
 
     }
 
-    //Karakter átlép egy másik szobába
+    /**
+     * Test function to testcase 15
+     * Karakter átlép egy másik szobába
+     */
     public static void test15(){
         String gameName = "map15";
         Labirinth labirinth = new Labirinth();
@@ -125,10 +151,14 @@ public class CharacterTest {
         r1.getCharacters().add(student);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands15.txt");
 
     }
 
-    //Targy felvetele
+    /**
+     * Test function to testcase 16
+     * Targy felvetele
+     */
     public static void test16(){
         String gameName = "map16";
         Labirinth labirinth = new Labirinth();
@@ -148,8 +178,13 @@ public class CharacterTest {
         room.getItems().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands16.txt");
     }
-    //Targy letelete
+
+    /**
+     * Test function to testcase 17
+     * Targy letelete
+     */
     public static void test17(){
         String gameName = "map17";
         Labirinth labirinth = new Labirinth();
@@ -169,10 +204,13 @@ public class CharacterTest {
         student.getInventory().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands17.txt");
     }
 
-
-    //Kitessekeles
+    /**
+     * Test function to testcase 18
+     * Kitessekeles
+     */
     public static void test18(){
         String gameName = "map18";
         Labirinth labirinth = new Labirinth();
@@ -192,6 +230,7 @@ public class CharacterTest {
         r2.getCharacters().add(student);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands18.txt");
 
     }
 }

@@ -382,6 +382,10 @@ public class Room {
         return Objects.hash(name, maxCharacters, cursed, gassed, raggedRounds, stickyness);
     }
 
+    /**
+     * toString function of Room
+     * @return toString of Room
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
