@@ -1,4 +1,10 @@
-class MoveCommand implements Command {
+package Java.Commands;
+import Java.*;
+import Java.Characters.Character;
+
+import java.util.List;
+
+public class MoveCommand implements Command {
     private Labirinth labirinth;
 
     public MoveCommand(Labirinth labirinth) {
@@ -7,14 +13,14 @@ class MoveCommand implements Command {
 
     @Override
     public void execute(String[] args) {
-        // move parancs végrehajtása
-        // args[1] tartalmazza a karakter nevét, args[2] pedig a cél szobát
-        // A szükséges m?veletek végrehajtása a játékmenet szerint
+        // move parancs vï¿½grehajtï¿½sa
+        // args[1] tartalmazza a karakter nevï¿½t, args[2] pedig a cï¿½l szobï¿½t
+        // A szï¿½ksï¿½ges m?veletek vï¿½grehajtï¿½sa a jï¿½tï¿½kmenet szerint
 
         List<Character> characters = labirinth.getCharacters();
         Character character = getCharacterFromString(args[1], characters);
 
-        public List<CRoom> rooms = labirinth.getRooms();
+        List<Room> rooms = labirinth.getRooms();
         Room room = getRoomFromString(args[2], rooms);
  
         character.move(room);

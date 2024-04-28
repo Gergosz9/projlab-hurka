@@ -1,4 +1,7 @@
-class PutDownCommand implements Command {
+package Java.Commands;
+import Java.*;
+
+public class PutDownCommand implements Command {
     private Labirinth labirinth;
 
     public PutDownCommand(Labirinth labirinth) {

@@ -1,4 +1,7 @@
-class PickUpCommand implements Command {
+package Java.Commands;
+import Java.*;
+
+public class PickUpCommand implements Command {
     private Labirinth labirinth;
 
     public PickUpCommand(Labirinth labirinth) {

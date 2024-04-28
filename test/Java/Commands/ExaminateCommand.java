@@ -1,21 +1,31 @@
-class ExaminateCommand implements Command {
+package Java.Commands;
+import Java.*;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+public class ExaminateCommand implements Command {
     private Labirinth labirinth;
 
     public ExaminateCommand(Labirinth labirinth) {
+
         this.labirinth = labirinth;
     }
 
     @Override
     public void execute(String[] args) {
-        // move parancs végrehajtása
-        // args[1] tartalmazza a karakter nevét, args[2] pedig a cél szobát
-        // A szükséges m?veletek végrehajtása a játékmenet szerint
+        // move parancs vï¿½grehajtï¿½sa
+        // args[1] tartalmazza a karakter nevï¿½t, args[2] pedig a cï¿½l szobï¿½t
+        // A szï¿½ksï¿½ges m?veletek vï¿½grehajtï¿½sa a jï¿½tï¿½kmenet szerint
 
-        String fileName1 = fileNames[1] + ".txt";
-        String fileName2 = fileNames[1] + "_output.txt";
+        String fileName1 = args[1] + ".txt";
+        String fileName2 = args[1] + "_output.txt";
 
         try (BufferedReader reader1 = new BufferedReader(new FileReader(fileName1));
-             BufferedReader reader2 = new BufferedReader(new FileReader(fileName2))) 
+             BufferedReader reader2 = new BufferedReader(new FileReader(fileName2)))
         {
 
             String line1 = reader1.readLine();
@@ -32,17 +42,17 @@ class ExaminateCommand implements Command {
             }
 
             if (line1 != null || line2 != null) {
-                equal = false; // A fájlok hossza nem egyezik
+                equal = false; // A fï¿½jlok hossza nem egyezik
             }
 
             if (equal) {
-                //System.out.println("A fájlok tartalma megegyezik.");
+                //System.out.println("A fï¿½jlok tartalma megegyezik.");
             } else {
-                //System.out.println("A fájlok tartalma nem egyezik.");
+                //System.out.println("A fï¿½jlok tartalma nem egyezik.");
         }
 
         } catch (IOException e) {
-            System.err.println("Hiba történt az összehasonlítás közben: " + e.getMessage());
+            System.err.println("Hiba tÃ¶rtÃ©nt az Ã¶sszehasonlÃ­tÃ¡s kÃ¶zben: " + e.getMessage());
         }
     }
-} //összehasonlítja a kimeneti txt-t az elvárttal
+} //ï¿½sszehasonlï¿½tja a kimeneti txt-t az elvï¿½rttal

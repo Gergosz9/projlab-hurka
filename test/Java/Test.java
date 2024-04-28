@@ -24,6 +24,8 @@
  import Java.Items.Transistor;
  import Java.util.GameStorageUtil;
 
+ import Java.TestHandler;
+
  import java.util.Collections;
  import java.util.List;
  import java.util.Scanner;
@@ -31,39 +33,44 @@
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class Test {
+
+    static Labirinth labirinth = new Labirinth();
+    static TestHandler testhandler = new TestHandler(labirinth);
+
+    static String[] tests = {
+            "Átkozott szobában ajtók változása", // 1
+            "Tranzisztor használata", // 2
+            "Camembert használata", // 3
+            "Törlőrongy használata", // 4
+            "Logarléc megszerzése", // 5
+            "TVSZ használata 1", // 6
+            "TVSZ használata 2", // 7
+            "Söröspohár használata 1", // 8
+            "Söröspohár használata 2", // 9
+            "Maszk használata 1", // 10
+            "Maszk használata 2", // 11
+            "Passzív tárgyak használata", // 12
+            "Hallgató összefut tanárral", // 13
+            "Tanár összefut hallgatóval", // 14
+            "Egy szoba ketté válik", // 15
+            "Két szoba összeolvad", // 16
+            "Gázos szoba maszk nélkül", // 17
+            "Tanár rongyos szobába lép.", // 18
+            "Tanuló átlép egy másik szobába", // 19
+            "Tanár átlép egy másik szobába", // 20
+            "Tárgy felvétele", // 21
+            "Tárgy letétele", // 22
+            "Tesztelés vége" // 23
+    };
 
     // Tesztelés
     public static void main(String[] args) {
         Labirinth labirinth;
-        
-        static String[] tests = {
-           "Átkozott szobában ajtók változása", // 1
-           "Tranzisztor használata", // 2
-           "Camembert használata", // 3
-           "Törlőrongy használata", // 4
-           "Logarléc megszerzése", // 5
-           "TVSZ használata 1", // 6
-           "TVSZ használata 2", // 7
-           "Söröspohár használata 1", // 8
-           "Söröspohár használata 2", // 9
-           "Maszk használata 1", // 10
-           "Maszk használata 2", // 11
-           "Passzív tárgyak használata", // 12
-           "Hallgató összefut tanárral", // 13
-           "Tanár összefut hallgatóval", // 14
-           "Egy szoba ketté válik", // 15
-           "Két szoba összeolvad", // 16
-           "Gázos szoba maszk nélkül", // 17
-           "Tanár rongyos szobába lép.", // 18
-           "Tanuló átlép egy másik szobába", // 19
-           "Tanár átlép egy másik szobába", // 20
-           "Tárgy felvétele", // 21
-           "Tárgy letétele", // 22
-           "Tesztelés vége" // 23
-        };
 
         Scanner scanner = new Scanner(System.in);
+        int testCase = 0;
         while (testCase != 24) {
               printTests();
               System.out.print("\nVálassz egy tesztesetet: ");
@@ -73,6 +80,7 @@ public class Test {
                  case 1:
                      test01();
                      break;
+                 /*
                  case 2:
                      test02();
                      break;
@@ -141,13 +149,12 @@ public class Test {
                       break;
                  case 24:
                       endTest();
-                      break;
+                      break; */
                  default:
                       System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
                  }
-              }
-              scanner.close();
         }
+        scanner.close();
     }
 
     /**
@@ -168,7 +175,7 @@ public class Test {
     static void test01() {
          System.out.println();
 
-         processCommandFile("commands01.txt");        
+         testhandler.processCommandFile("commands01.txt");
     }
-}
 
+}

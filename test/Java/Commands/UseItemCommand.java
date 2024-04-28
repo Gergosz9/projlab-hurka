@@ -1,4 +1,7 @@
-class UseItemCommand implements Command {
+package Java.Commands;
+import Java.*;
+
+public class UseItemCommand implements Command {
     private Labirinth labirinth;
 
     public UseItemCommand(Labirinth labirinth) {

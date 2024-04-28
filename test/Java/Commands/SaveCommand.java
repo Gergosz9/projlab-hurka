@@ -1,4 +1,7 @@
-class SaveCommand implements Command {
+package Java.Commands;
+import Java.*;
+
+public class SaveCommand implements Command {
     private Labirinth labirinth;
 
     public SaveCommand(Labirinth labirinth) {
@@ -17,9 +20,9 @@ class SaveCommand implements Command {
                 writer.write(output);
                 writer.newLine(); //not sure kell-e
             }
-            //System.out.println("A lista elemei ki lettek írva a(z) " + fileName + " fájlba.");
+            //System.out.println("A lista elemei ki lettek ï¿½rva a(z) " + fileName + " fï¿½jlba.");
         } catch (IOException e) {
-            System.err.println("Hiba történt a fájl írása közben: " + e.getMessage());
+            System.err.println("Hiba tï¿½rtï¿½nt a fï¿½jl ï¿½rï¿½sa kï¿½zben: " + e.getMessage());
         }       
     }
-} //kimenti a Labirinth állapotát egy txt-be
+} //kimenti a Labirinth ï¿½llapotï¿½t egy txt-be

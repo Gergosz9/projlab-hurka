@@ -1,4 +1,8 @@
-class LoadCommand implements Command {
+package Java.Commands;
+import Java.*;
+
+
+public class LoadCommand implements Command {
     private Labirinth labirinth;
 
     public LoadCommand(Labirinth labirinth) {
@@ -9,4 +13,4 @@ class LoadCommand implements Command {
     public void execute(String[] args) {
         
     }
-} //betölti a labirintust (jsonb?l ?)
+} //betï¿½lti a labirintust (jsonb?l ?)
