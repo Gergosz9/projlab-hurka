@@ -121,6 +121,7 @@ public class Room {
     public boolean addCharacter(Character character) {
         if (characters.size() <= maxCharacters) {
             characters.add(character);
+            stickyness++;
             return true;
         }
         return false;
@@ -266,6 +267,16 @@ public class Room {
     public void setGassed(boolean gassed) {
         this.gassed = gassed;
     }
+
+    /**
+     * Sets the stickyness of the room.
+     * 
+     * @param stickyness the stickyness of the room
+     */
+    public void setStickyness(int stickyness) {
+        this.stickyness = stickyness;
+    }
+
 
     /**
      * Returns a list of open rooms connected to this room.
