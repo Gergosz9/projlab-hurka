@@ -1,5 +1,9 @@
 package Java.Commands;
 import Java.*;
+import Java.Characters.Character;
+import Java.Items.Item;
+
+import java.util.List;
 
 public class PickUpCommand implements Command {
     private Labirinth labirinth;

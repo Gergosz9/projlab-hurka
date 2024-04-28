@@ -1,5 +1,9 @@
 package Java.Commands;
 import Java.*;
+import Java.Characters.Character;
+import Java.Items.Item;
+
+import java.util.List;
 
 public class PutDownCommand implements Command {
     private Labirinth labirinth;
@@ -17,6 +21,6 @@ public class PutDownCommand implements Command {
         List<Item> items = character.getInventory();
         Item item = getItemFromString(args[2], items);
 
-        character.putDownItem(item);
+        character.dropItem(item, character.getMyLocation());
     }
 }

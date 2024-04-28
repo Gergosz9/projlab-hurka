@@ -7,12 +7,16 @@ import Java.Items.Triggers.*;
 
 import java.util.Objects;
 
-/**
+/*
  * The Student class represents a character in the game.
  * Inherits from the Character class.
  * 
  * @param teacherResist indicates if the student has resistance to teacher
  *                      attacks
+ */
+/**
+ * The Student class represents a character in the game.
+ * Inherits from the Character class.
  */
 public class Student extends Character {
   boolean teacherResist;

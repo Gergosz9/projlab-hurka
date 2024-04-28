@@ -7,7 +7,7 @@ import Java.Room;
 import Java.Items.*;
 import Java.Items.Triggers.*;
 
-/**
+/*
  * The Character class represents a character in the game.
  * It is an abstract class that provides common attributes and methods for all
  * characters.
@@ -22,6 +22,12 @@ import Java.Items.Triggers.*;
  *                    format
  *                    because they are stored in a polymorph list which is not
  *                    supported by the json format
+ */
+
+/**
+ * The Character class represents a character in the game.
+ * It is an abstract class that provides common attributes and methods for all
+ * characters.
  */
 public abstract class Character {
     String name;
