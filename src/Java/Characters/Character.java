@@ -73,10 +73,10 @@ public abstract class Character {
      * 
      * @param item the item to be picked up
      * @return true if the item was successfully picked up, false if the inventory
-     *         is full
+     *         is full or if the room is sticky
      */
     public boolean pickUpItem(Item item) {
-        if (inventory.size() <= 5) {
+        if (inventory.size() <= 5 && !this.getMyLocation().isSticky()) {
             inventory.add(item);
             return true;
         }
