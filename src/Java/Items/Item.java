@@ -79,4 +79,16 @@ public abstract class Item {
     public int hashCode() {
         return Objects.hash(durability, isFake);
     }
+
+    /**
+     * Hashcode of Item
+     * @return toString of Item
+     */
+    @Override
+    public String toString() {
+        return "name: " + getClass().getSimpleName() + "\n" +
+               "\tdurability: " + durability + "\n" +
+               "\tfake: " + isFake;
+
+    }
 }

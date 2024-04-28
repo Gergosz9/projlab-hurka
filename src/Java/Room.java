@@ -365,4 +365,28 @@ public class Room {
     public int hashCode() {
         return Objects.hash(name, maxCharacters, cursed, gassed, raggedRounds, stickyness);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Room: ").append(name).append("\n");
+        sb.append("\tmax players: ").append(maxCharacters).append("\n");
+        sb.append("\tcursed: ").append(cursed).append("\n");
+        sb.append("\tgassed: ").append(gassed).append("\n");
+        sb.append("\tsticky: ").append(isSticky).append("\n");
+        sb.append("\traggedRounds: ").append(raggedRounds).append("\n");
+        sb.append("\tcharacters (in room): \n");
+        for (Character char : characters) {
+            sb.append("\t\t").append(char).append("\n");
+        }
+        sb.append("\titems (in room): \n");
+        for (Item item : items) {
+            sb.append("\t\t").append(item).append("\n");
+        }
+        sb.append("\tneighbors (just open doors): \n");
+        for (Room room : openRooms) {
+            sb.append("\t\t").append(room.getName()).append("\n");
+        }
+        return sb.toString();
+    }
 }

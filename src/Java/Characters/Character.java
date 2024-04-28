@@ -249,4 +249,26 @@ public abstract class Character {
     public int hashCode() {
         return Objects.hash(name, actionCount, paralyzed, gasResist);
     }
+
+    /**
+     * toString of Character
+     * 
+     * @return toString of Character
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("name: ").append(name).append("\n");
+        sb.append("\ttype: ").append(getClass().getSimpleName()).append("\n");
+        sb.append("\tgasResist: ").append(gasResist).append("\n");
+        sb.append("\tparalyzed: ").append(paralyzed).append("\n");
+        if (this instanceof Student) {
+            sb.append("\tteacher resist: ").append(((Student) this).teacherResist).append("\n");
+        }
+        sb.append("\titems: \n");
+        for (Item item : inventory) {
+            sb.append("\t\t").append(item).append("\n");
+        }
+        return sb.toString();
+    }
 }
