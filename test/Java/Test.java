@@ -35,7 +35,10 @@ import Java.*;
 import java.util.HashMap;
 import java.util.Map;
 
-
+ /**
+  * Class that is responsible for the running of tests
+  *
+  */
 public class Test {
 
     static Labirinth labirinth = new Labirinth();
@@ -69,7 +72,12 @@ public class Test {
             "Tesztelés vége"
     };
 
-    // Tesztelés
+    /**
+     * Main function to run the tests
+     *
+     * Prints the options then waits for a number,
+     * and calls the test fuction with the selected number
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int testCase = 0;
@@ -107,31 +115,31 @@ public class Test {
                      test09();
                      break;
                  case 10:
-                     test10();
+                     ItemTest.test10();
                      break;
                  case 11:
-                     test11();
+                     CharacterTest.test11();
                      break;
                  case 12:
-                     test12();
+                     CharacterTest.test12();
                      break;
                  case 13:
-                     test13();
+                     CharacterTest.test13();
                      break;
                  case 14:
-                     test14();
+                     CharacterTest.test14();
                      break;
                  case 15:
-                     test15();
+                     CharacterTest.test15();
                      break;
                  case 16:
-                     test16();
+                     CharacterTest.test16();
                      break;
                  case 17:
-                     test17();
+                     CharacterTest.test17();
                      break;
                  case 18:
-                     test18();
+                     CharacterTest.test18();
                      break;
                  case 19:
                      RoomTest.test19();
@@ -169,5 +177,4 @@ public class Test {
              System.out.println(i + ": " + tests[i - 1]);
          }
     }
-
 }

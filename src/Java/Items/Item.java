@@ -81,7 +81,7 @@ public abstract class Item {
     }
 
     /**
-     * Hashcode of Item
+     * toString function of Item
      * @return toString of Item
      */
     @Override

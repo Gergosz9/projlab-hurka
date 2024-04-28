@@ -257,7 +257,7 @@ public abstract class Character {
     }
 
     /**
-     * toString of Character
+     * toString function of Character
      * 
      * @return toString of Character
      */

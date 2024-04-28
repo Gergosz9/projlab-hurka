@@ -13,14 +13,24 @@ public class TestHandler {
     private Map<String, Command> commandMap;
     Labirinth labirinth;
 
-    public TestHandler(Labirinth Labirinth) {
+    /**
+     * Constructor of class TestHandler
+     * @param labirinth it will contain the map of the game
+     */
+    public TestHandler(Labirinth labirinth) {
         this.labirinth = labirinth;
         commandMap = new HashMap<>();
         registerCommands();
     }
 
+    /**
+     * Function to register commands in hashmap
+     *
+     * it puts the used commands in a hashmap
+     * the key is the name of the command,
+     * the other is the Command objectum that belongs to it
+     */
     private void registerCommands() {
-        // Parancsok regisztr�l�sa a megfelel? Command implement�ci�kkal
         commandMap.put("move", new MoveCommand(labirinth));
         commandMap.put("pickup", new PickUpCommand(labirinth));
         commandMap.put("putdown", new PutDownCommand(labirinth));
@@ -40,6 +50,13 @@ public class TestHandler {
         ///commandMap.put("remainingsteps", new RemainingSteps(labirinth));
     }
 
+    /**
+     * Function execute commands
+     *
+     * It changes strings to commands
+     * and to its arguments
+     * and then executes them
+     */
     public void executeCommand(String commandString) {
         String[] parts = commandString.split(" ");
         String commandName = parts[0];
@@ -51,6 +68,9 @@ public class TestHandler {
         }
     }
 
+    /**
+     * Function to read in commands
+     */
     public void processCommandFile(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
