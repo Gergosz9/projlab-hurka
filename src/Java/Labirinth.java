@@ -6,9 +6,6 @@ import Java.Characters.Character;
 
 /**
  * The Labirinth class represents the labyrinth in the game.
- * @param characters the list of characters in the labyrinth
- * @param numberOfStudents the number of students in the labyrinth
- * @param rooms the list of rooms in the labyrinth
  */
 public class Labirinth {
     private List<Character> characters;

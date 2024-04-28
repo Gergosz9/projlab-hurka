@@ -1,5 +1,6 @@
 package Java.Commands;
 import Java.*;
+import Java.util.GameStorageUtil;
 
 
 public class LoadCommand implements Command {
@@ -11,6 +12,6 @@ public class LoadCommand implements Command {
 
     @Override
     public void execute(String[] args) {
-        
+        labirinth = GameStorageUtil.load(args[1]);
     }
 } //bet�lti a labirintust (jsonb?l ?)

@@ -1,6 +1,8 @@
 
  package Java;
 
+import Java.*;
+
  import java.util.*;
 
  import Java.Characters.Student;
@@ -40,35 +42,35 @@ public class Test {
     static TestHandler testhandler = new TestHandler(labirinth);
 
     static String[] tests = {
-            "Átkozott szobában ajtók változása", // 1
-            "Tranzisztor használata", // 2
-            "Camembert használata", // 3
-            "Törlőrongy használata", // 4
-            "Logarléc megszerzése", // 5
-            "TVSZ használata 1", // 6
-            "TVSZ használata 2", // 7
-            "Söröspohár használata 1", // 8
-            "Söröspohár használata 2", // 9
-            "Maszk használata 1", // 10
-            "Maszk használata 2", // 11
-            "Passzív tárgyak használata", // 12
-            "Hallgató összefut tanárral", // 13
-            "Tanár összefut hallgatóval", // 14
-            "Egy szoba ketté válik", // 15
-            "Két szoba összeolvad", // 16
-            "Gázos szoba maszk nélkül", // 17
-            "Tanár rongyos szobába lép.", // 18
-            "Tanuló átlép egy másik szobába", // 19
-            "Tanár átlép egy másik szobába", // 20
-            "Tárgy felvétele", // 21
-            "Tárgy letétele", // 22
-            "Tesztelés vége" // 23
+            "Tranzisztor használata", //1
+            "Camembert használata", //2
+            "Törlőrongy használata", //3
+            "Logarléc megszerzése", //4
+            "TVSZ használata 1", //5
+            "TVSZ használata 2", //6
+            "Söröspohár használata 1", //7
+            "Söröspohár használata 2", //8
+            "Maszk használata", //9
+            "Légtisztító használata", //10
+            "Tanár összefut hallgatóval", //11
+            "Hallgató összefut tanárral", //12
+            "Gázos szoba maszk nélkül", //13
+            "Tanár rongyos szobába lép.", //14
+            "Karakter átlép egy másik szobába", //15
+            "Tárgy felvétele", //16
+            "Tárgy letétele", //17
+            "Kitessékelés", //18
+            "Ragacsos szoba működése", //19
+            "ragacsos szoba takarítása", //20
+            "szoba ragacsossá válik", //21
+            "egy tanár találkozik több diákkal", //22
+            "egy diák találkozik több tanárral", //23
+            "(tranzisztor nincsen párosítva)", //24
+            "Tesztelés vége"
     };
 
     // Tesztelés
     public static void main(String[] args) {
-        Labirinth labirinth;
-
         Scanner scanner = new Scanner(System.in);
         int testCase = 0;
         while (testCase != 24) {
@@ -80,7 +82,6 @@ public class Test {
                  case 1:
                      test01();
                      break;
-                 /*
                  case 2:
                      test02();
                      break;
@@ -133,7 +134,7 @@ public class Test {
                      test18();
                      break;
                  case 19:
-                     test19();
+                     RoomTest.test19();
                      break;
                  case 20:
                      test20();
@@ -149,7 +150,7 @@ public class Test {
                       break;
                  case 24:
                       endTest();
-                      break; */
+                      break;
                  default:
                       System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
                  }
@@ -162,20 +163,11 @@ public class Test {
     */
     static void printTests() {
          System.out.println("\nLehetséges tesztesetek:");
-         for (int i = 1; i <= 23; i++) {
-             if (i == 1 || i == 23)
+         for (int i = 1; i <= 25; i++) {
+             if (i == 1 || i == 25)
                  System.out.println("\n");
              System.out.println(i + ": " + tests[i - 1]);
          }
-    }
-
-    /**
-     * Function that runs the 1st test case
-     */
-    static void test01() {
-         System.out.println();
-
-         testhandler.processCommandFile("commands01.txt");
     }
 
 }

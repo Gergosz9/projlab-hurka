@@ -13,9 +13,6 @@ import java.util.stream.Collectors;
 
 /**
  * The GameStorageUtil class provides utility methods for saving and loading game data.
- * @param FILE_EXTENSION the extension of the file where the game data is stored
- * @param DIRECTORY_REPOSITORY the directory where the saved games are stored
- * @param DIRECTORY_SAVED_GAMES the name of the directory where the saved games are stored
  */
 public class GameStorageUtil {
     private static final String FILE_EXTENSION = ".json";

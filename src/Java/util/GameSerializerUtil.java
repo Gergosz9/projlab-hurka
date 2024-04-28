@@ -38,7 +38,6 @@ import java.util.stream.Collectors;
 /**
  * This classes manages how to save the actual game in json format and also how to read a saved game and convert
  * it into a valid java object
- * @param gson the Gson object used to serialize and deserialize the game
  */
 public class GameSerializerUtil {
     private static Gson gson = new GsonBuilder()

@@ -6,9 +6,7 @@ import Java.Characters.Character;
 import Java.Items.Item;
 import Java.Items.Transistor;
 
-import static jdk.internal.org.jline.utils.AttributedStringBuilder.append;
-
-/**
+/*
  * The Room class represents a room in a game.
  * Represents a room in a game.
  * @param name the name of the room
@@ -22,6 +20,11 @@ import static jdk.internal.org.jline.utils.AttributedStringBuilder.append;
  * @param characters the list of characters in the room
  * @param items the list of items in the
  * @param transistors the list of transistors in the room
+ */
+
+/**
+ * The Room class represents a room in a game.
+ * Represents a room in a game.
  */
 public class Room {
     String name;
