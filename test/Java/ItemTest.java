@@ -28,7 +28,7 @@ public class ItemTest {
         labirinth.addCharacter(student);
     
         Room r1 = new Room("r1", 4, false, false, null, null);
-        Room r2 = new Room("r2", 4, false, true, null, null);
+        Room r2 = new Room("r2", 4, false, false, null, null);
         r1.setOpenRooms(List.of(r2));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
@@ -54,7 +54,7 @@ public class ItemTest {
         labirinth.addCharacter(student);
 
 
-        Room room = new Room("r1", 5, true, false,
+        Room room = new Room("r1", 5, false, false,
                 null,
                 null);
         room.getCharacters().add(student);
@@ -78,7 +78,7 @@ public class ItemTest {
         labirinth.addCharacter(student);
 
 
-        Room room = new Room("r1", 5, true, false,
+        Room room = new Room("r1", 5, false, false,
                 null,
                 null);
         room.getCharacters().add(student);
@@ -100,7 +100,7 @@ public class ItemTest {
         labirinth.addCharacter(student);
 
 
-        Room room = new Room("r1", 5, true, false,
+        Room room = new Room("r1", 5, false, false,
                 null,
                 null);
         room.getCharacters().add(student);
@@ -253,7 +253,7 @@ public class ItemTest {
         labirinth.addCharacter(student);
 
 
-        Room room = new Room("r1", 5, true, false,
+        Room room = new Room("r1", 5, false, true,
                 null,
                 null);
         room.getCharacters().add(student);

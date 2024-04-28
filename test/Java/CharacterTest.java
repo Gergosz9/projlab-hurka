@@ -137,7 +137,7 @@ public class CharacterTest {
         labirinth.addCharacter(student);
 
 
-        Room room = new Room("r1", 5, true, false,
+        Room room = new Room("r1", 5, false, false,
                 null,
                 null);
         room.getCharacters().add(student);
@@ -158,7 +158,7 @@ public class CharacterTest {
         labirinth.addCharacter(student);
 
 
-        Room room = new Room("r1", 5, true, false,
+        Room room = new Room("r1", 5, false, false,
                 null,
                 null);
         room.addCharacter(student);
