@@ -25,13 +25,11 @@ public class ItemTest {
     static Labirinth labirinth = new Labirinth();
     static TestHandler testhandler = new TestHandler(labirinth);
 
-<<<<<<< HEAD
+
     /**
-     * Test function to testcase 10
-     * Légtisztító használata
+     * Test function to testcase
+     * Tranzisztor használata
      */
-=======
-    //Tranzisztor használata
     public static void test01(){ 
         String gameName = "map01";
         Labirinth labirinth = new Labirinth();
@@ -53,11 +51,14 @@ public class ItemTest {
         r1.getItems().add(t2);
     
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands01.txt");
     
     }
 
-
-    //Camembert
+    /**
+     * Test function to testcase 02
+     * Camembert használata
+     */
     public static void test02(){
         String gameName = "map02";
         Labirinth labirinth = new Labirinth();
@@ -80,8 +81,14 @@ public class ItemTest {
 
         student.setGasResist(true);
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands02.txt");
     }
-    //Törlőrongy használata
+    //
+
+    /**
+     * Test function to testcase 03
+     * Törlőrongy használata
+     */
     public static void test03(){
         String gameName = "map03";
         Labirinth labirinth = new Labirinth();
@@ -101,9 +108,13 @@ public class ItemTest {
         student.getInventory().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands03.txt");
     }
 
-    //Logarléc megszerzése
+    /**
+     * Test function to testcase 04
+     * Logarléc megszerzése
+     */
     public static void test04(){
                 String gameName = "map04";
         Labirinth labirinth = new Labirinth();
@@ -123,9 +134,13 @@ public class ItemTest {
         room.getItems().add(slideRule);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands04.txt");
     }
 
-    //TVSZ használata 1
+    /**
+     * Test function to testcase 05
+     * TVSZ használata 1
+     */
     public static void test05(){
         String gameName = "map05";
         Labirinth labirinth = new Labirinth();
@@ -149,10 +164,13 @@ public class ItemTest {
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
-
+        testhandler.processCommandFile("commands05.txt");
     }
 
-    //TVSZ használata 2
+    /**
+     * Test function to testcase 06
+     * TVSZ használata 2
+     */
     public static void test06(){
         String gameName = "map06";
         Labirinth labirinth = new Labirinth();
@@ -176,10 +194,14 @@ public class ItemTest {
         student.setTeacherResist(false);
 
         GameStorageUtil.save(gameName, labirinth);
-
+        testhandler.processCommandFile("commands06.txt");
     }
 
-    //Söröspohár használata 1
+
+    /**
+     * Test function to testcase 07
+     * Söröspohár használata 1
+     */
     public static void test07(){
         String gameName = "map07";
         Labirinth labirinth = new Labirinth();
@@ -203,9 +225,14 @@ public class ItemTest {
         student.setTeacherResist(true);
     
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands07.txt");
     
     }
-    //Söröspohár használata 2
+
+    /**
+     * Test function to testcase 08
+     * Söröspohár használata 2
+     */
     public static void test08(){
         String gameName = "map08";
         Labirinth labirinth = new Labirinth();
@@ -229,10 +256,14 @@ public class ItemTest {
         student.setTeacherResist(true);
     
          GameStorageUtil.save(gameName, labirinth);
-    
+        testhandler.processCommandFile("commands08.txt");
     }
 
-    //Maszk használata
+    //
+    /**
+     * Test function to testcase 09
+     * Maszk használata
+     */
     public static void test09(){ 
         String gameName = "map09";
         Labirinth labirinth = new Labirinth();
@@ -253,11 +284,14 @@ public class ItemTest {
         student.setTeacherResist(true);
     
          GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands09.txt");
     
     }
 
-    //Legtisztito
->>>>>>> 0b8ea9a30770d62532d9248787b0d74fa3d9f0c1
+    /**
+     * Test function to testcase 10
+     * Légtisztító használata
+     */
     public static void test10(){
         String gameName = "map10";
         Labirinth labirinth = new Labirinth();

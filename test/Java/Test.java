@@ -88,31 +88,31 @@ public class Test {
 
               switch (testCase) {
                  case 1:
-                     test01();
+                     ItemTest.test01();
                      break;
                  case 2:
-                     test02();
+                     ItemTest.test02();
                      break;
                  case 3:
-                     test03();
+                     ItemTest.test03();
                      break;
                  case 4:
-                     test04();
+                     ItemTest.test04();
                      break;
                  case 5:
-                     test05();
+                     ItemTest.test05();
                      break;
                  case 6:
-                     test06();
+                     ItemTest.test06();
                      break;
                  case 7:
-                     test07();
+                     ItemTest.test07();
                      break;
                  case 8:
-                     test08();
+                     ItemTest.test08();
                      break;
                  case 9:
-                     test09();
+                     ItemTest.test09();
                      break;
                  case 10:
                      ItemTest.test10();
