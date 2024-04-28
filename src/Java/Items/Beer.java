@@ -91,16 +91,39 @@ public class Beer extends Item {
         }
     }
 
+    /**
+     * Checks if this Beer object is equal to another object.
+     * Two Beer objects are considered equal if they have the same type, durability,
+     * fake status, and isInUse status.
+     * 
+     * @param o The object to compare to this Beer.
+     * @return True if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Beer beer)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+
+        if (!(o instanceof Beer beer))
+            return false;
+
+        if (!super.equals(o))
+            return false;
+
         return isInUse == beer.isInUse;
     }
 
+    /**
+     * Generates a hash code value for the Beer object.
+     * The hash code is computed based on the hash codes of superclass fields and
+     * the
+     * isInUse field.
+     * 
+     * @return A hash code value for this Beer object.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), isInUse);
     }
+
 }

@@ -48,11 +48,23 @@ public class Camembert extends Item {
         at.getCharacter().dropItem(this, null);
     }
 
+    /**
+     * Checks if this Camembert is equal to another object.
+     * Two Camembert objects are considered equal if they have the same type,
+     * durability,
+     * and fake status.
+     * 
+     * @param o The object to compare to this Camembert.
+     * @return True if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Camembert camembert)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Camembert camembert))
+            return false;
+        if (!super.equals(o))
+            return false;
         return super.equals(o);
     }
 }

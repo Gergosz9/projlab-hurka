@@ -47,11 +47,22 @@ public class Rag extends Item {
         at.getCharacter().dropItem(this, null);
     }
 
+    /**
+     * Checks if this Rag object is equal to another object.
+     * Two Rag objects are considered equal if they have the same type, durability,
+     * and fake status.
+     * 
+     * @param o The object to compare to this Rag.
+     * @return True if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Rag rag)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Rag rag))
+            return false;
+        if (!super.equals(o))
+            return false;
         return super.equals(o);
     }
 

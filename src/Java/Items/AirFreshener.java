@@ -49,11 +49,24 @@ public class AirFreshener extends Item {
         at.getCharacter().dropItem(this, null);
     }
 
+    /**
+     * Checks if this AirFreshener object is equal to another object.
+     * Two AirFreshener objects are considered equal if they have the same type,
+     * durability,
+     * and fake status.
+     * 
+     * @param o The object to compare to this AirFreshener.
+     * @return True if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AirFreshener airFreshener)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof AirFreshener airFreshener))
+            return false;
+        if (!super.equals(o))
+            return false;
         return super.equals(o);
     }
+
 }

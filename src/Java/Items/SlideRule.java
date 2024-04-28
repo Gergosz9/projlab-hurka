@@ -47,11 +47,24 @@ public class SlideRule extends Item {
         // TODO: Implement end-of-game function call
     }
 
+    /**
+     * Checks if this SlideRule object is equal to another object.
+     * Two SlideRule objects are considered equal if they have the same type,
+     * durability,
+     * and fake status.
+     * 
+     * @param o The object to compare to this SlideRule.
+     * @return True if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof SlideRule slideRule)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof SlideRule slideRule))
+            return false;
+        if (!super.equals(o))
+            return false;
         return super.equals(o);
     }
+
 }
