@@ -40,11 +40,6 @@ public class ItemTest {
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands01.txt");
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 2c5845d7b782a12282d7dc0e6aff81c328e65e80
     }
 
     /**
@@ -214,11 +209,6 @@ public class ItemTest {
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands07.txt");
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 2c5845d7b782a12282d7dc0e6aff81c328e65e80
     }
 
     /**
@@ -246,13 +236,8 @@ public class ItemTest {
         Beer beer = new Beer(3, false);
         student.getInventory().add(beer);
         student.setTeacherResist(true);
-<<<<<<< HEAD
     
-         GameStorageUtil.save(gameName, labirinth);
-=======
-
         GameStorageUtil.save(gameName, labirinth);
->>>>>>> 2c5845d7b782a12282d7dc0e6aff81c328e65e80
         testhandler.processCommandFile("command_resources/commands08.txt");
     }
 
@@ -279,17 +264,9 @@ public class ItemTest {
         Mask mask = new Mask(3, false);
         student.getInventory().add(mask);
         student.setTeacherResist(true);
-<<<<<<< HEAD
-    
-         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands09.txt");
-    
-=======
-
+        
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands09.txt");
-
->>>>>>> 2c5845d7b782a12282d7dc0e6aff81c328e65e80
     }
 
     /**
