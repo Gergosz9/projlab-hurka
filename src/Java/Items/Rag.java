@@ -59,7 +59,7 @@ public class Rag extends Item {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof Rag rag))
+        if (!(o instanceof Rag))
             return false;
         if (!super.equals(o))
             return false;

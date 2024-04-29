@@ -61,7 +61,7 @@ public class Camembert extends Item {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof Camembert camembert))
+        if (!(o instanceof Camembert))
             return false;
         if (!super.equals(o))
             return false;

@@ -59,6 +59,11 @@ public class Student extends Character {
     this.teacherResist = teacherResist;
   }
 
+  /**
+   * Gets the teacher resistance of the student.
+   * 
+   * @return the teacher resistance value
+   */
   public boolean getTeacherResist() {
     return this.teacherResist;
   }
@@ -80,20 +85,40 @@ public class Student extends Character {
     labirinth.removeCharacter(this);
   }
 
+  /**
+   * Performs a round of actions for the student.
+   * The student's move count is rolled, and the student continues to perform
+   * actions
+   * until the action count reaches zero or the student is paralyzed.
+   */
   public void doRound() {
     rollMoveCount();
     while (actionCount > 0 && !paralyzed)
       ;
   }
 
+  /**
+   * Checks if this student is equal to another object.
+   * 
+   * @param o the object to compare
+   * @return true if the objects are equal, false otherwise
+   */
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Student student)) return false;
-    if (!super.equals(o)) return false;
+    if (this == o)
+      return true;
+    if (!(o instanceof Student student))
+      return false;
+    if (!super.equals(o))
+      return false;
     return teacherResist == student.teacherResist;
   }
 
+  /**
+   * Returns the hash code value for this student.
+   * 
+   * @return the hash code value for this student
+   */
   @Override
   public int hashCode() {
     return Objects.hash(super.hashCode(), teacherResist);

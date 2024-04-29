@@ -1,6 +1,5 @@
 package Java.Items;
 
-import Java.Characters.Cleaner;
 import Java.Items.Triggers.*;
 
 /**
@@ -62,7 +61,7 @@ public class AirFreshener extends Item {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof AirFreshener airFreshener))
+        if (!(o instanceof AirFreshener))
             return false;
         if (!super.equals(o))
             return false;

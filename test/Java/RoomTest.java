@@ -2,21 +2,11 @@ package Java;
 
 import Java.Characters.Cleaner;
 
-import Java.Characters.Student;
-import Java.Characters.Teacher;
+import Java.Characters.*;
 import Java.Items.*;
 import Java.util.GameStorageUtil;
 
-import java.lang.ref.Cleaner.Cleanable;
 import java.util.List;
-
-import java.util.List;
-
-import Java.Labirinth;
-import Java.Room;
-import Java.Characters.Student;
-import Java.Characters.Teacher;
-import Java.util.GameStorageUtil;
 
 /**
  * Class that contains test fuctions
@@ -26,8 +16,8 @@ public class RoomTest {
     static Labirinth labirinth = new Labirinth();
     static TestHandler testhandler = new TestHandler(labirinth);
 
-    //Ragacsos szoba működése
-    public static void test19(){
+    // Ragacsos szoba működése
+    public static void test19() {
         String gameName = "map19";
         Labirinth labirinth = new Labirinth();
 
@@ -46,18 +36,17 @@ public class RoomTest {
         room.getItems().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands19.txt");
+        testhandler.processCommandFile("command_resources/commands19.txt");
     }
 
-
-    //Ragacsos szoba takarítása
-    public static void test20(){ 
+    // Ragacsos szoba takarítása
+    public static void test20() {
         String gameName = "map20";
         Labirinth labirinth = new Labirinth();
-    
+
         Cleaner cleaner = new Cleaner("c1", labirinth);
         labirinth.addCharacter(cleaner);
-    
+
         Room r1 = new Room("r1", 4, false, false, null, null);
         Room r2 = new Room("r2", 4, false, true, null, null);
         r1.setOpenRooms(List.of(r2));
@@ -65,22 +54,22 @@ public class RoomTest {
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
         r1.getCharacters().add(cleaner);
-    
+
         r2.setStickyness(6);
-    
-         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands20.txt");
-    
+
+        GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("command_resources/commands20.txt");
+
     }
 
-    //Szoba ragacsossá válik
-    public static void test21(){ 
+    // Szoba ragacsossá válik
+    public static void test21() {
         String gameName = "map21";
         Labirinth labirinth = new Labirinth();
-    
+
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
-    
+
         Room r1 = new Room("r1", 4, false, false, null, null);
         Room r2 = new Room("r2", 4, false, true, null, null);
         r1.setOpenRooms(List.of(r2));
@@ -88,26 +77,26 @@ public class RoomTest {
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
         r1.getCharacters().add(student);
-    
+
         r2.setStickyness(4);
-    
+
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands21.txt");
-    
+        testhandler.processCommandFile("command_resources/commands21.txt");
+
     }
 
-    //Egy tanár találkozik több hallgatóval(egyik védve, másik nem)
-    public static void test22(){ 
+    // Egy tanár találkozik több hallgatóval(egyik védve, másik nem)
+    public static void test22() {
         String gameName = "map22";
         Labirinth labirinth = new Labirinth();
-    
+
         Student student = new Student("s1", labirinth);
         Student student2 = new Student("s2", labirinth);
-        Teacher teacher= new Teacher("t1", labirinth);
+        Teacher teacher = new Teacher("t1", labirinth);
         labirinth.addCharacter(student);
         labirinth.addCharacter(student2);
         labirinth.addCharacter(teacher);
-    
+
         Room r1 = new Room("r1", 4, false, false, null, null);
         Room r2 = new Room("r2", 4, false, true, null, null);
         r1.setOpenRooms(List.of(r2));
@@ -117,27 +106,26 @@ public class RoomTest {
         r1.getCharacters().add(student);
         r1.getCharacters().add(student2);
         r2.getCharacters().add(teacher);
-        TVSZ tvsz = new TVSZ(3,false);
+        TVSZ tvsz = new TVSZ(3, false);
         student.getInventory().add(tvsz);
 
-    
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands22.txt");
-    
+        testhandler.processCommandFile("command_resources/commands22.txt");
+
     }
 
-    //Egy tanár találkozik több hallgatóval(egyik védve, másik nem)
-    public static void test23(){ 
+    // Egy tanár találkozik több hallgatóval(egyik védve, másik nem)
+    public static void test23() {
         String gameName = "map23";
         Labirinth labirinth = new Labirinth();
-    
+
         Student student = new Student("s1", labirinth);
-        Teacher teacher= new Teacher("t1", labirinth);
-        Teacher teacher2= new Teacher("t2", labirinth);
+        Teacher teacher = new Teacher("t1", labirinth);
+        Teacher teacher2 = new Teacher("t2", labirinth);
         labirinth.addCharacter(student);
         labirinth.addCharacter(teacher);
         labirinth.addCharacter(teacher2);
-    
+
         Room r1 = new Room("r1", 4, false, false, null, null);
         Room r2 = new Room("r2", 4, false, true, null, null);
         r1.setOpenRooms(List.of(r2));
@@ -147,13 +135,12 @@ public class RoomTest {
         r1.getCharacters().add(student);
         r2.getCharacters().add(teacher);
         r2.getCharacters().add(teacher2);
-        TVSZ tvsz = new TVSZ(3,false);
+        TVSZ tvsz = new TVSZ(3, false);
         student.getInventory().add(tvsz);
 
-    
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands23.txt");
-    
+        testhandler.processCommandFile("command_resources/commands23.txt");
+
     }
 
 }

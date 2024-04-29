@@ -80,7 +80,7 @@ public class TVSZ extends Item {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof TVSZ tvsz))
+        if (!(o instanceof TVSZ))
             return false;
         if (!super.equals(o))
             return false;
