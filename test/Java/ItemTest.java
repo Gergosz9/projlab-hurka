@@ -31,7 +31,7 @@ public class ItemTest {
      * Tranzisztor használata
      */
     public static void test01(){ 
-        String gameName = "test01";
+        String gameName = "map01";
         Labirinth labirinth = new Labirinth();
     
         Student student = new Student("s1", labirinth);
@@ -60,7 +60,7 @@ public class ItemTest {
      * Camembert használata
      */
     public static void test02(){
-        String gameName = "test02";
+        String gameName = "map02";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -90,7 +90,7 @@ public class ItemTest {
      * Törlőrongy használata
      */
     public static void test03(){
-        String gameName = "test03";
+        String gameName = "map03";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -116,7 +116,7 @@ public class ItemTest {
      * Logarléc megszerzése
      */
     public static void test04(){
-                String gameName = "test04";
+                String gameName = "map04";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -142,7 +142,7 @@ public class ItemTest {
      * TVSZ használata 1
      */
     public static void test05(){
-        String gameName = "test05";
+        String gameName = "map05";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -172,7 +172,7 @@ public class ItemTest {
      * TVSZ használata 2
      */
     public static void test06(){
-        String gameName = "test06";
+        String gameName = "map06";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -203,7 +203,7 @@ public class ItemTest {
      * Söröspohár használata 1
      */
     public static void test07(){
-        String gameName = "test07";
+        String gameName = "map07";
         Labirinth labirinth = new Labirinth();
     
         Student student = new Student("s1", labirinth);
@@ -234,7 +234,7 @@ public class ItemTest {
      * Söröspohár használata 2
      */
     public static void test08(){
-        String gameName = "test08";
+        String gameName = "map08";
         Labirinth labirinth = new Labirinth();
     
         Student student = new Student("s1", labirinth);
@@ -265,7 +265,7 @@ public class ItemTest {
      * Maszk használata
      */
     public static void test09(){ 
-        String gameName = "test09";
+        String gameName = "map09";
         Labirinth labirinth = new Labirinth();
     
         Student student = new Student("s1", labirinth);
@@ -293,7 +293,7 @@ public class ItemTest {
      * Légtisztító használata
      */
     public static void test10(){
-        String gameName = "test10";
+        String gameName = "map10";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);

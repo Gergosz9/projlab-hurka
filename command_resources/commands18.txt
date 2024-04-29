@@ -1,4 +1,4 @@
-load test18
+load map18
 move c1 r2
 save
 examinate

@@ -1,4 +1,4 @@
-load test15
+load map15
 move s1 r2
 endmyturn
 save

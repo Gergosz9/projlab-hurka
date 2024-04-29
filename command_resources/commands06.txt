@@ -1,4 +1,4 @@
-load test06
+load map06
 move t1 r1
 save
 examinate
