@@ -1,0 +1,5 @@
+load test15
+move s1 r2
+endmyturn
+save
+examinate

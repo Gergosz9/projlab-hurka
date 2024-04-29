@@ -1,0 +1,4 @@
+load test08
+move t1 r1
+save
+examinate

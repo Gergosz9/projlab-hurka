@@ -1,0 +1,5 @@
+load test03
+useitem s1 Rag
+save
+examinate
+

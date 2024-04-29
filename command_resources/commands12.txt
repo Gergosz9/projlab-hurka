@@ -1,0 +1,4 @@
+load test12
+move t1 r1
+save
+examinate

@@ -145,19 +145,19 @@ public class Test {
                      RoomTest.test19();
                      break;
                  case 20:
-                     test20();
+                     RoomTest.test20();
                      break;
                  case 21:
-                     test21();
+                     RoomTest.test21();
                      break;
                  case 22:
-                     test22();
+                     RoomTest.test22();
                      break;
                  case 23:
-                     test23();
+                     RoomTest.test23();
                       break;
                  case 24:
-                      endTest();
+                      //endTest();
                       break;
                  default:
                       System.out.println("Nincs megfelelő függvény ehhez a számhoz.");

@@ -1,0 +1,4 @@
+load test16
+pickup s1 Rag
+save
+examinate

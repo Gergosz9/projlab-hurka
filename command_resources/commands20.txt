@@ -1,0 +1,7 @@
+load test20
+move c1 r2
+save
+examinate
+
+
+

@@ -1,0 +1,6 @@
+load test19
+pickup s1 Rag
+save
+examinate
+
+

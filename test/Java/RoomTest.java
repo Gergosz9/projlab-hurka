@@ -1,9 +1,7 @@
 package Java;
 
-<<<<<<< HEAD
 import Java.Characters.Cleaner;
-=======
->>>>>>> 107e65835084e42305924f76bef7974854d53a59
+
 import Java.Characters.Student;
 import Java.Characters.Teacher;
 import Java.Items.*;
@@ -25,8 +23,9 @@ import Java.util.GameStorageUtil;
  * Related to the Rooms
  */
 public class RoomTest {
+    static Labirinth labirinth = new Labirinth();
+    static TestHandler testhandler = new TestHandler(labirinth);
 
-<<<<<<< HEAD
     //Ragacsos szoba működése
     public static void test19(){
         String gameName = "map19";
@@ -34,13 +33,6 @@ public class RoomTest {
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
-=======
-    /*
-    static Labirinth labirinth = new Labirinth();
-    static TestHandler testhandler = new TestHandler(labirinth);
->>>>>>> 107e65835084e42305924f76bef7974854d53a59
-
-
         Room room = new Room("r1", 5, false, false,
                 null,
                 null);
@@ -54,8 +46,8 @@ public class RoomTest {
         room.getItems().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands19.txt");
     }
-    */
 
 
     //Ragacsos szoba takarítása
@@ -77,6 +69,7 @@ public class RoomTest {
         r2.setStickyness(6);
     
          GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands20.txt");
     
     }
 
@@ -99,6 +92,7 @@ public class RoomTest {
         r2.setStickyness(4);
     
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands21.txt");
     
     }
 
@@ -128,6 +122,7 @@ public class RoomTest {
 
     
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands22.txt");
     
     }
 
@@ -157,6 +152,7 @@ public class RoomTest {
 
     
         GameStorageUtil.save(gameName, labirinth);
+        testhandler.processCommandFile("commands23.txt");
     
     }
 

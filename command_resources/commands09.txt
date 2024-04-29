@@ -1,0 +1,4 @@
+load test09
+move s1 r2
+save
+examinate

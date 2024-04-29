@@ -1,0 +1,5 @@
+load test02
+useitem s1 Camembert
+save
+examinate
+
