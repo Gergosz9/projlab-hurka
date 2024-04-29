@@ -1,0 +1,30 @@
+Room: r1
+	max players: 4
+	cursed: false
+	gassed: false
+	sticky: false
+	ragged rounds: 0
+	characters (in room):
+	items (in room):
+	neighbors (just open doors):
+		r2
+
+Room: r2
+	max players: 4
+	cursed: false
+	gassed: true
+	sticky: false
+	ragged rounds: 0
+	characters (in room):
+		name: s1
+			type: student
+			gasResist: false
+			paralized: true
+			teacher resist: false
+			items:
+	items (in room):
+name: TVSZ
+			durability: 3
+			fake: false
+	neighbors (just open doors):
+		r1

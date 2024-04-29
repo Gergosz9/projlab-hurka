@@ -1,0 +1,15 @@
+Room: r1
+	max players: 5
+	cursed: false
+	gassed: false
+	sticky: false
+	ragged rounds: 0
+	characters (in room):
+		name: s1
+			type: student
+			gasResist: false
+			paralized:  false
+			teacher resist: false
+			items: 
+	items (in room):
+	neighbors (just open doors):
