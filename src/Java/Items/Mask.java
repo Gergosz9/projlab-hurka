@@ -76,7 +76,7 @@ public class Mask extends Item {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof Mask mask))
+        if (!(o instanceof Mask))
             return false;
         if (!super.equals(o))
             return false;

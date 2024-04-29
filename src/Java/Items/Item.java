@@ -10,8 +10,10 @@ import java.util.Objects;
 public abstract class Item {
     protected int durability; // The durability of the item
     boolean isFake; // Indicates if the item is fake
-    private final String jsonType;  // Required for the deserialization of the saved Item in json format
-                                    // because they are stored in a polymorph list which is not supported by the json format
+    @SuppressWarnings("unused")
+    private final String jsonType; // Required for the deserialization of the saved Item in json format
+                                   // because they are stored in a polymorph list which is not supported by the
+                                   // json format
 
     /**
      * Constructor to initialize an Item with durability and fake status.
@@ -42,9 +44,9 @@ public abstract class Item {
         }
     }
 
-
     /**
      * Gets durability of Item
+     * 
      * @return durability of Item
      */
     public int getDurability() {
@@ -53,6 +55,7 @@ public abstract class Item {
 
     /**
      * Gets boolean value of isFake
+     * 
      * @return boolean value of isFake
      */
     public boolean isFake() {
@@ -61,18 +64,22 @@ public abstract class Item {
 
     /**
      * Compares this Item to another object
+     * 
      * @param o Compared Object
      * @return boolean true if they are equal, false if they are not
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Item item)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Item item))
+            return false;
         return durability == item.durability && isFake == item.isFake;
     }
 
     /**
      * Hashcode of Item
+     * 
      * @return Hashcode of Item
      */
     @Override
@@ -82,13 +89,14 @@ public abstract class Item {
 
     /**
      * toString function of Item
+     * 
      * @return toString of Item
      */
     @Override
     public String toString() {
         return "name: " + getClass().getSimpleName() + "\n" +
-               "\tdurability: " + durability + "\n" +
-               "\tfake: " + isFake;
+                "\tdurability: " + durability + "\n" +
+                "\tfake: " + isFake;
 
     }
 }

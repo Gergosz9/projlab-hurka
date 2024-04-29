@@ -36,6 +36,7 @@ public abstract class Character {
     boolean gasResist;
     List<Item> inventory;
     Labirinth labirinth;
+    @SuppressWarnings("unused")
     private final String jsonType;
 
     /**

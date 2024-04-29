@@ -2,19 +2,8 @@ package Java;
 
 import java.util.List;
 
-import Java.Labirinth;
-import Java.Room;
-import Java.Characters.Cleaner;
-import Java.Characters.Student;
-import Java.Characters.Teacher;
-import Java.Items.AirFreshener;
-import Java.Items.Beer;
-import Java.Items.Camembert;
-import Java.Items.Mask;
-import Java.Items.Rag;
-import Java.Items.SlideRule;
-import Java.Items.TVSZ;
-import Java.Items.Transistor;
+import Java.Characters.*;
+import Java.Items.*;
 import Java.util.GameStorageUtil;
 
 /**
@@ -28,9 +17,9 @@ public class CharacterTest {
 
     /**
      * Test function to testcase 11
-     *Tanár összefut hallgatóval
+     * Tanár összefut hallgatóval
      */
-    public static void test11(){
+    public static void test11() {
         String gameName = "map11";
         Labirinth labirinth = new Labirinth();
 
@@ -57,7 +46,7 @@ public class CharacterTest {
      * Test function to testcase 12
      * Hallgató összefut tanárral
      */
-    public static void test12(){
+    public static void test12() {
         String gameName = "map12";
         Labirinth labirinth = new Labirinth();
 
@@ -84,7 +73,7 @@ public class CharacterTest {
      * Test function to testcase 13
      * Gázos szoba maszk nélkül
      */
-    public static void test13(){
+    public static void test13() {
         String gameName = "map13";
         Labirinth labirinth = new Labirinth();
 
@@ -98,7 +87,7 @@ public class CharacterTest {
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
         r1.getCharacters().add(student);
-        TVSZ tvsz=new TVSZ(3,false);
+        TVSZ tvsz = new TVSZ(3, false);
         r1.getItems().add(tvsz);
 
         GameStorageUtil.save(gameName, labirinth);
@@ -110,7 +99,7 @@ public class CharacterTest {
      * Test function to testcase 14
      * Tanár rongyos szobába lép
      */
-    public static void test14(){
+    public static void test14() {
         String gameName = "map14";
         Labirinth labirinth = new Labirinth();
 
@@ -135,7 +124,7 @@ public class CharacterTest {
      * Test function to testcase 15
      * Karakter átlép egy másik szobába
      */
-    public static void test15(){
+    public static void test15() {
         String gameName = "map15";
         Labirinth labirinth = new Labirinth();
 
@@ -159,13 +148,12 @@ public class CharacterTest {
      * Test function to testcase 16
      * Targy felvetele
      */
-    public static void test16(){
+    public static void test16() {
         String gameName = "map16";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
-
 
         Room room = new Room("r1", 5, false, false,
                 null,
@@ -185,13 +173,12 @@ public class CharacterTest {
      * Test function to testcase 17
      * Targy letelete
      */
-    public static void test17(){
+    public static void test17() {
         String gameName = "map17";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
-
 
         Room room = new Room("r1", 5, false, false,
                 null,
@@ -211,7 +198,7 @@ public class CharacterTest {
      * Test function to testcase 18
      * Kitessekeles
      */
-    public static void test18(){
+    public static void test18() {
         String gameName = "map18";
         Labirinth labirinth = new Labirinth();
 

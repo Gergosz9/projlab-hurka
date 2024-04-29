@@ -60,7 +60,7 @@ public class SlideRule extends Item {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof SlideRule slideRule))
+        if (!(o instanceof SlideRule))
             return false;
         if (!super.equals(o))
             return false;
