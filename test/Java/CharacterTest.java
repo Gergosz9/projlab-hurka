@@ -38,7 +38,7 @@ public class CharacterTest {
         r2.getCharacters().add(teacher);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands11.txt");
+        testhandler.processCommandFile("command_resources/commands11.txt");
 
     }
 
@@ -65,7 +65,7 @@ public class CharacterTest {
         r2.getCharacters().add(teacher);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands12.txt");
+        testhandler.processCommandFile("command_resources/commands12.txt");
 
     }
 
@@ -91,7 +91,7 @@ public class CharacterTest {
         r1.getItems().add(tvsz);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands13.txt");
+        testhandler.processCommandFile("command_resources/commands13.txt");
 
     }
 
@@ -116,7 +116,7 @@ public class CharacterTest {
         r2.setRagged(3);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands14.txt");
+        testhandler.processCommandFile("command_resources/commands14.txt");
 
     }
 
@@ -140,7 +140,7 @@ public class CharacterTest {
         r1.getCharacters().add(student);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands15.txt");
+        testhandler.processCommandFile("command_resources/commands15.txt");
 
     }
 
@@ -166,7 +166,7 @@ public class CharacterTest {
         room.getItems().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands16.txt");
+        testhandler.processCommandFile("command_resources/commands16.txt");
     }
 
     /**
@@ -191,7 +191,7 @@ public class CharacterTest {
         student.getInventory().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands17.txt");
+        testhandler.processCommandFile("command_resources/commands17.txt");
     }
 
     /**
@@ -217,7 +217,7 @@ public class CharacterTest {
         r2.getCharacters().add(student);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands18.txt");
+        testhandler.processCommandFile("command_resources/commands18.txt");
 
     }
 }

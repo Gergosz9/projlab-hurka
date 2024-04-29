@@ -39,7 +39,7 @@ public class ItemTest {
         r1.getItems().add(t2);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands01.txt");
+        testhandler.processCommandFile("command_resources/commands01.txt");
 
     }
 
@@ -68,7 +68,7 @@ public class ItemTest {
 
         student.setGasResist(true);
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands02.txt");
+        testhandler.processCommandFile("command_resources/commands02.txt");
     }
     //
 
@@ -94,7 +94,7 @@ public class ItemTest {
         student.getInventory().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands03.txt");
+        testhandler.processCommandFile("command_resources/commands03.txt");
     }
 
     /**
@@ -119,7 +119,7 @@ public class ItemTest {
         room.getItems().add(slideRule);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands04.txt");
+        testhandler.processCommandFile("command_resources/commands04.txt");
     }
 
     /**
@@ -149,7 +149,7 @@ public class ItemTest {
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands05.txt");
+        testhandler.processCommandFile("command_resources/commands05.txt");
     }
 
     /**
@@ -179,7 +179,7 @@ public class ItemTest {
         student.setTeacherResist(false);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands06.txt");
+        testhandler.processCommandFile("command_resources/commands06.txt");
     }
 
     /**
@@ -209,7 +209,7 @@ public class ItemTest {
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands07.txt");
+        testhandler.processCommandFile("command_resources/commands07.txt");
 
     }
 
@@ -240,7 +240,7 @@ public class ItemTest {
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands08.txt");
+        testhandler.processCommandFile("command_resources/commands08.txt");
     }
 
     //
@@ -268,7 +268,7 @@ public class ItemTest {
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands09.txt");
+        testhandler.processCommandFile("command_resources/commands09.txt");
 
     }
 
@@ -294,6 +294,6 @@ public class ItemTest {
         student.getInventory().add(airFreshener);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands10.txt");
+        testhandler.processCommandFile("command_resources/commands10.txt");
     }
 }

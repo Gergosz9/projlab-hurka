@@ -36,7 +36,7 @@ public class RoomTest {
         room.getItems().add(rag);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands19.txt");
+        testhandler.processCommandFile("command_resources/commands19.txt");
     }
 
     // Ragacsos szoba takarítása
@@ -58,7 +58,7 @@ public class RoomTest {
         r2.setStickyness(6);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands20.txt");
+        testhandler.processCommandFile("command_resources/commands20.txt");
 
     }
 
@@ -81,7 +81,7 @@ public class RoomTest {
         r2.setStickyness(4);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands21.txt");
+        testhandler.processCommandFile("command_resources/commands21.txt");
 
     }
 
@@ -110,7 +110,7 @@ public class RoomTest {
         student.getInventory().add(tvsz);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands22.txt");
+        testhandler.processCommandFile("command_resources/commands22.txt");
 
     }
 
@@ -139,7 +139,7 @@ public class RoomTest {
         student.getInventory().add(tvsz);
 
         GameStorageUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("commands23.txt");
+        testhandler.processCommandFile("command_resources/commands23.txt");
 
     }
 
