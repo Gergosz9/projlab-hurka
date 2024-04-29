@@ -31,7 +31,7 @@ public class CharacterTest {
      *Tanár összefut hallgatóval
      */
     public static void test11(){
-        String gameName = "map11";
+        String gameName = "test11";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -58,7 +58,7 @@ public class CharacterTest {
      * Hallgató összefut tanárral
      */
     public static void test12(){
-        String gameName = "map12";
+        String gameName = "test12";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -85,7 +85,7 @@ public class CharacterTest {
      * Gázos szoba maszk nélkül
      */
     public static void test13(){
-        String gameName = "map13";
+        String gameName = "test13";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -111,7 +111,7 @@ public class CharacterTest {
      * Tanár rongyos szobába lép
      */
     public static void test14(){
-        String gameName = "map14";
+        String gameName = "test14";
         Labirinth labirinth = new Labirinth();
 
         Teacher teacher = new Teacher("t1", labirinth);
@@ -136,7 +136,7 @@ public class CharacterTest {
      * Karakter átlép egy másik szobába
      */
     public static void test15(){
-        String gameName = "map15";
+        String gameName = "test15";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -160,7 +160,7 @@ public class CharacterTest {
      * Targy felvetele
      */
     public static void test16(){
-        String gameName = "map16";
+        String gameName = "test16";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -186,7 +186,7 @@ public class CharacterTest {
      * Targy letelete
      */
     public static void test17(){
-        String gameName = "map17";
+        String gameName = "test17";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);
@@ -212,7 +212,7 @@ public class CharacterTest {
      * Kitessekeles
      */
     public static void test18(){
-        String gameName = "map18";
+        String gameName = "test18";
         Labirinth labirinth = new Labirinth();
 
         Student student = new Student("s1", labirinth);

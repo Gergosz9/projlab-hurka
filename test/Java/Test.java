@@ -45,30 +45,30 @@ public class Test {
     static TestHandler testhandler = new TestHandler(labirinth);
 
     static String[] tests = {
-            "Tranzisztor használata", //1
-            "Camembert használata", //2
-            "Törlőrongy használata", //3
-            "Logarléc megszerzése", //4
-            "TVSZ használata 1", //5
-            "TVSZ használata 2", //6
-            "Söröspohár használata 1", //7
-            "Söröspohár használata 2", //8
-            "Maszk használata", //9
-            "Légtisztító használata", //10
-            "Tanár összefut hallgatóval", //11
-            "Hallgató összefut tanárral", //12
-            "Gázos szoba maszk nélkül", //13
-            "Tanár rongyos szobába lép.", //14
-            "Karakter átlép egy másik szobába", //15
-            "Tárgy felvétele", //16
-            "Tárgy letétele", //17
-            "Kitessékelés", //18
-            "Ragacsos szoba működése", //19
-            "ragacsos szoba takarítása", //20
-            "szoba ragacsossá válik", //21
-            "egy tanár találkozik több diákkal", //22
-            "egy diák találkozik több tanárral", //23
-            "(tranzisztor nincsen párosítva)", //24
+            "Tranzisztor használata",
+            "Camembert használata",
+            "Törlőrongy használata",
+            "Logarléc megszerzése",
+            "TVSZ használata 1",
+            "TVSZ használata 2",
+            "Söröspohár használata 1",
+            "Söröspohár használata 2",
+            "Maszk használata",
+            "Légtisztító használata",
+            "Tanár összefut hallgatóval",
+            "Hallgató összefut tanárral",
+            "Gázos szoba maszk nélkül",
+            "Tanár rongyos szobába lép.",
+            "Karakter átlép egy másik szobába",
+            "Tárgy felvétele",
+            "Tárgy letétele",
+            "Kitessékelés",
+            "Ragacsos szoba működése",
+            "ragacsos szoba takarítása",
+            "szoba ragacsossá válik",
+            "egy tanár találkozik több diákkal",
+            "egy diák találkozik több tanárral",
+            "(tranzisztor nincsen párosítva)",
             "Tesztelés vége"
     };
 
@@ -93,7 +93,7 @@ public class Test {
                  case 2:
                      ItemTest.test02();
                      break;
-                 case 3:
+                  case 3:
                      ItemTest.test03();
                      break;
                  case 4:

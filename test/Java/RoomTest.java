@@ -52,7 +52,7 @@ public class RoomTest {
 
     //Ragacsos szoba takarítása
     public static void test20(){ 
-        String gameName = "map20";
+        String gameName = "test20";
         Labirinth labirinth = new Labirinth();
     
         Cleaner cleaner = new Cleaner("c1", labirinth);
@@ -75,7 +75,7 @@ public class RoomTest {
 
     //Szoba ragacsossá válik
     public static void test21(){ 
-        String gameName = "map21";
+        String gameName = "test21";
         Labirinth labirinth = new Labirinth();
     
         Student student = new Student("s1", labirinth);
@@ -98,7 +98,7 @@ public class RoomTest {
 
     //Egy tanár találkozik több hallgatóval(egyik védve, másik nem)
     public static void test22(){ 
-        String gameName = "map22";
+        String gameName = "test22";
         Labirinth labirinth = new Labirinth();
     
         Student student = new Student("s1", labirinth);
@@ -128,7 +128,7 @@ public class RoomTest {
 
     //Egy tanár találkozik több hallgatóval(egyik védve, másik nem)
     public static void test23(){ 
-        String gameName = "map23";
+        String gameName = "test23";
         Labirinth labirinth = new Labirinth();
     
         Student student = new Student("s1", labirinth);
