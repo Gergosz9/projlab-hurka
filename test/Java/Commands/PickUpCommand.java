@@ -13,8 +13,9 @@ public class PickUpCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
-        
+    public Labirinth execute(String[] args, Labirinth l) {
+        this.labirinth = l;
+
         List<Character> characters = labirinth.getCharacters();
         Character character = getCharacterFromString(args[1], characters);
 
@@ -24,6 +25,8 @@ public class PickUpCommand implements Command {
         Item item = getItemFromString(args[2], items);
 
         character.pickUpItem(item);
+
+        return labirinth;
         
     } 
 }

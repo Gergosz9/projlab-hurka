@@ -16,10 +16,8 @@ public class ExaminateCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
-        // move parancs v�grehajt�sa
-        // args[1] tartalmazza a karakter nev�t, args[2] pedig a c�l szob�t
-        // A sz�ks�ges m?veletek v�grehajt�sa a j�t�kmenet szerint
+    public Labirinth execute(String[] args, Labirinth l) {
+        this.labirinth = l;
 
         String fileName1 = args[1] + ".txt";
         String fileName2 = args[1] + "_output.txt";
@@ -54,5 +52,7 @@ public class ExaminateCommand implements Command {
         } catch (IOException e) {
             System.err.println("Hiba történt az összehasonlítás közben: " + e.getMessage());
         }
+
+        return l;
     }
 } //�sszehasonl�tja a kimeneti txt-t az elv�rttal

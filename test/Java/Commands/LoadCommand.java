@@ -6,12 +6,13 @@ import Java.util.GameStorageUtil;
 public class LoadCommand implements Command {
     private Labirinth labirinth;
 
-    public LoadCommand(Labirinth labirinth) {
-        this.labirinth = labirinth;
+    public LoadCommand(Labirinth l) {
+        this.labirinth = l;
     }
 
     @Override
-    public void execute(String[] args) {
+    public Labirinth execute(String[] args, Labirinth l) {
         labirinth = GameStorageUtil.load(args[1]);
+        return labirinth;
     }
 } //bet�lti a labirintust (jsonb?l ?)

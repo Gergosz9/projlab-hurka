@@ -14,8 +14,8 @@ public class SaveCommand implements Command {
     }
 
     @Override
-    public void execute(String[] args) {
-
+    public Labirinth execute(String[] args, Labirinth l) {
+        this.labirinth = l;
         List<Room> rooms = labirinth.getRooms();
 
         String fileName = args[1] + "_output.txt";
@@ -28,6 +28,8 @@ public class SaveCommand implements Command {
             //System.out.println("A lista elemei ki lettek �rva a(z) " + fileName + " f�jlba.");
         } catch (IOException e) {
             System.err.println("Hiba t�rt�nt a f�jl �r�sa k�zben: " + e.getMessage());
-        }       
+        }
+
+        return labirinth;
     }
 } //kimenti a Labirinth �llapot�t egy txt-be
