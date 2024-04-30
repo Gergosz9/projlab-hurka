@@ -84,7 +84,16 @@ public abstract class Character {
      */
     public boolean pickUpItem(Item item) {
         if (inventory.size() <= 5 && !this.getMyLocation().isSticky()) {
+            if(item instanceof Transistor transistor) {
+                this.getInventory().forEach(item1 -> {
+                    if(item1 instanceof Transistor transistor1 && transistor1.getPair() == null) {
+                        transistor.setPair(transistor1);
+                        transistor1.setPair(transistor);
+                    }
+                });
+            }
             inventory.add(item);
+            getMyLocation().removeItem(item);
             return true;
         }
         return false;

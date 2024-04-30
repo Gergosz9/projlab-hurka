@@ -38,7 +38,7 @@ public class Transistor extends Item {
      * @param labirinth The labyrinth in which the transistor exists.
      */
     public Transistor(boolean isFake, Labirinth labirinth) {
-        super(1, isFake);
+        super(-1, isFake);
         pair = null;
         this.labirinth = labirinth;
     }
@@ -50,7 +50,7 @@ public class Transistor extends Item {
      * @param labirinth The labyrinth in which the transistor exists.
      */
     public Transistor(Labirinth labirinth) {
-        super(1, false);
+        super(-1, false);
         pair = null;
         this.labirinth = labirinth;
     }

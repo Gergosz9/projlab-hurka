@@ -147,7 +147,12 @@ public class Room {
      * @param item the item to add
      */
     public void addItem(Item item) {
-        items.add(item);
+        if(item instanceof Transistor transistor && transistor.getPair() != null) {
+            transistors.add(transistor);
+        }
+        else {
+            items.add(item);
+        }
     }
 
     /**
