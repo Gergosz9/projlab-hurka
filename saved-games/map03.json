@@ -2,17 +2,18 @@
   "characters": [
     {
       "name": "s1",
-      "actionCount": 0,
-      "paralyzed": false,
+      "actionCount": 100,
       "gasResist": false,
+      "paralyzed": false,
+      "jsonType": "Student",
+      "teacherResist": false,
       "inventory": [
         {
           "durability": 1,
           "isFake": false,
           "jsonType": "Rag"
         }
-      ],
-      "jsonType": "Student"
+      ]
     }
   ],
   "numberOfStudents": 0,
@@ -27,7 +28,7 @@
       "characters": [
         {
           "name": "s1",
-          "actionCount": 0,
+          "actionCount": 100,
           "paralyzed": false,
           "gasResist": false,
           "jsonType": "Student",

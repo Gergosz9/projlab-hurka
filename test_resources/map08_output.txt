@@ -9,7 +9,7 @@ Room: r1
 		type: Student
 		gasResist: false
 		paralyzed: false
-		teacher resist: false
+		teacher resist: true
 		items:
 			name: Beer
 			durability: 3

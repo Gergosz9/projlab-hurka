@@ -78,82 +78,6 @@ public class Test {
             System.out.print("\nVálassz egy tesztesetet: ");
             testCase = scanner.nextInt();
 
-              switch (testCase) {
-                 case 1:
-                     ItemTest.test01();
-                     break;
-                 case 2:
-                     ItemTest.test02();
-                     break;
-                  case 3:
-                     ItemTest.test03();
-                     break;
-                 case 4:
-                     ItemTest.test04();
-                     break;
-                 case 5:
-                     ItemTest.test05();
-                     break;
-                 case 6:
-                     ItemTest.test06();
-                     break;
-                 case 7:
-                     ItemTest.test07();
-                     break;
-                 case 8:
-                     ItemTest.test08();
-                     break;
-                 case 9:
-                     ItemTest.test09();
-                     break;
-                 case 10:
-                     ItemTest.test10();
-                     break;
-                 case 11:
-                     CharacterTest.test11();
-                     break;
-                 case 12:
-                     CharacterTest.test12();
-                     break;
-                 case 13:
-                     CharacterTest.test13();
-                     break;
-                 case 14:
-                     CharacterTest.test14();
-                     break;
-                 case 15:
-                     CharacterTest.test15();
-                     break;
-                 case 16:
-                     CharacterTest.test16();
-                     break;
-                 case 17:
-                     CharacterTest.test17();
-                     break;
-                 case 18:
-                     CharacterTest.test18();
-                     break;
-                 case 19:
-                     RoomTest.test19();
-                     break;
-                 case 20:
-                     RoomTest.test20();
-                     break;
-                 case 21:
-                     RoomTest.test21();
-                     break;
-                 case 22:
-                     RoomTest.test22();
-                     break;
-                 case 23:
-                     RoomTest.test23();
-                      break;
-                 case 24:
-                      //endTest();
-                      break;
-                 default:
-                      System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
-                 }
             switch (testCase) {
                 case 1:
                     ItemTest.test01();
@@ -225,10 +149,10 @@ public class Test {
                     RoomTest.test23();
                     break;
                 case 24:
-                    // endTest();
+                    System.out.println("\nA tesztelés véget ért.");
                     break;
                 default:
-                    System.out.println("Nincs megfelelő függvény ehhez a számhoz.16");
+                    System.out.println("Rossz bemenet, nincs megfelelő függvény ehhez a számhoz.");
             }
         }
         scanner.close();
