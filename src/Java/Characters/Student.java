@@ -60,6 +60,14 @@ public class Student extends Character {
   }
 
   /**
+   * Sets the teacher resist
+   * @return
+   */
+  public boolean isTeacherResist() {
+    return teacherResist;
+  }
+
+  /**
    * Gets the teacher resistance of the student.
    * 
    * @return the teacher resistance value

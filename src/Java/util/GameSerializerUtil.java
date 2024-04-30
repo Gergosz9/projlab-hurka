@@ -49,6 +49,7 @@ public class GameSerializerUtil {
             .registerTypeAdapter(Room.class, new RoomSerializer())
             .registerTypeAdapter(Item.class, new ItemSerializer())
             .registerTypeAdapter(Transistor.class, new TransistorSerializer())
+            .registerTypeAdapter(Character.class, new CharacterSerializer())
             // deserializers
             .registerTypeAdapter(Character.class, new CharacterDeserializer())
             .registerTypeAdapter(Item.class, new ItemDeserializer())
@@ -277,25 +278,67 @@ class CharacterDeserializer implements JsonDeserializer<Character> {
         JsonObject jsonObject = json.getAsJsonObject();
         String jsonType = jsonObject.get("jsonType").getAsString();
         String name = jsonObject.get("name").getAsString();
-        List<Item> inventory = context.deserialize(jsonObject.get("inventory"), new TypeToken<List<Item>>() {
-        }.getType());
+
+        Character character = null;
 
         switch (jsonType) {
             case "Student":
-                Character student = new Student(name, null);
-                student.setInventory(inventory);
-                return student;
+                character = new Student(name, null);
+                ((Student)character).setTeacherResist(jsonObject.get("teacherResist").getAsBoolean());
+                break;
             case "Teacher":
-                Character teacher = new Teacher(name, null);
-                teacher.setInventory(inventory);
-                return teacher;
+                character = new Teacher(name, null);
+                break;
             case "Cleaner":
-                Character cleaner = new Cleaner(name, null);
-                cleaner.setInventory(inventory);
-                return cleaner;
+                character = new Cleaner(name, null);
+                break;
             default:
                 throw new JsonParseException("Unknown character type: " + jsonType);
         }
+        List<Item> inventory = context.deserialize(jsonObject.get("inventory"), new TypeToken<List<Item>>() {
+        }.getType());
+        character.setActionCount(jsonObject.get("actionCount").getAsInt());
+        character.setParalyzed(jsonObject.get("paralyzed").getAsBoolean());
+        character.setGasResist(jsonObject.get("gasResist").getAsBoolean());
+        character.setInventory(inventory);
+
+        return character;
+    }
+}
+
+/**
+ * This class is for the serialization of the Character class.
+ * Implements the JsonSerializer interface.
+ * This class is for the correct save of Characters
+ */
+class CharacterSerializer implements JsonSerializer<Character> {
+
+    /**
+     * Takes a character and returns as a JsonObject
+     *
+     * @param character character which is serialized
+     * @param type object Type
+     * @param context contains context variables
+     * @return the character as jsonObject
+     */
+    @Override
+    public JsonElement serialize(Character character, Type type, JsonSerializationContext context) {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("name", character.getName());
+        jsonObject.addProperty("actionCount", character.getActionCount());
+        jsonObject.addProperty("gasResist", character.isGasResist());
+        jsonObject.addProperty("paralyzed", character.isParalyzed());
+        jsonObject.addProperty("jsonType", character.getJsonType());
+
+        if(character instanceof Student student) {
+            jsonObject.addProperty("teacherResist", student.isTeacherResist());
+        }
+
+        if (character.getInventory() != null) {
+            jsonObject.add("inventory", context.serialize(character.getInventory()));
+        }
+
+        return jsonObject;
     }
 }
 
