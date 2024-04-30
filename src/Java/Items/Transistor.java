@@ -14,6 +14,8 @@ public class Transistor extends Item {
     private Labirinth labirinth; // The labyrinth in which the transistor exists
     private Transistor pair; // The paired transistor
 
+    private String jsonId;
+
     /**
      * Constructor to initialize a Transistor with durability, fake status, and
      * labyrinth.
@@ -125,6 +127,22 @@ public class Transistor extends Item {
         this.labirinth = labirinth;
     }
 
+    public void setPair(Transistor pair) {
+        this.pair = pair;
+    }
+
+    public Transistor getPair() {
+        return pair;
+    }
+
+    public String getJsonId() {
+        return jsonId;
+    }
+
+    public void setJsonId(String jsonId) {
+        this.jsonId = jsonId;
+    }
+
     /**
      * Checks if this Transistor object is equal to another object.
      * Two Transistor objects are considered equal if they have the same type,
@@ -140,10 +158,9 @@ public class Transistor extends Item {
             return true;
         if (!(o instanceof Transistor that))
             return false;
-        if (!super.equals(o))
-            return false;
-        return Objects.equals(pair, that.pair);
+        return durability == ((Transistor) o).getDurability() && isFake == ((Transistor) o).isFake();
     }
+
 
     /**
      * Generates a hash code value for the Transistor object.

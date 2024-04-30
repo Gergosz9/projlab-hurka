@@ -17,11 +17,14 @@ import Java.Labirinth;
 import Java.Room;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
@@ -41,6 +44,11 @@ import java.util.stream.Collectors;
  */
 public class GameSerializerUtil {
     private static Gson gson = new GsonBuilder()
+            // serializers
+            .registerTypeAdapter(Room.class, new RoomSerializer())
+            .registerTypeAdapter(Item.class, new ItemSerializer())
+            .registerTypeAdapter(Transistor.class, new TransistorSerializer())
+            // deserializers
             .registerTypeAdapter(Character.class, new CharacterDeserializer())
             .registerTypeAdapter(Item.class, new ItemDeserializer())
             .setPrettyPrinting()
@@ -53,22 +61,38 @@ public class GameSerializerUtil {
      * @param fileName  target file name
      */
     static void saveGame(Labirinth labyrinth, String fileName) {
-        if(Objects.isNull(labyrinth)){
+        if (Objects.isNull(labyrinth)) {
             throw new GameSavingException(String.format("unable to store a null labyrinth as %s!", labyrinth));
         }
 
         try (Writer writer = new FileWriter(fileName)) {
             labyrinth.getCharacters().stream()
                     .filter(Objects::nonNull)
-                    .forEach(character->character.setLabirinth(null));
+                    .forEach(character -> character.setLabirinth(null));
             labyrinth.getRooms().stream()
-                    .flatMap(room-> room.getTransistors().stream())
-                    .forEach(transistor->transistor.setLabirinth(null));
+                    .filter(room -> room.getTransistors() != null)
+                    .flatMap(room -> room.getTransistors().stream())
+                    .forEach(transistor -> {
+                        transistor.setLabirinth(null);
+                        if (transistor.getPair() != null) {
+                            transistor.getPair().setLabirinth(null);
+                        }
+                    });
 
             gson.toJson(labyrinth, writer);
+
             labyrinth.getCharacters().stream()
                     .filter(Objects::nonNull)
-                    .forEach(character->character.setLabirinth(labyrinth));
+                    .forEach(character -> character.setLabirinth(labyrinth));
+            labyrinth.getRooms().stream()
+                    .filter(room -> room.getTransistors() != null)
+                    .flatMap(room -> room.getTransistors().stream())
+                    .forEach(transistor -> {
+                        transistor.setLabirinth(labyrinth);
+                        if (transistor.getPair() != null) {
+                            transistor.getPair().setLabirinth(labyrinth);
+                        }
+                    });
         } catch (IOException e) {
             throw new GameSavingException(e);
         }
@@ -82,36 +106,59 @@ public class GameSerializerUtil {
      */
     static Labirinth loadGame(String fileName) {
         try (Reader reader = new FileReader(fileName)) {
-            Type listType = new TypeToken<Labirinth>() {}.getType();
+            Type listType = new TypeToken<Labirinth>() {
+            }.getType();
             Labirinth labyrinth = gson.fromJson(reader, listType);
-            labyrinth.getCharacters().stream()
-                    .filter(Objects::nonNull)
-                    .forEach(character->character.setLabirinth(labyrinth));
+
+            if (Objects.nonNull(labyrinth.getCharacters())) {
+                labyrinth.getCharacters().stream()
+                        .filter(Objects::nonNull)
+                        .forEach(character -> character.setLabirinth(labyrinth));
+            }
+
             labyrinth.getRooms().stream()
-                    .flatMap(room-> room.getTransistors().stream())
-                    .forEach(transistor->transistor.setLabirinth(labyrinth));
+                    .filter(room -> Objects.nonNull(room.getTransistors()))
+                    .flatMap(room -> room.getTransistors().stream())
+                    .forEach(transistor -> transistor.setLabirinth(labyrinth));
 
             Map<String, Room> rooms = labyrinth.getRooms().stream()
                     .collect(Collectors.toMap(Room::getName, room -> room, (existing, replacement) -> existing));
-            Map<String, Character> characters = labyrinth.getCharacters().stream()
-                    .collect(Collectors.toMap(Character::getName, character -> character, (existing, replacement) -> existing));
+
+            Map<String, Character> characters = labyrinth.getCharacters() != null ?
+                    labyrinth.getCharacters().stream()
+                            .collect(Collectors.toMap(Character::getName, character -> character, (existing, replacement) -> existing)) :
+                    null;
+
+            Map<String, Transistor> transistors = labyrinth.getRooms().stream()
+                    .filter(room -> room.getTransistors() != null)
+                    .flatMap(room -> room.getTransistors().stream())
+                    .collect(Collectors.toMap(Transistor::getJsonId, transistor -> transistor, (existing, replacement) -> existing));
 
             labyrinth.getRooms().forEach(room -> {
-                if(room.getOpenRooms() != null){
+                if (room.getOpenRooms() != null) {
                     List<Room> openRooms = room.getOpenRooms().stream().map(Room::getName)
                             .map(rooms::get).collect(Collectors.toList());
                     room.setOpenRooms(openRooms);
                 }
-                if(room.getClosedRooms() != null){
+                if (room.getClosedRooms() != null) {
                     List<Room> closedRooms = room.getClosedRooms().stream().map(Room::getName)
                             .map(rooms::get).collect(Collectors.toList());
                     room.setClosedRooms(closedRooms);
                 }
 
-                if(room.getCharacters() != null){
+                if (characters != null && room.getCharacters() != null) {
                     List<Character> roomCharacters = room.getCharacters().stream().map(Character::getName)
                             .map(characters::get).collect(Collectors.toList());
                     room.setCharacters(roomCharacters);
+                }
+
+                if (!transistors.isEmpty() && room.getTransistors() != null) {
+                    for (Transistor transistor : room.getTransistors()) {
+                        transistor = transistors.get(transistor.getJsonId());
+                        if (transistor.getPair() != null) {
+                            transistor.setPair(transistors.get(transistor.getPair().getJsonId()));
+                        }
+                    }
                 }
             });
 
@@ -132,7 +179,8 @@ public class GameSerializerUtil {
 class ItemDeserializer implements JsonDeserializer<Item> {
     /**
      * Takes a single json element and returns an object of a derived class of Item
-     * @param json json object
+     *
+     * @param json    json object
      * @param typeOfT object Type
      * @param context contains context variables
      * @return an object of a derived class of an Item
@@ -181,7 +229,8 @@ class ItemDeserializer implements JsonDeserializer<Item> {
 class CharacterDeserializer implements JsonDeserializer<Character> {
     /**
      * Takes a single json element and returns an object of a derived class of Character
-     * @param json json object
+     *
+     * @param json    json object
      * @param typeOfT object Type
      * @param context contains context variables
      * @return an object of a derived class of a Character
@@ -193,17 +242,125 @@ class CharacterDeserializer implements JsonDeserializer<Character> {
         JsonObject jsonObject = json.getAsJsonObject();
         String jsonType = jsonObject.get("jsonType").getAsString();
         String name = jsonObject.get("name").getAsString();
+        List<Item> inventory = context.deserialize(jsonObject.get("inventory"), new TypeToken<List<Item>>() {
+        }.getType());
 
         switch (jsonType) {
             case "Student":
-                return new Student(name, null);
+                Character student = new Student(name, null);
+                student.setInventory(inventory);
+                return student;
             case "Teacher":
-                return new Teacher(name, null);
+                Character teacher = new Teacher(name, null);
+                teacher.setInventory(inventory);
+                return teacher;
             case "Cleaner":
-                return new Cleaner(name, null);
+                Character cleaner = new Cleaner(name, null);
+                cleaner.setInventory(inventory);
+                return cleaner;
             default:
                 throw new JsonParseException("Unknown character type: " + jsonType);
         }
     }
+}
 
+class RoomSerializer implements JsonSerializer<Room> {
+    @Override
+    public JsonElement serialize(Room rootRoom, Type typeOfSrc, JsonSerializationContext context) {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("name", rootRoom.getName());
+        jsonObject.addProperty("maxCharacters", rootRoom.getMaxCharacters());
+        jsonObject.addProperty("cursed", rootRoom.isCursed());
+        jsonObject.addProperty("gassed", rootRoom.isGassed());
+        jsonObject.addProperty("raggedRounds", rootRoom.getRaggedRounds());
+        jsonObject.addProperty("stickyness", rootRoom.getStickyness());
+
+        if (rootRoom.getClosedRooms() != null && !rootRoom.getClosedRooms().isEmpty()) {
+            JsonArray closedRoomsArray = new JsonArray();
+            for (Room room : rootRoom.getClosedRooms()) {
+                JsonObject roomObject = new JsonObject();
+                roomObject.addProperty("name", room.getName());
+                closedRoomsArray.add(roomObject);
+            }
+            jsonObject.add("closedRooms", closedRoomsArray);
+        }
+
+        // Serialize open rooms
+        if (rootRoom.getOpenRooms() != null && !rootRoom.getOpenRooms().isEmpty()) {
+            JsonArray openRoomsArray = new JsonArray();
+            for (Room room : rootRoom.getOpenRooms()) {
+                JsonObject roomObject = new JsonObject();
+                roomObject.addProperty("name", room.getName());
+                openRoomsArray.add(roomObject);
+            }
+            jsonObject.add("openRooms", openRoomsArray);
+        }
+        // Serialize items
+        if (rootRoom.getItems() != null && !rootRoom.getItems().isEmpty()) {
+            jsonObject.add("items", context.serialize(rootRoom.getItems()));
+        }
+        // Serialize transistors
+        if (rootRoom.getTransistors() != null && !rootRoom.getTransistors().isEmpty()) {
+            jsonObject.add("transistors", context.serialize(rootRoom.getTransistors()));
+        }
+
+
+        // Serialize characters
+        if (rootRoom.getCharacters() != null && !rootRoom.getCharacters().isEmpty()) {
+            JsonArray charactersArray = new JsonArray();
+            for (Character character : rootRoom.getCharacters()) {
+                JsonObject characterObject = new JsonObject();
+                characterObject.addProperty("name", character.getName());
+                characterObject.addProperty("actionCount", character.getActionCount());
+                characterObject.addProperty("paralyzed", character.isParalyzed());
+                characterObject.addProperty("gasResist", character.isGasResist());
+                characterObject.addProperty("jsonType", character.getJsonType());
+
+                characterObject.add("inventory", context.serialize(character.getInventory()));
+
+                // Serialize teacherResist for Students
+                if (character instanceof Student student) {
+                    characterObject.addProperty("teacherResist", student.isTeacherResist());
+                }
+
+                charactersArray.add(characterObject);
+            }
+            jsonObject.add("characters", charactersArray);
+        }
+
+        return jsonObject;
+    }
+}
+
+class ItemSerializer implements JsonSerializer<Item> {
+    @Override
+    public JsonElement serialize(Item item, Type typeOfSrc, JsonSerializationContext context) {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("durability", item.getDurability());
+        jsonObject.addProperty("isFake", item.isFake());
+        jsonObject.addProperty("jsonType", item.getJsonType());
+        return jsonObject;
+    }
+}
+
+class TransistorSerializer implements JsonSerializer<Transistor> {
+    @Override
+    public JsonElement serialize(Transistor transistor, Type typeOfSrc, JsonSerializationContext context) {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("durability", transistor.getDurability());
+        jsonObject.addProperty("isFake", transistor.isFake());
+        jsonObject.addProperty("jsonType", transistor.getJsonType());
+        jsonObject.addProperty("jsonId", Integer.toHexString(System.identityHashCode(transistor)));
+
+        if (transistor.getPair() != null) {
+            JsonObject pairObject = new JsonObject();
+            pairObject.addProperty("durability", transistor.getDurability());
+            pairObject.addProperty("isFake", transistor.isFake());
+            pairObject.addProperty("jsonType", transistor.getJsonType());
+            pairObject.addProperty("jsonId", Integer.toHexString(System.identityHashCode(transistor.getPair())));
+            jsonObject.add("pair", pairObject);
+        }
+
+        return jsonObject;
+    }
 }

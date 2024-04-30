@@ -1,11 +1,18 @@
 package Java;
 
-import java.util.List;
+import Java.Characters.Student;
+import Java.Characters.Teacher;
+import Java.Items.AirFreshener;
+import Java.Items.Beer;
+import Java.Items.Camembert;
+import Java.Items.Mask;
+import Java.Items.Rag;
+import Java.Items.SlideRule;
+import Java.Items.Transistor;
+import Java.util.GameStorageUtil;
 
-import Java.Characters.*;
-import Java.Items.*;
-import Java.Items.Triggers.*;
-import Java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PrototypeTest {
     public static void main(String[] args) {
@@ -28,27 +35,32 @@ public class PrototypeTest {
         labirinth.addRoom(openRoom);
 
         Room room = new Room("name", 10, true, false,
-                List.of(closedRoom),
-                List.of(openRoom));
+                new ArrayList<>(Arrays.asList(closedRoom)),
+                new ArrayList<>(Arrays.asList(openRoom)));
         room.addCharacter(teacher);
         room.addCharacter(student);
         labirinth.addRoom(room);
 
         Room room1 = new Room("name1", 10, true, false,
-                List.of(closedRoom),
-                List.of(room));
+                new ArrayList<>(Arrays.asList(closedRoom)),
+                new ArrayList<>(Arrays.asList(room)));
         room1.addCharacter(teacher);
+
         labirinth.addRoom(room1);
 
         Room room2 = new Room("name2", 10, true, false,
-                List.of(room1),
-                List.of(room));
+                new ArrayList<>(Arrays.asList(room1)),
+                new ArrayList<>(Arrays.asList(room)));
         room2.addCharacter(student);
         labirinth.addRoom(room2);
+
+
+        room1.getOpenRooms().add(room2);
 
         // Items
         AirFreshener airFreshener = new AirFreshener(1, true);
         Beer beer = new Beer(3);
+        Beer beer1 = new Beer(12);
         Camembert camembert = new Camembert();
         Mask mask = new Mask();
         Rag rag = new Rag();
@@ -58,14 +70,19 @@ public class PrototypeTest {
         Transistor transistor2 = new Transistor(6, true, labirinth);
         Transistor transistor3 = new Transistor(7, false, labirinth);
 
-        room.setItems(List.of(airFreshener, beer));
-        room.setTransistors(List.of(transistor, transistor1));
+        transistor.setPair(transistor1);
+        transistor1.setPair(transistor);
 
-        room1.setItems(List.of(camembert, mask));
-        room1.setTransistors(List.of(transistor2));
+        student.setInventory(new ArrayList<>(Arrays.asList(beer1)));
 
-        room2.setItems(List.of(rag, slideRule));
-        room2.setTransistors(List.of(transistor3));
+        room.setItems(Arrays.asList(airFreshener, beer));
+        room.setTransistors(Arrays.asList(transistor, transistor1));
+
+        room1.setItems(Arrays.asList(camembert, mask));
+        room1.setTransistors(Arrays.asList(transistor2));
+
+        room2.setItems(Arrays.asList(rag, slideRule));
+        room2.setTransistors(Arrays.asList(transistor3));
 
         GameStorageUtil.save(gameName, labirinth);
         System.out.println("Game status was SAVED");

@@ -359,6 +359,22 @@ public class Room {
         this.transistors = transistors;
     }
 
+    public int getMaxCharacters() {
+        return maxCharacters;
+    }
+
+    public boolean isCursed() {
+        return cursed;
+    }
+
+    public int getRaggedRounds() {
+        return raggedRounds;
+    }
+
+    public int getStickyness() {
+        return stickyness;
+    }
+
     /**
      * Compares this Character to another object
      *
@@ -396,16 +412,22 @@ public class Room {
         sb.append("\tsticky: ").append(isSticky()).append("\n");
         sb.append("\traggedRounds: ").append(raggedRounds).append("\n");
         sb.append("\tcharacters (in room): \n");
-        for (Character c : characters) {
-            sb.append("\t\t").append(c).append("\n");
+        if (characters != null) {
+            for (Character c : characters) {
+                sb.append("\t\t").append(c).append("\n");
+            }
         }
         sb.append("\titems (in room): \n");
-        for (Item item : items) {
-            sb.append("\t\t").append(item).append("\n");
+        if (items != null) {
+            for (Item item : items) {
+                sb.append("\t\t").append(item).append("\n");
+            }
         }
         sb.append("\tneighbors (just open doors): \n");
-        for (Room room : openRooms) {
-            sb.append("\t\t").append(room.getName()).append("\n");
+        if (openRooms != null) {
+            for (Room room : openRooms) {
+                sb.append("\t\t").append(room.getName()).append("\n");
+            }
         }
         return sb.toString();
     }

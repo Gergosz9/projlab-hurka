@@ -62,6 +62,10 @@ public abstract class Item {
         return isFake;
     }
 
+    public String getJsonType() {
+        return jsonType;
+    }
+
     /**
      * Compares this Item to another object
      * 

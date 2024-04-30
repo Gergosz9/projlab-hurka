@@ -231,6 +231,22 @@ public abstract class Character {
         return labirinth;
     }
 
+    public int getActionCount() {
+        return actionCount;
+    }
+
+    public boolean isParalyzed() {
+        return paralyzed;
+    }
+
+    public boolean isGasResist() {
+        return gasResist;
+    }
+
+    public String getJsonType() {
+        return jsonType;
+    }
+
     /**
      * Compares this Character to another object
      * 
@@ -269,12 +285,14 @@ public abstract class Character {
         sb.append("\ttype: ").append(getClass().getSimpleName()).append("\n");
         sb.append("\tgasResist: ").append(gasResist).append("\n");
         sb.append("\tparalyzed: ").append(paralyzed).append("\n");
-        if (this instanceof Student) {
-            sb.append("\tteacher resist: ").append(((Student) this).teacherResist).append("\n");
+        if (this instanceof Student student) {
+            sb.append("\tteacher resist: ").append(student.teacherResist).append("\n");
         }
         sb.append("\titems: \n");
-        for (Item item : inventory) {
-            sb.append("\t\t").append(item).append("\n");
+        if (inventory != null) {
+            for (Item item : inventory) {
+                sb.append("\t\t").append(item).append("\n");
+            }
         }
         return sb.toString();
     }
