@@ -13,7 +13,6 @@ public class Test {
     static TestHandler testhandler = new TestHandler(labirinth);
 
     static String[] tests = {
-<<<<<<< HEAD
             "Tranzisztor használata",
             "Camembert használata",
             "Törlőrongy használata",
@@ -38,7 +37,6 @@ public class Test {
             "egy tanár találkozik több diákkal",
             "egy diák találkozik több tanárral",
             "(tranzisztor nincsen párosítva)",
-=======
             "Tranzisztor használata", // 1
             "Camembert használata", // 2
             "Törlőrongy használata", // 3
@@ -63,7 +61,6 @@ public class Test {
             "egy tanár találkozik több diákkal", // 22
             "egy diák találkozik több tanárral", // 23
             "(tranzisztor nincsen párosítva)", // 24
->>>>>>> 2c5845d7b782a12282d7dc0e6aff81c328e65e80
             "Tesztelés vége"
     };
 
@@ -81,7 +78,6 @@ public class Test {
             System.out.print("\nVálassz egy tesztesetet: ");
             testCase = scanner.nextInt();
 
-<<<<<<< HEAD
               switch (testCase) {
                  case 1:
                      ItemTest.test01();
@@ -158,7 +154,6 @@ public class Test {
                  default:
                       System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
                  }
-=======
             switch (testCase) {
                 case 1:
                     ItemTest.test01();
@@ -235,7 +230,6 @@ public class Test {
                 default:
                     System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
             }
->>>>>>> 2c5845d7b782a12282d7dc0e6aff81c328e65e80
         }
         scanner.close();
     }
