@@ -1,0 +1,47 @@
+{
+  "characters": [
+    {
+      "name": "s1",
+      "actionCount": 0,
+      "paralyzed": false,
+      "gasResist": false,
+      "inventory": [
+        {
+          "durability": 1,
+          "isFake": false,
+          "jsonType": "Rag"
+        }
+      ],
+      "jsonType": "Student"
+    }
+  ],
+  "numberOfStudents": 0,
+  "rooms": [
+    {
+      "name": "r1",
+      "maxCharacters": 5,
+      "cursed": false,
+      "gassed": false,
+      "raggedRounds": 0,
+      "stickyness": 0,
+      "characters": [
+        {
+          "name": "s1",
+          "actionCount": 0,
+          "paralyzed": false,
+          "gasResist": false,
+          "inventory": [
+            {
+              "durability": 1,
+              "isFake": false,
+              "jsonType": "Rag"
+            }
+          ],
+          "jsonType": "Student"
+        }
+      ],
+      "items": [],
+      "transistors": []
+    }
+  ]
+}

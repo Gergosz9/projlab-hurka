@@ -1,4 +1,4 @@
-load test19
+load map19
 pickup s1 Rag
 save
 examinate

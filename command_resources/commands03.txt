@@ -1,4 +1,4 @@
-load test03
+load map03
 useitem s1 Rag
 save
 examinate

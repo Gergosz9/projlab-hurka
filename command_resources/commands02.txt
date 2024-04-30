@@ -1,4 +1,4 @@
-load test02
+load map02
 useitem s1 Camembert
 save
 examinate

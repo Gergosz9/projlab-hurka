@@ -1,4 +1,4 @@
-load test08
+load map08
 move t1 r1
 save
 examinate

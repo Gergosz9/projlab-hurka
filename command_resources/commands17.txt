@@ -1,4 +1,4 @@
-load test17
+load map17
 putdown s1 Rag
 save
 examinate

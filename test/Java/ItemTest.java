@@ -40,7 +40,6 @@ public class ItemTest {
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands01.txt");
-
     }
 
     /**
@@ -210,7 +209,6 @@ public class ItemTest {
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands07.txt");
-
     }
 
     /**
@@ -238,7 +236,7 @@ public class ItemTest {
         Beer beer = new Beer(3, false);
         student.getInventory().add(beer);
         student.setTeacherResist(true);
-
+    
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands08.txt");
     }
@@ -266,10 +264,9 @@ public class ItemTest {
         Mask mask = new Mask(3, false);
         student.getInventory().add(mask);
         student.setTeacherResist(true);
-
+        
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands09.txt");
-
     }
 
     /**

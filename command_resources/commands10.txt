@@ -1,4 +1,4 @@
-load test10
+load map10
 useitem s1 AirFreshener
 save
 examinate

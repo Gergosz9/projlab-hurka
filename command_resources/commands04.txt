@@ -1,4 +1,4 @@
-load test04
+load map04
 pickup s1 SlideRule
 useitem s1 SlideRule
 save

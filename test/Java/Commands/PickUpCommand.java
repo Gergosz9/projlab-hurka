@@ -8,8 +8,8 @@ import java.util.List;
 public class PickUpCommand implements Command {
     private Labirinth labirinth;
 
-    public PickUpCommand(Labirinth labirinth) {
-        this.labirinth = labirinth;
+    public PickUpCommand(Labirinth l) {
+        this.labirinth = l;
     }
 
     @Override
