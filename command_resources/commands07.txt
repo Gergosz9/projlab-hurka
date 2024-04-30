@@ -1,4 +1,4 @@
 load map07
 move s1 r2
-save
-examinate
+save map07
+examinate map07

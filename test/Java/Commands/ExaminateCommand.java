@@ -19,8 +19,8 @@ public class ExaminateCommand implements Command {
     public Labirinth execute(String[] args, Labirinth l) {
         this.labirinth = l;
 
-        String fileName1 = args[1] + ".txt";
-        String fileName2 = args[1] + "_output.txt";
+        String fileName1 = "test_resources/" + args[1] + ".txt";
+        String fileName2 = "test_resources/" + args[1] + "_output.txt";
 
         try (BufferedReader reader1 = new BufferedReader(new FileReader(fileName1));
              BufferedReader reader2 = new BufferedReader(new FileReader(fileName2)))
@@ -31,8 +31,11 @@ public class ExaminateCommand implements Command {
             boolean equal = true;
 
             while (line1 != null && line2 != null) {
+                System.out.println(line2);
+
                 if (!line1.equals(line2)) {
                     equal = false;
+                    System.out.println("Hiba az ezt megelőző sorban!");
                     break;
                 }       
                 line1 = reader1.readLine();
@@ -40,11 +43,12 @@ public class ExaminateCommand implements Command {
             }
 
             if (line1 != null || line2 != null) {
-                equal = false; // A f�jlok hossza nem egyezik
+                equal = false;
+                System.out.println("A fájlok hossza nem egyezik!");
             }
 
             if (equal) {
-                //System.out.println("A f�jlok tartalma megegyezik.");
+                System.out.println("A kimenet megegyezik az elvárttal, a teszt sikeres! :)!");
             } else {
                 //System.out.println("A f�jlok tartalma nem egyezik.");
         }

@@ -1,5 +1,5 @@
 load map03
 useitem s1 Rag
-save
-examinate
+save map03
+examinate map03
 

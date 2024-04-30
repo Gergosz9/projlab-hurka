@@ -1,4 +1,4 @@
 load map17
 putdown s1 Rag
-save
-examinate
+save map17
+examinate map17

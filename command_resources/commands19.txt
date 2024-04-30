@@ -1,6 +1,6 @@
 load map19
 pickup s1 Rag
-save
-examinate
+save map19
+examinate map19
 
 

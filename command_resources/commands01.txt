@@ -4,5 +4,5 @@ pickup s1 Transistor
 putdown s1 t2
 move s1 r2
 useitem s1 t1
-save
-examinate
+save map01
+examinate map01

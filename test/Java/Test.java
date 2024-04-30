@@ -228,7 +228,7 @@ public class Test {
                     // endTest();
                     break;
                 default:
-                    System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
+                    System.out.println("Nincs megfelelő függvény ehhez a számhoz.16");
             }
         }
         scanner.close();
