@@ -14,7 +14,7 @@ public class Transistor extends Item {
     private Labirinth labirinth; // The labyrinth in which the transistor exists
     private Transistor pair; // The paired transistor
 
-    private String jsonId;
+    private String jsonId; // Id to load pair from json
 
     /**
      * Constructor to initialize a Transistor with durability, fake status, and
@@ -127,18 +127,38 @@ public class Transistor extends Item {
         this.labirinth = labirinth;
     }
 
+    /**
+     * Sets the pair for the transistor
+     *
+     * @param pair the paired transostor
+     */
     public void setPair(Transistor pair) {
         this.pair = pair;
     }
 
+    /**
+     * returns the pair to this transistor
+     *
+     * @return the pair to this transistor
+     */
     public Transistor getPair() {
         return pair;
     }
 
+    /**
+     * returns the jsonId of the transistor. Only used in saving a nd loading the project
+     *
+     * @return the jsonId of the transistor
+     */
     public String getJsonId() {
         return jsonId;
     }
 
+    /**
+     * Sets the jsonId of the Transistor. Only used in saving a nd loading the project
+     *
+     * @param jsonId the id
+     */
     public void setJsonId(String jsonId) {
         this.jsonId = jsonId;
     }
