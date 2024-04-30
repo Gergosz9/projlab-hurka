@@ -143,8 +143,13 @@ public abstract class Character {
     public void setParalyzed(boolean paralyzed) {
         this.paralyzed = paralyzed;
         if (paralyzed) {
-            for (Item item : inventory) {
-                dropItem(item, getMyLocation());
+            //Error because the loop removes from inventory and it will be concurent
+ //           for (Item item : inventory) {
+ //               dropItem(item, getMyLocation());
+ //           }
+            int itemNumber = inventory.size();
+            for (int i = 0; i < itemNumber; i++) {
+                dropItem(inventory.get(0), getMyLocation());
             }
             actionCount = 0;
         }
