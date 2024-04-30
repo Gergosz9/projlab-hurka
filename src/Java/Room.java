@@ -359,18 +359,34 @@ public class Room {
         this.transistors = transistors;
     }
 
+    /**
+     * Returns the max Character number in room
+     * @return maxCharacters in room
+     */
     public int getMaxCharacters() {
         return maxCharacters;
     }
 
+    /**
+     * Is the room cursed
+     * @return true if yes, false if no
+     */
     public boolean isCursed() {
         return cursed;
     }
 
+    /**
+     * Returns how many rounds till the room is ragged
+     * @return raggedRounds int value
+     */
     public int getRaggedRounds() {
         return raggedRounds;
     }
 
+    /**
+     * Returns the stickyness value of the room
+     * @return stickyness int value
+     */
     public int getStickyness() {
         return stickyness;
     }
