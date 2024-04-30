@@ -22,7 +22,7 @@ public class UseItemCommand implements Command {
         List<Item> items = character.getInventory();
         Item item = getItemFromString(args[2], items);
 
-        character.useItem(items.indexOf(item));
+        character.useItem(items.indexOf(item) + 1);
         return labirinth;
     }
 }

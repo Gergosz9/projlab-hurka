@@ -1,8 +1,8 @@
 load map01
 pickup s1 Transistor
 pickup s1 Transistor
-putdown s1 t2
+putdown s1 Transistor
 move s1 r2
-useitem s1 t1
+useitem s1 Transistor
 save map01
 examinate map01
