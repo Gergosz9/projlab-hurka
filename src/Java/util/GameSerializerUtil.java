@@ -264,7 +264,20 @@ class CharacterDeserializer implements JsonDeserializer<Character> {
     }
 }
 
+/**
+ * This class is for the serialization of the Room class.
+ * Implements the JsonSerializer interface.
+ * This class is needed to avoid the saving loop of the neighbouring rooms.
+ */
 class RoomSerializer implements JsonSerializer<Room> {
+    /**
+     * Takes a room and returns as a JsonObject
+     *
+     * @param rootRoom room which is serialized
+     * @param typeOfSrc object Type
+     * @param context contains context variables
+     * @return the room as jsonObject
+     */
     @Override
     public JsonElement serialize(Room rootRoom, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonObject = new JsonObject();
@@ -332,7 +345,21 @@ class RoomSerializer implements JsonSerializer<Room> {
     }
 }
 
+/**
+ * This class is for the serialization of the Item class.
+ * Implements the JsonSerializer interface.
+ * This class is needed for the manual saving of Item.
+ */
 class ItemSerializer implements JsonSerializer<Item> {
+
+    /**
+     * Takes an item and returns as a JsonObject
+     *
+     * @param item item which is serialized
+     * @param typeOfSrc object Type
+     * @param context contains context variables
+     * @return the item as jsonObject
+     */
     @Override
     public JsonElement serialize(Item item, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonObject = new JsonObject();
@@ -343,7 +370,20 @@ class ItemSerializer implements JsonSerializer<Item> {
     }
 }
 
+/**
+ * This class is for the serialization of the Transistor class.
+ * Implements the JsonSerializer interface.
+ * This class is needed to avoid the saving loop of the paired transistors.
+ */
 class TransistorSerializer implements JsonSerializer<Transistor> {
+    /**
+     * Takes a transistor and returns as a JsonObject
+     *
+     * @param transistor transistor which is serialized
+     * @param typeOfSrc object Type
+     * @param context contains context variables
+     * @return the transistor as jsonObject
+     */
     @Override
     public JsonElement serialize(Transistor transistor, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonObject = new JsonObject();
