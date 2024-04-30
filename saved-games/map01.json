@@ -26,13 +26,13 @@
       ],
       "items": [
         {
-          "durability": 1,
+          "durability": -1,
           "isFake": false,
           "jsonType": "Transistor",
           "jsonId": "4563e9ab"
         },
         {
-          "durability": 1,
+          "durability": -1,
           "isFake": false,
           "jsonType": "Transistor",
           "jsonId": "11531931"

@@ -2,6 +2,7 @@ package Java.Commands;
 import Java.*;
 import Java.Characters.Character;
 import Java.Items.Item;
+import Java.Items.Triggers.ActionTrigger;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class UseItemCommand implements Command {
         Item item = getItemFromString(args[2], items);
 
         character.useItem(items.indexOf(item) + 1);
+        //character.triggerItems(new ActionTrigger(character));
         return labirinth;
     }
 }

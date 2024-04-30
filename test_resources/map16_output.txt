@@ -16,8 +16,5 @@ Room: r1
 			fake: false
 
 	items (in room):
-		name: Rag
-			durability: 1
-			fake: false
 	neighbors (just open doors):
 

@@ -83,7 +83,9 @@ public class TestHandler {
     public void processCommandFile(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
+            System.out.println("\nKiadott parancsok\n");
             while ((line = br.readLine()) != null) {
+                System.out.println(line);
                 executeCommand(line);
             }
         } catch (IOException e) {

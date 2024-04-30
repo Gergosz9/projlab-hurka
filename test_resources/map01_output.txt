@@ -6,15 +6,6 @@ Room: r1
 	ragged rounds: 0
 	characters (in room):
 	items (in room):
-		name: Transistor
-			durability: 1
-			fake: false
-		name: Transistor
-			durability: 1
-			fake: false
-		name: Transistor
-			durability: 1
-			fake: false
 	neighbors (just open doors):
 		r2
 
@@ -32,7 +23,7 @@ Room: r2
 		teacher resist: false
 		items:
 			name: Transistor
-			durability: 1
+			durability: -1
 			fake: false
 
 	items (in room):
