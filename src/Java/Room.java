@@ -426,20 +426,20 @@ public class Room {
         sb.append("\tcursed: ").append(cursed).append("\n");
         sb.append("\tgassed: ").append(gassed).append("\n");
         sb.append("\tsticky: ").append(isSticky()).append("\n");
-        sb.append("\traggedRounds: ").append(raggedRounds).append("\n");
-        sb.append("\tcharacters (in room): \n");
+        sb.append("\tragged rounds: ").append(raggedRounds).append("\n");
+        sb.append("\tcharacters (in room):\n");
         if (characters != null) {
             for (Character c : characters) {
                 sb.append("\t\t").append(c).append("\n");
             }
         }
-        sb.append("\titems (in room): \n");
+        sb.append("\titems (in room):\n");
         if (items != null) {
             for (Item item : items) {
                 sb.append("\t\t").append(item).append("\n");
             }
         }
-        sb.append("\tneighbors (just open doors): \n");
+        sb.append("\tneighbors (just open doors):\n");
         if (openRooms != null) {
             for (Room room : openRooms) {
                 sb.append("\t\t").append(room.getName()).append("\n");

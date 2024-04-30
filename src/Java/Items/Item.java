@@ -99,8 +99,8 @@ public abstract class Item {
     @Override
     public String toString() {
         return "name: " + getClass().getSimpleName() + "\n" +
-                "\tdurability: " + durability + "\n" +
-                "\tfake: " + isFake;
+                "\t\t\tdurability: " + durability + "\n" +
+                "\t\t\tfake: " + isFake;
 
     }
 }

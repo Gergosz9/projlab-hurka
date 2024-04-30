@@ -282,16 +282,16 @@ public abstract class Character {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("name: ").append(name).append("\n");
-        sb.append("\ttype: ").append(getClass().getSimpleName()).append("\n");
-        sb.append("\tgasResist: ").append(gasResist).append("\n");
-        sb.append("\tparalyzed: ").append(paralyzed).append("\n");
+        sb.append("\t\ttype: ").append(getClass().getSimpleName()).append("\n");
+        sb.append("\t\tgasResist: ").append(gasResist).append("\n");
+        sb.append("\t\tparalyzed: ").append(paralyzed).append("\n");
         if (this instanceof Student student) {
-            sb.append("\tteacher resist: ").append(student.teacherResist).append("\n");
+            sb.append("\t\tteacher resist: ").append(student.teacherResist).append("\n");
         }
-        sb.append("\titems: \n");
+        sb.append("\t\titems:\n");
         if (inventory != null) {
             for (Item item : inventory) {
-                sb.append("\t\t").append(item).append("\n");
+                sb.append("\t\t\t").append(item).append("\n");
             }
         }
         return sb.toString();
