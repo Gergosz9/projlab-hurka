@@ -5,19 +5,6 @@ Room: r1
 	sticky: false
 	ragged rounds: 0
 	characters (in room):
-		name: s1
-		type: Student
-		gasResist: false
-		paralyzed: false
-		teacher resist: false
-		items:
-
-		name: t1
-		type: Teacher
-		gasResist: false
-		paralyzed: false
-		items:
-
 	items (in room):
 	neighbors (just open doors):
 		r2
@@ -29,6 +16,19 @@ Room: r2
 	sticky: false
 	ragged rounds: 0
 	characters (in room):
+		name: s1
+		type: Student
+		gasResist: false
+		paralyzed: false
+		teacher resist: false
+		items:
+
+		name: c1
+		type: Cleaner
+		gasResist: false
+		paralyzed: false
+		items:
+
 	items (in room):
 	neighbors (just open doors):
 		r1

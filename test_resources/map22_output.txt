@@ -11,6 +11,16 @@ Room: r1
 		paralyzed: false
 		teacher resist: false
 		items:
+			name: TVSZ
+			durability: 3
+			fake: false
+
+		name: s2
+		type: Student
+		gasResist: false
+		paralyzed: false
+		teacher resist: false
+		items:
 
 		name: t1
 		type: Teacher
@@ -25,7 +35,7 @@ Room: r1
 Room: r2
 	max players: 4
 	cursed: false
-	gassed: false
+	gassed: true
 	sticky: false
 	ragged rounds: 0
 	characters (in room):

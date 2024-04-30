@@ -25,16 +25,9 @@
       ],
       "items": [
         {
-          "durability": 1,
+          "durability": 3,
           "isFake": false,
-          "jsonType": "Transistor",
-          "jsonId": "2d3fcdbd"
-        },
-        {
-          "durability": 1,
-          "isFake": false,
-          "jsonType": "Transistor",
-          "jsonId": "617c74e5"
+          "jsonType": "TVSZ"
         }
       ],
       "characters": [
@@ -53,9 +46,14 @@
       "name": "r2",
       "maxCharacters": 4,
       "cursed": false,
-      "gassed": false,
+      "gassed": true,
       "raggedRounds": 0,
-      "stickyness": 0
+      "stickyness": 0,
+      "openRooms": [
+        {
+          "name": "r1"
+        }
+      ]
     }
   ]
 }

@@ -13,28 +13,16 @@
   "rooms": [
     {
       "name": "r1",
-      "maxCharacters": 4,
+      "maxCharacters": 5,
       "cursed": false,
       "gassed": false,
       "raggedRounds": 0,
-      "stickyness": 0,
-      "openRooms": [
-        {
-          "name": "r2"
-        }
-      ],
+      "stickyness": 6,
       "items": [
         {
           "durability": 1,
           "isFake": false,
-          "jsonType": "Transistor",
-          "jsonId": "2d3fcdbd"
-        },
-        {
-          "durability": 1,
-          "isFake": false,
-          "jsonType": "Transistor",
-          "jsonId": "617c74e5"
+          "jsonType": "Rag"
         }
       ],
       "characters": [
@@ -48,14 +36,6 @@
           "teacherResist": false
         }
       ]
-    },
-    {
-      "name": "r2",
-      "maxCharacters": 4,
-      "cursed": false,
-      "gassed": false,
-      "raggedRounds": 0,
-      "stickyness": 0
     }
   ]
 }

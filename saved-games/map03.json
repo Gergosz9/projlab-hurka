@@ -4,17 +4,12 @@
       "name": "s1",
       "actionCount": 0,
       "paralyzed": false,
-      "gasResist": true,
+      "gasResist": false,
       "inventory": [
         {
           "durability": 1,
           "isFake": false,
-          "jsonType": "Camembert"
-        },
-        {
-          "durability": 3,
-          "isFake": false,
-          "jsonType": "Mask"
+          "jsonType": "Rag"
         }
       ],
       "jsonType": "Student"
@@ -34,18 +29,13 @@
           "name": "s1",
           "actionCount": 0,
           "paralyzed": false,
-          "gasResist": true,
+          "gasResist": false,
           "jsonType": "Student",
           "inventory": [
             {
               "durability": 1,
               "isFake": false,
-              "jsonType": "Camembert"
-            },
-            {
-              "durability": 3,
-              "isFake": false,
-              "jsonType": "Mask"
+              "jsonType": "Rag"
             }
           ],
           "teacherResist": false

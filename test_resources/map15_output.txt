@@ -12,12 +12,6 @@ Room: r1
 		teacher resist: false
 		items:
 
-		name: t1
-		type: Teacher
-		gasResist: false
-		paralyzed: false
-		items:
-
 	items (in room):
 	neighbors (just open doors):
 		r2

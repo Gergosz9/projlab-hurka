@@ -1,12 +1,12 @@
 {
   "characters": [
     {
-      "name": "s1",
+      "name": "c1",
       "actionCount": 0,
       "paralyzed": false,
       "gasResist": false,
       "inventory": [],
-      "jsonType": "Student"
+      "jsonType": "Cleaner"
     }
   ],
   "numberOfStudents": 0,
@@ -23,29 +23,14 @@
           "name": "r2"
         }
       ],
-      "items": [
-        {
-          "durability": 1,
-          "isFake": false,
-          "jsonType": "Transistor",
-          "jsonId": "2d3fcdbd"
-        },
-        {
-          "durability": 1,
-          "isFake": false,
-          "jsonType": "Transistor",
-          "jsonId": "617c74e5"
-        }
-      ],
       "characters": [
         {
-          "name": "s1",
+          "name": "c1",
           "actionCount": 0,
           "paralyzed": false,
           "gasResist": false,
-          "jsonType": "Student",
-          "inventory": [],
-          "teacherResist": false
+          "jsonType": "Cleaner",
+          "inventory": []
         }
       ]
     },
@@ -53,9 +38,14 @@
       "name": "r2",
       "maxCharacters": 4,
       "cursed": false,
-      "gassed": false,
+      "gassed": true,
       "raggedRounds": 0,
-      "stickyness": 0
+      "stickyness": 6,
+      "openRooms": [
+        {
+          "name": "r1"
+        }
+      ]
     }
   ]
 }

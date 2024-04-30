@@ -23,20 +23,6 @@
           "name": "r2"
         }
       ],
-      "items": [
-        {
-          "durability": 1,
-          "isFake": false,
-          "jsonType": "Transistor",
-          "jsonId": "2d3fcdbd"
-        },
-        {
-          "durability": 1,
-          "isFake": false,
-          "jsonType": "Transistor",
-          "jsonId": "617c74e5"
-        }
-      ],
       "characters": [
         {
           "name": "s1",
@@ -53,9 +39,14 @@
       "name": "r2",
       "maxCharacters": 4,
       "cursed": false,
-      "gassed": false,
+      "gassed": true,
       "raggedRounds": 0,
-      "stickyness": 0
+      "stickyness": 4,
+      "openRooms": [
+        {
+          "name": "r1"
+        }
+      ]
     }
   ]
 }

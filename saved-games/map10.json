@@ -4,17 +4,12 @@
       "name": "s1",
       "actionCount": 0,
       "paralyzed": false,
-      "gasResist": true,
+      "gasResist": false,
       "inventory": [
         {
           "durability": 1,
           "isFake": false,
-          "jsonType": "Camembert"
-        },
-        {
-          "durability": 3,
-          "isFake": false,
-          "jsonType": "Mask"
+          "jsonType": "AirFreshener"
         }
       ],
       "jsonType": "Student"
@@ -26,7 +21,7 @@
       "name": "r1",
       "maxCharacters": 5,
       "cursed": false,
-      "gassed": false,
+      "gassed": true,
       "raggedRounds": 0,
       "stickyness": 0,
       "characters": [
@@ -34,18 +29,13 @@
           "name": "s1",
           "actionCount": 0,
           "paralyzed": false,
-          "gasResist": true,
+          "gasResist": false,
           "jsonType": "Student",
           "inventory": [
             {
               "durability": 1,
               "isFake": false,
-              "jsonType": "Camembert"
-            },
-            {
-              "durability": 3,
-              "isFake": false,
-              "jsonType": "Mask"
+              "jsonType": "AirFreshener"
             }
           ],
           "teacherResist": false

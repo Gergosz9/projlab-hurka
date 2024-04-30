@@ -12,12 +12,6 @@ Room: r1
 		teacher resist: false
 		items:
 
-		name: t1
-		type: Teacher
-		gasResist: false
-		paralyzed: false
-		items:
-
 	items (in room):
 	neighbors (just open doors):
 		r2
@@ -25,7 +19,7 @@ Room: r1
 Room: r2
 	max players: 4
 	cursed: false
-	gassed: false
+	gassed: true
 	sticky: false
 	ragged rounds: 0
 	characters (in room):

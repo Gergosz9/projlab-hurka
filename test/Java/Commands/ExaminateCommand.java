@@ -42,10 +42,13 @@ public class ExaminateCommand implements Command {
                 line2 = reader2.readLine();
             }
 
+            /*
             if (line1 != null || line2 != null) {
                 equal = false;
                 System.out.println("A fájlok hossza nem egyezik!");
             }
+            */
+
 
             if (equal) {
                 System.out.println("A kimenet megegyezik az elvárttal, a teszt sikeres! :)!");

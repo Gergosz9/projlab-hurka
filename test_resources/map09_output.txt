@@ -11,12 +11,9 @@ Room: r1
 		paralyzed: false
 		teacher resist: false
 		items:
-
-		name: t1
-		type: Teacher
-		gasResist: false
-		paralyzed: false
-		items:
+			name: Mask
+			durability: 5
+			fake: false
 
 	items (in room):
 	neighbors (just open doors):
@@ -25,7 +22,7 @@ Room: r1
 Room: r2
 	max players: 4
 	cursed: false
-	gassed: false
+	gassed: true
 	sticky: false
 	ragged rounds: 0
 	characters (in room):

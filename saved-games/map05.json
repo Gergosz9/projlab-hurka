@@ -1,0 +1,82 @@
+{
+  "characters": [
+    {
+      "name": "s1",
+      "actionCount": 0,
+      "paralyzed": false,
+      "gasResist": false,
+      "inventory": [
+        {
+          "durability": 3,
+          "isFake": false,
+          "jsonType": "TVSZ"
+        }
+      ],
+      "jsonType": "Student"
+    },
+    {
+      "name": "t1",
+      "actionCount": 0,
+      "paralyzed": false,
+      "gasResist": false,
+      "inventory": [],
+      "jsonType": "Teacher"
+    }
+  ],
+  "numberOfStudents": 0,
+  "rooms": [
+    {
+      "name": "r1",
+      "maxCharacters": 4,
+      "cursed": false,
+      "gassed": false,
+      "raggedRounds": 0,
+      "stickyness": 0,
+      "openRooms": [
+        {
+          "name": "r2"
+        }
+      ],
+      "characters": [
+        {
+          "name": "s1",
+          "actionCount": 0,
+          "paralyzed": false,
+          "gasResist": false,
+          "jsonType": "Student",
+          "inventory": [
+            {
+              "durability": 3,
+              "isFake": false,
+              "jsonType": "TVSZ"
+            }
+          ],
+          "teacherResist": true
+        }
+      ]
+    },
+    {
+      "name": "r2",
+      "maxCharacters": 4,
+      "cursed": false,
+      "gassed": false,
+      "raggedRounds": 0,
+      "stickyness": 0,
+      "openRooms": [
+        {
+          "name": "r1"
+        }
+      ],
+      "characters": [
+        {
+          "name": "t1",
+          "actionCount": 0,
+          "paralyzed": false,
+          "gasResist": false,
+          "jsonType": "Teacher",
+          "inventory": []
+        }
+      ]
+    }
+  ]
+}
