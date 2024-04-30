@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -158,13 +159,47 @@ public class GameSerializerUtil {
                         if (transistor.getPair() != null) {
                             transistor.setPair(transistors.get(transistor.getPair().getJsonId()));
                         }
+                        transistor.setLabirinth(labyrinth);
                     }
+                }
+                if(room.getItems() != null) {
+                    room.getItems().forEach(item -> {if(item instanceof Transistor transistor){transistor.setLabirinth(labyrinth);}});
+                }
+
+                correctRoomArrays(room);
+            });
+
+            labyrinth.getCharacters().forEach(character -> {
+                if(!character.getInventory().isEmpty()) {
+                    character.getInventory().forEach(item -> {if(item instanceof Transistor transistor){transistor.setLabirinth(labyrinth);}});
                 }
             });
 
             return labyrinth;
         } catch (IOException e) {
             throw new GameLoadingException(e);
+        }
+    }
+
+    /**
+     * initalize null lists in room
+     * @param room
+     */
+    private static void correctRoomArrays(Room room) {
+        if (room.getTransistors() == null) {
+            room.setTransistors(new ArrayList<>());
+        }
+        if (room.getOpenRooms() == null) {
+            room.setOpenRooms(new ArrayList<>());
+        }
+        if (room.getClosedRooms() == null) {
+            room.setClosedRooms(new ArrayList<>());
+        }
+        if (room.getCharacters() == null) {
+            room.setCharacters(new ArrayList<>());
+        }
+        if (room.getItems() == null) {
+            room.setItems(new ArrayList<>());
         }
     }
 }
