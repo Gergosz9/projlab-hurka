@@ -13,31 +13,7 @@ public class Test {
     static TestHandler testhandler = new TestHandler(labirinth);
 
     static String[] tests = {
-            "Tranzisztor használata",
-            "Camembert használata",
-            "Törlőrongy használata",
-            "Logarléc megszerzése",
-            "TVSZ használata 1",
-            "TVSZ használata 2",
-            "Söröspohár használata 1",
-            "Söröspohár használata 2",
-            "Maszk használata",
-            "Légtisztító használata",
-            "Tanár összefut hallgatóval",
-            "Hallgató összefut tanárral",
-            "Gázos szoba maszk nélkül",
-            "Tanár rongyos szobába lép.",
-            "Karakter átlép egy másik szobába",
-            "Tárgy felvétele",
-            "Tárgy letétele",
-            "Kitessékelés",
-            "Ragacsos szoba működése",
-            "ragacsos szoba takarítása",
-            "szoba ragacsossá válik",
-            "egy tanár találkozik több diákkal",
-            "egy diák találkozik több tanárral",
-            "(tranzisztor nincsen párosítva)",
-            "Tranzisztor használata", // 1
+            "Tranzisztor használata",// 1
             "Camembert használata", // 2
             "Törlőrongy használata", // 3
             "Logarléc megszerzése", // 4
@@ -60,7 +36,6 @@ public class Test {
             "szoba ragacsossá válik", // 21
             "egy tanár találkozik több diákkal", // 22
             "egy diák találkozik több tanárral", // 23
-            "(tranzisztor nincsen párosítva)", // 24
             "Tesztelés vége"
     };
 
@@ -162,10 +137,8 @@ public class Test {
      * Function to print the names and numbers of possible test cases.
      */
     static void printTests() {
-        System.out.println("\nLehetséges tesztesetek:");
-        for (int i = 1; i <= 25; i++) {
-            if (i == 1 || i == 25)
-                System.out.println("\n");
+        System.out.println("\nLehetséges tesztesetek:\n");
+        for (int i = 1; i <= tests.length; i++) {
             System.out.println(i + ": " + tests[i - 1]);
         }
     }
