@@ -38,6 +38,8 @@ public class ItemTest {
         r1.getItems().add(t1);
         r1.getItems().add(t2);
 
+        student.setActionCount(100);
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands01.txt");
     }
@@ -65,6 +67,8 @@ public class ItemTest {
         student.getInventory().add(camembert);
         student.getInventory().add(mask);
 
+        student.setActionCount(100);
+
         student.setGasResist(true);
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands02.txt");
@@ -87,6 +91,8 @@ public class ItemTest {
                 null);
         room.getCharacters().add(student);
         labirinth.addRoom(room);
+
+        student.setActionCount(100);
 
         // Items
         Rag rag = new Rag(1, false);
@@ -112,6 +118,8 @@ public class ItemTest {
                 null);
         room.getCharacters().add(student);
         labirinth.addRoom(room);
+
+        student.setActionCount(100);
 
         // Items
         SlideRule slideRule = new SlideRule(1, false);
@@ -143,6 +151,9 @@ public class ItemTest {
         r1.getCharacters().add(student);
         r2.getCharacters().add(teacher);
 
+        student.setActionCount(100);
+        teacher.setActionCount(100);
+
         TVSZ tvsz = new TVSZ(3, false);
         student.getInventory().add(tvsz);
         student.setTeacherResist(true);
@@ -172,6 +183,9 @@ public class ItemTest {
         labirinth.addRoom(r2);
         r1.getCharacters().add(student);
         r2.getCharacters().add(teacher);
+
+        student.setActionCount(100);
+        teacher.setActionCount(100);
 
         TVSZ tvsz = new TVSZ(3, false);
         student.getInventory().add(tvsz);
@@ -203,6 +217,9 @@ public class ItemTest {
         r1.getCharacters().add(student);
         r2.getCharacters().add(teacher);
 
+        student.setActionCount(100);
+        teacher.setActionCount(100);
+
         Beer beer = new Beer(3, false);
         student.getInventory().add(beer);
         student.setTeacherResist(true);
@@ -233,6 +250,9 @@ public class ItemTest {
         r1.getCharacters().add(student);
         r2.getCharacters().add(teacher);
 
+        student.setActionCount(100);
+        teacher.setActionCount(100);
+
         Beer beer = new Beer(3, false);
         student.getInventory().add(beer);
         student.setTeacherResist(true);
@@ -261,6 +281,8 @@ public class ItemTest {
         labirinth.addRoom(r2);
         r1.getCharacters().add(student);
 
+        student.setActionCount(100);
+
         Mask mask = new Mask(3, false);
         student.getInventory().add(mask);
         student.setTeacherResist(true);
@@ -285,6 +307,8 @@ public class ItemTest {
                 null);
         room.getCharacters().add(student);
         labirinth.addRoom(room);
+
+        student.setActionCount(100);
 
         // Items
         AirFreshener airFreshener = new AirFreshener(1, false);

@@ -37,6 +37,9 @@ public class CharacterTest {
         r1.getCharacters().add(student);
         r2.getCharacters().add(teacher);
 
+        student.setActionCount(100);
+        teacher.setActionCount(100);
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands11.txt");
 
@@ -64,6 +67,9 @@ public class CharacterTest {
         r1.getCharacters().add(student);
         r2.getCharacters().add(teacher);
 
+        student.setActionCount(100);
+        teacher.setActionCount(100);
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands12.txt");
 
@@ -90,6 +96,8 @@ public class CharacterTest {
         TVSZ tvsz = new TVSZ(3, false);
         r1.getItems().add(tvsz);
 
+        student.setActionCount(100);
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands13.txt");
 
@@ -115,6 +123,8 @@ public class CharacterTest {
         r1.getCharacters().add(teacher);
         r2.setRagged(3);
 
+        teacher.setActionCount(100);
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands14.txt");
 
@@ -139,6 +149,8 @@ public class CharacterTest {
         labirinth.addRoom(r2);
         r1.getCharacters().add(student);
 
+        student.setActionCount(100);
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands15.txt");
 
@@ -160,6 +172,8 @@ public class CharacterTest {
                 null);
         room.getCharacters().add(student);
         labirinth.addRoom(room);
+
+        student.setActionCount(100);
 
         // Items
         Rag rag = new Rag(1, true);
@@ -185,6 +199,8 @@ public class CharacterTest {
                 null);
         room.addCharacter(student);
         labirinth.addRoom(room);
+
+        student.setActionCount(100);
 
         // Items
         Rag rag = new Rag(1, true);
@@ -215,6 +231,9 @@ public class CharacterTest {
         labirinth.addRoom(r2);
         r1.getCharacters().add(cleaner);
         r2.getCharacters().add(student);
+
+        student.setActionCount(100);
+        cleaner.setActionCount(100);
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands18.txt");

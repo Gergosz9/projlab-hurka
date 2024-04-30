@@ -29,6 +29,8 @@ public class RoomTest {
         room.getCharacters().add(student);
         labirinth.addRoom(room);
 
+        student.setActionCount(100);
+
         // Items
         Rag rag = new Rag(1, false);
 
@@ -55,6 +57,8 @@ public class RoomTest {
         labirinth.addRoom(r2);
         r1.getCharacters().add(cleaner);
 
+        cleaner.setActionCount(100);
+
         r2.setStickyness(6);
 
         GameStorageUtil.save(gameName, labirinth);
@@ -77,6 +81,8 @@ public class RoomTest {
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
         r1.getCharacters().add(student);
+
+        student.setActionCount(100);
 
         r2.setStickyness(4);
 
@@ -109,6 +115,10 @@ public class RoomTest {
         TVSZ tvsz = new TVSZ(3, false);
         student.getInventory().add(tvsz);
 
+        student.setActionCount(100);
+        student2.setActionCount(100);
+        teacher.setActionCount(100);
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands22.txt");
 
@@ -137,6 +147,10 @@ public class RoomTest {
         r2.getCharacters().add(teacher2);
         TVSZ tvsz = new TVSZ(3, false);
         student.getInventory().add(tvsz);
+
+        student.setActionCount(100);
+        teacher.setActionCount(100);
+        teacher2.setActionCount(100);
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands23.txt");
