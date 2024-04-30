@@ -368,7 +368,7 @@ class RoomSerializer implements JsonSerializer<Room> {
 
                 // Serialize teacherResist for Students
                 if (character instanceof Student student) {
-                    characterObject.addProperty("teacherResist", student.isTeacherResist());
+                    characterObject.addProperty("teacherResist", student.getTeacherResist());
                 }
 
                 charactersArray.add(characterObject);

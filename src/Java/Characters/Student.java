@@ -68,10 +68,6 @@ public class Student extends Character {
     return this.teacherResist;
   }
 
-  public boolean isTeacherResist() {
-    return teacherResist;
-  }
-
   /**
    * Simulates the student being hurt.
    * Drops all items in the inventory and removes the student from the labyrinth

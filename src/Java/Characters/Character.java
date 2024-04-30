@@ -231,18 +231,34 @@ public abstract class Character {
         return labirinth;
     }
 
+    /**
+     * Returns the actionCount of the Character
+     *
+     * @return the actionCount of the Character
+     */
     public int getActionCount() {
         return actionCount;
     }
 
+    /**
+     *Is the Character paralyzed
+     */
     public boolean isParalyzed() {
         return paralyzed;
     }
 
+    /**
+     * Does the Character resists gas
+     */
     public boolean isGasResist() {
         return gasResist;
     }
 
+    /**
+     * Returns jsonType of the Character. Only used in save and load from json
+     *
+     * @return jsonType of the Character
+     */
     public String getJsonType() {
         return jsonType;
     }
