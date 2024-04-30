@@ -2,33 +2,34 @@
   "characters": [
     {
       "name": "s1",
-      "actionCount": 0,
-      "paralyzed": false,
+      "actionCount": 100,
       "gasResist": false,
+      "paralyzed": false,
+      "jsonType": "Student",
+      "teacherResist": false,
       "inventory": [
         {
           "durability": 3,
           "isFake": false,
           "jsonType": "TVSZ"
         }
-      ],
-      "jsonType": "Student"
+      ]
     },
     {
       "name": "t1",
-      "actionCount": 0,
-      "paralyzed": false,
+      "actionCount": 100,
       "gasResist": false,
-      "inventory": [],
-      "jsonType": "Teacher"
+      "paralyzed": false,
+      "jsonType": "Teacher",
+      "inventory": []
     },
     {
       "name": "t2",
-      "actionCount": 0,
-      "paralyzed": false,
+      "actionCount": 100,
       "gasResist": false,
-      "inventory": [],
-      "jsonType": "Teacher"
+      "paralyzed": false,
+      "jsonType": "Teacher",
+      "inventory": []
     }
   ],
   "numberOfStudents": 0,
@@ -48,7 +49,7 @@
       "characters": [
         {
           "name": "s1",
-          "actionCount": 0,
+          "actionCount": 100,
           "paralyzed": false,
           "gasResist": false,
           "jsonType": "Student",
@@ -78,7 +79,7 @@
       "characters": [
         {
           "name": "t1",
-          "actionCount": 0,
+          "actionCount": 100,
           "paralyzed": false,
           "gasResist": false,
           "jsonType": "Teacher",
@@ -86,7 +87,7 @@
         },
         {
           "name": "t2",
-          "actionCount": 0,
+          "actionCount": 100,
           "paralyzed": false,
           "gasResist": false,
           "jsonType": "Teacher",

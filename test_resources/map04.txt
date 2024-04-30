@@ -6,10 +6,18 @@ Room: r1
 	ragged rounds: 0
 	characters (in room):
 		name: s1
-			type: student
-			gasResist: false
-			paralized:  false
-			teacher resist: false
-			items: 
+		type: Student
+		gasResist: false
+		paralyzed: false
+		teacher resist: false
+		items:
+			name: SlideRule
+			durability: 1
+			fake: false
+
 	items (in room):
+		name: SlideRule
+			durability: 1
+			fake: false
 	neighbors (just open doors):
+

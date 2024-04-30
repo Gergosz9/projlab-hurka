@@ -5,13 +5,6 @@ Room: r1
 	sticky: false
 	ragged rounds: 0
 	characters (in room):
-		name: s1
-		type: Student
-		gasResist: false
-		paralyzed: false
-		teacher resist: false
-		items:
-
 	items (in room):
 		name: TVSZ
 			durability: 3
@@ -26,6 +19,13 @@ Room: r2
 	sticky: false
 	ragged rounds: 0
 	characters (in room):
+		name: s1
+		type: Student
+		gasResist: false
+		paralyzed: true
+		teacher resist: false
+		items:
+
 	items (in room):
 	neighbors (just open doors):
 		r1

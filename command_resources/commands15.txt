@@ -1,5 +1,4 @@
 load map15
 move s1 r2
-endmyturn
 save map15
 examinate map15
