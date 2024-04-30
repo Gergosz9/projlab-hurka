@@ -5,13 +5,6 @@ Room: r1
 	sticky: false
 	ragged rounds: 0
 	characters (in room):
-		name: s1
-		type: Student
-		gasResist: false
-		paralyzed: false
-		teacher resist: false
-		items:
-
 		name: t1
 		type: Teacher
 		gasResist: false

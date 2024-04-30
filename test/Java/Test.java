@@ -13,31 +13,7 @@ public class Test {
     static TestHandler testhandler = new TestHandler(labirinth);
 
     static String[] tests = {
-            "Tranzisztor használata",
-            "Camembert használata",
-            "Törlőrongy használata",
-            "Logarléc megszerzése",
-            "TVSZ használata 1",
-            "TVSZ használata 2",
-            "Söröspohár használata 1",
-            "Söröspohár használata 2",
-            "Maszk használata",
-            "Légtisztító használata",
-            "Tanár összefut hallgatóval",
-            "Hallgató összefut tanárral",
-            "Gázos szoba maszk nélkül",
-            "Tanár rongyos szobába lép.",
-            "Karakter átlép egy másik szobába",
-            "Tárgy felvétele",
-            "Tárgy letétele",
-            "Kitessékelés",
-            "Ragacsos szoba működése",
-            "ragacsos szoba takarítása",
-            "szoba ragacsossá válik",
-            "egy tanár találkozik több diákkal",
-            "egy diák találkozik több tanárral",
-            "(tranzisztor nincsen párosítva)",
-            "Tranzisztor használata", // 1
+            "Tranzisztor használata",// 1
             "Camembert használata", // 2
             "Törlőrongy használata", // 3
             "Logarléc megszerzése", // 4
@@ -60,7 +36,6 @@ public class Test {
             "szoba ragacsossá válik", // 21
             "egy tanár találkozik több diákkal", // 22
             "egy diák találkozik több tanárral", // 23
-            "(tranzisztor nincsen párosítva)", // 24
             "Tesztelés vége"
     };
 
@@ -78,82 +53,6 @@ public class Test {
             System.out.print("\nVálassz egy tesztesetet: ");
             testCase = scanner.nextInt();
 
-              switch (testCase) {
-                 case 1:
-                     ItemTest.test01();
-                     break;
-                 case 2:
-                     ItemTest.test02();
-                     break;
-                  case 3:
-                     ItemTest.test03();
-                     break;
-                 case 4:
-                     ItemTest.test04();
-                     break;
-                 case 5:
-                     ItemTest.test05();
-                     break;
-                 case 6:
-                     ItemTest.test06();
-                     break;
-                 case 7:
-                     ItemTest.test07();
-                     break;
-                 case 8:
-                     ItemTest.test08();
-                     break;
-                 case 9:
-                     ItemTest.test09();
-                     break;
-                 case 10:
-                     ItemTest.test10();
-                     break;
-                 case 11:
-                     CharacterTest.test11();
-                     break;
-                 case 12:
-                     CharacterTest.test12();
-                     break;
-                 case 13:
-                     CharacterTest.test13();
-                     break;
-                 case 14:
-                     CharacterTest.test14();
-                     break;
-                 case 15:
-                     CharacterTest.test15();
-                     break;
-                 case 16:
-                     CharacterTest.test16();
-                     break;
-                 case 17:
-                     CharacterTest.test17();
-                     break;
-                 case 18:
-                     CharacterTest.test18();
-                     break;
-                 case 19:
-                     RoomTest.test19();
-                     break;
-                 case 20:
-                     RoomTest.test20();
-                     break;
-                 case 21:
-                     RoomTest.test21();
-                     break;
-                 case 22:
-                     RoomTest.test22();
-                     break;
-                 case 23:
-                     RoomTest.test23();
-                      break;
-                 case 24:
-                      //endTest();
-                      break;
-                 default:
-                      System.out.println("Nincs megfelelő függvény ehhez a számhoz.");
-                 }
             switch (testCase) {
                 case 1:
                     ItemTest.test01();
@@ -225,10 +124,10 @@ public class Test {
                     RoomTest.test23();
                     break;
                 case 24:
-                    // endTest();
+                    System.out.println("\nA tesztelés véget ért.");
                     break;
                 default:
-                    System.out.println("Nincs megfelelő függvény ehhez a számhoz.16");
+                    System.out.println("Rossz bemenet, nincs megfelelő függvény ehhez a számhoz.");
             }
         }
         scanner.close();
@@ -238,10 +137,8 @@ public class Test {
      * Function to print the names and numbers of possible test cases.
      */
     static void printTests() {
-        System.out.println("\nLehetséges tesztesetek:");
-        for (int i = 1; i <= 25; i++) {
-            if (i == 1 || i == 25)
-                System.out.println("\n");
+        System.out.println("\nLehetséges tesztesetek:\n");
+        for (int i = 1; i <= tests.length; i++) {
             System.out.println(i + ": " + tests[i - 1]);
         }
     }

@@ -2,11 +2,12 @@
   "characters": [
     {
       "name": "s1",
-      "actionCount": 0,
-      "paralyzed": false,
+      "actionCount": 100,
       "gasResist": false,
-      "inventory": [],
-      "jsonType": "Student"
+      "paralyzed": false,
+      "jsonType": "Student",
+      "teacherResist": false,
+      "inventory": []
     }
   ],
   "numberOfStudents": 0,
@@ -28,19 +29,19 @@
           "durability": 1,
           "isFake": false,
           "jsonType": "Transistor",
-          "jsonId": "2d3fcdbd"
+          "jsonId": "5a01ccaa"
         },
         {
           "durability": 1,
           "isFake": false,
           "jsonType": "Transistor",
-          "jsonId": "617c74e5"
+          "jsonId": "71c7db30"
         }
       ],
       "characters": [
         {
           "name": "s1",
-          "actionCount": 0,
+          "actionCount": 100,
           "paralyzed": false,
           "gasResist": false,
           "jsonType": "Student",
