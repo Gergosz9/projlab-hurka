@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ExaminateCommand implements Command {
+public class ExamineCommand implements Command {
 
     @Override
     public void execute(String[] args, Labirinth l) {
