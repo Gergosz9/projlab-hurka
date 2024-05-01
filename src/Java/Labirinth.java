@@ -3,6 +3,8 @@ package Java;
 import java.util.*;
 
 import Java.Characters.Character;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * The Labirinth class represents the labyrinth in the game.
@@ -167,4 +169,29 @@ public class Labirinth {
     /*----------------------------------------------------------------------------------------------------
     * TESTER FUNCTIONS
     *----------------------------------------------------------------------------------------------------*/
+
+    /**
+     * Converts the Labirinth object to a JSON representation.
+     *
+     * @return the JSON representation of the Labirinth object
+     */
+    public JSONObject toJSON() {
+        JSONObject jsonLabirinth = new JSONObject();
+
+        JSONArray jsonCharacters = new JSONArray();
+        for (Character character : characters) {
+            jsonCharacters.put(character.toJSON());
+        }
+        jsonLabirinth.put("characters", jsonCharacters);
+
+        jsonLabirinth.put("numberOfStudents", numberOfStudents);
+
+        JSONArray jsonRooms = new JSONArray();
+        for (Room room : rooms) {
+            jsonRooms.put(room.toJSON());
+        }
+        jsonLabirinth.put("rooms", jsonRooms);
+
+        return jsonLabirinth;
+    }
 }

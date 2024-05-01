@@ -137,8 +137,14 @@ public class Student extends Character {
 		return teacherResist == student.teacherResist;
 	}
 
+	/**
+	 * Converts the Student object to a JSON object
+	 *
+	 * @return the JSON representation of the Student object
+	 */
 	public JSONObject toJSON() {
 		JSONObject json = new JSONObject();
+		json.put("type", this.getClass().getSimpleName());
 		json.put("name", name);
 		json.put("actionCount", actionCount);
 		json.put("paralyzed", paralyzed);

@@ -104,15 +104,14 @@ public abstract class Item {
         return durability == item.durability && isFake == item.isFake;
     }
 
-    // ...
-
     /**
-     * Converts the Item object to a JSON representation.
+     * Converts the Item object to a JSON representation
      *
-     * @return The JSON representation of the Item object.
+     * @return The JSON representation of the Item object
      */
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
+        json.put("type", this.getClass().getSimpleName());
         json.put("durability", durability);
         json.put("isFake", isFake);
         return json;

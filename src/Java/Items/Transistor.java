@@ -1,5 +1,7 @@
 package Java.Items;
 
+import org.json.JSONObject;
+
 import Java.Labirinth;
 import Java.Room;
 import Java.Items.Triggers.*;
@@ -173,5 +175,21 @@ public class Transistor extends Item {
         if (!(o instanceof Transistor))
             return false;
         return durability == ((Transistor) o).getDurability() && isFake == ((Transistor) o).isFake();
+    }
+
+    /**
+     * Converts the Transistor object to a JSON representation
+     *
+     * @return The JSON representation of the Transistor object
+     */
+    public JSONObject toJSON() {
+        boolean paired = pair != null;
+
+        JSONObject json = new JSONObject();
+        json.put("type", this.getClass().getSimpleName());
+        json.put("durability", durability);
+        json.put("isFake", isFake);
+        json.put("paired", paired);
+        return json;
     }
 }
