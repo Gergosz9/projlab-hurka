@@ -37,13 +37,13 @@ public class TestHandler {
      * the other is the Command objectum that belongs to it
      */
     private void registerCommands() {
-        commandMap.put("move", new MoveCommand(labirinth));
-        commandMap.put("pickup", new PickUpCommand(labirinth));
-        commandMap.put("putdown", new PutDownCommand(labirinth));
-        commandMap.put("useitem", new UseItemCommand(labirinth));
-        commandMap.put("load", new LoadCommand(labirinth));
-        commandMap.put("save", new SaveCommand(labirinth));
-        commandMap.put("examinate", new ExaminateCommand(labirinth));
+        commandMap.put("move", new MoveCommand());
+        commandMap.put("pickup", new PickUpCommand());
+        commandMap.put("putdown", new PutDownCommand());
+        commandMap.put("useitem", new UseItemCommand());
+        commandMap.put("load", new LoadCommand());
+        commandMap.put("save", new SaveCommand());
+        commandMap.put("examinate", new ExaminateCommand());
         // commandMap.put("wherecanmove", new WhereCanMoveCommand(labirinth));
         // commandMap.put("whereami", new WhereAmICommand(labirinth));
         // commandMap.put("itemsinroom", new ItemsInRoomCommand(labirinth));
@@ -69,7 +69,7 @@ public class TestHandler {
         Command command = commandMap.get(commandName);
         // command = new C
         if (command != null) {
-            labirinth = command.execute(parts, labirinth);
+            command.execute(parts, labirinth);
             initializeLabirinth(labirinth);
         } else {
             System.out.println("Invalid command!");

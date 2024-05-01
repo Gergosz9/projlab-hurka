@@ -11,16 +11,10 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class SaveCommand implements Command {
-    private Labirinth labirinth;
-
-    public SaveCommand(Labirinth labirinth) {
-        this.labirinth = labirinth;
-    }
 
     @Override
-    public Labirinth execute(String[] args, Labirinth l) {
-        this.labirinth = l;
-        List<Room> rooms = labirinth.getRooms();
+    public void execute(String[] args, Labirinth l) {
+        List<Room> rooms = l.getRooms();
 
         String fileName = "test_resources/" + args[1] + "_output.txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
@@ -45,6 +39,5 @@ public class SaveCommand implements Command {
                 System.err.println("Hiba történt a fájl létrehozása közben: " + e.getMessage());
             }
         }
-        return labirinth;
     }
-} // kimenti a Labirinth �llapot�t egy txt-be
+} // kimenti a Labirinth állapotát egy txt-be

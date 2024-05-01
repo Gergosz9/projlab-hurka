@@ -7,18 +7,11 @@ import Java.Items.Item;
 import java.util.List;
 
 public class PickUpCommand implements Command {
-    private Labirinth labirinth;
-
-    public PickUpCommand(Labirinth l) {
-        this.labirinth = l;
-    }
 
     @Override
-    public Labirinth execute(String[] args, Labirinth l) {
-        this.labirinth = l;
+    public void execute(String[] args, Labirinth l) {
 
-        List<Character> characters = labirinth.getCharacters();
-        Character character = getCharacterFromString(args[1], characters);
+        Character character = getCharacterFromString(args[1], l.getCharacters());
 
         Room room = character.getMyLocation();
 
@@ -26,8 +19,5 @@ public class PickUpCommand implements Command {
         Item item = getItemFromString(args[2], items);
 
         character.pickUpItem(item);
-
-        return labirinth;
-
     }
 }
