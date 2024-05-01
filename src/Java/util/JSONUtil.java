@@ -14,7 +14,7 @@ public class JSONUtil {
         JSONObject json = new JSONObject();
         json.put("labyrinth", l.toJSON());
 
-        try (FileWriter file = new FileWriter("path/to/save/" + testName + ".json")) {
+        try (FileWriter file = new FileWriter("saved-games/" + testName + ".json")) {
             file.write(json.toString());
             file.flush();
         } catch (IOException e) {
