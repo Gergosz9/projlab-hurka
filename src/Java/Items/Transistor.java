@@ -4,8 +4,6 @@ import Java.Labirinth;
 import Java.Room;
 import Java.Items.Triggers.*;
 
-import java.util.Objects;
-
 /**
  * Transistor is a class representing a transistor item in the game.
  * It extends the Item class.

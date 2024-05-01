@@ -2,8 +2,6 @@ package Java.Items;
 
 import Java.Items.Triggers.*;
 
-import java.util.Objects;
-
 /**
  * Item is an abstract class representing an item in the game.
  */

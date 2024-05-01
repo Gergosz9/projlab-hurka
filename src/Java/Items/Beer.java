@@ -1,6 +1,5 @@
 package Java.Items;
 
-import java.util.Objects;
 import java.util.Random;
 
 import Java.Items.Triggers.*;
