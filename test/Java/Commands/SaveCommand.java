@@ -16,7 +16,6 @@ public class SaveCommand implements Command {
         Path path = Paths.get(fileName);
         if (!Files.exists(path)) {
             try {
-                // Ha nem létezik, létrehozzuk
                 Files.createFile(path);
                 System.out.println("File created: " + fileName);
             } catch (Exception e) {

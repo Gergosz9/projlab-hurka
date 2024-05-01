@@ -20,7 +20,7 @@ public class JSONUtil {
         }
 
         try (FileWriter file = new FileWriter("projlab-hurka/rsrc/saved-games/" + testName + ".json")) {
-            file.write(json.toString());
+            file.write(json.toString(4));
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -28,7 +28,7 @@ public class JSONUtil {
     }
 
     public static void compare(JSONObject ob1, JSONObject ob2) {
-        if (ob1.equals(ob2)) {
+        if (ob1.toString().equals(ob2.toString())) {
             System.out.println("The two JSON objects match.");
         } else {
             System.out.println("The two JSON objects do not match.");
