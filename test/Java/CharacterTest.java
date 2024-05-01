@@ -34,8 +34,8 @@ public class CharacterTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
-        r2.getCharacters().add(teacher);
+        r1.addCharacter(student);
+        r2.addCharacter(teacher);
 
         student.setActionCount(100);
         teacher.setActionCount(100);
@@ -64,8 +64,8 @@ public class CharacterTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
-        r2.getCharacters().add(teacher);
+        r1.addCharacter(student);
+        r2.addCharacter(teacher);
 
         student.setActionCount(100);
         teacher.setActionCount(100);
@@ -92,9 +92,9 @@ public class CharacterTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
+        r1.addCharacter(student);
         TVSZ tvsz = new TVSZ(3, false);
-        r1.getItems().add(tvsz);
+        r1.addItem(tvsz);
 
         student.setActionCount(100);
 
@@ -120,7 +120,7 @@ public class CharacterTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(teacher);
+        r1.addCharacter(teacher);
         r2.setRagged(3);
 
         teacher.setActionCount(100);
@@ -147,7 +147,7 @@ public class CharacterTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
+        r1.addCharacter(student);
 
         student.setActionCount(100);
 
@@ -170,14 +170,14 @@ public class CharacterTest {
         Room room = new Room("r1", 5, false, false,
                 null,
                 null);
-        room.getCharacters().add(student);
+        room.addCharacter(student);
         labirinth.addRoom(room);
 
         student.setActionCount(100);
 
         // Items
         Rag rag = new Rag(1, true);
-        room.getItems().add(rag);
+        room.addItem(rag);
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands16.txt");
@@ -204,7 +204,7 @@ public class CharacterTest {
 
         // Items
         Rag rag = new Rag(1, true);
-        student.getInventory().add(rag);
+        student.pickUpItem(rag);
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands17.txt");
@@ -229,8 +229,8 @@ public class CharacterTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(cleaner);
-        r2.getCharacters().add(student);
+        r1.addCharacter(cleaner);
+        r2.addCharacter(student);
 
         student.setActionCount(100);
         cleaner.setActionCount(100);

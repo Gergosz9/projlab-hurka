@@ -30,13 +30,13 @@ public class ItemTest {
         r1.setOpenRooms(List.of(r2));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
+        r1.addCharacter(student);
 
         Transistor t1 = new Transistor(labirinth);
         Transistor t2 = new Transistor(labirinth);
 
-        r1.getItems().add(t1);
-        r1.getItems().add(t2);
+        r1.addItem(t1);
+        r1.addItem(t2);
 
         student.setActionCount(100);
 
@@ -58,14 +58,14 @@ public class ItemTest {
         Room room = new Room("r1", 5, false, false,
                 null,
                 null);
-        room.getCharacters().add(student);
+        room.addCharacter(student);
         labirinth.addRoom(room);
 
         // Items
         Mask mask = new Mask(3, false);
         Camembert camembert = new Camembert(1, false);
-        student.getInventory().add(camembert);
-        student.getInventory().add(mask);
+        student.pickUpItem(camembert);
+        student.pickUpItem(mask);
 
         student.setActionCount(100);
 
@@ -89,7 +89,7 @@ public class ItemTest {
         Room room = new Room("r1", 5, false, false,
                 null,
                 null);
-        room.getCharacters().add(student);
+        room.addCharacter(student);
         labirinth.addRoom(room);
 
         student.setActionCount(100);
@@ -117,14 +117,14 @@ public class ItemTest {
         Room room = new Room("r1", 5, false, false,
                 null,
                 null);
-        room.getCharacters().add(student);
+        room.addCharacter(student);
         labirinth.addRoom(room);
 
         student.setActionCount(100);
 
         // Items
         SlideRule slideRule = new SlideRule(1, false);
-        room.getItems().add(slideRule);
+        room.addItem(slideRule);
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands04.txt");
@@ -149,14 +149,14 @@ public class ItemTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
-        r2.getCharacters().add(teacher);
+        r1.addCharacter(student);
+        r2.addCharacter(teacher);
 
         student.setActionCount(100);
         teacher.setActionCount(100);
 
         TVSZ tvsz = new TVSZ(3, false);
-        student.getInventory().add(tvsz);
+        student.pickUpItem(tvsz);
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
@@ -182,14 +182,14 @@ public class ItemTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
-        r2.getCharacters().add(teacher);
+        r1.addCharacter(student);
+        r2.addCharacter(teacher);
 
         student.setActionCount(100);
         teacher.setActionCount(100);
 
         TVSZ tvsz = new TVSZ(3, false);
-        student.getInventory().add(tvsz);
+        student.pickUpItem(tvsz);
         student.setTeacherResist(false);
 
         GameStorageUtil.save(gameName, labirinth);
@@ -215,14 +215,14 @@ public class ItemTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
-        r2.getCharacters().add(teacher);
+        r1.addCharacter(student);
+        r2.addCharacter(teacher);
 
         student.setActionCount(100);
         teacher.setActionCount(100);
 
         Beer beer = new Beer(3, false);
-        student.getInventory().add(beer);
+        student.pickUpItem(beer);
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
@@ -248,14 +248,14 @@ public class ItemTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
-        r2.getCharacters().add(teacher);
+        r1.addCharacter(student);
+        r2.addCharacter(teacher);
 
         student.setActionCount(100);
         teacher.setActionCount(100);
 
         Beer beer = new Beer(3, false);
-        student.getInventory().add(beer);
+        student.pickUpItem(beer);
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
@@ -280,12 +280,12 @@ public class ItemTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
+        r1.addCharacter(student);
 
         student.setActionCount(100);
 
         Mask mask = new Mask(3, false);
-        student.getInventory().add(mask);
+        student.pickUpItem(mask);
         student.setTeacherResist(true);
 
         GameStorageUtil.save(gameName, labirinth);
@@ -306,14 +306,14 @@ public class ItemTest {
         Room room = new Room("r1", 5, false, true,
                 null,
                 null);
-        room.getCharacters().add(student);
+        room.addCharacter(student);
         labirinth.addRoom(room);
 
         student.setActionCount(100);
 
         // Items
         AirFreshener airFreshener = new AirFreshener(1, false);
-        student.getInventory().add(airFreshener);
+        student.pickUpItem(airFreshener);
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands10.txt");
