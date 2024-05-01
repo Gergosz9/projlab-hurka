@@ -1,6 +1,8 @@
 package Java.util;
 
 import Java.*;
+import org.json.*;
+import java.io.*;
 
 /**
  * The JSONUtil class provides utility methods for saving Labirinth
@@ -9,7 +11,15 @@ import Java.*;
 public class JSONUtil {
 
     public static void save(String testName, Labirinth l) {
+        JSONObject json = new JSONObject();
+        json.put("labyrinth", l.toJSON());
 
+        try (FileWriter file = new FileWriter("path/to/save/" + testName + ".json")) {
+            file.write(json.toString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
