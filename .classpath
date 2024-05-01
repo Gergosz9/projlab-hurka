@@ -3,7 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="lib" path="libs">
 	<classpathentry kind="lib" path="libs/json-20140107.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
