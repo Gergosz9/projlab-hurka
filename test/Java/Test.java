@@ -13,7 +13,7 @@ public class Test {
     static TestHandler testhandler = new TestHandler(labirinth);
 
     static String[] tests = {
-            "Tranzisztor használata",// 1
+            "Tranzisztor használata", // 1
             "Camembert használata", // 2
             "Törlőrongy használata", // 3
             "Logarléc megszerzése", // 4

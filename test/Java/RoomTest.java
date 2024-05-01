@@ -26,7 +26,7 @@ public class RoomTest {
         Room room = new Room("r1", 5, false, false,
                 null,
                 null);
-        room.getCharacters().add(student);
+        room.addCharacter(student);
         labirinth.addRoom(room);
 
         student.setActionCount(100);
@@ -35,7 +35,7 @@ public class RoomTest {
         Rag rag = new Rag(1, false);
 
         room.setStickyness(6);
-        room.getItems().add(rag);
+        room.addItem(rag);
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands19.txt");
@@ -55,7 +55,7 @@ public class RoomTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(cleaner);
+        r1.addCharacter(cleaner);
 
         cleaner.setActionCount(100);
 
@@ -80,7 +80,7 @@ public class RoomTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
+        r1.addCharacter(student);
 
         student.setActionCount(100);
 
@@ -109,11 +109,11 @@ public class RoomTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
-        r1.getCharacters().add(student2);
-        r2.getCharacters().add(teacher);
+        r1.addCharacter(student);
+        r1.addCharacter(student2);
+        r2.addCharacter(teacher);
         TVSZ tvsz = new TVSZ(3, false);
-        student.getInventory().add(tvsz);
+        student.pickUpItem(tvsz);
 
         student.setActionCount(100);
         student2.setActionCount(100);
@@ -142,11 +142,11 @@ public class RoomTest {
         r2.setOpenRooms(List.of(r1));
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
-        r1.getCharacters().add(student);
-        r2.getCharacters().add(teacher);
-        r2.getCharacters().add(teacher2);
+        r1.addCharacter(student);
+        r2.addCharacter(teacher);
+        r2.addCharacter(teacher2);
         TVSZ tvsz = new TVSZ(3, false);
-        student.getInventory().add(tvsz);
+        student.pickUpItem(tvsz);
 
         student.setActionCount(100);
         teacher.setActionCount(100);
