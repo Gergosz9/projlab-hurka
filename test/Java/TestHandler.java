@@ -35,7 +35,7 @@ public class TestHandler {
         commandMap.put("putdown", new PutDownCommand());
         commandMap.put("useitem", new UseItemCommand());
         commandMap.put("save", new SaveCommand());
-        commandMap.put("examinate", new ExaminateCommand());
+        commandMap.put("examinate", new ExamineCommand());
         // commandMap.put("wherecanmove", new WhereCanMoveCommand(labirinth));
         // commandMap.put("whereami", new WhereAmICommand(labirinth));
         // commandMap.put("itemsinroom", new ItemsInRoomCommand(labirinth));

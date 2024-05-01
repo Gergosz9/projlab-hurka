@@ -1,45 +1,20 @@
 package Java.Commands;
 
 import Java.*;
+import Java.util.JSONUtil;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import org.json.JSONObject;
 
 public class ExamineCommand implements Command {
 
     @Override
     public void execute(String[] args, Labirinth l) {
-        String fileName1 = "test_resources/" + args[1] + ".txt";
-        String fileName2 = "test_resources/" + args[1] + "_output.txt";
+        String fileName1 = "projlab-hurka/rsrc/saved-games/" + args[1] + ".json";
+        String fileName2 = "projlab-hurka/rsrc/saved-games/" + args[1] + "_output.json";
 
-        try (BufferedReader reader1 = new BufferedReader(new FileReader(fileName1));
-                BufferedReader reader2 = new BufferedReader(new FileReader(fileName2))) {
+        JSONObject ob1 = JSONUtil.load(fileName1);
+        JSONObject ob2 = JSONUtil.load(fileName2);
 
-            String line1 = reader1.readLine();
-            String line2 = reader2.readLine();
-            boolean equal = true;
-
-            while (line1 != null && line2 != null) {
-                System.out.println(line2);
-
-                if (!line1.equals(line2)) {
-                    equal = false;
-                    System.out.println("Hiba az ezt megelőző sorban!");
-                    break;
-                }
-                line1 = reader1.readLine();
-                line2 = reader2.readLine();
-            }
-
-            if (equal) {
-                System.out.println("A kimenet megegyezik az elvárttal, a teszt sikeres! :)!");
-            } else {
-                System.out.println("A fájlok tartalma nem egyezik.");
-            }
-
-        } catch (IOException e) {
-            System.err.println("Hiba történt az összehasonlítás közben: " + e.getMessage());
-        }
+        JSONUtil.compare(ob1, ob2);
     }
-} // összehasonlítja a kimeneti txt-t az elvárttal
+}

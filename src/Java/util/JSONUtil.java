@@ -27,4 +27,28 @@ public class JSONUtil {
         }
     }
 
+    public static void compare(JSONObject ob1, JSONObject ob2) {
+        if (ob1.equals(ob2)) {
+            System.out.println("The two JSON objects match.");
+        } else {
+            System.out.println("The two JSON objects do not match.");
+        }
+    }
+
+    public static JSONObject load(String file) {
+        JSONObject jsonObject1 = null;
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+            jsonObject1 = new JSONObject(sb.toString());
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
+        return jsonObject1;
+    }
+
 }
