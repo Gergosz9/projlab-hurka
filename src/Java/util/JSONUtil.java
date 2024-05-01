@@ -14,12 +14,12 @@ public class JSONUtil {
         JSONObject json = new JSONObject();
         json.put("labyrinth", l.toJSON());
 
-        File directory = new File("saved-games");
+        File directory = new File("projlab-hurka/rsrc/saved-games");
         if (!directory.exists()) {
             directory.mkdirs();
         }
 
-        try (FileWriter file = new FileWriter("saved-games/" + testName + ".json")) {
+        try (FileWriter file = new FileWriter("projlab-hurka/rsrc/saved-games/" + testName + ".json")) {
             file.write(json.toString());
             file.flush();
         } catch (IOException e) {
