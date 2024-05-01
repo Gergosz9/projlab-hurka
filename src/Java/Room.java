@@ -447,15 +447,17 @@ public class Room {
         json.put("raggedRounds", raggedRounds);
 
         JSONArray openRoomsJson = new JSONArray();
-        for (Room room : openRooms) {
-            openRoomsJson.put(room.getName());
-        }
+        if (openRooms != null)
+            for (Room room : openRooms) {
+                openRoomsJson.put(room.getName());
+            }
         json.put("openRooms", openRoomsJson);
 
         JSONArray closedRoomsJson = new JSONArray();
-        for (Room room : closedRooms) {
-            closedRoomsJson.put(room.getName());
-        }
+        if (closedRooms != null)
+            for (Room room : closedRooms) {
+                closedRoomsJson.put(room.getName());
+            }
         json.put("closedRooms", closedRoomsJson);
 
         json.put("characters", characters);
