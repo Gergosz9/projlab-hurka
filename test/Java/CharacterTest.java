@@ -36,7 +36,7 @@ public class CharacterTest {
         student.setActionCount(100);
         teacher.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands11.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands11.txt");
 
     }
 
@@ -65,7 +65,7 @@ public class CharacterTest {
         student.setActionCount(100);
         teacher.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands12.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands12.txt");
 
     }
 
@@ -92,7 +92,7 @@ public class CharacterTest {
 
         student.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands13.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands13.txt");
 
     }
 
@@ -118,7 +118,7 @@ public class CharacterTest {
 
         teacher.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands14.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands14.txt");
 
     }
 
@@ -143,7 +143,7 @@ public class CharacterTest {
 
         student.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands15.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands15.txt");
 
     }
 
@@ -170,7 +170,7 @@ public class CharacterTest {
         Rag rag = new Rag(1, true);
         room.addItem(rag);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands16.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands16.txt");
     }
 
     /**
@@ -196,7 +196,7 @@ public class CharacterTest {
         Rag rag = new Rag(1, true);
         student.pickUpItem(rag);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands17.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands17.txt");
     }
 
     /**
@@ -224,7 +224,7 @@ public class CharacterTest {
         student.setActionCount(100);
         cleaner.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands18.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands18.txt");
 
     }
 }

@@ -1,0 +1,46 @@
+{"labyrinth": {
+    "characters": [{
+        "actionCount": -1,
+        "paralyzed": true,
+        "name": "s1",
+        "gasResist": false,
+        "type": "Student",
+        "teacherResist": false,
+        "inventory": []
+    }],
+    "rooms": [
+        {
+            "characters": [],
+            "maxCharacters": 4,
+            "cursed": false,
+            "name": "r1",
+            "gassed": false,
+            "type": "Room",
+            "raggedRounds": 0,
+            "closedRooms": [],
+            "items": [],
+            "openRooms": ["r2"]
+        },
+        {
+            "characters": [{
+                "actionCount": -1,
+                "paralyzed": true,
+                "name": "s1",
+                "gasResist": false,
+                "type": "Student",
+                "teacherResist": false,
+                "inventory": []
+            }],
+            "maxCharacters": 4,
+            "cursed": false,
+            "name": "r2",
+            "gassed": true,
+            "type": "Room",
+            "raggedRounds": 0,
+            "closedRooms": [],
+            "items": [],
+            "openRooms": ["r1"]
+        }
+    ],
+    "numberOfStudents": 0
+}}

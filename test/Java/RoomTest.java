@@ -34,7 +34,7 @@ public class RoomTest {
         room.setStickyness(6);
         room.addItem(rag);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands19.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands19.txt");
     }
 
     // Ragacsos szoba takarítása
@@ -57,7 +57,7 @@ public class RoomTest {
 
         r2.setStickyness(6);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands20.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands20.txt");
 
     }
 
@@ -81,7 +81,7 @@ public class RoomTest {
 
         r2.setStickyness(4);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands21.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands21.txt");
 
     }
 
@@ -113,7 +113,7 @@ public class RoomTest {
         student2.setActionCount(100);
         teacher.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands22.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands22.txt");
 
     }
 
@@ -145,7 +145,7 @@ public class RoomTest {
         teacher.setActionCount(100);
         teacher2.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands23.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands23.txt");
 
     }
 

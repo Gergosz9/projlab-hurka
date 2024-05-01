@@ -37,7 +37,7 @@ public class ItemTest {
 
         student.setActionCount(100);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands01.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands01.txt");
     }
 
     /**
@@ -66,7 +66,7 @@ public class ItemTest {
         student.setActionCount(100);
 
         student.setGasResist(true);
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands02.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands02.txt");
     }
     //
 
@@ -94,7 +94,7 @@ public class ItemTest {
         student.pickUpItem(rag);
         student.useItem(0);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands03.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands03.txt");
     }
 
     /**
@@ -120,7 +120,7 @@ public class ItemTest {
         SlideRule slideRule = new SlideRule(1, false);
         room.addItem(slideRule);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands04.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands04.txt");
     }
 
     /**
@@ -152,7 +152,7 @@ public class ItemTest {
         student.pickUpItem(tvsz);
         student.setTeacherResist(true);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands05.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands05.txt");
     }
 
     /**
@@ -184,7 +184,7 @@ public class ItemTest {
         student.pickUpItem(tvsz);
         student.setTeacherResist(false);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands06.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands06.txt");
     }
 
     /**
@@ -216,7 +216,7 @@ public class ItemTest {
         student.pickUpItem(beer);
         student.setTeacherResist(true);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands07.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands07.txt");
     }
 
     /**
@@ -248,7 +248,7 @@ public class ItemTest {
         student.pickUpItem(beer);
         student.setTeacherResist(true);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands08.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands08.txt");
     }
 
     //
@@ -277,7 +277,7 @@ public class ItemTest {
         student.pickUpItem(mask);
         student.setTeacherResist(true);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands09.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands09.txt");
     }
 
     /**
@@ -303,6 +303,6 @@ public class ItemTest {
         AirFreshener airFreshener = new AirFreshener(1, false);
         student.pickUpItem(airFreshener);
 
-        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands10.txt");
+        testhandler.processCommandFile("rsrc/command_resources/commands10.txt");
     }
 }
