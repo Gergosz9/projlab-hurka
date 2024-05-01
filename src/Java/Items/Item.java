@@ -116,4 +116,21 @@ public abstract class Item {
         json.put("isFake", isFake);
         return json;
     }
+
+    public String toTXT(int indent) {
+        StringBuilder txt = new StringBuilder();
+        indent(txt, indent);
+        txt.append("type: ").append(this.getClass().getSimpleName()).append("\n");
+        indent(txt, indent);
+        txt.append("\tDurability: ").append(durability).append("\n");
+        indent(txt, indent);
+        txt.append("\tisFake: ").append(isFake).append("\n");
+        return txt.toString();
+    }
+
+    private void indent(StringBuilder sb, int indent) {
+        for (int i = 0; i < indent; i++) {
+            sb.append("\t");
+        }
+    }
 }

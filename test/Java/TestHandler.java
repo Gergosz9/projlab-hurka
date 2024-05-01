@@ -63,7 +63,8 @@ public class TestHandler {
         if (command != null) {
             command.execute(parts, labirinth);
         } else {
-            System.out.println("Invalid command!");
+            // Provide a more informative error message
+            System.out.println("Command '" + parts[0] + "' not found or not supported.");
         }
     }
 

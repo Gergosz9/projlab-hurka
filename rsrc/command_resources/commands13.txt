@@ -1,4 +1,3 @@
-load map13
 move s1 r2
 save map13
 examinate map13

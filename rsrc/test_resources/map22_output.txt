@@ -1,45 +1,45 @@
 Room: r1
-	max players: 4
-	cursed: false
-	gassed: false
-	sticky: false
-	ragged rounds: 0
-	characters (in room):
-		name: s1
+	Max Characters: 4
+	Cursed: false
+	Gassed: false
+	Sticky: true
+	Ragged Rounds: 0
+	neighbors: (just open doors)
+		r2, 
+	Characters: (in room)
+		Name: s1
 		type: Student
-		gasResist: false
+		Action Count: 100
 		paralyzed: false
-		teacher resist: false
-		items:
-			name: TVSZ
-			durability: 3
-			fake: false
-
-		name: s2
+		gasResist: false
+		teacherResist: false
+		Inventory: 
+			type: TVSZ
+				Durability: 3
+				isFake: false
+		Name: s2
 		type: Student
-		gasResist: false
+		Action Count: 100
 		paralyzed: false
-		teacher resist: false
-		items:
-
-		name: t1
-		type: Teacher
 		gasResist: false
-		paralyzed: false
-		items:
-
-	items (in room):
-	neighbors (just open doors):
-		r2
+		teacherResist: false
+		Inventory: 
+		Name: t1
+			type: Teacher
+			Action Count: 99
+			paralyzed: false
+			gasResist: false
+			Inventory: 
+	Items: (in room)
 
 Room: r2
-	max players: 4
-	cursed: false
-	gassed: true
-	sticky: false
-	ragged rounds: 0
-	characters (in room):
-	items (in room):
-	neighbors (just open doors):
-		r1
+	Max Characters: 4
+	Cursed: false
+	Gassed: true
+	Sticky: true
+	Ragged Rounds: 0
+	neighbors: (just open doors)
+		r1, 
+	Characters: (in room)
+	Items: (in room)
 

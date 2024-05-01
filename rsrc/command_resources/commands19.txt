@@ -1,4 +1,3 @@
-load map19
 pickup s1 rag1
 save map19
 examinate map19

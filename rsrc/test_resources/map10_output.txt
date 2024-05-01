@@ -1,20 +1,20 @@
 Room: r1
-	max players: 5
-	cursed: false
-	gassed: true
-	sticky: false
-	ragged rounds: 0
-	characters (in room):
-		name: s1
+	Max Characters: 5
+	Cursed: false
+	Gassed: true
+	Sticky: true
+	Ragged Rounds: 0
+	neighbors: (just open doors)
+	Characters: (in room)
+		Name: s1
 		type: Student
-		gasResist: false
+		Action Count: 100
 		paralyzed: false
-		teacher resist: false
-		items:
-			name: AirFreshener
-			durability: 1
-			fake: false
-
-	items (in room):
-	neighbors (just open doors):
+		gasResist: false
+		teacherResist: false
+		Inventory: 
+			type: AirFreshener
+				Durability: 1
+				isFake: false
+	Items: (in room)
 

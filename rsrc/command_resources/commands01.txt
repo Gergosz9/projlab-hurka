@@ -1,4 +1,3 @@
-load map01
 pickup s1 Transistor
 pickup s1 Transistor
 putdown s1 Transistor

@@ -1,32 +1,32 @@
 Room: r1
-	max players: 4
-	cursed: false
-	gassed: false
-	sticky: false
-	ragged rounds: 0
-	characters (in room):
-		name: s1
-		type: Student
-		gasResist: false
-		paralyzed: false
-		teacher resist: false
-		items:
-			name: Mask
-			durability: 5
-			fake: false
-
-	items (in room):
-	neighbors (just open doors):
-		r2
+	Max Characters: 4
+	Cursed: false
+	Gassed: false
+	Sticky: true
+	Ragged Rounds: 0
+	neighbors: (just open doors)
+		r2, 
+	Characters: (in room)
+	Items: (in room)
 
 Room: r2
-	max players: 4
-	cursed: false
-	gassed: true
-	sticky: false
-	ragged rounds: 0
-	characters (in room):
-	items (in room):
-	neighbors (just open doors):
-		r1
+	Max Characters: 4
+	Cursed: false
+	Gassed: true
+	Sticky: true
+	Ragged Rounds: 0
+	neighbors: (just open doors)
+		r1, 
+	Characters: (in room)
+		Name: s1
+		type: Student
+		Action Count: -1
+		paralyzed: true
+		gasResist: false
+		teacherResist: true
+		Inventory: 
+	Items: (in room)
+	type: Mask
+		Durability: 3
+		isFake: false
 

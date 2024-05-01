@@ -22,14 +22,23 @@ public class JSONUtil {
         try (FileWriter file = new FileWriter("rsrc/saved-games/" + testName + ".json")) {
             file.write(json.toString(4));
             file.flush();
+            file.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
+        }
+
+        try (FileWriter file = new FileWriter("rsrc/test_resources/" + testName + ".txt")) {
+            file.write(l.toTXT());
+            file.flush();
+            file.close();
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
         }
     }
 
     public static void compare(JSONObject ob1, JSONObject ob2) {
         if (ob1.toString().equals(ob2.toString())) {
-            System.out.println("The two JSON objects match.");
+            // System.out.println("The two JSON objects match.");
         } else {
             System.out.println("The two JSON objects do not match.");
         }

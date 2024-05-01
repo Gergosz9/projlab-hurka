@@ -1,4 +1,3 @@
-load map18
 move c1 r2
 save map18
 examinate map18

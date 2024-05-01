@@ -476,4 +476,34 @@ public class Room {
 
         return json;
     }
+
+    public String toTXT() {
+        StringBuilder txt = new StringBuilder();
+        txt.append("Room: ").append(name).append("\n");
+        txt.append("\tMax Characters: ").append(maxCharacters).append("\n");
+        txt.append("\tCursed: ").append(cursed).append("\n");
+        txt.append("\tGassed: ").append(gassed).append("\n");
+        txt.append("\tSticky: ").append(stickyness > 0).append("\n");
+        txt.append("\tRagged Rounds: ").append(raggedRounds).append("\n");
+        txt.append("\tneighbors: (just open doors)\n");
+        if (openRooms != null) {
+            for (Room room : openRooms) {
+                txt.append("\t\t").append(room.getName()).append(", ");
+            }
+            txt.append("\n");
+        }
+        txt.append("\tCharacters: (in room)\n");
+        if (this.characters != null)
+            for (Character character : this.characters) {
+                txt.append("\t\t").append(character.toTXT(2));
+            }
+
+        txt.append("\tItems: (in room)\n");
+        if (this.items != null)
+            for (Item item : this.items) {
+                txt.append(item.toTXT(1));
+            }
+
+        return txt.toString();
+    }
 }

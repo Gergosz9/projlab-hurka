@@ -1,20 +1,20 @@
 Room: r1
-	max players: 5
-	cursed: false
-	gassed: false
-	sticky: true
-	ragged rounds: 0
-	characters (in room):
-		name: s1
+	Max Characters: 5
+	Cursed: false
+	Gassed: false
+	Sticky: true
+	Ragged Rounds: 0
+	neighbors: (just open doors)
+	Characters: (in room)
+		Name: s1
 		type: Student
-		gasResist: false
+		Action Count: 100
 		paralyzed: false
-		teacher resist: false
-		items:
-
-	items (in room):
-		name: Rag
-			durability: 1
-			fake: false
-	neighbors (just open doors):
+		gasResist: false
+		teacherResist: false
+		Inventory: 
+	Items: (in room)
+	type: Rag
+		Durability: 1
+		isFake: false
 

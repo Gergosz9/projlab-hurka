@@ -129,9 +129,6 @@ public class Test {
                 default:
                     System.out.println("Rossz bemenet, nincs megfelelő függvény ehhez a számhoz.");
             }
-
-            System.out.println("\nÍrjon be bármilyen karaktert a folytatáshoz.");
-            scanner.next();
         }
         scanner.close();
     }

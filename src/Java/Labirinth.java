@@ -194,4 +194,12 @@ public class Labirinth {
 
         return jsonLabirinth;
     }
+
+    public String toTXT() {
+        StringBuilder txt = new StringBuilder();
+        for (Room room : rooms) {
+            txt.append(room.toTXT()).append("\n");
+        }
+        return txt.toString();
+    }
 }

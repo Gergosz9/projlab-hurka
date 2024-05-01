@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import Java.Labirinth;
 import Java.Room;
+import Java.Items.Item;
 import Java.Items.Triggers.*;
 
 /*
@@ -152,5 +153,32 @@ public class Student extends Character {
 		json.put("teacherResist", teacherResist);
 		json.put("inventory", inventoryToJSON());
 		return json;
+	}
+
+	public String toTXT(int indent) {
+		StringBuilder txt = new StringBuilder();
+		txt.append("Name: ").append(name).append("\n");
+		indent(txt, indent);
+		txt.append("type: ").append(this.getClass().getSimpleName()).append("\n");
+		indent(txt, indent);
+		txt.append("Action Count: ").append(actionCount).append("\n");
+		indent(txt, indent);
+		txt.append("paralyzed: ").append(paralyzed).append("\n");
+		indent(txt, indent);
+		txt.append("gasResist: ").append(gasResist).append("\n");
+		indent(txt, indent);
+		txt.append("teacherResist: ").append(teacherResist).append("\n");
+		indent(txt, indent);
+		txt.append("Inventory: ").append("\n");
+		for (Item item : inventory) {
+			txt.append(item.toTXT(3));
+		}
+		return txt.toString();
+	}
+
+	private void indent(StringBuilder sb, int indent) {
+		for (int i = 0; i < indent; i++) {
+			sb.append("\t");
+		}
 	}
 }
