@@ -2,7 +2,3 @@ load map22
 move t1 r1
 save map22
 examinate map22
-
-
-
-

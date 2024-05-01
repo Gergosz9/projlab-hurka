@@ -2,6 +2,3 @@ load map20
 move c1 r2
 save map20
 examinate map20
-
-
-

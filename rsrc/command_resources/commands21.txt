@@ -2,7 +2,3 @@ load map21
 move s1 r2
 save map21
 examinate map21
-
-
-
-

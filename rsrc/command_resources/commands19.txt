@@ -1,20 +1,4 @@
-Room: r1
-	max players: 5
-	cursed: false
-	gassed: false
-	sticky: true
-	ragged rounds: 0
-	characters (in room):
-		name: s1
-		type: Student
-		gasResist: false
-		paralyzed: false
-		teacher resist: false
-		items:
-
-	items (in room):
-		name: Rag
-			durability: 1
-			fake: false
-	neighbors (just open doors):
-
+load map19
+putdown s1 rag1
+save map19
+examinate map19
