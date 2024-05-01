@@ -2,6 +2,8 @@ package Java;
 
 import java.util.*;
 
+import org.json.*;
+
 import Java.Characters.Character;
 import Java.Items.*;
 
@@ -428,5 +430,36 @@ public class Room {
         return maxCharacters == room.maxCharacters && cursed == room.cursed && gassed == room.gassed
                 && raggedRounds == room.raggedRounds && stickyness == room.stickyness
                 && Objects.equals(name, room.name);
+    }
+
+    /**
+     * Converts the Room object to a JSON object
+     *
+     * @return the JSON representation of the Room object
+     */
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json.put("type", this.getClass().getSimpleName());
+        json.put("name", name);
+        json.put("maxCharacters", maxCharacters);
+        json.put("cursed", cursed);
+        json.put("gassed", gassed);
+        json.put("raggedRounds", raggedRounds);
+
+        JSONArray openRoomsJson = new JSONArray();
+        for (Room room : openRooms) {
+            openRoomsJson.put(room.getName());
+        }
+        json.put("openRooms", openRoomsJson);
+
+        JSONArray closedRoomsJson = new JSONArray();
+        for (Room room : closedRooms) {
+            closedRoomsJson.put(room.getName());
+        }
+        json.put("closedRooms", closedRoomsJson);
+
+        json.put("characters", characters);
+        json.put("items", items);
+        return json;
     }
 }

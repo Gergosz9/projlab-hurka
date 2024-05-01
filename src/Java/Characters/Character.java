@@ -9,7 +9,7 @@ import Java.Items.Triggers.*;
 
 import org.json.*;
 
-/*
+/**
  * The Character class represents a character in the game.
  * It is an abstract class that provides common attributes and methods for all
  * characters.
@@ -292,8 +292,14 @@ public abstract class Character {
                 && gasResist == character.gasResist && Objects.equals(name, character.name);
     }
 
+    /**
+     * Converts the Character object to a JSON object
+     *
+     * @return the JSON representation of the Character object
+     */
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
+        json.put("type", this.getClass().getSimpleName());
         json.put("name", name);
         json.put("actionCount", actionCount);
         json.put("paralyzed", paralyzed);
