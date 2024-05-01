@@ -7,6 +7,8 @@ import Java.Room;
 import Java.Items.*;
 import Java.Items.Triggers.*;
 
+import org.json.*;
+
 /*
  * The Character class represents a character in the game.
  * It is an abstract class that provides common attributes and methods for all
@@ -36,8 +38,6 @@ public abstract class Character {
     boolean gasResist;
     List<Item> inventory;
     Labirinth labirinth;
-    @SuppressWarnings("unused")
-    private final String jsonType;
 
     /*----------------------------------------------------------------------------------------------------
      * CONSTRUCTORS
@@ -56,8 +56,6 @@ public abstract class Character {
         paralyzed = false;
         gasResist = false;
         inventory = new ArrayList<>();
-
-        this.jsonType = this.getClass().getSimpleName();
     }
 
     /*----------------------------------------------------------------------------------------------------
@@ -292,5 +290,23 @@ public abstract class Character {
             return false;
         return actionCount == character.actionCount && paralyzed == character.paralyzed
                 && gasResist == character.gasResist && Objects.equals(name, character.name);
+    }
+
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("actionCount", actionCount);
+        json.put("paralyzed", paralyzed);
+        json.put("gasResist", gasResist);
+        json.put("inventory", inventoryToJSON());
+        return json;
+    }
+
+    protected JSONArray inventoryToJSON() {
+        JSONArray jsonArray = new JSONArray();
+        for (Item item : inventory) {
+            jsonArray.put(item.toJSON());
+        }
+        return jsonArray;
     }
 }

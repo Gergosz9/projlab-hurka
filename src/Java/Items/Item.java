@@ -1,6 +1,7 @@
 package Java.Items;
 
 import Java.Items.Triggers.*;
+import org.json.*;
 
 /**
  * Item is an abstract class representing an item in the game.
@@ -101,5 +102,19 @@ public abstract class Item {
         if (!(o instanceof Item item))
             return false;
         return durability == item.durability && isFake == item.isFake;
+    }
+
+    // ...
+
+    /**
+     * Converts the Item object to a JSON representation.
+     *
+     * @return The JSON representation of the Item object.
+     */
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json.put("durability", durability);
+        json.put("isFake", isFake);
+        return json;
     }
 }

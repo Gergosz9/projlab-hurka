@@ -51,7 +51,7 @@ public class Rag extends Item {
      * @param at The ActionTrigger associated with the action.
      */
     public void trigger(ActionTrigger at) {
-        at.getCharacter().getMyLocation().setRagged(4);
+        at.getCharacter().getMyLocation().setRaggedRounds(4);
         at.getCharacter().dropItem(this, null);
     }
 

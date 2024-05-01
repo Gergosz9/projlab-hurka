@@ -122,5 +122,4 @@ public class Cleaner extends Character {
             return false;
         return super.equals(o);
     }
-
 }

@@ -1,5 +1,7 @@
 package Java.Characters;
 
+import org.json.JSONObject;
+
 import Java.Labirinth;
 import Java.Room;
 import Java.Items.Triggers.*;
@@ -133,5 +135,16 @@ public class Student extends Character {
 		if (!super.equals(o))
 			return false;
 		return teacherResist == student.teacherResist;
+	}
+
+	public JSONObject toJSON() {
+		JSONObject json = new JSONObject();
+		json.put("name", name);
+		json.put("actionCount", actionCount);
+		json.put("paralyzed", paralyzed);
+		json.put("gasResist", gasResist);
+		json.put("teacherResist", teacherResist);
+		json.put("inventory", inventoryToJSON());
+		return json;
 	}
 }
