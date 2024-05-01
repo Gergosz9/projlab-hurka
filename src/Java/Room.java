@@ -38,6 +38,10 @@ public class Room {
     List<Character> characters;
     List<Item> items;
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructs a new Room object.
      * 
@@ -61,48 +65,9 @@ public class Room {
         items = new ArrayList<>();
     }
 
-    /**
-     * Returns the number of ragged rounds in the room.
-     * 
-     * @return the number of ragged rounds
-     */
-    public boolean isRagged() {
-        return raggedRounds > 0;
-    }
-
-    /**
-     * Returns the gassed state of the room.
-     * 
-     * @return true if the room is gassed, false otherwise
-     */
-    public boolean isGassed() {
-        return gassed;
-    }
-
-    /**
-     * Returns a list of all characters in the room.
-     * 
-     * @return a list of characters in the room
-     */
-    public List<Character> getCharacters() {
-        return characters;
-    }
-
-    /**
-     * Returns the stickiness state of the room.
-     * 
-     * @return true if the room is sticky, false otherwise
-     */
-    public boolean isSticky() {
-        return stickyness > 5;
-    }
-
-    /**
-     * Resets the stickiness state of the room.
-     */
-    public void resetSticky() {
-        this.stickyness = 0;
-    }
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Returns all rooms connected to this room.
@@ -236,54 +201,13 @@ public class Room {
         name = name + " " + room.name;
     }
 
-    /**
-     * Sets the number of ragged rounds in the room.
-     * 
-     * @param raggedRounds the number of ragged rounds
-     */
-    public void setRagged(int raggedRounds) {
-        this.raggedRounds = raggedRounds;
-    }
-
-    /**
-     * Sets the gassed state of the room.
-     * 
-     * @param gassed the gassed state of the room
-     */
-    public void setGassed(boolean gassed) {
-        this.gassed = gassed;
-    }
-
-    /**
-     * Sets the stickyness of the room.
-     * 
-     * @param stickyness the stickyness of the room
-     */
-    public void setStickyness(int stickyness) {
-        this.stickyness = stickyness;
-    }
-
-    /**
-     * Returns a list of open rooms connected to this room.
-     * 
-     * @return a list of open rooms
-     */
-    public List<Room> getOpenRooms() {
-        return openRooms;
-    }
-
-    /**
-     * Returns a list of closed rooms connected to this room.
-     * 
-     * @return a list of closed rooms
-     */
-    public List<Room> getClosedRooms() {
-        return closedRooms;
-    }
+    /*----------------------------------------------------------------------------------------------------
+     * GETTERS AND SETTERS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Returns the name of the room.
-     * 
+     *
      * @return the name of the room
      */
     public String getName() {
@@ -291,85 +215,195 @@ public class Room {
     }
 
     /**
-     * Returns a list of items in the room.
-     * 
-     * @return a list of items in the room
+     * Sets the name of the room.
+     *
+     * @param name the name of the room
      */
-    public List<Item> getItems() {
-        return items;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * Sets a list of closedRooms in room
-     * 
-     * @param closedRooms list of rooms
-     */
-    public void setClosedRooms(List<Room> closedRooms) {
-        this.closedRooms = closedRooms;
-    }
-
-    /**
-     * Sets a list of openRooms in room
-     * 
-     * @param openRooms list of rooms
-     */
-    public void setOpenRooms(List<Room> openRooms) {
-        this.openRooms = openRooms;
-    }
-
-    /**
-     * Sets a list of characters in room
-     * 
-     * @param characters list of characters
-     */
-    public void setCharacters(List<Character> characters) {
-        this.characters = characters;
-    }
-
-    /**
-     * Sets a list of items in room
-     * 
-     * @param items list of items
-     */
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
-    /**
-     * Returns the max Character number in room
-     * 
-     * @return maxCharacters in room
+     * Returns the maximum number of characters allowed in the room.
+     *
+     * @return the maximum number of characters allowed in the room
      */
     public int getMaxCharacters() {
         return maxCharacters;
     }
 
     /**
-     * Is the room cursed
-     * 
-     * @return true if yes, false if no
+     * Sets the maximum number of characters allowed in the room.
+     *
+     * @param maxCharacters the maximum number of characters allowed in the room
+     */
+    public void setMaxCharacters(int maxCharacters) {
+        this.maxCharacters = maxCharacters;
+    }
+
+    /**
+     * Returns whether the room is cursed or not.
+     *
+     * @return true if the room is cursed, false otherwise
      */
     public boolean isCursed() {
         return cursed;
     }
 
     /**
-     * Returns how many rounds till the room is ragged
-     * 
-     * @return raggedRounds int value
+     * Sets whether the room is cursed or not.
+     *
+     * @param cursed true if the room is cursed, false otherwise
+     */
+    public void setCursed(boolean cursed) {
+        this.cursed = cursed;
+    }
+
+    /**
+     * Returns whether the room is gassed or not.
+     *
+     * @return true if the room is gassed, false otherwise
+     */
+    public boolean isGassed() {
+        return gassed;
+    }
+
+    /**
+     * Sets whether the room is gassed or not.
+     *
+     * @param gassed true if the room is gassed, false otherwise
+     */
+    public void setGassed(boolean gassed) {
+        this.gassed = gassed;
+    }
+
+    /**
+     * Returns the number of rounds the room stays ragged.
+     *
+     * @return the number of rounds the room stays ragged
      */
     public int getRaggedRounds() {
         return raggedRounds;
     }
 
     /**
-     * Returns the stickyness value of the room
-     * 
-     * @return stickyness int value
+     * Sets the number of rounds the room stays ragged.
+     *
+     * @param raggedRounds the number of rounds the room stays ragged
+     */
+    public void setRaggedRounds(int raggedRounds) {
+        this.raggedRounds = raggedRounds;
+    }
+
+    /**
+     * Returns the stickiness of the room.
+     *
+     * @return the stickiness of the room
      */
     public int getStickyness() {
         return stickyness;
     }
+
+    /**
+     * Sets the stickiness of the room.
+     *
+     * @param stickyness the stickiness of the room
+     */
+    public void setStickyness(int stickyness) {
+        this.stickyness = stickyness;
+    }
+
+    /**
+     * Returns the list of closed rooms connected to this room.
+     *
+     * @return the list of closed rooms connected to this room
+     */
+    public List<Room> getClosedRooms() {
+        return closedRooms;
+    }
+
+    /**
+     * Sets the list of closed rooms connected to this room.
+     *
+     * @param closedRooms the list of closed rooms connected to this room
+     */
+    public void setClosedRooms(List<Room> closedRooms) {
+        this.closedRooms = closedRooms;
+    }
+
+    /**
+     * Returns the list of open rooms connected to this room.
+     *
+     * @return the list of open rooms connected to this room
+     */
+    public List<Room> getOpenRooms() {
+        return openRooms;
+    }
+
+    /**
+     * Sets the list of open rooms connected to this room.
+     *
+     * @param openRooms the list of open rooms connected to this room
+     */
+    public void setOpenRooms(List<Room> openRooms) {
+        this.openRooms = openRooms;
+    }
+
+    /**
+     * Returns the list of characters in the room.
+     *
+     * @return the list of characters in the room
+     */
+    public List<Character> getCharacters() {
+        return characters;
+    }
+
+    /**
+     * Sets the list of characters in the room.
+     *
+     * @param characters the list of characters in the room
+     */
+    public void setCharacters(List<Character> characters) {
+        this.characters = characters;
+    }
+
+    /**
+     * Returns the list of items in the room.
+     *
+     * @return the list of items in the room
+     */
+    public List<Item> getItems() {
+        return items;
+    }
+
+    /**
+     * Sets the list of items in the room.
+     *
+     * @param items the list of items in the room
+     */
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    /**
+     * Returns the stickiness state of the room.
+     * 
+     * @return true if the room is sticky, false otherwise
+     */
+    public boolean isSticky() {
+        return stickyness > 5;
+    }
+
+    /**
+     * Resets the stickiness state of the room.
+     */
+    public void resetSticky() {
+        this.stickyness = 0;
+    }
+
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Compares this Character to another object
@@ -386,50 +420,5 @@ public class Room {
         return maxCharacters == room.maxCharacters && cursed == room.cursed && gassed == room.gassed
                 && raggedRounds == room.raggedRounds && stickyness == room.stickyness
                 && Objects.equals(name, room.name);
-    }
-
-    /**
-     * Hashcode of Character
-     *
-     * @return Hashcode of Character
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, maxCharacters, cursed, gassed, raggedRounds, stickyness);
-    }
-
-    /**
-     * toString function of Room
-     * 
-     * @return toString of Room
-     */
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Room: ").append(name).append("\n");
-        sb.append("\tmax players: ").append(maxCharacters).append("\n");
-        sb.append("\tcursed: ").append(cursed).append("\n");
-        sb.append("\tgassed: ").append(gassed).append("\n");
-        sb.append("\tsticky: ").append(isSticky()).append("\n");
-        sb.append("\tragged rounds: ").append(raggedRounds).append("\n");
-        sb.append("\tcharacters (in room):\n");
-        if (characters != null) {
-            for (Character c : characters) {
-                sb.append("\t\t").append(c).append("\n");
-            }
-        }
-        sb.append("\titems (in room):\n");
-        if (items != null) {
-            for (Item item : items) {
-                sb.append("\t\t").append(item).append("\n");
-            }
-        }
-        sb.append("\tneighbors (just open doors):\n");
-        if (openRooms != null) {
-            for (Room room : openRooms) {
-                sb.append("\t\t").append(room.getName()).append("\n");
-            }
-        }
-        return sb.toString();
     }
 }

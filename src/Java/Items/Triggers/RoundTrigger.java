@@ -10,6 +10,10 @@ import Java.Items.*;
  */
 public class RoundTrigger extends Trigger {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a RoundTrigger with a character.
      * 
@@ -18,6 +22,10 @@ public class RoundTrigger extends Trigger {
     public RoundTrigger(Character character) {
         super(character);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Method to handle interactions with a Beer item.

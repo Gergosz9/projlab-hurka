@@ -10,6 +10,10 @@ import Java.Items.*;
  */
 public class AttackTrigger extends Trigger {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize an AttackTrigger with a character.
      * 
@@ -18,6 +22,10 @@ public class AttackTrigger extends Trigger {
     public AttackTrigger(Character character) {
         super(character);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Method to handle interactions with a TVSZ.

@@ -10,6 +10,10 @@ import Java.Items.*;
  */
 public class WinTrigger extends Trigger {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a WinTrigger with a character.
      * 
@@ -18,6 +22,10 @@ public class WinTrigger extends Trigger {
     public WinTrigger(Character character) {
         super(character);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Method to handle interactions with a SlideRule item.

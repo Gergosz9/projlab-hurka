@@ -8,6 +8,10 @@ import Java.Items.Triggers.*;
  */
 public class Rag extends Item {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a Rag with durability and fake status.
      * 
@@ -35,6 +39,10 @@ public class Rag extends Item {
         super(1, false);
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Method to trigger the action associated with the Rag.
      * Sets the ragged status in the character's location.
@@ -46,6 +54,10 @@ public class Rag extends Item {
         at.getCharacter().getMyLocation().setRagged(4);
         at.getCharacter().dropItem(this, null);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Checks if this Rag object is equal to another object.

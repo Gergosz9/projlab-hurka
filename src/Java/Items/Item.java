@@ -10,10 +10,10 @@ import java.util.Objects;
 public abstract class Item {
     protected int durability; // The durability of the item
     boolean isFake; // Indicates if the item is fake
-    @SuppressWarnings("unused")
-    private final String jsonType; // Required for the deserialization of the saved Item in json format
-                                   // because they are stored in a polymorph list which is not supported by the
-                                   // json format
+
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Constructor to initialize an Item with durability and fake status.
@@ -24,9 +24,11 @@ public abstract class Item {
     protected Item(int durability, boolean isFake) {
         this.durability = durability;
         this.isFake = isFake;
-
-        this.jsonType = this.getClass().getSimpleName();
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Method to use the item with a given trigger.
@@ -44,27 +46,49 @@ public abstract class Item {
         }
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * GETTERS AND SETTERS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
-     * Gets durability of Item
-     * 
-     * @return durability of Item
+     * Getter for the durability of the item.
+     *
+     * @return The durability of the item.
      */
     public int getDurability() {
         return durability;
     }
 
     /**
-     * Gets boolean value of isFake
-     * 
-     * @return boolean value of isFake
+     * Setter for the durability of the item.
+     *
+     * @param durability The durability of the item.
+     */
+    public void setDurability(int durability) {
+        this.durability = durability;
+    }
+
+    /**
+     * Getter for the fake status of the item.
+     *
+     * @return True if the item is fake, false otherwise.
      */
     public boolean isFake() {
         return isFake;
     }
 
-    public String getJsonType() {
-        return jsonType;
+    /**
+     * Setter for the fake status of the item.
+     *
+     * @param fake True if the item is fake, false otherwise.
+     */
+    public void setFake(boolean fake) {
+        isFake = fake;
     }
+
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Compares this Item to another object
@@ -79,28 +103,5 @@ public abstract class Item {
         if (!(o instanceof Item item))
             return false;
         return durability == item.durability && isFake == item.isFake;
-    }
-
-    /**
-     * Hashcode of Item
-     * 
-     * @return Hashcode of Item
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(durability, isFake);
-    }
-
-    /**
-     * toString function of Item
-     * 
-     * @return toString of Item
-     */
-    @Override
-    public String toString() {
-        return "name: " + getClass().getSimpleName() + "\n" +
-                "\t\t\tdurability: " + durability + "\n" +
-                "\t\t\tfake: " + isFake;
-
     }
 }

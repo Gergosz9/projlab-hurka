@@ -2,8 +2,6 @@ package Java.Characters;
 
 import java.util.*;
 
-import java.util.List;
-
 import Java.Labirinth;
 import Java.Room;
 import Java.Items.*;
@@ -14,6 +12,10 @@ import Java.Items.Triggers.*;
  */
 public class Teacher extends Character {
 
+	/*----------------------------------------------------------------------------------------------------
+	* CONSTRUCTORS
+	*----------------------------------------------------------------------------------------------------*/
+
 	/**
 	 * Constructs a Teacher object with the specified name and labirinth.
 	 * 
@@ -23,6 +25,10 @@ public class Teacher extends Character {
 	public Teacher(String name, Labirinth labirinth) {
 		super(name, labirinth);
 	}
+
+	/*----------------------------------------------------------------------------------------------------
+	* FUNCTIONS
+	*----------------------------------------------------------------------------------------------------*/
 
 	/**
 	 * Method that represents the action of moving to a different room.
@@ -121,6 +127,10 @@ public class Teacher extends Character {
 				break;
 		}
 	}
+
+	/*----------------------------------------------------------------------------------------------------
+	* TESTER FUNCTIONS
+	*----------------------------------------------------------------------------------------------------*/
 
 	/**
 	 * Indicates whether some other object is "equal to" this one.

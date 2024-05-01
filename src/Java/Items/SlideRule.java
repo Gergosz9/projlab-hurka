@@ -8,6 +8,10 @@ import Java.Items.Triggers.*;
  */
 public class SlideRule extends Item {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a SlideRule with durability and fake status.
      * 
@@ -36,6 +40,10 @@ public class SlideRule extends Item {
         super(1, false);
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Method to trigger the action associated with the SlideRule when used with a
      * WinTrigger.
@@ -46,6 +54,10 @@ public class SlideRule extends Item {
     public void trigger(WinTrigger wt) {
         // TODO: Implement end-of-game function call
     }
+
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Checks if this SlideRule object is equal to another object.

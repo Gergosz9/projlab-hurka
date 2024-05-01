@@ -10,6 +10,10 @@ import Java.Characters.*;
  */
 public class TVSZ extends Item {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a TVSZ with durability and fake status.
      * 
@@ -47,6 +51,10 @@ public class TVSZ extends Item {
         super(3, false);
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Method to trigger the action associated with the TVSZ when used with an
      * AttackTrigger.
@@ -67,6 +75,10 @@ public class TVSZ extends Item {
             student.dropItem(this, null);
         }
     }
+
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Checks if this TVSZ object is equal to another object.

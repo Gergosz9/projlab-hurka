@@ -10,6 +10,10 @@ import Java.Items.*;
 public abstract class Trigger {
     Character character; // The character associated with this trigger
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize the trigger with a character.
      * 
@@ -18,6 +22,10 @@ public abstract class Trigger {
     public Trigger(Character character) {
         this.character = character;
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Getter method to retrieve the character associated with this trigger.

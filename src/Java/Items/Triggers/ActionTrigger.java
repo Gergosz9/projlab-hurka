@@ -10,6 +10,10 @@ import Java.Items.*;
  */
 public class ActionTrigger extends Trigger {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize an ActionTrigger with a character.
      * 
@@ -18,6 +22,10 @@ public class ActionTrigger extends Trigger {
     public ActionTrigger(Character character) {
         super(character);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Method to handle interactions with a Transistor item.

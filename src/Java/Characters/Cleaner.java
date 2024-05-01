@@ -1,6 +1,5 @@
 package Java.Characters;
 
-import java.util.List;
 import java.util.*;
 
 import Java.*;
@@ -13,6 +12,10 @@ import Java.*;
  */
 public class Cleaner extends Character {
 
+    /*----------------------------------------------------------------------------------------------------
+    * CONSTRUCTORS
+    *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructs a Cleaner object with the specified name and labirinth.
      * 
@@ -22,6 +25,10 @@ public class Cleaner extends Character {
     public Cleaner(String name, Labirinth labirinth) {
         super(name, labirinth);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+    * FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Moves the cleaner to the specified room.
@@ -92,6 +99,10 @@ public class Cleaner extends Character {
                 break;
         }
     }
+
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Overrides the equals method to compare two Cleaner objects for equality.

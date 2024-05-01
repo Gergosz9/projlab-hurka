@@ -13,6 +13,10 @@ import Java.Characters.*;
 public class Beer extends Item {
     private boolean isInUse = false; // Indicates if the beer is currently in use
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a Beer with durability and fake status.
      * 
@@ -49,6 +53,10 @@ public class Beer extends Item {
     public Beer() {
         super(5, false);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Method to trigger the action associated with the Beer when used with a
@@ -91,6 +99,10 @@ public class Beer extends Item {
         }
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * TESTER FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Checks if this Beer object is equal to another object.
      * Two Beer objects are considered equal if they have the same type, durability,
@@ -112,18 +124,4 @@ public class Beer extends Item {
 
         return isInUse == beer.isInUse;
     }
-
-    /**
-     * Generates a hash code value for the Beer object.
-     * The hash code is computed based on the hash codes of superclass fields and
-     * the
-     * isInUse field.
-     * 
-     * @return A hash code value for this Beer object.
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), isInUse);
-    }
-
 }

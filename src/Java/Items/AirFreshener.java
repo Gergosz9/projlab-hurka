@@ -8,6 +8,10 @@ import Java.Items.Triggers.*;
  */
 public class AirFreshener extends Item {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize an AirFreshener with durability and fake status.
      * 
@@ -36,6 +40,10 @@ public class AirFreshener extends Item {
         super(1, false);
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Method to trigger the action associated with the AirFreshener.
      * Clears the gas status in the character's location and drops the air
@@ -47,6 +55,10 @@ public class AirFreshener extends Item {
         at.getCharacter().getMyLocation().setGassed(false);
         at.getCharacter().dropItem(this, null);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * TESTER FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Checks if this AirFreshener object is equal to another object.

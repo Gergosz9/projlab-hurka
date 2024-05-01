@@ -12,6 +12,10 @@ public class Labirinth {
     private int numberOfStudents;
     private List<Room> rooms;
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructs a Labirinth object with an empty list of characters and rooms.
      */
@@ -20,21 +24,9 @@ public class Labirinth {
         rooms = new ArrayList<>();
     }
 
-    /**
-     * Returns the number of students in the labyrinth
-     * @return the number of students in the labyrinth
-     */
-    public int getNumberOfStudents() {
-        return numberOfStudents;
-    }
-
-    /**
-     * Sets the number of students in the labyrinth
-     * @param numberOfStudents the number of students to set
-     */
-    public void setNumberOfStudents(int numberOfStudents) {
-        this.numberOfStudents = numberOfStudents;
-    }
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Does a round of actions for all characters in the labyrinth
@@ -87,40 +79,8 @@ public class Labirinth {
     }
 
     /**
-     * Returns the list of rooms in the labyrinth
-     * @return the list of rooms in the labyrinth
-     */
-    public List<Room> getRooms() {
-        return rooms;
-    }
-
-    /**
-     * Returns the list of characters in the labyrinth
-     * @return
-     */
-    public List<Character> getCharacters() {
-        return characters;
-    }
-
-    /**
-     * Sets a list of characters as the contained labyrinth characters
-     * @param characters the characters to set
-     */
-    public void setCharacters(List<Character> characters) {
-        this.characters = characters;
-        numberOfStudents = characters.size();
-    }
-
-    /**
-     * Sets a list of rooms as the contained labyrinth rooms
-     * @param rooms the rooms to set
-     */
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
-    }
-
-    /**
      * Removes a character from the labyrinth
+     * 
      * @param character the character to remove
      */
     public void removeCharacter(Character character) {
@@ -129,6 +89,7 @@ public class Labirinth {
 
     /**
      * Adds a room to the labyrinth
+     * 
      * @param room the room to add
      */
     public void addRoom(Room room) {
@@ -137,9 +98,73 @@ public class Labirinth {
 
     /**
      * Adds a character to the labyrinth
+     * 
      * @param character the character to add
      */
     public void addCharacter(Character character) {
         characters.add(character);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * GETTERS AND SETTERS
+     *----------------------------------------------------------------------------------------------------*/
+
+    /**
+     * Returns the list of characters in the labyrinth
+     * 
+     * @return the list of characters
+     */
+    public List<Character> getCharacters() {
+        return characters;
+    }
+
+    /**
+     * Sets a list of characters as the contained labyrinth characters
+     * 
+     * @param characters the characters to set
+     */
+    public void setCharacters(List<Character> characters) {
+        this.characters = characters;
+        numberOfStudents = characters.size();
+    }
+
+    /**
+     * Returns the number of students in the labyrinth
+     * 
+     * @return the number of students
+     */
+    public int getNumberOfStudents() {
+        return numberOfStudents;
+    }
+
+    /**
+     * Sets the number of students in the labyrinth
+     * 
+     * @param numberOfStudents the number of students to set
+     */
+    public void setNumberOfStudents(int numberOfStudents) {
+        this.numberOfStudents = numberOfStudents;
+    }
+
+    /**
+     * Returns the list of rooms in the labyrinth
+     * 
+     * @return the list of rooms
+     */
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    /**
+     * Sets a list of rooms as the contained labyrinth rooms
+     * 
+     * @param rooms the rooms to set
+     */
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 }

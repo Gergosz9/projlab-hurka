@@ -8,6 +8,10 @@ import Java.Items.Triggers.*;
  */
 public class Camembert extends Item {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a Camembert with durability and fake status.
      * 
@@ -36,6 +40,10 @@ public class Camembert extends Item {
         super(1, false);
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Method to trigger the action associated with the Camembert.
      * Sets the gas status in the character's location to true and drops the
@@ -47,6 +55,10 @@ public class Camembert extends Item {
         at.getCharacter().getMyLocation().setGassed(true);
         at.getCharacter().dropItem(this, null);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * TESTER FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Checks if this Camembert is equal to another object.

@@ -9,6 +9,10 @@ import Java.Items.*;
  */
 public class GasTrigger extends Trigger {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a GasTrigger with a character.
      * 
@@ -17,6 +21,10 @@ public class GasTrigger extends Trigger {
     public GasTrigger(Character character) {
         super(character);
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Method to handle interactions with a Mask item.

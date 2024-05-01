@@ -14,7 +14,9 @@ public class Transistor extends Item {
     private Labirinth labirinth; // The labyrinth in which the transistor exists
     private Transistor pair; // The paired transistor
 
-    private String jsonId; // Id to load pair from json
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Constructor to initialize a Transistor with durability, fake status, and
@@ -38,7 +40,7 @@ public class Transistor extends Item {
      * @param labirinth The labyrinth in which the transistor exists.
      */
     public Transistor(boolean isFake, Labirinth labirinth) {
-        super(-1, isFake);
+        super(1, isFake);
         pair = null;
         this.labirinth = labirinth;
     }
@@ -50,10 +52,14 @@ public class Transistor extends Item {
      * @param labirinth The labyrinth in which the transistor exists.
      */
     public Transistor(Labirinth labirinth) {
-        super(-1, false);
+        super(1, false);
         pair = null;
         this.labirinth = labirinth;
     }
+
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Method to trigger the action associated with the Transistor when used with an
@@ -109,61 +115,49 @@ public class Transistor extends Item {
         return null;
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * GETTERS AND SETTERS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
-     * Gets the labyrinth in which the transistor exists.
+     * Getter for the labirinth variable.
      * 
-     * @return The labyrinth.
+     * @return The labirinth variable.
      */
     public Labirinth getLabirinth() {
         return labirinth;
     }
 
     /**
-     * Sets the labyrinth in which the transistor exists.
+     * Setter for the labirinth variable.
      * 
-     * @param labirinth The labyrinth to set.
+     * @param labirinth The labirinth variable to set.
      */
     public void setLabirinth(Labirinth labirinth) {
         this.labirinth = labirinth;
     }
 
     /**
-     * Sets the pair for the transistor
-     *
-     * @param pair the paired transostor
-     */
-    public void setPair(Transistor pair) {
-        this.pair = pair;
-    }
-
-    /**
-     * returns the pair to this transistor
-     *
-     * @return the pair to this transistor
+     * Getter for the pair variable.
+     * 
+     * @return The pair variable.
      */
     public Transistor getPair() {
         return pair;
     }
 
     /**
-     * returns the jsonId of the transistor. Only used in saving a nd loading the
-     * project
-     *
-     * @return the jsonId of the transistor
+     * Setter for the pair variable.
+     * 
+     * @param pair The pair variable to set.
      */
-    public String getJsonId() {
-        return jsonId;
+    public void setPair(Transistor pair) {
+        this.pair = pair;
     }
 
-    /**
-     * Sets the jsonId of the Transistor. Only used in saving a nd loading the
-     * project
-     *
-     * @param jsonId the id
-     */
-    public void setJsonId(String jsonId) {
-        this.jsonId = jsonId;
-    }
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Checks if this Transistor object is equal to another object.
@@ -181,18 +175,5 @@ public class Transistor extends Item {
         if (!(o instanceof Transistor))
             return false;
         return durability == ((Transistor) o).getDurability() && isFake == ((Transistor) o).isFake();
-    }
-
-    /**
-     * Generates a hash code value for the Transistor object.
-     * The hash code is computed based on the hash codes of superclass fields and
-     * the
-     * paired transistor.
-     * 
-     * @return A hash code value for this Transistor object.
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), pair);
     }
 }

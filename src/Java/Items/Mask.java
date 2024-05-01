@@ -8,6 +8,10 @@ import Java.Items.Triggers.*;
  */
 public class Mask extends Item {
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructor to initialize a Mask with durability and fake status.
      * 
@@ -45,6 +49,10 @@ public class Mask extends Item {
         super(5, false);
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Method to trigger the action associated with the Mask when used with a
      * GasTrigger.
@@ -63,6 +71,10 @@ public class Mask extends Item {
             gt.getCharacter().dropItem(this, null);
         }
     }
+
+    /*----------------------------------------------------------------------------------------------------
+    * TESTER FUNCTIONS
+    *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Checks if this Mask object is equal to another object.

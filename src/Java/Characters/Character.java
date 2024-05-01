@@ -39,6 +39,10 @@ public abstract class Character {
     @SuppressWarnings("unused")
     private final String jsonType;
 
+    /*----------------------------------------------------------------------------------------------------
+     * CONSTRUCTORS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Constructs a Character object with the specified name and labirinth.
      * 
@@ -56,14 +60,9 @@ public abstract class Character {
         this.jsonType = this.getClass().getSimpleName();
     }
 
-    /**
-     * Returns the character's inventory.
-     * 
-     * @return the character's inventory
-     */
-    public List<Item> getInventory() {
-        return inventory;
-    }
+    /*----------------------------------------------------------------------------------------------------
+     * FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Uses the item at the specified index in the character's inventory.
@@ -126,31 +125,6 @@ public abstract class Character {
     public abstract void move(Room room);
 
     /**
-     * Sets the paralyzed state of the character. If the character is paralyzed, all
-     * items in the inventory are dropped.
-     * 
-     * @param paralyzed true if the character is paralyzed, false otherwise
-     */
-    public void setParalyzed(boolean paralyzed) {
-        this.paralyzed = paralyzed;
-        if (paralyzed) {
-            for (int i = 0; i < inventory.size(); i++) {
-                dropItem(inventory.get(0), getMyLocation());
-            }
-            actionCount = 0;
-        }
-    }
-
-    /**
-     * Sets the gas resistance state of the character.
-     * 
-     * @param gasResist true if the character has gas resistance, false otherwise
-     */
-    public void setGasResist(boolean gasResist) {
-        this.gasResist = gasResist;
-    }
-
-    /**
      * Rolls a random number between 1 and 6 and sets it as the action count for the
      * character.
      */
@@ -175,6 +149,10 @@ public abstract class Character {
         }
     }
 
+    /*----------------------------------------------------------------------------------------------------
+     * GETTERS AND SETTERS
+     *----------------------------------------------------------------------------------------------------*/
+
     /**
      * Method that represents the action of hurting the character.
      */
@@ -182,86 +160,123 @@ public abstract class Character {
     }
 
     /**
-     * Sets actionCount of Character
-     * 
-     * @param actionCount
-     */
-    public void setActionCount(int actionCount) {
-        this.actionCount = actionCount;
-    }
-
-    /**
-     * Sets inventory of Character
-     * 
-     * @param inventory
-     */
-    public void setInventory(List<Item> inventory) {
-        this.inventory = inventory;
-    }
-
-    /**
-     * Sets name of Character
-     * 
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * sets Labirinth of Character
-     * 
-     * @param labirinth
-     */
-    public void setLabirinth(Labirinth labirinth) {
-        this.labirinth = labirinth;
-    }
-
-    /**
-     * Gets name of Character
+     * Returns the name of the character.
+     *
+     * @return the name of the character
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Gets labirinth of Character
+     * Sets the name of the character.
+     *
+     * @param name the name to set
      */
-    public Labirinth getLabirinth() {
-        return labirinth;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * Returns the actionCount of the Character
+     * Returns the number of actions the character can perform in a round.
      *
-     * @return the actionCount of the Character
+     * @return the action count of the character
      */
     public int getActionCount() {
         return actionCount;
     }
 
     /**
-     * Is the Character paralyzed
+     * Sets the number of actions the character can perform in a round.
+     *
+     * @param actionCount the action count to set
+     */
+    public void setActionCount(int actionCount) {
+        this.actionCount = actionCount;
+    }
+
+    /**
+     * Returns true if the character is paralyzed, false otherwise.
+     *
+     * @return true if the character is paralyzed, false otherwise
      */
     public boolean isParalyzed() {
         return paralyzed;
     }
 
     /**
-     * Does the Character resists gas
+     * Sets the paralyzed state of the character. If the character is paralyzed, all
+     * items in the inventory are dropped.
+     * 
+     * @param paralyzed true if the character is paralyzed, false otherwise
      */
-    public boolean isGasResist() {
+    public void setParalyzed(boolean paralyzed) {
+        this.paralyzed = paralyzed;
+        if (paralyzed) {
+            for (int i = 0; i < inventory.size(); i++) {
+                dropItem(inventory.get(0), getMyLocation());
+            }
+            actionCount = 0;
+        }
+    }
+
+    /**
+     * Returns true if the character has gas resistance, false otherwise.
+     *
+     * @return true if the character has gas resistance, false otherwise
+     */
+    public boolean hasGasResist() {
         return gasResist;
     }
 
     /**
-     * Returns jsonType of the Character. Only used in save and load from json
+     * Sets the gas resistance state of the character.
      *
-     * @return jsonType of the Character
+     * @param gasResist true if the character has gas resistance, false otherwise
      */
-    public String getJsonType() {
-        return jsonType;
+    public void setGasResist(boolean gasResist) {
+        this.gasResist = gasResist;
     }
+
+    /**
+     * Returns the list of items in the character's inventory.
+     *
+     * @return the list of items in the character's inventory
+     */
+    public List<Item> getInventory() {
+        return inventory;
+    }
+
+    /**
+     * Sets the list of items in the character's inventory.
+     *
+     * @param inventory the list of items to set
+     */
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    /**
+     * Returns the labirinth in which the character exists.
+     *
+     * @return the labirinth in which the character exists
+     */
+    public Labirinth getLabirinth() {
+        return labirinth;
+    }
+
+    /**
+     * Sets the labirinth in which the character exists.
+     *
+     * @param labirinth the labirinth to set
+     */
+    public void setLabirinth(Labirinth labirinth) {
+        this.labirinth = labirinth;
+    }
+
+    /*----------------------------------------------------------------------------------------------------
+     * TESTER FUNCTIONS
+     *----------------------------------------------------------------------------------------------------*/
 
     /**
      * Compares this Character to another object
@@ -277,39 +292,5 @@ public abstract class Character {
             return false;
         return actionCount == character.actionCount && paralyzed == character.paralyzed
                 && gasResist == character.gasResist && Objects.equals(name, character.name);
-    }
-
-    /**
-     * Hashcode of Character
-     * 
-     * @return Hashcode of Character
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, actionCount, paralyzed, gasResist);
-    }
-
-    /**
-     * toString function of Character
-     * 
-     * @return toString of Character
-     */
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("name: ").append(name).append("\n");
-        sb.append("\t\ttype: ").append(getClass().getSimpleName()).append("\n");
-        sb.append("\t\tgasResist: ").append(gasResist).append("\n");
-        sb.append("\t\tparalyzed: ").append(paralyzed).append("\n");
-        if (this instanceof Student student) {
-            sb.append("\t\tteacher resist: ").append(student.teacherResist).append("\n");
-        }
-        sb.append("\t\titems:\n");
-        if (inventory != null) {
-            for (Item item : inventory) {
-                sb.append("\t\t\t").append(item).append("\n");
-            }
-        }
-        return sb.toString();
     }
 }
