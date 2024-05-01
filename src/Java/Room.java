@@ -3,8 +3,7 @@ package Java;
 import java.util.*;
 
 import Java.Characters.Character;
-import Java.Items.Item;
-import Java.Items.Transistor;
+import Java.Items.*;
 
 /*
  * The Room class represents a room in a game.
@@ -399,6 +398,15 @@ public class Room {
      */
     public void resetSticky() {
         this.stickyness = 0;
+    }
+
+    /**
+     * Checks if the room is ragged.
+     *
+     * @return true if the room is ragged, false otherwise
+     */
+    public boolean isRagged() {
+        return raggedRounds > 0;
     }
 
     /*----------------------------------------------------------------------------------------------------

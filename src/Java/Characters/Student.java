@@ -2,10 +2,7 @@ package Java.Characters;
 
 import Java.Labirinth;
 import Java.Room;
-import Java.Items.Item;
 import Java.Items.Triggers.*;
-
-import java.util.Objects;
 
 /*
  * The Student class represents a character in the game.
