@@ -1,14 +1,22 @@
 @echo off
 cls
 
-REM Set the path to your project
-set PROJECT_DIR=out\production\projlab-hurka
-set TEST_DIR=out\test\projlab-hurka
+rem Delete the existing "classes" folder if it exists
+if exist classes rmdir /s /q classes
 
-REM Set the classpath to include all JAR files
+rem Create the "classes" folder
+mkdir classes
+
+REM Parameters
 set LIB_DIR=libs
 set MAIN_CLASS=Java.Test
 
-REM Run the Java test
-echo running tests...
-java -cp "%LIB_DIR%\gson-2.8.2.jar;%PROJECT_DIR%;%TEST_DIR%" %MAIN_CLASS%
+rem Compile source files from "src" folder
+javac -d classes/ -cp "%LIB_DIR%\gson-2.8.2.jar;src;classes" src\Java\Characters\*.java src\Java\util\*.java src\Java\*.java
+
+rem Compile test files from "test" folder
+javac -d classes/ -cp "%LIB_DIR%\gson-2.8.2.jar;test;classes" test\Java\Commands\*.java test\Java\*.java
+rem javac -cp classes -d classes test\*.java
+
+rem Run the main class
+java -cp "%LIB_DIR%\gson-2.8.2.jar;classes" %MAIN_CLASS%
