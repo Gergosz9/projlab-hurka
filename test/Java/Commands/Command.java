@@ -7,7 +7,7 @@ import Java.Characters.Character;
 import java.util.List;
 
 public interface Command {
-    Labirinth execute(String[] args, Labirinth l);
+    void execute(String[] args, Labirinth l);
 
     public default Room getRoomFromString(String s, List<Room> rooms) {
         for (Room r : rooms) {

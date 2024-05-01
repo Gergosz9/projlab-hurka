@@ -3,22 +3,13 @@ package Java.Commands;
 import Java.*;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class ExaminateCommand implements Command {
-    private Labirinth labirinth;
-
-    public ExaminateCommand(Labirinth labirinth) {
-
-        this.labirinth = labirinth;
-    }
 
     @Override
-    public Labirinth execute(String[] args, Labirinth l) {
-        this.labirinth = l;
-
+    public void execute(String[] args, Labirinth l) {
         String fileName1 = "test_resources/" + args[1] + ".txt";
         String fileName2 = "test_resources/" + args[1] + "_output.txt";
 
@@ -41,23 +32,14 @@ public class ExaminateCommand implements Command {
                 line2 = reader2.readLine();
             }
 
-            /*
-             * if (line1 != null || line2 != null) {
-             * equal = false;
-             * System.out.println("A fájlok hossza nem egyezik!");
-             * }
-             */
-
             if (equal) {
                 System.out.println("A kimenet megegyezik az elvárttal, a teszt sikeres! :)!");
             } else {
-                // System.out.println("A f�jlok tartalma nem egyezik.");
+                System.out.println("A fájlok tartalma nem egyezik.");
             }
 
         } catch (IOException e) {
             System.err.println("Hiba történt az összehasonlítás közben: " + e.getMessage());
         }
-
-        return l;
     }
-} // �sszehasonl�tja a kimeneti txt-t az elv�rttal
+} // összehasonlítja a kimeneti txt-t az elvárttal
