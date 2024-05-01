@@ -4,7 +4,7 @@ import Java.Characters.Cleaner;
 
 import Java.Characters.*;
 import Java.Items.*;
-import Java.util.GameStorageUtil;
+import Java.util.JSONUtil;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class RoomTest {
         room.setStickyness(6);
         room.addItem(rag);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands19.txt");
     }
 
@@ -61,7 +61,7 @@ public class RoomTest {
 
         r2.setStickyness(6);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands20.txt");
 
     }
@@ -86,7 +86,7 @@ public class RoomTest {
 
         r2.setStickyness(4);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands21.txt");
 
     }
@@ -119,7 +119,7 @@ public class RoomTest {
         student2.setActionCount(100);
         teacher.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands22.txt");
 
     }
@@ -152,7 +152,7 @@ public class RoomTest {
         teacher.setActionCount(100);
         teacher2.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands23.txt");
 
     }

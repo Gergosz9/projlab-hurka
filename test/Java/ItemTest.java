@@ -4,7 +4,7 @@ import java.util.List;
 
 import Java.Characters.*;
 import Java.Items.*;
-import Java.util.GameStorageUtil;
+import Java.util.JSONUtil;
 
 /**
  * Class that contains test fuctions
@@ -40,7 +40,7 @@ public class ItemTest {
 
         student.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands01.txt");
     }
 
@@ -70,7 +70,7 @@ public class ItemTest {
         student.setActionCount(100);
 
         student.setGasResist(true);
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands02.txt");
     }
     //
@@ -99,7 +99,7 @@ public class ItemTest {
         student.pickUpItem(rag);
         student.useItem(0);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands03.txt");
     }
 
@@ -126,7 +126,7 @@ public class ItemTest {
         SlideRule slideRule = new SlideRule(1, false);
         room.addItem(slideRule);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands04.txt");
     }
 
@@ -159,7 +159,7 @@ public class ItemTest {
         student.pickUpItem(tvsz);
         student.setTeacherResist(true);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands05.txt");
     }
 
@@ -192,7 +192,7 @@ public class ItemTest {
         student.pickUpItem(tvsz);
         student.setTeacherResist(false);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands06.txt");
     }
 
@@ -225,7 +225,7 @@ public class ItemTest {
         student.pickUpItem(beer);
         student.setTeacherResist(true);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands07.txt");
     }
 
@@ -258,7 +258,7 @@ public class ItemTest {
         student.pickUpItem(beer);
         student.setTeacherResist(true);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands08.txt");
     }
 
@@ -288,7 +288,7 @@ public class ItemTest {
         student.pickUpItem(mask);
         student.setTeacherResist(true);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands09.txt");
     }
 
@@ -315,7 +315,7 @@ public class ItemTest {
         AirFreshener airFreshener = new AirFreshener(1, false);
         student.pickUpItem(airFreshener);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands10.txt");
     }
 }

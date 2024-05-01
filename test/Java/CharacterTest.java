@@ -4,7 +4,7 @@ import java.util.List;
 
 import Java.Characters.*;
 import Java.Items.*;
-import Java.util.GameStorageUtil;
+import Java.util.JSONUtil;
 
 /**
  * Class that contains test functions
@@ -40,7 +40,7 @@ public class CharacterTest {
         student.setActionCount(100);
         teacher.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands11.txt");
 
     }
@@ -70,7 +70,7 @@ public class CharacterTest {
         student.setActionCount(100);
         teacher.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands12.txt");
 
     }
@@ -98,7 +98,7 @@ public class CharacterTest {
 
         student.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands13.txt");
 
     }
@@ -125,7 +125,7 @@ public class CharacterTest {
 
         teacher.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands14.txt");
 
     }
@@ -151,7 +151,7 @@ public class CharacterTest {
 
         student.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands15.txt");
 
     }
@@ -179,7 +179,7 @@ public class CharacterTest {
         Rag rag = new Rag(1, true);
         room.addItem(rag);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands16.txt");
     }
 
@@ -206,7 +206,7 @@ public class CharacterTest {
         Rag rag = new Rag(1, true);
         student.pickUpItem(rag);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands17.txt");
     }
 
@@ -235,7 +235,7 @@ public class CharacterTest {
         student.setActionCount(100);
         cleaner.setActionCount(100);
 
-        GameStorageUtil.save(gameName, labirinth);
+        JSONUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands18.txt");
 
     }
