@@ -6,6 +6,9 @@ Room: r1
 	ragged rounds: 0
 	characters (in room):
 	items (in room):
+		name: Transistor
+			durability: -1
+			fake: false
 	neighbors (just open doors):
 		r2
 

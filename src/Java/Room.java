@@ -37,7 +37,6 @@ public class Room {
     List<Room> openRooms;
     List<Character> characters;
     List<Item> items;
-    List<Transistor> transistors;
 
     /**
      * Constructs a new Room object.
@@ -60,7 +59,6 @@ public class Room {
         this.openRooms = openRooms;
         characters = new ArrayList<>();
         items = new ArrayList<>();
-        transistors = new ArrayList<>();
     }
 
     /**
@@ -95,22 +93,23 @@ public class Room {
      * 
      * @return true if the room is sticky, false otherwise
      */
-    public boolean isSticky(){
+    public boolean isSticky() {
         return stickyness > 5;
     }
 
     /**
      * Resets the stickiness state of the room.
      */
-    public void resetSticky(){
+    public void resetSticky() {
         this.stickyness = 0;
     }
 
     /**
      * Returns all rooms connected to this room.
+     * 
      * @return a list of all rooms connected to this room
      */
-    public List<Room> getRooms(){
+    public List<Room> getRooms() {
         List<Room> rooms = new ArrayList<>();
         rooms.addAll(closedRooms);
         rooms.addAll(openRooms);
@@ -121,7 +120,8 @@ public class Room {
      * Adds a character to the room.
      * 
      * @param character the character to add
-     * @return true if the character was successfully added, false if the room is full
+     * @return true if the character was successfully added, false if the room is
+     *         full
      */
     public boolean addCharacter(Character character) {
         if (characters.size() <= maxCharacters) {
@@ -147,12 +147,7 @@ public class Room {
      * @param item the item to add
      */
     public void addItem(Item item) {
-        if(item instanceof Transistor transistor && transistor.getPair() != null) {
-            transistors.add(transistor);
-        }
-        else {
-            items.add(item);
-        }
+        items.add(item);
     }
 
     /**
@@ -165,15 +160,6 @@ public class Room {
     }
 
     /**
-     * Adds a transistor to the room.
-     * 
-     * @param transistor the transistor to add
-     */
-    public void addTransistor(Transistor transistor) {
-        transistors.add(transistor);
-    }
-
-    /**
      * Updates the number of ragged rounds in the room.
      */
     public void updateItems() {
@@ -183,22 +169,13 @@ public class Room {
     }
 
     /**
-     * Returns a list of all transistors in the room.
-     * 
-     * @return a list of transistors in the room
-     */
-    public List<Transistor> getTransistors() {
-        return transistors;
-    }
-
-    /**
      * Updates the state of the doors in the room.
      */
     public void updateDoors() {
         if (cursed) {
             openRooms.addAll(closedRooms);
             closedRooms.clear();
-            for (int i = 0; i < openRooms.size(); i++){
+            for (int i = 0; i < openRooms.size(); i++) {
                 Room room = openRooms.get(i);
                 if (Math.random() < 0.5) {
                     closedRooms.add(room);
@@ -256,7 +233,6 @@ public class Room {
         openRooms.addAll(room.openRooms);
         characters.addAll(room.characters);
         items.addAll(room.items);
-        transistors.addAll(room.transistors);
         name = name + " " + room.name;
     }
 
@@ -286,7 +262,6 @@ public class Room {
     public void setStickyness(int stickyness) {
         this.stickyness = stickyness;
     }
-
 
     /**
      * Returns a list of open rooms connected to this room.
@@ -326,6 +301,7 @@ public class Room {
 
     /**
      * Sets a list of closedRooms in room
+     * 
      * @param closedRooms list of rooms
      */
     public void setClosedRooms(List<Room> closedRooms) {
@@ -334,6 +310,7 @@ public class Room {
 
     /**
      * Sets a list of openRooms in room
+     * 
      * @param openRooms list of rooms
      */
     public void setOpenRooms(List<Room> openRooms) {
@@ -342,6 +319,7 @@ public class Room {
 
     /**
      * Sets a list of characters in room
+     * 
      * @param characters list of characters
      */
     public void setCharacters(List<Character> characters) {
@@ -350,6 +328,7 @@ public class Room {
 
     /**
      * Sets a list of items in room
+     * 
      * @param items list of items
      */
     public void setItems(List<Item> items) {
@@ -357,15 +336,8 @@ public class Room {
     }
 
     /**
-     * Sets a list of transistors in room
-     * @param transistors list of transistors
-     */
-    public void setTransistors(List<Transistor> transistors) {
-        this.transistors = transistors;
-    }
-
-    /**
      * Returns the max Character number in room
+     * 
      * @return maxCharacters in room
      */
     public int getMaxCharacters() {
@@ -374,6 +346,7 @@ public class Room {
 
     /**
      * Is the room cursed
+     * 
      * @return true if yes, false if no
      */
     public boolean isCursed() {
@@ -382,6 +355,7 @@ public class Room {
 
     /**
      * Returns how many rounds till the room is ragged
+     * 
      * @return raggedRounds int value
      */
     public int getRaggedRounds() {
@@ -390,6 +364,7 @@ public class Room {
 
     /**
      * Returns the stickyness value of the room
+     * 
      * @return stickyness int value
      */
     public int getStickyness() {
@@ -404,9 +379,13 @@ public class Room {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Room room)) return false;
-        return maxCharacters == room.maxCharacters && cursed == room.cursed && gassed == room.gassed && raggedRounds == room.raggedRounds && stickyness == room.stickyness && Objects.equals(name, room.name);
+        if (this == o)
+            return true;
+        if (!(o instanceof Room room))
+            return false;
+        return maxCharacters == room.maxCharacters && cursed == room.cursed && gassed == room.gassed
+                && raggedRounds == room.raggedRounds && stickyness == room.stickyness
+                && Objects.equals(name, room.name);
     }
 
     /**
@@ -421,6 +400,7 @@ public class Room {
 
     /**
      * toString function of Room
+     * 
      * @return toString of Room
      */
     @Override

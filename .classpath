@@ -2,9 +2,7 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry excluding="Java/Commands/|Java/" kind="src" path="test"/>
-	<classpathentry excluding="Commands/" kind="src" path="test/Java"/>
-	<classpathentry kind="src" path="test/Java/Commands"/>
+	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="lib" path="libs/gson-2.8.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

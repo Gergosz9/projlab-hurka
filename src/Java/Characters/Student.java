@@ -41,8 +41,10 @@ public class Student extends Character {
     Room currentRoom = this.getMyLocation();
     if (actionCount > 0 && room.addCharacter(this)) {
       currentRoom.removeCharacter(this);
+
       if (room.isGassed() && !gasResist) {
         triggerItems(new GasTrigger(this));
+
         if (!gasResist)
           setParalyzed(true);
       }
@@ -61,6 +63,7 @@ public class Student extends Character {
 
   /**
    * Sets the teacher resist
+   * 
    * @return
    */
   public boolean isTeacherResist() {
@@ -87,8 +90,9 @@ public class Student extends Character {
     triggerItems(new AttackTrigger(this));
     if (teacherResist)
       return;
-    for (Item item : inventory)
-      dropItem(item, getMyLocation());
+    for (int i = 0; i < inventory.size(); i++) {
+      dropItem(inventory.get(i), getMyLocation());
+    }
     getMyLocation().removeCharacter(this);
     labirinth.removeCharacter(this);
   }

@@ -100,16 +100,23 @@ public class Teacher extends Character {
 	public void doRound() {
 		rollMoveCount();
 		List<Room> optimalRoute = pathFind();
+
 		for (Room r : optimalRoute) {
-			for (Item item : getMyLocation().getItems())
-				pickUpItem(item);
-			triggerItems(new ActionTrigger(this));
-			for (Item item : getInventory())
-				dropItem(item, getMyLocation());
-			for (Character c : getMyLocation().getCharacters()) {
-				c.hurt();
+			for (int i = 0; i < getMyLocation().getItems().size(); i++) {
+				pickUpItem(getMyLocation().getItems().get(i));
 			}
+			triggerItems(new ActionTrigger(this));
+
+			for (int i = 0; i < getInventory().size(); i++) {
+				dropItem(getInventory().get(i), getMyLocation());
+			}
+
+			for (int i = 0; i < getMyLocation().getCharacters().size(); i++) {
+				getMyLocation().getCharacters().get(i).hurt();
+			}
+
 			move(r);
+
 			if (actionCount == 0)
 				break;
 		}

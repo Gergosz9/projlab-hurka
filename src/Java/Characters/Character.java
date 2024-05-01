@@ -67,12 +67,11 @@ public abstract class Character {
 
     /**
      * Uses the item at the specified index in the character's inventory.
-     * If the index is 0, all items in the inventory are used with a round trigger.
      * 
      * @param index the index of the item in the inventory
      */
     public void useItem(int index) {
-        this.getInventory().get(index - 1).use(new ActionTrigger(this));
+        this.getInventory().get(index).use(new ActionTrigger(this));
     }
 
     /**
@@ -84,14 +83,6 @@ public abstract class Character {
      */
     public boolean pickUpItem(Item item) {
         if (inventory.size() <= 5 && !this.getMyLocation().isSticky()) {
-            if(item instanceof Transistor transistor) {
-                this.getInventory().forEach(item1 -> {
-                    if(item1 instanceof Transistor transistor1 && transistor1.getPair() == null) {
-                        transistor.setPair(transistor1);
-                        transistor1.setPair(transistor);
-                    }
-                });
-            }
             inventory.add(item);
             getMyLocation().removeItem(item);
             return true;
@@ -143,12 +134,7 @@ public abstract class Character {
     public void setParalyzed(boolean paralyzed) {
         this.paralyzed = paralyzed;
         if (paralyzed) {
-            //Error because the loop removes from inventory and it will be concurent
- //           for (Item item : inventory) {
- //               dropItem(item, getMyLocation());
- //           }
-            int itemNumber = inventory.size();
-            for (int i = 0; i < itemNumber; i++) {
+            for (int i = 0; i < inventory.size(); i++) {
                 dropItem(inventory.get(0), getMyLocation());
             }
             actionCount = 0;
@@ -255,7 +241,7 @@ public abstract class Character {
     }
 
     /**
-     *Is the Character paralyzed
+     * Is the Character paralyzed
      */
     public boolean isParalyzed() {
         return paralyzed;

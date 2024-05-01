@@ -96,7 +96,8 @@ public class ItemTest {
 
         // Items
         Rag rag = new Rag(1, false);
-        student.getInventory().add(rag);
+        student.pickUpItem(rag);
+        student.useItem(0);
 
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands03.txt");
@@ -256,7 +257,7 @@ public class ItemTest {
         Beer beer = new Beer(3, false);
         student.getInventory().add(beer);
         student.setTeacherResist(true);
-    
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands08.txt");
     }
@@ -286,7 +287,7 @@ public class ItemTest {
         Mask mask = new Mask(3, false);
         student.getInventory().add(mask);
         student.setTeacherResist(true);
-        
+
         GameStorageUtil.save(gameName, labirinth);
         testhandler.processCommandFile("command_resources/commands09.txt");
     }

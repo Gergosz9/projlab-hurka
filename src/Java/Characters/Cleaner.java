@@ -46,9 +46,9 @@ public class Cleaner extends Character {
     private void kickOutCharacters() {
         List<Character> characters = getMyLocation().getCharacters();
         for (Room r : getMyLocation().getRooms()) {
-            for (Character c : characters) {
-                if (r.addCharacter(c)) {
-                    getMyLocation().removeCharacter(c);
+            for (int i = 0; i < characters.size(); i++) {
+                if (r.addCharacter(characters.get(i))) {
+                    getMyLocation().removeCharacter(characters.get(i));
                 }
             }
         }

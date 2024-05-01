@@ -1,4 +1,5 @@
 package Java.Commands;
+
 import Java.*;
 import Java.Characters.Character;
 import Java.Items.Item;
@@ -27,6 +28,6 @@ public class PickUpCommand implements Command {
         character.pickUpItem(item);
 
         return labirinth;
-        
-    } 
+
+    }
 }

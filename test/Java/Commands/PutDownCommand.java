@@ -1,4 +1,5 @@
 package Java.Commands;
+
 import Java.*;
 import Java.Characters.Character;
 import Java.Items.Item;
@@ -15,7 +16,7 @@ public class PutDownCommand implements Command {
     @Override
     public Labirinth execute(String[] args, Labirinth l) {
         this.labirinth = l;
-                
+
         List<Character> characters = labirinth.getCharacters();
         Character character = getCharacterFromString(args[1], characters);
 

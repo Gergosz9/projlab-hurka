@@ -1,4 +1,5 @@
 package Java.Commands;
+
 import Java.*;
 
 import java.io.BufferedWriter;
@@ -26,9 +27,10 @@ public class SaveCommand implements Command {
             for (int i = 0; i < rooms.size(); i++) {
                 String output = rooms.get(i).toString();
                 writer.write(output);
-                writer.newLine(); //not sure kell-e
+                writer.newLine(); // not sure kell-e
             }
-            //System.out.println("A lista elemei ki lettek �rva a(z) " + fileName + " f�jlba.");
+            // System.out.println("A lista elemei ki lettek �rva a(z) " + fileName + "
+            // f�jlba.");
         } catch (IOException e) {
             System.err.println("Hiba t�rt�nt a f�jl �r�sa k�zben: " + e.getMessage());
         }
@@ -45,4 +47,4 @@ public class SaveCommand implements Command {
         }
         return labirinth;
     }
-} //kimenti a Labirinth �llapot�t egy txt-be
+} // kimenti a Labirinth �llapot�t egy txt-be

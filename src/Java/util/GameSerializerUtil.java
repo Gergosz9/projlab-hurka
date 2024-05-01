@@ -40,7 +40,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * This classes manages how to save the actual game in json format and also how to read a saved game and convert
+ * This classes manages how to save the actual game in json format and also how
+ * to read a saved game and convert
  * it into a valid java object
  */
 public class GameSerializerUtil {
@@ -71,30 +72,12 @@ public class GameSerializerUtil {
             labyrinth.getCharacters().stream()
                     .filter(Objects::nonNull)
                     .forEach(character -> character.setLabirinth(null));
-            labyrinth.getRooms().stream()
-                    .filter(room -> room.getTransistors() != null)
-                    .flatMap(room -> room.getTransistors().stream())
-                    .forEach(transistor -> {
-                        transistor.setLabirinth(null);
-                        if (transistor.getPair() != null) {
-                            transistor.getPair().setLabirinth(null);
-                        }
-                    });
 
             gson.toJson(labyrinth, writer);
 
             labyrinth.getCharacters().stream()
                     .filter(Objects::nonNull)
                     .forEach(character -> character.setLabirinth(labyrinth));
-            labyrinth.getRooms().stream()
-                    .filter(room -> room.getTransistors() != null)
-                    .flatMap(room -> room.getTransistors().stream())
-                    .forEach(transistor -> {
-                        transistor.setLabirinth(labyrinth);
-                        if (transistor.getPair() != null) {
-                            transistor.getPair().setLabirinth(labyrinth);
-                        }
-                    });
         } catch (IOException e) {
             throw new GameSavingException(e);
         }
@@ -118,23 +101,13 @@ public class GameSerializerUtil {
                         .forEach(character -> character.setLabirinth(labyrinth));
             }
 
-            labyrinth.getRooms().stream()
-                    .filter(room -> Objects.nonNull(room.getTransistors()))
-                    .flatMap(room -> room.getTransistors().stream())
-                    .forEach(transistor -> transistor.setLabirinth(labyrinth));
-
             Map<String, Room> rooms = labyrinth.getRooms().stream()
                     .collect(Collectors.toMap(Room::getName, room -> room, (existing, replacement) -> existing));
 
-            Map<String, Character> characters = labyrinth.getCharacters() != null ?
-                    labyrinth.getCharacters().stream()
-                            .collect(Collectors.toMap(Character::getName, character -> character, (existing, replacement) -> existing)) :
-                    null;
-
-            Map<String, Transistor> transistors = labyrinth.getRooms().stream()
-                    .filter(room -> room.getTransistors() != null)
-                    .flatMap(room -> room.getTransistors().stream())
-                    .collect(Collectors.toMap(Transistor::getJsonId, transistor -> transistor, (existing, replacement) -> existing));
+            Map<String, Character> characters = labyrinth.getCharacters() != null ? labyrinth.getCharacters().stream()
+                    .collect(Collectors.toMap(Character::getName, character -> character,
+                            (existing, replacement) -> existing))
+                    : null;
 
             labyrinth.getRooms().forEach(room -> {
                 if (room.getOpenRooms() != null) {
@@ -154,25 +127,24 @@ public class GameSerializerUtil {
                     room.setCharacters(roomCharacters);
                 }
 
-                if (!transistors.isEmpty() && room.getTransistors() != null) {
-                    for (Transistor transistor : room.getTransistors()) {
-                        transistor = transistors.get(transistor.getJsonId());
-                        if (transistor.getPair() != null) {
-                            transistor.setPair(transistors.get(transistor.getPair().getJsonId()));
+                if (room.getItems() != null) {
+                    room.getItems().forEach(item -> {
+                        if (item instanceof Transistor transistor) {
+                            transistor.setLabirinth(labyrinth);
                         }
-                        transistor.setLabirinth(labyrinth);
-                    }
-                }
-                if(room.getItems() != null) {
-                    room.getItems().forEach(item -> {if(item instanceof Transistor transistor){transistor.setLabirinth(labyrinth);}});
+                    });
                 }
 
                 correctRoomArrays(room);
             });
 
             labyrinth.getCharacters().forEach(character -> {
-                if(!character.getInventory().isEmpty()) {
-                    character.getInventory().forEach(item -> {if(item instanceof Transistor transistor){transistor.setLabirinth(labyrinth);}});
+                if (!character.getInventory().isEmpty()) {
+                    character.getInventory().forEach(item -> {
+                        if (item instanceof Transistor transistor) {
+                            transistor.setLabirinth(labyrinth);
+                        }
+                    });
                 }
             });
 
@@ -184,12 +156,10 @@ public class GameSerializerUtil {
 
     /**
      * initalize null lists in room
+     * 
      * @param room
      */
     private static void correctRoomArrays(Room room) {
-        if (room.getTransistors() == null) {
-            room.setTransistors(new ArrayList<>());
-        }
         if (room.getOpenRooms() == null) {
             room.setOpenRooms(new ArrayList<>());
         }
@@ -208,8 +178,10 @@ public class GameSerializerUtil {
 /**
  * This class is for deserialization of Item from saved json file.
  * Implements the JsonDeserializer interface.
- * This class is required because we are using a list of derived Objects from Item.
- * In order to initialize the appropriate type having polymorphism in json frameworks (gson)
+ * This class is required because we are using a list of derived Objects from
+ * Item.
+ * In order to initialize the appropriate type having polymorphism in json
+ * frameworks (gson)
  * we need to create a custom json deserializer
  */
 class ItemDeserializer implements JsonDeserializer<Item> {
@@ -258,13 +230,16 @@ class ItemDeserializer implements JsonDeserializer<Item> {
 /**
  * This class is for deserialization of Character from saved json file.
  * Implements the JsonDeserializer interface.
- * This class is required because we are using a list of derived Objects from Character.
- * In order to initialize the appropriate type having polymorphism in json frameworks (gson)
+ * This class is required because we are using a list of derived Objects from
+ * Character.
+ * In order to initialize the appropriate type having polymorphism in json
+ * frameworks (gson)
  * we need to create a custom json deserializer
  */
 class CharacterDeserializer implements JsonDeserializer<Character> {
     /**
-     * Takes a single json element and returns an object of a derived class of Character
+     * Takes a single json element and returns an object of a derived class of
+     * Character
      *
      * @param json    json object
      * @param typeOfT object Type
@@ -284,7 +259,7 @@ class CharacterDeserializer implements JsonDeserializer<Character> {
         switch (jsonType) {
             case "Student":
                 character = new Student(name, null);
-                ((Student)character).setTeacherResist(jsonObject.get("teacherResist").getAsBoolean());
+                ((Student) character).setTeacherResist(jsonObject.get("teacherResist").getAsBoolean());
                 break;
             case "Teacher":
                 character = new Teacher(name, null);
@@ -317,8 +292,8 @@ class CharacterSerializer implements JsonSerializer<Character> {
      * Takes a character and returns as a JsonObject
      *
      * @param character character which is serialized
-     * @param type object Type
-     * @param context contains context variables
+     * @param type      object Type
+     * @param context   contains context variables
      * @return the character as jsonObject
      */
     @Override
@@ -330,7 +305,7 @@ class CharacterSerializer implements JsonSerializer<Character> {
         jsonObject.addProperty("paralyzed", character.isParalyzed());
         jsonObject.addProperty("jsonType", character.getJsonType());
 
-        if(character instanceof Student student) {
+        if (character instanceof Student student) {
             jsonObject.addProperty("teacherResist", student.isTeacherResist());
         }
 
@@ -351,9 +326,9 @@ class RoomSerializer implements JsonSerializer<Room> {
     /**
      * Takes a room and returns as a JsonObject
      *
-     * @param rootRoom room which is serialized
+     * @param rootRoom  room which is serialized
      * @param typeOfSrc object Type
-     * @param context contains context variables
+     * @param context   contains context variables
      * @return the room as jsonObject
      */
     @Override
@@ -390,11 +365,6 @@ class RoomSerializer implements JsonSerializer<Room> {
         if (rootRoom.getItems() != null && !rootRoom.getItems().isEmpty()) {
             jsonObject.add("items", context.serialize(rootRoom.getItems()));
         }
-        // Serialize transistors
-        if (rootRoom.getTransistors() != null && !rootRoom.getTransistors().isEmpty()) {
-            jsonObject.add("transistors", context.serialize(rootRoom.getTransistors()));
-        }
-
 
         // Serialize characters
         if (rootRoom.getCharacters() != null && !rootRoom.getCharacters().isEmpty()) {
@@ -433,9 +403,9 @@ class ItemSerializer implements JsonSerializer<Item> {
     /**
      * Takes an item and returns as a JsonObject
      *
-     * @param item item which is serialized
+     * @param item      item which is serialized
      * @param typeOfSrc object Type
-     * @param context contains context variables
+     * @param context   contains context variables
      * @return the item as jsonObject
      */
     @Override
@@ -458,8 +428,8 @@ class TransistorSerializer implements JsonSerializer<Transistor> {
      * Takes a transistor and returns as a JsonObject
      *
      * @param transistor transistor which is serialized
-     * @param typeOfSrc object Type
-     * @param context contains context variables
+     * @param typeOfSrc  object Type
+     * @param context    contains context variables
      * @return the transistor as jsonObject
      */
     @Override

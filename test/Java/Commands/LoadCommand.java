@@ -1,7 +1,7 @@
 package Java.Commands;
+
 import Java.*;
 import Java.util.GameStorageUtil;
-
 
 public class LoadCommand implements Command {
     private Labirinth labirinth;
@@ -15,4 +15,4 @@ public class LoadCommand implements Command {
         labirinth = GameStorageUtil.load(args[1]);
         return labirinth;
     }
-} //bet�lti a labirintust (jsonb?l ?)
+} // bet�lti a labirintust (jsonb?l ?)
