@@ -146,7 +146,8 @@ public class Transistor extends Item {
     }
 
     /**
-     * returns the jsonId of the transistor. Only used in saving a nd loading the project
+     * returns the jsonId of the transistor. Only used in saving a nd loading the
+     * project
      *
      * @return the jsonId of the transistor
      */
@@ -155,7 +156,8 @@ public class Transistor extends Item {
     }
 
     /**
-     * Sets the jsonId of the Transistor. Only used in saving a nd loading the project
+     * Sets the jsonId of the Transistor. Only used in saving a nd loading the
+     * project
      *
      * @param jsonId the id
      */
@@ -176,11 +178,10 @@ public class Transistor extends Item {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof Transistor that))
+        if (!(o instanceof Transistor))
             return false;
         return durability == ((Transistor) o).getDurability() && isFake == ((Transistor) o).isFake();
     }
-
 
     /**
      * Generates a hash code value for the Transistor object.
