@@ -3,8 +3,8 @@ package Java.util;
 import Java.*;
 
 /**
- * The GameStorageUtil class provides utility methods for saving and loading
- * game data.
+ * The JSONUtil class provides utility methods for saving Labirinth
+ * objects in JSON format.
  */
 public class JSONUtil {
 
