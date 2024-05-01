@@ -4,23 +4,20 @@ import java.util.List;
 
 import Java.Characters.*;
 import Java.Items.*;
-import Java.util.JSONUtil;
 
 /**
  * Class that contains test fuctions
  * Related to the Items
  */
 public class ItemTest {
-    static Labirinth labirinth = new Labirinth();
-    static TestHandler testhandler = new TestHandler(labirinth);
 
     /**
      * Test function to testcase
      * Tranzisztor használata
      */
     public static void test01() {
-        String gameName = "map01";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -40,8 +37,7 @@ public class ItemTest {
 
         student.setActionCount(100);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("projlab-hurka/command_resources/commands01.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands01.txt");
     }
 
     /**
@@ -49,8 +45,8 @@ public class ItemTest {
      * Camembert használata
      */
     public static void test02() {
-        String gameName = "map02";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -70,8 +66,7 @@ public class ItemTest {
         student.setActionCount(100);
 
         student.setGasResist(true);
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands02.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands02.txt");
     }
     //
 
@@ -80,8 +75,8 @@ public class ItemTest {
      * Törlőrongy használata
      */
     public static void test03() {
-        String gameName = "map03";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -99,8 +94,7 @@ public class ItemTest {
         student.pickUpItem(rag);
         student.useItem(0);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands03.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands03.txt");
     }
 
     /**
@@ -108,8 +102,8 @@ public class ItemTest {
      * Logarléc megszerzése
      */
     public static void test04() {
-        String gameName = "map04";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -126,8 +120,7 @@ public class ItemTest {
         SlideRule slideRule = new SlideRule(1, false);
         room.addItem(slideRule);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands04.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands04.txt");
     }
 
     /**
@@ -135,8 +128,8 @@ public class ItemTest {
      * TVSZ használata 1
      */
     public static void test05() {
-        String gameName = "map05";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         Teacher teacher = new Teacher("t1", labirinth);
@@ -159,8 +152,7 @@ public class ItemTest {
         student.pickUpItem(tvsz);
         student.setTeacherResist(true);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands05.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands05.txt");
     }
 
     /**
@@ -168,8 +160,8 @@ public class ItemTest {
      * TVSZ használata 2
      */
     public static void test06() {
-        String gameName = "map06";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         Teacher teacher = new Teacher("t1", labirinth);
@@ -192,8 +184,7 @@ public class ItemTest {
         student.pickUpItem(tvsz);
         student.setTeacherResist(false);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands06.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands06.txt");
     }
 
     /**
@@ -201,8 +192,8 @@ public class ItemTest {
      * Söröspohár használata 1
      */
     public static void test07() {
-        String gameName = "map07";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         Teacher teacher = new Teacher("t1", labirinth);
@@ -225,8 +216,7 @@ public class ItemTest {
         student.pickUpItem(beer);
         student.setTeacherResist(true);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands07.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands07.txt");
     }
 
     /**
@@ -234,8 +224,8 @@ public class ItemTest {
      * Söröspohár használata 2
      */
     public static void test08() {
-        String gameName = "map08";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         Teacher teacher = new Teacher("t1", labirinth);
@@ -258,8 +248,7 @@ public class ItemTest {
         student.pickUpItem(beer);
         student.setTeacherResist(true);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands08.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands08.txt");
     }
 
     //
@@ -268,8 +257,8 @@ public class ItemTest {
      * Maszk használata
      */
     public static void test09() {
-        String gameName = "map09";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -288,8 +277,7 @@ public class ItemTest {
         student.pickUpItem(mask);
         student.setTeacherResist(true);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands09.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands09.txt");
     }
 
     /**
@@ -297,8 +285,8 @@ public class ItemTest {
      * Légtisztító használata
      */
     public static void test10() {
-        String gameName = "map10";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -315,7 +303,6 @@ public class ItemTest {
         AirFreshener airFreshener = new AirFreshener(1, false);
         student.pickUpItem(airFreshener);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands10.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands10.txt");
     }
 }

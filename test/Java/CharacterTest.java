@@ -4,7 +4,6 @@ import java.util.List;
 
 import Java.Characters.*;
 import Java.Items.*;
-import Java.util.JSONUtil;
 
 /**
  * Class that contains test functions
@@ -12,16 +11,13 @@ import Java.util.JSONUtil;
  */
 public class CharacterTest {
 
-    static Labirinth labirinth = new Labirinth();
-    static TestHandler testhandler = new TestHandler(labirinth);
-
     /**
      * Test function to testcase 11
      * Tanár összefut hallgatóval
      */
     public static void test11() {
-        String gameName = "map11";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         Teacher teacher = new Teacher("t1", labirinth);
@@ -40,8 +36,7 @@ public class CharacterTest {
         student.setActionCount(100);
         teacher.setActionCount(100);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands11.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands11.txt");
 
     }
 
@@ -50,8 +45,8 @@ public class CharacterTest {
      * Hallgató összefut tanárral
      */
     public static void test12() {
-        String gameName = "map12";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         Teacher teacher = new Teacher("t1", labirinth);
@@ -70,8 +65,7 @@ public class CharacterTest {
         student.setActionCount(100);
         teacher.setActionCount(100);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands12.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands12.txt");
 
     }
 
@@ -80,8 +74,8 @@ public class CharacterTest {
      * Gázos szoba maszk nélkül
      */
     public static void test13() {
-        String gameName = "map13";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -98,8 +92,7 @@ public class CharacterTest {
 
         student.setActionCount(100);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands13.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands13.txt");
 
     }
 
@@ -108,8 +101,8 @@ public class CharacterTest {
      * Tanár rongyos szobába lép
      */
     public static void test14() {
-        String gameName = "map14";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Teacher teacher = new Teacher("t1", labirinth);
         labirinth.addCharacter(teacher);
@@ -125,8 +118,7 @@ public class CharacterTest {
 
         teacher.setActionCount(100);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands14.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands14.txt");
 
     }
 
@@ -135,8 +127,8 @@ public class CharacterTest {
      * Karakter átlép egy másik szobába
      */
     public static void test15() {
-        String gameName = "map15";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -151,8 +143,7 @@ public class CharacterTest {
 
         student.setActionCount(100);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands15.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands15.txt");
 
     }
 
@@ -161,8 +152,8 @@ public class CharacterTest {
      * Targy felvetele
      */
     public static void test16() {
-        String gameName = "map16";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -179,8 +170,7 @@ public class CharacterTest {
         Rag rag = new Rag(1, true);
         room.addItem(rag);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands16.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands16.txt");
     }
 
     /**
@@ -188,8 +178,8 @@ public class CharacterTest {
      * Targy letelete
      */
     public static void test17() {
-        String gameName = "map17";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         labirinth.addCharacter(student);
@@ -206,8 +196,7 @@ public class CharacterTest {
         Rag rag = new Rag(1, true);
         student.pickUpItem(rag);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands17.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands17.txt");
     }
 
     /**
@@ -215,8 +204,8 @@ public class CharacterTest {
      * Kitessekeles
      */
     public static void test18() {
-        String gameName = "map18";
         Labirinth labirinth = new Labirinth();
+        TestHandler testhandler = new TestHandler(labirinth);
 
         Student student = new Student("s1", labirinth);
         Cleaner cleaner = new Cleaner("c1", labirinth);
@@ -235,8 +224,7 @@ public class CharacterTest {
         student.setActionCount(100);
         cleaner.setActionCount(100);
 
-        JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands18.txt");
+        testhandler.processCommandFile("projlab-hurka/rsrc/command_resources/commands18.txt");
 
     }
 }

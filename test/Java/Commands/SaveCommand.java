@@ -17,17 +17,6 @@ public class SaveCommand implements Command {
         List<Room> rooms = l.getRooms();
 
         String fileName = "test_resources/" + args[1] + "_output.txt";
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            for (int i = 0; i < rooms.size(); i++) {
-                String output = rooms.get(i).toString();
-                writer.write(output);
-                writer.newLine(); // not sure kell-e
-            }
-            // System.out.println("A lista elemei ki lettek �rva a(z) " + fileName + "
-            // f�jlba.");
-        } catch (IOException e) {
-            System.err.println("Hiba t�rt�nt a f�jl �r�sa k�zben: " + e.getMessage());
-        }
 
         Path path = Paths.get(fileName);
         if (!Files.exists(path)) {
@@ -38,6 +27,18 @@ public class SaveCommand implements Command {
             } catch (IOException e) {
                 System.err.println("Hiba történt a fájl létrehozása közben: " + e.getMessage());
             }
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            for (int i = 0; i < rooms.size(); i++) {
+                String output = rooms.get(i).toString();
+                writer.write(output);
+                writer.newLine(); // not sure kell-e
+            }
+            // System.out.println("A lista elemei ki lettek �rva a(z) " + fileName + "
+            // f�jlba.");
+        } catch (IOException e) {
+            System.err.println("Hiba t�rt�nt a f�jl �r�sa k�zben: " + e.getMessage());
         }
     }
 } // kimenti a Labirinth állapotát egy txt-be

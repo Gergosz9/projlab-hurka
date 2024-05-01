@@ -19,13 +19,6 @@ public class TestHandler {
     public TestHandler(Labirinth labirinth) {
         this.labirinth = labirinth;
         commandMap = new HashMap<>();
-        // registerCommands();
-
-        initializeLabirinth(labirinth);
-    }
-
-    private void initializeLabirinth(Labirinth labirinth) {
-        this.labirinth = labirinth;
         registerCommands();
     }
 
@@ -69,7 +62,6 @@ public class TestHandler {
         // command = new C
         if (command != null) {
             command.execute(parts, labirinth);
-            initializeLabirinth(labirinth);
         } else {
             System.out.println("Invalid command!");
         }
