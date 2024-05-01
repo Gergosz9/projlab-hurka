@@ -2,9 +2,7 @@ package Java;
 
 import Java.Commands.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,12 +13,13 @@ public class TestHandler {
 
     /**
      * Constructor of class TestHandler
+     * 
      * @param labirinth it will contain the map of the game
      */
     public TestHandler(Labirinth labirinth) {
         this.labirinth = labirinth;
         commandMap = new HashMap<>();
-        //registerCommands();
+        // registerCommands();
 
         initializeLabirinth(labirinth);
     }
@@ -45,16 +44,16 @@ public class TestHandler {
         commandMap.put("load", new LoadCommand(labirinth));
         commandMap.put("save", new SaveCommand(labirinth));
         commandMap.put("examinate", new ExaminateCommand(labirinth));
-        //commandMap.put("wherecanmove", new WhereCanMoveCommand(labirinth));
-        //commandMap.put("whereami", new WhereAmICommand(labirinth));
-        //commandMap.put("itemsinroom", new ItemsInRoomCommand(labirinth));
-        //commandMap.put("whatisinrooom", new WhatIsInRoomCommand(labirinth));
-        //commandMap.put("itemsinhand", new ItemsInHandCommand(labirinth));
-        //commandMap.put("help", new HelpCommand(labirinth));
-        //commandMap.put("whoami", new WhoAmICommand(labirinth));
-        //commandMap.put("listplayers", new ListPlayersCommand(labirinth));
-        //commandMap.put("endmyturn", new EndMyTurnCommand(labirinth));
-        ///commandMap.put("remainingsteps", new RemainingSteps(labirinth));
+        // commandMap.put("wherecanmove", new WhereCanMoveCommand(labirinth));
+        // commandMap.put("whereami", new WhereAmICommand(labirinth));
+        // commandMap.put("itemsinroom", new ItemsInRoomCommand(labirinth));
+        // commandMap.put("whatisinrooom", new WhatIsInRoomCommand(labirinth));
+        // commandMap.put("itemsinhand", new ItemsInHandCommand(labirinth));
+        // commandMap.put("help", new HelpCommand(labirinth));
+        // commandMap.put("whoami", new WhoAmICommand(labirinth));
+        // commandMap.put("listplayers", new ListPlayersCommand(labirinth));
+        // commandMap.put("endmyturn", new EndMyTurnCommand(labirinth));
+        /// commandMap.put("remainingsteps", new RemainingSteps(labirinth));
     }
 
     /**
@@ -68,7 +67,7 @@ public class TestHandler {
         String[] parts = commandString.split(" ");
         String commandName = parts[0];
         Command command = commandMap.get(commandName);
-        //command = new C
+        // command = new C
         if (command != null) {
             labirinth = command.execute(parts, labirinth);
             initializeLabirinth(labirinth);
