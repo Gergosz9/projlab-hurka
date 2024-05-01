@@ -11,4 +11,4 @@ set MAIN_CLASS=Java.Test
 
 REM Run the Java test
 echo running tests...
-java -cp "%LIB_DIR%\gson-2.8.2.jar;%PROJECT_DIR%;%TEST_DIR%" %MAIN_CLASS%
+java -cp "%LIB_DIR%\json-20140107.jar;%PROJECT_DIR%;%TEST_DIR%" %MAIN_CLASS%

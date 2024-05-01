@@ -121,7 +121,7 @@ public class CharacterTest {
         labirinth.addRoom(r1);
         labirinth.addRoom(r2);
         r1.addCharacter(teacher);
-        r2.setRagged(3);
+        r2.setRaggedRounds(3);
 
         teacher.setActionCount(100);
 
