@@ -1,4 +1,4 @@
 load map19
-putdown s1 rag1
+pickup s1 rag1
 save map19
 examinate map19
