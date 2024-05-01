@@ -6,7 +6,7 @@ import Java.*;
  * The GameStorageUtil class provides utility methods for saving and loading
  * game data.
  */
-public class GameStorageUtil {
+public class JSONUtil {
 
     public static void save(String testName, Labirinth l) {
 
