@@ -460,8 +460,20 @@ public class Room {
             }
         json.put("closedRooms", closedRoomsJson);
 
-        json.put("characters", characters);
-        json.put("items", items);
+        JSONArray charactersJson = new JSONArray();
+        if (this.characters != null)
+            for (Character character : this.characters) {
+                charactersJson.put(character.toJSON());
+            }
+        json.put("characters", charactersJson);
+
+        JSONArray itemsJson = new JSONArray();
+        if (this.items != null)
+            for (Item item : this.items) {
+                itemsJson.put(item.toJSON());
+            }
+        json.put("items", itemsJson);
+
         return json;
     }
 }

@@ -41,7 +41,7 @@ public class ItemTest {
         student.setActionCount(100);
 
         JSONUtil.save(gameName, labirinth);
-        testhandler.processCommandFile("command_resources/commands01.txt");
+        testhandler.processCommandFile("projlab-hurka/command_resources/commands01.txt");
     }
 
     /**

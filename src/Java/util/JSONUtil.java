@@ -5,7 +5,7 @@ import org.json.*;
 import java.io.*;
 
 /**
- * The JSONUtil class provides utility methods for saving Labirinth
+ * The JSONUtil class provides utility methods for saving and loading Labirinth
  * objects in JSON format.
  */
 public class JSONUtil {
@@ -13,6 +13,11 @@ public class JSONUtil {
     public static void save(String testName, Labirinth l) {
         JSONObject json = new JSONObject();
         json.put("labyrinth", l.toJSON());
+
+        File directory = new File("saved-games");
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
 
         try (FileWriter file = new FileWriter("saved-games/" + testName + ".json")) {
             file.write(json.toString());
