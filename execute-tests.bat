@@ -12,11 +12,11 @@ set LIB_DIR=libs
 set MAIN_CLASS=Java.Test
 
 rem Compile source files from "src" folder
-javac -d classes/ -cp "%LIB_DIR%\gson-2.8.2.jar;src;classes" src\Java\Characters\*.java src\Java\util\*.java src\Java\*.java
+javac -d classes/ -encoding UTF-8 -cp "%LIB_DIR%\gson-2.8.2.jar;src;classes" src\Java\Characters\*.java src\Java\util\*.java src\Java\*.java
 
 rem Compile test files from "test" folder
-javac -d classes/ -cp "%LIB_DIR%\gson-2.8.2.jar;test;classes" test\Java\Commands\*.java test\Java\*.java
+javac -d classes/ -encoding UTF-8 -cp "%LIB_DIR%\gson-2.8.2.jar;test;classes" test\Java\Commands\*.java test\Java\*.java
 rem javac -cp classes -d classes test\*.java
 
 rem Run the main class
-java -cp "%LIB_DIR%\gson-2.8.2.jar;classes" %MAIN_CLASS%
+java -Defile.encoding=UTF-8 -cp "%LIB_DIR%\gson-2.8.2.jar;classes" %MAIN_CLASS%
