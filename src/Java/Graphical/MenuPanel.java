@@ -2,10 +2,25 @@ package Java.Graphical;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
 public class MenuPanel extends JPanel implements MouseListener {
+
+    int width;
+    int height;
+    BufferedImage canvas;
+
+    public void paint(GraphicObject object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'paint'");
+    }
+
+    public void clear() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
