@@ -10,13 +10,13 @@ public class GameFrame extends JFrame {
     JPanel panel;
 
     public GameFrame() {
-        this.setSize(800, 600);
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initMenu();
         this.setVisible(true);
     }
 
-    void initGame() {
+    public void initGame() {
         if (panel != null) {
             this.remove(panel);
         }
@@ -25,6 +25,7 @@ public class GameFrame extends JFrame {
         this.add(panel);
         this.revalidate();
         this.repaint();
+        this.pack();
     }
 
     void initMenu() {
@@ -36,6 +37,7 @@ public class GameFrame extends JFrame {
         this.add(panel);
         this.revalidate();
         this.repaint();
+        this.pack();
     }
 
     public static void main(String[] args) {

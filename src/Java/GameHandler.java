@@ -4,9 +4,9 @@ import Java.Graphical.GameFrame;
 import Java.Items.Triggers.ActionTrigger;
 
 public class GameHandler {
-	GameFrame gameFrame;
-	Labirinth labirinth;
-	Room selectedRoom;
+	static GameFrame gameFrame;
+	static Labirinth labirinth;
+	static Room selectedRoom;
 	/*----------------------------------------------------------------------------------------------------
 	 * CONSTRUCTORS
 	 *----------------------------------------------------------------------------------------------------*/
@@ -15,55 +15,65 @@ public class GameHandler {
 	* FUNCTIONS
 	*----------------------------------------------------------------------------------------------------*/
 	public static void main(String[] args) {
+		labirinth = new Labirinth();
+		labirinth.setNumberOfStudents(1);
 		GameFrame gameFrame = new GameFrame();
 	}
 
-	void initiate() {
+	static void initiate() {
 
 	}
 
-	void startGame() {
-		labirinth = new Labirinth();
+	public static void startGame() {
+		gameFrame.initGame();
 	}
 
-	void enterRoom() {
+	public static void enterRoom() {
 		labirinth.getCurrentPlayer().move(selectedRoom);
 	}
 
-	void leftRoom() {
+	public static void leftRoom() {
 		selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
 				.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) - 1);
 	}
 
-	void rightRoom() {
+	public static void rightRoom() {
 		selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
 				.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) + 1);
 	}
 
-	void endTurn() {
+	public static void endTurn() {
 		labirinth.getCurrentPlayer().setActionCount(0);
 	}
 
-	void inventoryClick(int index) {
+	public static void inventoryClick(int index) {
 		labirinth.getCurrentPlayer().getInventory().get(index).use(new ActionTrigger(labirinth.getCurrentPlayer()));
 	}
 
-	void floorClick(int index) {
+	public static void floorClick(int index) {
 		labirinth.getCurrentPlayer().pickUpItem(labirinth.getCurrentPlayer().getMyLocation().getItems().get(index));
 	}
 
-	void increasePlayers() {
-		labirinth.setNumberOfStudents(labirinth.getNumberOfStudents() + 1);
+	public static void increasePlayers() {
+		if (labirinth.getNumberOfStudents() < 99)
+			labirinth.setNumberOfStudents(labirinth.getNumberOfStudents() + 1);
+		else
+			labirinth.setNumberOfStudents(1);
 	}
 
-	void decreasePlayers() {
-		labirinth.setNumberOfStudents(labirinth.getNumberOfStudents() - 1);
+	public static void decreasePlayers() {
+		if (labirinth.getNumberOfStudents() > 1)
+			labirinth.setNumberOfStudents(labirinth.getNumberOfStudents() - 1);
+		else
+			labirinth.setNumberOfStudents(99);
 	}
 
 	/*----------------------------------------------------------------------------------------------------
 	* GETTERS AND SETTERS
 	*----------------------------------------------------------------------------------------------------*/
-
+	public static Labirinth getLabirinth() {
+		return labirinth;
+	}
 	/*----------------------------------------------------------------------------------------------------
 	 * TESTER FUNCTIONS
 	 *----------------------------------------------------------------------------------------------------*/
