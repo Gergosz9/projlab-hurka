@@ -1,10 +1,11 @@
 package Java.Graphical;
 
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.vecmath.Vector2d;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
 
 public class GamePanel extends JPanel implements MouseListener {
 

@@ -1,12 +1,10 @@
 package Java.Graphical;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.vecmath.Vector2d;
 
 public class MenuPanel extends JPanel implements MouseListener {
 
@@ -15,53 +13,63 @@ public class MenuPanel extends JPanel implements MouseListener {
     BufferedImage canvas;
 
     public MenuPanel() {
-        try {
-            canvas = ImageIO.read(new File("rsrc/textures/menu.png"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.addMouseListener(this);
-        canvas.flush();
+        super();
+        setDoubleBuffered(true);
+
+        width = 800;
+        height = 600;
+        setPreferredSize(new Dimension(width, height));
+        canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+        Image backgroundImage = new ImageIcon("rsrc/textures/menu/Background.png").getImage();
+        paint(new GraphicObject(new Vector2d(0, 0), new Vector2d(width, height), backgroundImage));
+
+        addMouseListener(this);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(canvas, 0, 0, this);
     }
 
     public void paint(GraphicObject object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'paint'");
+        Graphics g = canvas.getGraphics();
+        g.drawImage(object.img, (int) object.position.x, (int) object.position.y, null);
+        g.dispose();
+        this.repaint();
     }
 
     public void clear() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        Graphics g = canvas.getGraphics();
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, width, height);
+        g.dispose();
+        this.repaint();
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
+        // Implement as needed
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+        // Implement as needed
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
+        // Implement as needed
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
+        // Implement as needed
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
+        // Implement as needed
     }
-
 }
