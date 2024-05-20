@@ -46,10 +46,13 @@ public class Labirinth {
         ArrayList<Room> roomsCopy = new ArrayList<>(rooms);
         for (Room room : rooms) {
             Collections.shuffle(roomsCopy);
-            int probability = 2;
-            for (int i = 0; i < roomsCopy.size() && random.nextInt(probability) >= probability / 2; i++) {
-                room.getOpenRooms().add(roomsCopy.get(i));
-                probability *= 2;
+            int probability = 1;
+            for (int i = 0; i < roomsCopy.size() && random.nextInt(probability) >= (probability - 1) / 2; i++) {
+                if (!room.getOpenRooms().contains(roomsCopy.get(i)) && !room.equals(roomsCopy.get(i))) {
+                    room.getOpenRooms().add(roomsCopy.get(i));
+                    roomsCopy.get(i).getOpenRooms().add(room);
+                    probability *= 2;
+                }
             }
         }
         placeCharacters(random);
