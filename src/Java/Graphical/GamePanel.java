@@ -3,6 +3,7 @@ package Java.Graphical;
 import javax.swing.*;
 import javax.vecmath.Vector2d;
 
+import java.util.List;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
@@ -13,44 +14,110 @@ public class GamePanel extends JPanel implements MouseListener {
     int height;
     BufferedImage canvas;
 
+    public GamePanel() {
+        super();
+        setDoubleBuffered(true);
+
+        width = 800;
+        height = 450;
+        setPreferredSize(new Dimension(width, height));
+        canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        paintHUD();
+
+        addMouseListener(this);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(canvas, 0, 0, this);
+    }
+
+    public void paintRoom(List<GraphicObject> textures) {
+        for (int i = 0; i < textures.size(); i++) {
+            GraphicObject object = textures.get(i);
+            object.size = new Vector2d(width, height);
+            paint(object);
+        }
+    }
+
+    public void paintInventory(List<GraphicObject> items) {
+        int x = 20;
+        int y = 330;
+        for (int i = 0; i < items.size() && i < 8; i++) {
+            GraphicObject object = items.get(i);
+            object.position = new Vector2d(x, y);
+            paint(object);
+
+            if ((i + 1) % 4 == 0 && i != 0) {
+                x = 20;
+                y = 380;
+            } else {
+                x += 50;
+            }
+        }
+    }
+
+    public void paintFloor(List<GraphicObject> items) {
+        int x = 586;
+        int y = 330;
+        for (int i = 0; i < items.size() && i < 8; i++) {
+            GraphicObject object = items.get(i);
+            object.position = new Vector2d(x, y);
+            paint(object);
+
+            if ((i + 1) % 4 == 0 && i != 0) {
+                x = 586;
+                y = 380;
+            } else {
+                x += 50;
+            }
+        }
+    }
+
+    public void paintHUD() {
+        Image hudImg = new ImageIcon("rsrc/textures/hud/hud.png").getImage();
+        GraphicObject object = new GraphicObject(new Vector2d(0, 0), new Vector2d(width, height), hudImg);
+        paint(object);
+    }
+
     public void paint(GraphicObject object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'paint'");
+        Graphics g = canvas.getGraphics();
+        g.drawImage(object.img, (int) object.position.x, (int) object.position.y, null);
+        g.dispose();
+        this.repaint();
     }
 
     public void clear() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        Graphics g = canvas.getGraphics();
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, width, height);
+        g.dispose();
+        this.repaint();
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
+        // Implement as needed
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+        // Implement as needed
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
+        // Implement as needed
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
+        // Implement as needed
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
+        // Implement as needed
     }
-
 }
