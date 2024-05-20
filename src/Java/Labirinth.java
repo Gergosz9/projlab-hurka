@@ -2,7 +2,10 @@ package Java;
 
 import java.util.*;
 
+import Java.Characters.*;
 import Java.Characters.Character;
+import Java.Items.*;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -30,6 +33,61 @@ public class Labirinth {
     /*----------------------------------------------------------------------------------------------------
      * FUNCTIONS
      *----------------------------------------------------------------------------------------------------*/
+
+    public void generateLabirinth() {
+        Random random = new Random();
+        for (int i = 0; i < 40; i++) {
+            String name = "F" + random.nextInt(11, 99);
+            int maxPlayers = random.nextInt(2, 6);
+            boolean gassed = random.nextBoolean();
+            boolean cursed = random.nextBoolean();
+            rooms.add(new Room(name, maxPlayers, cursed, gassed, new ArrayList<>(), new ArrayList<>()));
+        }
+        ArrayList<Room> roomsCopy = new ArrayList<>(rooms);
+        for (Room room : rooms) {
+            Collections.shuffle(roomsCopy);
+            int probability = 2;
+            for (int i = 0; i < roomsCopy.size() && random.nextInt(probability) >= probability / 2; i++) {
+                room.getOpenRooms().add(roomsCopy.get(i));
+                probability *= 2;
+            }
+        }
+        placeCharacters(random);
+        generateItems(random);
+        updateRooms();
+    }
+
+    void generateItems(Random random) {
+        for (int i = 0; i < 5; i++) {
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Beer(false));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new AirFreshener(false));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Camembert(false));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Mask(false));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Rag(false));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Transistor(this));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new TVSZ(false));
+
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Beer(true));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new AirFreshener(true));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Camembert(true));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Mask(true));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Rag(true));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new Transistor(true, this));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new TVSZ(true));
+            rooms.get(random.nextInt(rooms.size())).getItems().add(new SlideRule(true));
+        }
+        rooms.get(random.nextInt(rooms.size())).getItems().add(new SlideRule(false));
+    }
+
+    void placeCharacters(Random random) {
+        for (int i = 0; i < numberOfStudents; i++) {
+            rooms.get(random.nextInt(rooms.size())).getCharacters().add(new Student(null, this));
+        }
+        for (int i = 0; i < 5; i++) {
+            rooms.get(random.nextInt(rooms.size())).getCharacters().add(new Teacher(null, this));
+            rooms.get(random.nextInt(rooms.size())).getCharacters().add(new Cleaner(null, this));
+        }
+    }
 
     /**
      * Does a round of actions for all characters in the labyrinth

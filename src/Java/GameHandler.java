@@ -17,14 +17,12 @@ public class GameHandler {
 	public static void main(String[] args) {
 		labirinth = new Labirinth();
 		labirinth.setNumberOfStudents(1);
-		GameFrame gameFrame = new GameFrame();
-	}
-
-	static void initiate() {
-
+		gameFrame = new GameFrame();
 	}
 
 	public static void startGame() {
+		labirinth.generateLabirinth();
+		labirinth.doCharactersRound();
 		gameFrame.initGame();
 	}
 
