@@ -13,6 +13,7 @@ public class Labirinth {
     private List<Character> characters;
     private int numberOfStudents;
     private List<Room> rooms;
+    private Character currentPlayer;
 
     /*----------------------------------------------------------------------------------------------------
      * CONSTRUCTORS
@@ -35,6 +36,7 @@ public class Labirinth {
      */
     public void doCharactersRound() {
         for (Character character : characters) {
+            currentPlayer = character;
             character.doRound();
         }
     }
@@ -110,6 +112,10 @@ public class Labirinth {
     /*----------------------------------------------------------------------------------------------------
      * GETTERS AND SETTERS
      *----------------------------------------------------------------------------------------------------*/
+
+    public Character getCurrentPlayer() {
+        return currentPlayer;
+    }
 
     /**
      * Returns the list of characters in the labyrinth
