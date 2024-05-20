@@ -3,7 +3,9 @@ package Java.Graphical;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class MenuPanel extends JPanel implements MouseListener {
@@ -11,6 +13,16 @@ public class MenuPanel extends JPanel implements MouseListener {
     int width;
     int height;
     BufferedImage canvas;
+
+    public MenuPanel() {
+        try {
+            canvas = ImageIO.read(new File("rsrc/textures/menu.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.addMouseListener(this);
+        canvas.flush();
+    }
 
     public void paint(GraphicObject object) {
         // TODO Auto-generated method stub

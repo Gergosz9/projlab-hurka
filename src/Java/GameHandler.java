@@ -15,7 +15,7 @@ public class GameHandler {
 	* FUNCTIONS
 	*----------------------------------------------------------------------------------------------------*/
 	public static void main(String[] args) {
-
+		GameFrame gameFrame = new GameFrame();
 	}
 
 	void initiate() {
