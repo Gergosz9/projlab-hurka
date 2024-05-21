@@ -56,6 +56,8 @@ public class GameHandler {
 	}
 
 	public static void inventoryClick(int index, boolean drop) {
+		if (labirinth.getCurrentPlayer().getInventory().size() >= index)
+			return;
 		if (drop)
 			labirinth.getCurrentPlayer().dropItem(labirinth.getCurrentPlayer().getInventory().get(index),
 					labirinth.getCurrentPlayer().getMyLocation());
@@ -64,7 +66,8 @@ public class GameHandler {
 	}
 
 	public static void floorClick(int index) {
-		labirinth.getCurrentPlayer().pickUpItem(labirinth.getCurrentPlayer().getMyLocation().getItems().get(index));
+		if (labirinth.getCurrentPlayer().getMyLocation().getItems().size() < index)
+			labirinth.getCurrentPlayer().pickUpItem(labirinth.getCurrentPlayer().getMyLocation().getItems().get(index));
 	}
 
 	public static void increasePlayers() {
