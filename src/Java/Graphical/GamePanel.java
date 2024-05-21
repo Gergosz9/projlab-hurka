@@ -131,6 +131,9 @@ public class GamePanel extends JPanel implements MouseListener {
             GameHandler.rightRoom();
         }
 
+        if (point.x > 220 && point.x < 570 && point.y > 20 && point.y < 320)
+            GameHandler.enterRoom();
+
         // Check if the click was on the inventory
         if (point.x > 19 && point.x < 69 && point.y > 332 && point.y < 382)
             GameHandler.inventoryClick(0, e.getButton() == MouseEvent.BUTTON3);

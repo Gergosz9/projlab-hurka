@@ -110,6 +110,7 @@ public class Labirinth implements Runnable {
         while (true) {
             for (int i = 0; i < characters.size(); i++) {
                 currentPlayer = characters.get(i);
+                GameHandler.selectedRoom = currentPlayer.getMyLocation().getOpenRooms().get(0);
                 currentPlayer.doRound();
                 System.out.println("Round of " + i + ". character is done.");
             }
