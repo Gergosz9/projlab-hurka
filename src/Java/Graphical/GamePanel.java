@@ -141,7 +141,9 @@ public class GamePanel extends JPanel implements MouseListener {
             GameHandler.floorClick(6);
         if (point.x > 735 && point.x < 785 && point.y > 382 && point.y < 432)
             GameHandler.floorClick(7);
-
+        this.clear();
+        paintHUD();
+        GameHandler.floorItemsDraw();
     }
 
     @Override

@@ -18,8 +18,8 @@ public class GameHandler {
 	static Labirinth labirinth;
 	static Room selectedRoom;
 	static Thread gameThread;
-	static ItemHash itemImages=new ItemHash();
-	static List<GraphicObject> floorItems=new ArrayList<GraphicObject>();
+	static ItemHash itemImages = new ItemHash();
+	static List<GraphicObject> floorItems = new ArrayList<GraphicObject>();
 	/*----------------------------------------------------------------------------------------------------
 	 * CONSTRUCTORS
 	 *----------------------------------------------------------------------------------------------------*/
@@ -28,20 +28,19 @@ public class GameHandler {
 	* FUNCTIONS
 	*----------------------------------------------------------------------------------------------------*/
 
-	private static void floorItemsDraw(){
+	public static void floorItemsDraw() {
 		floorItems.clear();
 		for (Item item : labirinth.getCurrentPlayer().getMyLocation().getItems()) {
-			String name=item.getClass().getSimpleName();
+			String name = item.getClass().getSimpleName();
 			System.out.println(name);
-			if(name!="Transistor"){
-				floorItems.add(new GraphicObject(null,  new Vector2d(50, 50), itemImages.images.get(name)));
-			}
-			else{
-				Transistor t=(Transistor) item;
-				if(t.getPair()!=null){
-					floorItems.add(new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get("Transistor_Paired")));
-				}
-				else{
+			if (name != "Transistor") {
+				floorItems.add(new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name)));
+			} else {
+				Transistor t = (Transistor) item;
+				if (t.getPair() != null) {
+					floorItems.add(
+							new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get("Transistor_Paired")));
+				} else {
 					floorItems.add(new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name)));
 				}
 			}
@@ -55,7 +54,7 @@ public class GameHandler {
 		labirinth.setNumberOfStudents(1);
 		gameFrame = new GameFrame();
 		gameThread = new Thread(labirinth);
-		
+
 	}
 
 	public static void startGame() {
@@ -68,7 +67,6 @@ public class GameHandler {
 			// TODO: handle exception
 		}
 		floorItemsDraw();
-
 
 	}
 
