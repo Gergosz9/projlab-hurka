@@ -103,7 +103,7 @@ public class GameHandler {
 
 	public static void floorClick(int index) {
 		System.out.println(labirinth.getCurrentPlayer().getMyLocation().getItems().size());
-		if (labirinth.getCurrentPlayer().getMyLocation().getItems().size() < index)
+		if (labirinth.getCurrentPlayer().getMyLocation().getItems().size() > index)
 			labirinth.getCurrentPlayer().pickUpItem(labirinth.getCurrentPlayer().getMyLocation().getItems().get(index));
 	}
 
