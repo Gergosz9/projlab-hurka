@@ -53,7 +53,7 @@ public class GameHandler {
 		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
 		gamePanel.paintFloor(floorItems);
 	}
-	private static void inventoryItemsDraw(){
+	public static void inventoryItemsDraw(){
 		inventoryItems.clear();
 		for (Item item : labirinth.getCurrentPlayer().getInventory()) {
 			inventoryItems.add(itemToGraphicObject(item));
