@@ -7,6 +7,7 @@ public class GameHandler {
 	static GameFrame gameFrame;
 	static Labirinth labirinth;
 	static Room selectedRoom;
+	static Thread gameThread;
 	/*----------------------------------------------------------------------------------------------------
 	 * CONSTRUCTORS
 	 *----------------------------------------------------------------------------------------------------*/
@@ -18,12 +19,13 @@ public class GameHandler {
 		labirinth = new Labirinth();
 		labirinth.setNumberOfStudents(1);
 		gameFrame = new GameFrame();
+		gameThread = new Thread(labirinth);
 	}
 
 	public static void startGame() {
 		labirinth.generateLabirinth();
 		gameFrame.initGame();
-		labirinth.doCharactersRound();
+		gameThread.start();
 	}
 
 	public static void enterRoom() {

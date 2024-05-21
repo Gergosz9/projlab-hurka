@@ -113,8 +113,13 @@ public class Student extends Character {
 	 */
 	public void doRound() {
 		rollMoveCount();
-		while (actionCount > 0 && !paralyzed)
-			;
+		while (actionCount > 0 && !paralyzed) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/*----------------------------------------------------------------------------------------------------

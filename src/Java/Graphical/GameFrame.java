@@ -39,8 +39,4 @@ public class GameFrame extends JFrame {
         this.repaint();
         this.pack();
     }
-
-    public static void main(String[] args) {
-        new GameFrame();
-    }
 }

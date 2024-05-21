@@ -142,8 +142,8 @@ public abstract class Character {
      * @param trigger the trigger to be used
      */
     public void triggerItems(Trigger trigger) {
-        for (Item item : inventory) {
-            item.use(trigger);
+        for (int i = 0; i < inventory.size(); i++) {
+            inventory.get(i).use(trigger);
         }
     }
 

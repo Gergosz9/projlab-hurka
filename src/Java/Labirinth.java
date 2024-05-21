@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /**
  * The Labirinth class represents the labyrinth in the game.
  */
-public class Labirinth {
+public class Labirinth implements Runnable {
     private List<Character> characters;
     private int numberOfStudents;
     private List<Room> rooms;
@@ -101,10 +101,12 @@ public class Labirinth {
     /**
      * Does a round of actions for all characters in the labyrinth
      */
-    public void doCharactersRound() {
-        for (Character character : characters) {
-            currentPlayer = character;
-            character.doRound();
+    public void run() {
+        while (true) {
+            for (int i = 0; i < characters.size(); i++) {
+                currentPlayer = characters.get(i);
+                currentPlayer.doRound();
+            }
         }
     }
 
