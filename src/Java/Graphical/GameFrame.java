@@ -1,10 +1,9 @@
 package Java.Graphical;
 
-import java.awt.Image;
-import javax.swing.ImageIcon;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.vecmath.Vector2d;
+
 
 public class GameFrame extends JFrame {
     JPanel panel;
@@ -39,4 +38,6 @@ public class GameFrame extends JFrame {
         this.repaint();
         this.pack();
     }
+
+    public JPanel getPanel(){ return panel;}
 }

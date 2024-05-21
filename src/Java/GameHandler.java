@@ -1,6 +1,14 @@
 package Java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Java.Graphical.GameFrame;
+import Java.Graphical.GamePanel;
+import Java.Graphical.GraphicObject;
+import Java.Graphical.ItemHash;
+import Java.Items.Item;
+import Java.Items.Transistor;
 import Java.Items.Triggers.ActionTrigger;
 
 public class GameHandler {
@@ -8,6 +16,8 @@ public class GameHandler {
 	static Labirinth labirinth;
 	static Room selectedRoom;
 	static Thread gameThread;
+	static ItemHash itemImages=new ItemHash();
+	static List<GraphicObject> floorItems=new ArrayList<GraphicObject>();
 	/*----------------------------------------------------------------------------------------------------
 	 * CONSTRUCTORS
 	 *----------------------------------------------------------------------------------------------------*/
@@ -15,17 +25,43 @@ public class GameHandler {
 	/*----------------------------------------------------------------------------------------------------
 	* FUNCTIONS
 	*----------------------------------------------------------------------------------------------------*/
+
+	private static void floorItemsDraw(){
+		floorItems.clear();
+		for (Item item : labirinth.getCurrentPlayer().getInventory()) {
+			String name=item.getClass().getSimpleName();
+			if(name!="Transistor"){
+				floorItems.add(new GraphicObject(null, null, itemImages.images.get(name)));
+			}
+			else{
+				Transistor t=(Transistor) item;
+				if(t.getPair()!=null){
+					floorItems.add(new GraphicObject(null, null, itemImages.images.get("Transistor_Paire")));
+				}
+				else{
+					floorItems.add(new GraphicObject(null, null, itemImages.images.get(name)));
+				}
+			}
+		}
+		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
+		gamePanel.paintFloor(floorItems);
+	}
+
 	public static void main(String[] args) {
 		labirinth = new Labirinth();
 		labirinth.setNumberOfStudents(1);
 		gameFrame = new GameFrame();
 		gameThread = new Thread(labirinth);
+		
 	}
 
 	public static void startGame() {
 		labirinth.generateLabirinth();
 		gameFrame.initGame();
 		gameThread.start();
+		floorItemsDraw();
+
+
 	}
 
 	public static void enterRoom() {
@@ -66,6 +102,7 @@ public class GameHandler {
 	}
 
 	public static void floorClick(int index) {
+		System.out.println(labirinth.getCurrentPlayer().getMyLocation().getItems().size());
 		if (labirinth.getCurrentPlayer().getMyLocation().getItems().size() < index)
 			labirinth.getCurrentPlayer().pickUpItem(labirinth.getCurrentPlayer().getMyLocation().getItems().get(index));
 	}
