@@ -54,6 +54,8 @@ public class Cleaner extends Character {
         List<Character> characters = getMyLocation().getCharacters();
         for (Room r : getMyLocation().getRooms()) {
             for (int i = 0; i < characters.size(); i++) {
+                if (characters.get(i).equals(this))
+                    continue;
                 if (r.addCharacter(characters.get(i))) {
                     getMyLocation().removeCharacter(characters.get(i));
                     i--;

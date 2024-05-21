@@ -37,7 +37,7 @@ public class Labirinth implements Runnable {
     public void generateLabirinth() {
         Random random = new Random();
         for (int i = 0; i < 40; i++) {
-            String name = "F" + random.nextInt(11, 99);
+            String name = "F" + (i + 1);
             int maxPlayers = random.nextInt(2, 6);
             boolean gassed = random.nextBoolean();
             boolean cursed = random.nextBoolean();
