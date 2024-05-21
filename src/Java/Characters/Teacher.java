@@ -122,9 +122,9 @@ public class Teacher extends Character {
 			for (int i = 0; i < getMyLocation().getCharacters().size(); i++) {
 				getMyLocation().getCharacters().get(i).hurt();
 			}
-			System.out.println("Teacher moved to " + r.getName());
-			move(r);
 
+			move(r);
+			System.out.println("Teacher moved to " + r.getName());
 			if (actionCount == 0)
 				break;
 		}

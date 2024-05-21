@@ -161,10 +161,28 @@ public class Room {
     public Room split() {
         Room newRoom = new Room(null, 0, false, false, new ArrayList<>(), new ArrayList<>());
         for (int i = 0; i < openRooms.size() / 2; i++) {
-            newRoom.openRooms.add(openRooms.remove(0));
+            Room room = openRooms.remove(0);
+            newRoom.openRooms.add(room);
+            if (room.openRooms.contains(this)) {
+                room.openRooms.remove(this);
+                room.openRooms.add(newRoom);
+            }
+            if (room.closedRooms.contains(this)) {
+                room.closedRooms.remove(this);
+                room.closedRooms.add(newRoom);
+            }
         }
         for (int i = 0; i < closedRooms.size() / 2; i++) {
-            newRoom.closedRooms.add(closedRooms.remove(0));
+            Room room = closedRooms.remove(0);
+            newRoom.closedRooms.add(room);
+            if (room.openRooms.contains(this)) {
+                room.openRooms.remove(this);
+                room.openRooms.add(newRoom);
+            }
+            if (room.closedRooms.contains(this)) {
+                room.closedRooms.remove(this);
+                room.closedRooms.add(newRoom);
+            }
         }
         for (int i = 0; i < characters.size() / 2; i++) {
             newRoom.characters.add(characters.remove(0));
@@ -196,10 +214,19 @@ public class Room {
         gassed = gassed || room.gassed;
         raggedRounds = Math.max(raggedRounds, room.raggedRounds);
         closedRooms.addAll(room.closedRooms);
+        if (closedRooms.contains(this))
+            closedRooms.remove(this);
+        if (closedRooms.contains(room))
+            closedRooms.remove(room);
         openRooms.addAll(room.openRooms);
+        if (openRooms.contains(this))
+            openRooms.remove(this);
+        if (openRooms.contains(room))
+            openRooms.remove(room);
         characters.addAll(room.characters);
         items.addAll(room.items);
         name = name + " " + room.name;
+        GameHandler.labirinth.getRooms().remove(room);
     }
 
     /*----------------------------------------------------------------------------------------------------
