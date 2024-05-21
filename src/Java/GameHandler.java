@@ -1,5 +1,6 @@
 package Java;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,11 +21,11 @@ public class GameHandler {
 	static Labirinth labirinth;
 	static Room selectedRoom;
 	static Thread gameThread;
-	static ItemHash itemImages=new ItemHash();
-	static CharacterHash characterHash=new CharacterHash();
-	static List<GraphicObject> floorItems=new ArrayList<GraphicObject>();
-	static List<GraphicObject> inventoryItems=new ArrayList<GraphicObject>();
-	static List<GraphicObject> charactersInRoom=new ArrayList<GraphicObject>();
+	static ItemHash itemImages = new ItemHash();
+	static CharacterHash characterHash = new CharacterHash();
+	static List<GraphicObject> floorItems = new ArrayList<GraphicObject>();
+	static List<GraphicObject> inventoryItems = new ArrayList<GraphicObject>();
+	static List<GraphicObject> charactersInRoom = new ArrayList<GraphicObject>();
 
 	/*----------------------------------------------------------------------------------------------------
 	 * CONSTRUCTORS
@@ -33,17 +34,15 @@ public class GameHandler {
 	/*----------------------------------------------------------------------------------------------------
 	* FUNCTIONS
 	*----------------------------------------------------------------------------------------------------*/
-	private static GraphicObject itemToGraphicObject(Item item){
-		String name=item.getClass().getSimpleName();
-		if(name!="Transistor"){
-			return new GraphicObject(null,  new Vector2d(50, 50), itemImages.images.get(name));
-		}
-		else{
-			Transistor t=(Transistor) item;
-			if(t.getPair()!=null){
+	private static GraphicObject itemToGraphicObject(Item item) {
+		String name = item.getClass().getSimpleName();
+		if (name != "Transistor") {
+			return new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name));
+		} else {
+			Transistor t = (Transistor) item;
+			if (t.getPair() != null) {
 				return new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get("Transistor_Paired"));
-			}
-			else{
+			} else {
 				return new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name));
 			}
 		}
@@ -65,7 +64,8 @@ public class GameHandler {
 		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
 		gamePanel.paintFloor(floorItems);
 	}
-	public static void inventoryItemsDraw(){
+
+	public static void inventoryItemsDraw() {
 		inventoryItems.clear();
 		for (Item item : labirinth.getCurrentPlayer().getInventory()) {
 			inventoryItems.add(itemToGraphicObject(item));
@@ -123,7 +123,7 @@ public class GameHandler {
 	}
 
 	public static void inventoryClick(int index, boolean drop) {
-		if (labirinth.getCurrentPlayer().getInventory().size() >= index)
+		if (labirinth.getCurrentPlayer().getInventory().size() <= index)
 			return;
 		if (drop)
 			labirinth.getCurrentPlayer().dropItem(labirinth.getCurrentPlayer().getInventory().get(index),
@@ -136,7 +136,7 @@ public class GameHandler {
 		System.out.println(labirinth.getCurrentPlayer().getMyLocation().getItems().size());
 		if (labirinth.getCurrentPlayer().getMyLocation().getItems().size() > index)
 			labirinth.getCurrentPlayer().pickUpItem(labirinth.getCurrentPlayer().getMyLocation().getItems().get(index));
-			
+
 	}
 
 	public static void increasePlayers() {
