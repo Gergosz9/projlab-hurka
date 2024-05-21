@@ -144,6 +144,7 @@ public class GamePanel extends JPanel implements MouseListener {
         this.clear();
         paintHUD();
         GameHandler.floorItemsDraw();
+        GameHandler.inventoryItemsDraw();
     }
 
     @Override

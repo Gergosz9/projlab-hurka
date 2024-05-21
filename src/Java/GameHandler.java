@@ -59,7 +59,7 @@ public class GameHandler {
 			inventoryItems.add(itemToGraphicObject(item));
 		}
 		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
-		gamePanel.paintFloor(floorItems);
+		gamePanel.paintInventory(inventoryItems);
 	}
 
 	public static void main(String[] args) {
