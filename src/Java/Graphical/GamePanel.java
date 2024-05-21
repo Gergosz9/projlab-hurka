@@ -77,6 +77,12 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
+    public void paintDice(int number) {
+        Image diceImg = new ImageIcon("rsrc/textures/hud/die" + number + ".png").getImage();
+        GraphicObject dice = new GraphicObject(new Vector2d(252, 366), new Vector2d(50, 50), diceImg);
+        paint(dice);
+    }
+
     public void paintHUD() {
         Image hudImg = new ImageIcon("rsrc/textures/hud/hud.png").getImage();
         Image endTurnImg = new ImageIcon("rsrc/textures/hud/skip.png").getImage();
@@ -156,6 +162,7 @@ public class GamePanel extends JPanel implements MouseListener {
             GameHandler.floorClick(7);
         this.clear();
         paintHUD();
+        GameHandler.diceDraw();
         GameHandler.floorItemsDraw();
         GameHandler.inventoryItemsDraw();
     }
