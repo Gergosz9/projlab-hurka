@@ -31,13 +31,22 @@ public class GameHandler {
 	}
 
 	public static void leftRoom() {
-		selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
-				.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) - 1);
+		if (labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) == 0)
+			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
+					.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().size() - 1);
+		else
+			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
+					.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) - 1);
 	}
 
 	public static void rightRoom() {
-		selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
-				.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) + 1);
+		if (labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
+				.indexOf(selectedRoom) == labirinth.getCurrentPlayer()
+						.getMyLocation().getOpenRooms().size() - 1)
+			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().get(0);
+		else
+			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
+					.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) + 1);
 	}
 
 	public static void endTurn() {
