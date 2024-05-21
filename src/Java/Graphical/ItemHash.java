@@ -17,7 +17,7 @@ public class ItemHash {
 		try {
 			images.put("AirFreshener", ImageIO.read(files[0]));
 			images.put("Beer", ImageIO.read(files[1]));
-			images.put("Camambert", ImageIO.read(files[2]));
+			images.put("Camembert", ImageIO.read(files[2]));
 			images.put("Mask", ImageIO.read(files[3]));
 			images.put("Rag", ImageIO.read(files[4]));
 			images.put("SlideRule", ImageIO.read(files[5]));

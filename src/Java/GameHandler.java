@@ -3,6 +3,8 @@ package Java;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.vecmath.Vector2d;
+
 import Java.Graphical.GameFrame;
 import Java.Graphical.GamePanel;
 import Java.Graphical.GraphicObject;
@@ -28,18 +30,19 @@ public class GameHandler {
 
 	private static void floorItemsDraw(){
 		floorItems.clear();
-		for (Item item : labirinth.getCurrentPlayer().getInventory()) {
+		for (Item item : labirinth.getCurrentPlayer().getMyLocation().getItems()) {
 			String name=item.getClass().getSimpleName();
+			System.out.println(name);
 			if(name!="Transistor"){
-				floorItems.add(new GraphicObject(null, null, itemImages.images.get(name)));
+				floorItems.add(new GraphicObject(null,  new Vector2d(50, 50), itemImages.images.get(name)));
 			}
 			else{
 				Transistor t=(Transistor) item;
 				if(t.getPair()!=null){
-					floorItems.add(new GraphicObject(null, null, itemImages.images.get("Transistor_Paire")));
+					floorItems.add(new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get("Transistor_Paired")));
 				}
 				else{
-					floorItems.add(new GraphicObject(null, null, itemImages.images.get(name)));
+					floorItems.add(new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name)));
 				}
 			}
 		}
@@ -59,6 +62,11 @@ public class GameHandler {
 		labirinth.generateLabirinth();
 		gameFrame.initGame();
 		gameThread.start();
+		try {
+			Thread.sleep(10);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		floorItemsDraw();
 
 
