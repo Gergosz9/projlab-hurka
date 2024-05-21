@@ -56,6 +56,7 @@ public class Cleaner extends Character {
             for (int i = 0; i < characters.size(); i++) {
                 if (r.addCharacter(characters.get(i))) {
                     getMyLocation().removeCharacter(characters.get(i));
+                    i--;
                 }
             }
         }
@@ -72,9 +73,9 @@ public class Cleaner extends Character {
         List<Room> optimalRoute = new ArrayList<>();
         Room currentRoom = this.getMyLocation();
         for (int i = 0; i < 6; i++) {
-            optimalRoute.add(currentRoom);
             int ran = (int) (Math.random() * currentRoom.getRooms().size());
             currentRoom = currentRoom.getRooms().get(ran);
+            optimalRoute.add(currentRoom);
         }
         return optimalRoute;
     }
@@ -91,6 +92,7 @@ public class Cleaner extends Character {
         rollMoveCount();
         List<Room> optimalRoute = pathFind();
         for (Room r : optimalRoute) {
+            System.out.println("Cleaner is moving to room " + r.getName());
             move(r);
             kickOutCharacters();
             getMyLocation().resetSticky();

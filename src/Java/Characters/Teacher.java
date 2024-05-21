@@ -68,6 +68,7 @@ public class Teacher extends Character {
 
 		tree.add(currentRoom);
 		parent.add(null);
+		hasStudent.add(studentRooms.contains(currentRoom));
 		// build the tree
 		for (int i = 0; i < tree.size(); i++) {
 			for (Room r : tree.get(i).getOpenRooms()) {
@@ -82,19 +83,21 @@ public class Teacher extends Character {
 			}
 		}
 		// find the optimal route
-		Room destination;
+		Room destination = null;
 		for (int i = 0; i < tree.size(); i++) {
 			if (hasStudent.get(i)) {
 				destination = tree.get(i);
-				optimalRoute.add(destination);
-				while (parent.get(i) != currentRoom) {
-					optimalRoute.add(parent.get(i));
-					i = tree.indexOf(parent.get(i));
-				}
 				break;
 			}
 		}
-		optimalRoute.add(currentRoom);
+		if (destination == null || destination == currentRoom)
+			return optimalRoute;
+		optimalRoute.add(destination);
+		int y = tree.indexOf(destination);
+		while (parent.get(y) != currentRoom) {
+			optimalRoute.add(parent.get(y));
+			y = tree.indexOf(parent.get(y));
+		}
 		Collections.reverse(optimalRoute);
 		return optimalRoute;
 	}
@@ -119,7 +122,7 @@ public class Teacher extends Character {
 			for (int i = 0; i < getMyLocation().getCharacters().size(); i++) {
 				getMyLocation().getCharacters().get(i).hurt();
 			}
-
+			System.out.println("Teacher moved to " + r.getName());
 			move(r);
 
 			if (actionCount == 0)

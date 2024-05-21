@@ -46,18 +46,23 @@ public class Labirinth implements Runnable {
         ArrayList<Room> roomsCopy = new ArrayList<>(rooms);
         for (Room room : rooms) {
             Collections.shuffle(roomsCopy);
-            int probability = 1;
-            for (int i = 0; i < roomsCopy.size() && random.nextInt(probability) >= (probability - 1) / 2; i++) {
+            room.getOpenRooms().add(roomsCopy.get(0));
+            for (int i = 1; i < roomsCopy.size() && random.nextInt(1, (i + 2)) == 1; i++) {
                 if (!room.getOpenRooms().contains(roomsCopy.get(i)) && !room.equals(roomsCopy.get(i))) {
                     room.getOpenRooms().add(roomsCopy.get(i));
                     roomsCopy.get(i).getOpenRooms().add(room);
-                    probability *= 2;
                 }
             }
         }
         placeCharacters(random);
         generateItems(random);
         updateRooms();
+        for (Room room : rooms) {
+            System.out.println(room.getName());
+            for (Room openRoom : room.getRooms()) {
+                System.out.println("  " + openRoom.getName());
+            }
+        }
     }
 
     void generateItems(Random random) {
@@ -88,7 +93,7 @@ public class Labirinth implements Runnable {
             rooms.get(random.nextInt(rooms.size())).getCharacters().add(student);
             characters.add(student);
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             Teacher teacher = new Teacher(null, this);
             Cleaner cleaner = new Cleaner(null, this);
             rooms.get(random.nextInt(rooms.size())).getCharacters().add(teacher);
@@ -106,7 +111,10 @@ public class Labirinth implements Runnable {
             for (int i = 0; i < characters.size(); i++) {
                 currentPlayer = characters.get(i);
                 currentPlayer.doRound();
+                System.out.println("Round of " + i + ". character is done.");
             }
+            updateRooms();
+
         }
     }
 
