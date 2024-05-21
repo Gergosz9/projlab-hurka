@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.vecmath.Vector2d;
 
+import Java.Graphical.CharacterHash;
 import Java.Graphical.GameFrame;
 import Java.Graphical.GamePanel;
 import Java.Graphical.GraphicObject;
@@ -12,6 +13,7 @@ import Java.Graphical.ItemHash;
 import Java.Items.Item;
 import Java.Items.Transistor;
 import Java.Items.Triggers.ActionTrigger;
+import Java.Characters.Character;
 
 public class GameHandler {
 	static GameFrame gameFrame;
@@ -19,8 +21,10 @@ public class GameHandler {
 	static Room selectedRoom;
 	static Thread gameThread;
 	static ItemHash itemImages=new ItemHash();
+	static CharacterHash characterHash=new CharacterHash();
 	static List<GraphicObject> floorItems=new ArrayList<GraphicObject>();
 	static List<GraphicObject> inventoryItems=new ArrayList<GraphicObject>();
+	static List<GraphicObject> charactersInRoom=new ArrayList<GraphicObject>();
 
 	/*----------------------------------------------------------------------------------------------------
 	 * CONSTRUCTORS
@@ -43,6 +47,14 @@ public class GameHandler {
 				return new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name));
 			}
 		}
+	}
+	public static void charactersDraw(){
+		charactersInRoom.clear();
+		for(Character character: labirinth.getCurrentPlayer().getMyLocation().getCharacters()){
+			String name=character.getClass().getSimpleName();
+			charactersInRoom.add(new GraphicObject(null, null, characterHash.images.get(name)));
+		}
+		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
 	}
 
 	public static void floorItemsDraw() {
