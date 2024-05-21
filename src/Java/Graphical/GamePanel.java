@@ -60,6 +60,18 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
+    public void paintCharacters(List<GraphicObject> characters) {
+        int x = 300;
+        int y = 200;
+        for (int i = 0; i < characters.size() ; i++) {
+            GraphicObject object = characters.get(i);
+            object.position = new Vector2d(x, y);
+            paint(object);
+
+            x += 50;
+        }
+    }
+
     public void paintFloor(List<GraphicObject> items) {
         int x = 586;
         int y = 330;

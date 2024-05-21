@@ -49,11 +49,16 @@ public class GameHandler {
 	}
 	public static void charactersDraw(){
 		charactersInRoom.clear();
-		for(Character character: labirinth.getCurrentPlayer().getMyLocation().getCharacters()){
+		List<String> names=new ArrayList<String>();
+		for(Character character : labirinth.getCurrentPlayer().getMyLocation().getCharacters()){
 			String name=character.getClass().getSimpleName();
-			charactersInRoom.add(new GraphicObject(null, null, characterHash.images.get(name)));
+			if(!names.contains(name)&&character!=labirinth.getCurrentPlayer()){
+				names.add(name);
+				charactersInRoom.add(new GraphicObject(null, new Vector2d(50,100), characterHash.images.get(name)));
+			}
 		}
 		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
+		gamePanel.paintCharacters(charactersInRoom);
 	}
 
 	public static void diceDraw() {
@@ -99,6 +104,7 @@ public class GameHandler {
 		floorItemsDraw();
 		inventoryItemsDraw();
 		diceDraw();
+		charactersDraw();
 	}
 
 	public static void enterRoom() {
