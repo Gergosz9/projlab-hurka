@@ -100,6 +100,11 @@ public class GamePanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        // Implement as needed
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
         Point point = e.getPoint();
         System.out.println("Mouse clicked at: " + point);
 
@@ -133,11 +138,6 @@ public class GamePanel extends JPanel implements MouseListener {
         if (point.x > 735 && point.x < 785 && point.y > 382 && point.y < 432)
             GameHandler.floorClick(7);
 
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        // Implement as needed
     }
 
     @Override
