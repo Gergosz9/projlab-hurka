@@ -22,8 +22,8 @@ public class GameHandler {
 
 	public static void startGame() {
 		labirinth.generateLabirinth();
-		labirinth.doCharactersRound();
 		gameFrame.initGame();
+		labirinth.doCharactersRound();
 	}
 
 	public static void enterRoom() {
@@ -44,8 +44,12 @@ public class GameHandler {
 		labirinth.getCurrentPlayer().setActionCount(0);
 	}
 
-	public static void inventoryClick(int index) {
-		labirinth.getCurrentPlayer().getInventory().get(index).use(new ActionTrigger(labirinth.getCurrentPlayer()));
+	public static void inventoryClick(int index, boolean drop) {
+		if (drop)
+			labirinth.getCurrentPlayer().dropItem(labirinth.getCurrentPlayer().getInventory().get(index),
+					labirinth.getCurrentPlayer().getMyLocation());
+		else
+			labirinth.getCurrentPlayer().getInventory().get(index).use(new ActionTrigger(labirinth.getCurrentPlayer()));
 	}
 
 	public static void floorClick(int index) {

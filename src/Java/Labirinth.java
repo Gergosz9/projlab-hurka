@@ -84,11 +84,17 @@ public class Labirinth {
 
     void placeCharacters(Random random) {
         for (int i = 0; i < numberOfStudents; i++) {
-            rooms.get(random.nextInt(rooms.size())).getCharacters().add(new Student(null, this));
+            Student student = new Student(null, this);
+            rooms.get(random.nextInt(rooms.size())).getCharacters().add(student);
+            characters.add(student);
         }
         for (int i = 0; i < 5; i++) {
-            rooms.get(random.nextInt(rooms.size())).getCharacters().add(new Teacher(null, this));
-            rooms.get(random.nextInt(rooms.size())).getCharacters().add(new Cleaner(null, this));
+            Teacher teacher = new Teacher(null, this);
+            Cleaner cleaner = new Cleaner(null, this);
+            rooms.get(random.nextInt(rooms.size())).getCharacters().add(teacher);
+            rooms.get(random.nextInt(rooms.size())).getCharacters().add(cleaner);
+            characters.add(teacher);
+            characters.add(cleaner);
         }
     }
 

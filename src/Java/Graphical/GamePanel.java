@@ -3,6 +3,8 @@ package Java.Graphical;
 import javax.swing.*;
 import javax.vecmath.Vector2d;
 
+import Java.GameHandler;
+
 import java.util.List;
 import java.awt.*;
 import java.awt.event.*;
@@ -98,7 +100,39 @@ public class GamePanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // Implement as needed
+        Point point = e.getPoint();
+        System.out.println("Mouse clicked at: " + point);
+
+        // Check if the click was on the inventory
+        if (point.x > 19 && point.x < 69 && point.y > 332 && point.y < 382)
+            GameHandler.inventoryClick(0, e.getButton() == MouseEvent.BUTTON3);
+        if (point.x > 69 && point.x < 119 && point.y > 332 && point.y < 382)
+            GameHandler.inventoryClick(1, e.getButton() == MouseEvent.BUTTON3);
+        if (point.x > 119 && point.x < 169 && point.y > 332 && point.y < 382)
+            GameHandler.inventoryClick(2, e.getButton() == MouseEvent.BUTTON3);
+        if (point.x > 169 && point.x < 219 && point.y > 332 && point.y < 382)
+            GameHandler.inventoryClick(3, e.getButton() == MouseEvent.BUTTON3);
+        if (point.x > 19 && point.x < 69 && point.y > 382 && point.y < 432)
+            GameHandler.inventoryClick(4, e.getButton() == MouseEvent.BUTTON3);
+
+        // Check if the click was on the floor items
+        if (point.x > 585 && point.x < 635 && point.y > 332 && point.y < 382)
+            GameHandler.floorClick(0);
+        if (point.x > 635 && point.x < 685 && point.y > 332 && point.y < 382)
+            GameHandler.floorClick(1);
+        if (point.x > 685 && point.x < 735 && point.y > 332 && point.y < 382)
+            GameHandler.floorClick(2);
+        if (point.x > 735 && point.x < 785 && point.y > 332 && point.y < 382)
+            GameHandler.floorClick(3);
+        if (point.x > 585 && point.x < 635 && point.y > 382 && point.y < 432)
+            GameHandler.floorClick(4);
+        if (point.x > 635 && point.x < 685 && point.y > 382 && point.y < 432)
+            GameHandler.floorClick(5);
+        if (point.x > 685 && point.x < 735 && point.y > 382 && point.y < 432)
+            GameHandler.floorClick(6);
+        if (point.x > 735 && point.x < 785 && point.y > 382 && point.y < 432)
+            GameHandler.floorClick(7);
+
     }
 
     @Override

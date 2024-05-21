@@ -64,7 +64,6 @@ public class MenuPanel extends JPanel implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
-        System.out.println(p);
         if (p.x > 319 && p.x < 356 && p.y > 294 && p.y < 331) {
             GameHandler.decreasePlayers();
             playersNumber.setText(Integer.toString(GameHandler.getLabirinth().getNumberOfStudents()));
