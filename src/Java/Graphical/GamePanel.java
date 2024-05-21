@@ -79,8 +79,14 @@ public class GamePanel extends JPanel implements MouseListener {
 
     public void paintHUD() {
         Image hudImg = new ImageIcon("rsrc/textures/hud/hud.png").getImage();
-        GraphicObject object = new GraphicObject(new Vector2d(0, 0), new Vector2d(width, height), hudImg);
-        paint(object);
+        Image endTurnImg = new ImageIcon("rsrc/textures/hud/skip.png").getImage();
+        Image buttons = new ImageIcon("rsrc/textures/hud/Buttons.png").getImage();
+        GraphicObject hud = new GraphicObject(new Vector2d(0, 0), new Vector2d(width, height), hudImg);
+        GraphicObject endTurn = new GraphicObject(new Vector2d(340, 370), new Vector2d(200, 50), endTurnImg);
+        GraphicObject button = new GraphicObject(new Vector2d(0, 0), new Vector2d(width, height), buttons);
+        paint(hud);
+        paint(endTurn);
+        paint(button);
     }
 
     public void paint(GraphicObject object) {
