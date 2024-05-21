@@ -3,7 +3,9 @@ package Java;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.vecmath.Vector2d;
 
 import Java.Graphical.CharacterHash;
@@ -47,7 +49,32 @@ public class GameHandler {
 			}
 		}
 	}
-	public static void charactersDraw(){
+
+	public static void roomDraw() {
+		List<GraphicObject> textures = new ArrayList<GraphicObject>();
+		Random rand = new Random();
+		if (labirinth.getCurrentPlayer().getMyLocation().getRaggedRounds() > 0) {
+			textures.add(
+					new GraphicObject(new Vector2d(0, 0), new Vector2d(800, 450),
+							new ImageIcon("rsrc/textures/rooms/overlays/ragged.png").getImage()));
+		}
+		if (labirinth.getCurrentPlayer().getMyLocation().stickyness > 5) {
+			textures.add(
+					new GraphicObject(new Vector2d(0, 0), new Vector2d(800, 450),
+							new ImageIcon("rsrc/textures/rooms/overlays/sticky.png").getImage()));
+		}
+		if (labirinth.getCurrentPlayer().getMyLocation().isGassed()) {
+			textures.add(
+					new GraphicObject(new Vector2d(0, 0), new Vector2d(800, 450),
+							new ImageIcon("rsrc/textures/rooms/overlays/stink.png").getImage()));
+		}
+		textures.add(new GraphicObject(new Vector2d(0, 0), new Vector2d(800, 450),
+				new ImageIcon("rsrc/textures/rooms/room1.png").getImage()));
+		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
+		gamePanel.paintRoom(textures);
+	}
+
+	public static void charactersDraw() {
 		charactersInRoom.clear();
 		List<String> names=new ArrayList<String>();
 		for(Character character : labirinth.getCurrentPlayer().getMyLocation().getCharacters()){
