@@ -18,8 +18,10 @@ public class GameHandler {
 	static Labirinth labirinth;
 	static Room selectedRoom;
 	static Thread gameThread;
-	static ItemHash itemImages = new ItemHash();
-	static List<GraphicObject> floorItems = new ArrayList<GraphicObject>();
+	static ItemHash itemImages=new ItemHash();
+	static List<GraphicObject> floorItems=new ArrayList<GraphicObject>();
+	static List<GraphicObject> inventoryItems=new ArrayList<GraphicObject>();
+
 	/*----------------------------------------------------------------------------------------------------
 	 * CONSTRUCTORS
 	 *----------------------------------------------------------------------------------------------------*/
@@ -27,23 +29,34 @@ public class GameHandler {
 	/*----------------------------------------------------------------------------------------------------
 	* FUNCTIONS
 	*----------------------------------------------------------------------------------------------------*/
+	private static GraphicObject itemToGraphicObject(Item item){
+		String name=item.getClass().getSimpleName();
+		if(name!="Transistor"){
+			return new GraphicObject(null,  new Vector2d(50, 50), itemImages.images.get(name));
+		}
+		else{
+			Transistor t=(Transistor) item;
+			if(t.getPair()!=null){
+				return new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get("Transistor_Paired"));
+			}
+			else{
+				return new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name));
+			}
+		}
+	}
 
 	public static void floorItemsDraw() {
 		floorItems.clear();
 		for (Item item : labirinth.getCurrentPlayer().getMyLocation().getItems()) {
-			String name = item.getClass().getSimpleName();
-			System.out.println(name);
-			if (name != "Transistor") {
-				floorItems.add(new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name)));
-			} else {
-				Transistor t = (Transistor) item;
-				if (t.getPair() != null) {
-					floorItems.add(
-							new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get("Transistor_Paired")));
-				} else {
-					floorItems.add(new GraphicObject(null, new Vector2d(50, 50), itemImages.images.get(name)));
-				}
-			}
+			floorItems.add(itemToGraphicObject(item));
+		}
+		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
+		gamePanel.paintFloor(floorItems);
+	}
+	private static void inventoryItemsDraw(){
+		inventoryItems.clear();
+		for (Item item : labirinth.getCurrentPlayer().getInventory()) {
+			inventoryItems.add(itemToGraphicObject(item));
 		}
 		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
 		gamePanel.paintFloor(floorItems);
@@ -111,6 +124,7 @@ public class GameHandler {
 		System.out.println(labirinth.getCurrentPlayer().getMyLocation().getItems().size());
 		if (labirinth.getCurrentPlayer().getMyLocation().getItems().size() > index)
 			labirinth.getCurrentPlayer().pickUpItem(labirinth.getCurrentPlayer().getMyLocation().getItems().get(index));
+			
 	}
 
 	public static void increasePlayers() {
