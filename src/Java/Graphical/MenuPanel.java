@@ -63,6 +63,11 @@ public class MenuPanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        // Implement as needed
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
         Point p = e.getPoint();
         if (p.x > 319 && p.x < 356 && p.y > 294 && p.y < 331) {
             GameHandler.decreasePlayers();
@@ -80,11 +85,6 @@ public class MenuPanel extends JPanel implements MouseListener {
         } else {
             playersNumber.setBounds(393, 282, 100, 60);
         }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        // Implement as needed
     }
 
     @Override

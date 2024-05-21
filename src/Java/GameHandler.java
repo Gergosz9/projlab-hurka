@@ -44,6 +44,11 @@ public class GameHandler {
 		}
 	}
 
+	public static void diceDraw() {
+		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
+		gamePanel.paintDice(labirinth.getCurrentPlayer().getActionCount());
+	}
+
 	public static void floorItemsDraw() {
 		floorItems.clear();
 		for (Item item : labirinth.getCurrentPlayer().getMyLocation().getItems()) {
@@ -80,7 +85,8 @@ public class GameHandler {
 			// TODO: handle exception
 		}
 		floorItemsDraw();
-
+		inventoryItemsDraw();
+		diceDraw();
 	}
 
 	public static void enterRoom() {
