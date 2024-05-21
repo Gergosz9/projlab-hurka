@@ -88,15 +88,22 @@ public class GameHandler {
 	}
 
 	public static void leftRoom() {
+		if (selectedRoom == null) {
+			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().get(0);
+		}
 		if (labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) == 0)
 			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
 					.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().size() - 1);
 		else
 			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
 					.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) - 1);
+		System.out.println("Left room");
 	}
 
 	public static void rightRoom() {
+		if (selectedRoom == null) {
+			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().get(0);
+		}
 		if (labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
 				.indexOf(selectedRoom) == labirinth.getCurrentPlayer()
 						.getMyLocation().getOpenRooms().size() - 1)
@@ -104,6 +111,7 @@ public class GameHandler {
 		else
 			selectedRoom = labirinth.getCurrentPlayer().getMyLocation().getOpenRooms()
 					.get(labirinth.getCurrentPlayer().getMyLocation().getOpenRooms().indexOf(selectedRoom) + 1);
+		System.out.println("Right room");
 	}
 
 	public static void endTurn() {
