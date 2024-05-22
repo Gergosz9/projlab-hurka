@@ -75,12 +75,12 @@ public class GameHandler {
 
 	public static void charactersDraw() {
 		charactersInRoom.clear();
-		List<String> names=new ArrayList<String>();
-		for(Character character : labirinth.getCurrentPlayer().getMyLocation().getCharacters()){
-			String name=character.getClass().getSimpleName();
-			if(!names.contains(name)&&character!=labirinth.getCurrentPlayer()){
+		List<String> names = new ArrayList<String>();
+		for (Character character : labirinth.getCurrentPlayer().getMyLocation().getCharacters()) {
+			String name = character.getClass().getSimpleName();
+			if (!names.contains(name) && character != labirinth.getCurrentPlayer()) {
 				names.add(name);
-				charactersInRoom.add(new GraphicObject(null, new Vector2d(100,200), characterHash.images.get(name)));
+				charactersInRoom.add(new GraphicObject(null, new Vector2d(210, 330), characterHash.images.get(name)));
 			}
 		}
 		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
@@ -128,14 +128,14 @@ public class GameHandler {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-        GameHandler.roomDraw();
+
+		GameHandler.roomDraw();
 		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
 		gamePanel.paintHUD();
-        GameHandler.charactersDraw();
-        GameHandler.diceDraw();
-        GameHandler.floorItemsDraw();
-        GameHandler.inventoryItemsDraw();
+		GameHandler.charactersDraw();
+		GameHandler.diceDraw();
+		GameHandler.floorItemsDraw();
+		GameHandler.inventoryItemsDraw();
 	}
 
 	public static void enterRoom() {
