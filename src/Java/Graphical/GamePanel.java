@@ -24,8 +24,8 @@ public class GamePanel extends JPanel implements MouseListener {
         height = 450;
         setPreferredSize(new Dimension(width, height));
         canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-        paintHUD();
 
+        paintHUD();
         addMouseListener(this);
     }
 
@@ -62,7 +62,7 @@ public class GamePanel extends JPanel implements MouseListener {
 
     public void paintCharacters(List<GraphicObject> characters) {
         int x = 300;
-        int y = 200;
+        int y = 150;
         for (int i = 0; i < characters.size() ; i++) {
             GraphicObject object = characters.get(i);
             object.position = new Vector2d(x, y);
@@ -177,6 +177,7 @@ public class GamePanel extends JPanel implements MouseListener {
             GameHandler.floorClick(7);
         this.clear();
         GameHandler.roomDraw();
+        GameHandler.charactersDraw();
         paintHUD();
         GameHandler.diceDraw();
         GameHandler.floorItemsDraw();

@@ -1,6 +1,5 @@
 package Java;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -81,7 +80,7 @@ public class GameHandler {
 			String name=character.getClass().getSimpleName();
 			if(!names.contains(name)&&character!=labirinth.getCurrentPlayer()){
 				names.add(name);
-				charactersInRoom.add(new GraphicObject(null, new Vector2d(50,100), characterHash.images.get(name)));
+				charactersInRoom.add(new GraphicObject(null, new Vector2d(100,200), characterHash.images.get(name)));
 			}
 		}
 		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
@@ -121,6 +120,7 @@ public class GameHandler {
 
 	public static void startGame() {
 		labirinth.generateLabirinth();
+
 		gameFrame.initGame();
 		gameThread.start();
 		try {
@@ -128,10 +128,14 @@ public class GameHandler {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		floorItemsDraw();
-		inventoryItemsDraw();
-		diceDraw();
-		charactersDraw();
+		
+        GameHandler.roomDraw();
+		GamePanel gamePanel = (GamePanel) gameFrame.getPanel();
+		gamePanel.paintHUD();
+        GameHandler.charactersDraw();
+        GameHandler.diceDraw();
+        GameHandler.floorItemsDraw();
+        GameHandler.inventoryItemsDraw();
 	}
 
 	public static void enterRoom() {
